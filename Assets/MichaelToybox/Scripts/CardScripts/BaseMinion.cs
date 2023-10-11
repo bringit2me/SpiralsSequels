@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BaseSpell : MonoBehaviour
+public class BaseMinion : BaseCard
 {
-    public new string name;
-    [TextArea(5, 15)]
-    public string description;
-    [Header("Stats")]
-    public int manaCost;
+    public int attack;
+    public int health;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] TMP_Text manaText;
+    [SerializeField] TMP_Text attackText;
+    [SerializeField] TMP_Text healthText;
 
     public virtual void Start()
     {
@@ -25,10 +24,22 @@ public class BaseSpell : MonoBehaviour
         nameText.text = name;
         descriptionText.text = description;
         UpdateMana();
+        UpdateAttack();
+        UpdateHealth();
     }
 
     public virtual void UpdateMana()
     {
         manaText.text = "" + manaCost;
+    }
+
+    public virtual void UpdateAttack()
+    {
+        attackText.text = "" + attack;
+    }
+
+    public virtual void UpdateHealth()
+    {
+        healthText.text = "" + health;
     }
 }
