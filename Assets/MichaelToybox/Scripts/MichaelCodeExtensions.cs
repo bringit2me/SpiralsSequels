@@ -10,16 +10,33 @@ public static class MichaelCodeExtensions
     /// <summary>
     /// Shuffles the element order of the specified list.
     /// </summary>
-    public static void Shuffle<T>(this IList<T> ts)
+    public static void Shuffle<T>(this IList<T> list)
     {
-        var count = ts.Count;
+        var count = list.Count;
         var last = count - 1;
         for (var i = 0; i < last; ++i)
         {
             var r = Random.Range(i, count);
-            var tmp = ts[i];
-            ts[i] = ts[r];
-            ts[r] = tmp;
+            var tmp = list[i];
+            list[i] = list[r];
+            list[r] = tmp;
         }
+    }
+
+    /// <summary>
+    /// Clones the object passed in
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="source"></param>
+    /// <returns></returns>
+    public static IList<T> CloneList<T>(this IList<T> list)
+    {
+        List<T> cloneList = new List<T>();
+        for (var i = 0; i < list.Count; ++i)
+        {
+            cloneList.Add(list[i]);
+        }
+
+        return cloneList;
     }
 }

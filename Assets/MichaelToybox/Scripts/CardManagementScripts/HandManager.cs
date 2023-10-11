@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class HandManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject handHolder;
+
+    public void AddCardToHand(BaseCard card, DeckManager deck)
     {
-        
+        BaseCard temp = Instantiate(card, handHolder.transform);
+        temp.deck = deck;
+        temp.cardRef = card;
     }
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Adds all cards that are a child of the hand object to their decks discard pile
+    /// Destroys the card
+    /// </summary>
+    public void DiscardHand()
     {
-        
+        foreach(BaseCard card in handHolder.transform.GetComponentsInChildren<BaseCard>())
+        {
+            if(card.deck != null)
+            {
+                card.AddToDiscardPile();
+            }
+            else
+            {
+                Debug.LogWarning("MICHAEL WARN: Card discarded without a discard pile");
+            }
+
+            Destroy(card.gameObject);
+        }
     }
 }
