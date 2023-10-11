@@ -24,6 +24,8 @@ public class BaseCard : MonoBehaviour
         playerManager.mana -= manaCost;
         //Updates mana text
         playerManager.UpdateManaText();
+        //sets is played to true
+        isPlayed = true;
     }
 }
 

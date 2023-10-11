@@ -8,10 +8,16 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     Vector3 startPos;
     public Transform parentToReturnTo;
     PlayerManager playerManager;
+    BaseCard cardRef;
+    bool isMinion = false;
 
     void Start()
     {
         playerManager = GameObject.FindObjectOfType<PlayerManager>();
+        cardRef = this.GetComponent<BaseCard>();
+        if (this.GetComponent<BaseMinion>() == true)
+            isMinion = true;
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)

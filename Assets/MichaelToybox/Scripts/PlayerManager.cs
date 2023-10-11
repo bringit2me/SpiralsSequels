@@ -6,10 +6,13 @@ using TMPro;
 public class PlayerManager : MonoBehaviour
 {
     HandManager handManager;
+    PlayerMinionZone minionZone;
+
     public int maxMana = 10;
     public int mana = 0;
     public int manaPerTurn = 2;
     public int manaPerTurnIncrease = 2;
+    [SerializeField] float drawDelay = 0.25f;
     [Header("Neutral Deck")]
     public int drawCountNeutral = 4;
     public DeckManager neutralDeck;
@@ -22,12 +25,15 @@ public class PlayerManager : MonoBehaviour
     private void Awake()
     {
         handManager = this.GetComponent<HandManager>();
+        minionZone = GameObject.FindObjectOfType<PlayerMinionZone>();
         UpdateManaText();
     }
 
     public void StartTurn()
     {
+        //draws start of turn cards
         StartCoroutine(StartTurnDraw());
+        minionZone.EnableMinionAttack(); //enables minions in the combat zone to attack
         mana = manaPerTurn; //sets mana to mana per turn
         UpdateManaText();
     }
@@ -45,14 +51,14 @@ public class PlayerManager : MonoBehaviour
             for (int i = 0; i < drawCountHero; i++)
             {
                 deck.DrawCard(handManager);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(drawDelay);
             }
         }
 
         for (int i = 0; i < drawCountNeutral; i++)
         {
             neutralDeck.DrawCard(handManager);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(drawDelay);
         }
     }
 

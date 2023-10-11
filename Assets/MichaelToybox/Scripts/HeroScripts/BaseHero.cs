@@ -3,8 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BaseMinion : BaseCard
+public class BaseHero : MonoBehaviour
 {
+    public new string name;
+    [TextArea(5, 15)]
+    public string description;
+    public DeckManager heroDeck;
+    [Header("Stats")]
     public int attack;
     public int maxHealth;
     public int health;
@@ -13,31 +18,20 @@ public class BaseMinion : BaseCard
     public Team team = Team.PLAYER;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
-    [SerializeField] TMP_Text descriptionText;
-    [SerializeField] TMP_Text manaText;
     [SerializeField] TMP_Text attackText;
     [SerializeField] TMP_Text healthText;
+    [Header("Hero Power")]
+    public BaseHeroPower heroPower;
 
-    public virtual void Start()
+    private void Start()
     {
         SetupCardText();
     }
-
-    // --- CARD SETUP ---
-
     public virtual void SetupCardText()
     {
         nameText.text = name;
-        descriptionText.text = description;
-        UpdateMana();
         UpdateAttack();
         UpdateHealth();
-        canAttack = false;
-    }
-
-    public virtual void UpdateMana()
-    {
-        manaText.text = "" + manaCost;
     }
 
     public virtual void UpdateAttack()
@@ -48,13 +42,6 @@ public class BaseMinion : BaseCard
     public virtual void UpdateHealth()
     {
         healthText.text = "" + health;
-    }
-
-    public override void Played(PlayerManager playerManager)
-    {
-        base.Played(playerManager);
-        this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
-        this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
     }
 
     public virtual void AttackMinion(BaseMinion target)
@@ -69,10 +56,10 @@ public class BaseMinion : BaseCard
     }
     public virtual void TakeDamage(int value)
     {
-        if(value > 0)
+        if (value > 0)
             health -= value;
 
-        if(health <= 0)
+        if (health <= 0)
         {
             Dead();
         }
@@ -89,6 +76,7 @@ public class BaseMinion : BaseCard
 
     public virtual void Dead()
     {
-        Destroy(this.gameObject);
+        //TODO: Figure something out
+        //Destroy(this.gameObject);
     }
 }
