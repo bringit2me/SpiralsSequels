@@ -552,6 +552,8 @@ GameObject:
   - component: {fileID: 3865185633303718029}
   - component: {fileID: 1514250957579865754}
   - component: {fileID: 5583382633494265006}
+  - component: {fileID: 4571071661720032199}
+  - component: {fileID: 4688872072343099077}
   m_Layer: 5
   m_Name: BaseMinionCard
   m_TagString: Untagged
@@ -639,13 +641,41 @@ MonoBehaviour:
   cardRef: {fileID: 5583382633494265006}
   deck: {fileID: 0}
   manaCost: 1
+  isPlayed: 0
   attack: 1
   health: 1
+  canAttack: 0
+  team: 0
   nameText: {fileID: 3155987808508573410}
   descriptionText: {fileID: 7772700304501913913}
   manaText: {fileID: 1181499625201837610}
   attackText: {fileID: 7452243494110634735}
   healthText: {fileID: 6347439797376707122}
+--- !u!114 &4571071661720032199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915115515409759301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee0c0d3d35000845bb696d4c61f789b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentToReturnTo: {fileID: 0}
+--- !u!225 &4688872072343099077
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915115515409759301}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6208217248941376031
 GameObject:
   m_ObjectHideFlags: 0

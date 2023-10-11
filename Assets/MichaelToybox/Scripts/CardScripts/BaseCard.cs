@@ -11,9 +11,24 @@ public class BaseCard : MonoBehaviour
     [HideInInspector] public DeckManager deck;
     [Header("Stats")]
     public int manaCost;
+    public bool isPlayed = false;
 
     public virtual void AddToDiscardPile()
     {
         deck.discardPile.Add(cardRef);
     }
+
+    public virtual void Played(PlayerManager playerManager)
+    {
+        //lowers players mana by the cost
+        playerManager.mana -= manaCost;
+        //Updates mana text
+        playerManager.UpdateManaText();
+    }
+}
+
+public enum Team
+{
+    PLAYER,
+    ENEMY
 }

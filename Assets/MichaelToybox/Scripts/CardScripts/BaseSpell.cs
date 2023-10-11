@@ -16,6 +16,44 @@ public class BaseSpell : BaseCard
         SetupCardText();
     }
 
+    public override void Played(PlayerManager playerManager)
+    {
+        base.Played(playerManager);
+        Cast();
+    }
+
+    /// <summary>
+    /// Cast is called when a spell is first cast
+    /// </summary>
+    public virtual void Cast()
+    {
+        Debug.Log("Cast: " + name);
+    }
+
+    /// <summary>
+    /// Execute cast is called every frame while the spell is active
+    /// </summary>
+    public virtual void ExecuteCast()
+    {
+
+    }
+
+    /// <summary>
+    /// End cast is called when the spell cast ends
+    /// </summary>
+    public virtual void EndCast()
+    {
+        Destroy(this.gameObject);
+    }
+
+    /// <summary>
+    /// Stop cast is called
+    /// </summary>
+    public virtual void StopCast()
+    {
+        //TODO: Return this to hand
+    }
+
     public virtual void SetupCardText()
     {
         nameText.text = name;

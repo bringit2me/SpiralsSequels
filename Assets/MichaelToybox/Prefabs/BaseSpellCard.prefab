@@ -282,6 +282,8 @@ GameObject:
   - component: {fileID: 3865185633303718029}
   - component: {fileID: 1514250957579865754}
   - component: {fileID: 6444843200295082626}
+  - component: {fileID: 4104817048525408583}
+  - component: {fileID: 10067503973937076}
   m_Layer: 5
   m_Name: BaseSpellCard
   m_TagString: Untagged
@@ -369,9 +371,35 @@ MonoBehaviour:
   cardRef: {fileID: 6444843200295082626}
   deck: {fileID: 0}
   manaCost: 1
+  isPlayed: 0
   nameText: {fileID: 7323684198740496285}
   descriptionText: {fileID: 7139658210575706790}
   manaText: {fileID: 437772510611721613}
+--- !u!114 &4104817048525408583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915115515409759301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee0c0d3d35000845bb696d4c61f789b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentToReturnTo: {fileID: 0}
+--- !u!225 &10067503973937076
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915115515409759301}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8917028668951427183
 GameObject:
   m_ObjectHideFlags: 0

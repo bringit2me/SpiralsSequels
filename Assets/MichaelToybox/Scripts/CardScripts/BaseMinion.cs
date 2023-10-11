@@ -7,6 +7,8 @@ public class BaseMinion : BaseCard
 {
     public int attack;
     public int health;
+    public bool canAttack = false;
+    public Team team = Team.PLAYER;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -19,6 +21,8 @@ public class BaseMinion : BaseCard
         SetupCardText();
     }
 
+    // --- CARD SETUP ---
+
     public virtual void SetupCardText()
     {
         nameText.text = name;
@@ -26,6 +30,7 @@ public class BaseMinion : BaseCard
         UpdateMana();
         UpdateAttack();
         UpdateHealth();
+        canAttack = false;
     }
 
     public virtual void UpdateMana()
@@ -41,5 +46,10 @@ public class BaseMinion : BaseCard
     public virtual void UpdateHealth()
     {
         healthText.text = "" + health;
+    }
+    public override void Played(PlayerManager playerManager)
+    {
+        base.Played(playerManager);
+        Debug.Log("Minion Played: " + name);
     }
 }
