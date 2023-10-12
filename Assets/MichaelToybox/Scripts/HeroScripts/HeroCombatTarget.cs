@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+
+public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    BaseMinion card;
+    BaseHero hero;
     //these variables are for when/if we add a targeting arrow
     Vector3 startPos;
     Vector3 endPos;
 
     void Awake()
     {
-        card = this.GetComponent<BaseMinion>();
+        hero = this.GetComponent<BaseHero>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -30,19 +31,17 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
     {
         RaycastResult hit = eventData.pointerCurrentRaycast;
 
-        if (hit.gameObject != null && card.canAttack == true)
+        if (hit.gameObject != null && hero.canAttack == true)
         {
             if (hit.gameObject.GetComponent<BaseMinion>() == true)
             {
                 //gets target reference
                 BaseMinion target = hit.gameObject.GetComponent<BaseMinion>();
 
-                if (target.team != card.team) //checks if the targeted minion is not on the same team
+                if (target.team != hero.team) //checks if the targeted minion is not on the same team
                 {
                     //damages target
-                    card.AttackMinion(target);
-                    //retaliation damage
-                    card.TakeDamage(target.attack);
+                    hero.AttackMinion(target);
                 }
             }
             else if (hit.gameObject.GetComponent<BaseHero>() == true)
@@ -50,10 +49,10 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
                 //gets target reference
                 BaseHero target = hit.gameObject.GetComponent<BaseHero>();
 
-                if (target.team != card.team) //checks if the targeted hero is not on the same team
+                if (target.team != hero.team) //checks if the targeted hero is not on the same team
                 {
                     //damages target hero
-                    card.AttackHero(hit.gameObject.GetComponent<BaseHero>());
+                    hero.AttackHero(hit.gameObject.GetComponent<BaseHero>());
                 }
             }
         }

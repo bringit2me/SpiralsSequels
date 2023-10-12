@@ -36,6 +36,15 @@ public class PlayerManager : MonoBehaviour
         minionZone.EnableMinionAttack(); //enables minions in the combat zone to attack
         mana = manaPerTurn; //sets mana to mana per turn
         UpdateManaText();
+
+        //TESTING: sets hero can attack to true
+        foreach(BaseHero hero in GameObject.FindObjectsOfType<BaseHero>())
+        {
+            if(hero.team == Team.PLAYER)
+            {
+                hero.canAttack = true;
+            }
+        }
     }
 
     public void EndTurn()

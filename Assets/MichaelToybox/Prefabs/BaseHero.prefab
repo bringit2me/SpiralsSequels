@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 4946867092953532386}
   - component: {fileID: 2382362153385024439}
   - component: {fileID: 3566509377155054430}
+  - component: {fileID: 7944291173903550916}
   m_Layer: 5
   m_Name: BaseHero
   m_TagString: Untagged
@@ -327,6 +328,7 @@ MonoBehaviour:
   maxHealth: 40
   health: 40
   canAttack: 1
+  targetable: 1
   team: 0
   nameText: {fileID: 930027344384438795}
   attackText: {fileID: 6352401468958441986}
@@ -356,6 +358,18 @@ MonoBehaviour:
   - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   discardPile: []
+--- !u!114 &7944291173903550916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079820614456225481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c12afdc64bc764ba27a4bfe41a9cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6463416941407480686
 GameObject:
   m_ObjectHideFlags: 0
