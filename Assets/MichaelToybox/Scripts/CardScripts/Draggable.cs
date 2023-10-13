@@ -58,7 +58,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         {
             if(eventData.position.y >= -440 + 175) //if the mouse is above the hand space
             {
-                this.transform.parent = transform.root;
+                this.transform.SetParent(transform.root);
                 eventData.pointerDrag.GetComponent<BaseSpell>().Played(playerManager);
                 return;
             }

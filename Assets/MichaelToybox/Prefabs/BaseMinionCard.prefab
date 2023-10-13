@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7272194164932038635}
   - component: {fileID: 3540371164205837016}
   - component: {fileID: 7772700304501913913}
+  - component: {fileID: 6693108516736222795}
   m_Layer: 5
   m_Name: DescriptionText
   m_TagString: Untagged
@@ -135,6 +136,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &6693108516736222795
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775383640582340933}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1928574651912401742
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +159,7 @@ GameObject:
   - component: {fileID: 711308868402680369}
   - component: {fileID: 3250864248259027169}
   - component: {fileID: 3155987808508573410}
+  - component: {fileID: 8965804455591966292}
   m_Layer: 5
   m_Name: Name Text
   m_TagString: Untagged
@@ -270,6 +284,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &8965804455591966292
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928574651912401742}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &2296528203491912313
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +307,7 @@ GameObject:
   - component: {fileID: 940176766547415321}
   - component: {fileID: 6653479759687425927}
   - component: {fileID: 1181499625201837610}
+  - component: {fileID: 7223377792401327057}
   m_Layer: 5
   m_Name: Mana Text
   m_TagString: Untagged
@@ -405,6 +432,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &7223377792401327057
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2296528203491912313}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &3359136245469652652
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,6 +455,7 @@ GameObject:
   - component: {fileID: 7138996216103720611}
   - component: {fileID: 6276982100562867071}
   - component: {fileID: 6347439797376707122}
+  - component: {fileID: 5112538087844460809}
   m_Layer: 5
   m_Name: Health Text
   m_TagString: Untagged
@@ -540,6 +580,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &5112538087844460809
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3359136245469652652}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5915115515409759301
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,6 +691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test Minion
   description: Minion
+  team: 0
   cardRef: {fileID: 5583382633494265006}
   deck: {fileID: 0}
   manaCost: 1
@@ -648,7 +701,6 @@ MonoBehaviour:
   health: 1
   canAttack: 0
   targetable: 1
-  team: 0
   nameText: {fileID: 3155987808508573410}
   descriptionText: {fileID: 7772700304501913913}
   manaText: {fileID: 1181499625201837610}
@@ -702,6 +754,7 @@ GameObject:
   - component: {fileID: 2259164997163496766}
   - component: {fileID: 9112647939568389806}
   - component: {fileID: 7452243494110634735}
+  - component: {fileID: 808614181462073186}
   m_Layer: 5
   m_Name: Attack Text
   m_TagString: Untagged
@@ -826,3 +879,15 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &808614181462073186
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6208217248941376031}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0

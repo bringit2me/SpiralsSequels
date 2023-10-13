@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class PlayerManager : MonoBehaviour
 {
-    HandManager handManager;
+    [HideInInspector] public HandManager handManager;
     PlayerMinionZone minionZone;
-
+    [Header("Player Info")]
+    public Team team;
     public int maxMana = 10;
     public int mana = 0;
     public int manaPerTurn = 2;
@@ -21,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     public DeckManager[] heroDecks;
     [Header("UI References")]
     public TMP_Text manaText;
+    
 
     private void Awake()
     {
@@ -71,6 +74,9 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Updates mana text
+    /// </summary>
     public void UpdateManaText()
     {
         manaText.text = "" + mana; //sets mana text
@@ -80,7 +86,7 @@ public class PlayerManager : MonoBehaviour
     /// Checks if the player has enough mana to play the card
     /// </summary>
     /// <returns></returns>
-    public bool CheckPlayable(BaseCard card)
+    public virtual bool CheckPlayable(BaseCard card)
     {
         if(mana >= card.manaCost) //if the player has enough mana to play the card
         {
@@ -89,4 +95,107 @@ public class PlayerManager : MonoBehaviour
         //not enough mana to play the card
         return false;
     }
+
+    public virtual GameObject GetClickTarget(TargetingInfo targetInfo, Team teamCheckAgainst)
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) == false) //Player did not Left click
+            return null;
+
+        GameObject target;
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            pointerId = -1,
+        };
+        pointerData.position = Input.mousePosition;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        target = results[0].gameObject;
+        if (target != null)
+            Debug.Log("target: " + target.name);
+
+        //if the target did not pass the target check (example, target ios hero when trying to target a minion)
+        if (target != null && CheckTargetingInfo(targetInfo, target, teamCheckAgainst) == false)
+        {
+            return null;
+        }
+
+        return target;
+    }
+
+    /// <summary>
+    /// Checks if the target meets the targeting info conditions.
+    /// Checks if the target's team matches the targetInfo and if the target's type matches the targwtInfo
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool CheckTargetingInfo(TargetingInfo targetInfo, GameObject target, Team teamCheckAgainst)
+    {
+        bool targetTeamComplies = false;
+        bool targetIsMinion = false;
+        Team targetTeam = Team.NONE;
+
+        //gets the team of the target
+        if (target.GetComponent<BaseMinion>())
+        {
+            targetTeam = target.GetComponent<BaseMinion>().team;
+            targetIsMinion = true;
+        }
+        if (target.GetComponent<BaseHero>())
+        {
+            targetTeam = target.GetComponent<BaseHero>().team;
+            targetIsMinion = false;
+        }
+        
+
+        //if the target has no team. return none
+        if (targetTeam == Team.NONE)
+            return false;
+
+        switch ((int)targetInfo)
+        {
+            case 0:
+                targetTeamComplies = targetTeam != Team.NONE; //Any team
+                break;
+            case 1:
+                targetTeamComplies = targetTeam == teamCheckAgainst; //Same team
+                break;
+            case 2:
+                targetTeamComplies = targetTeam != teamCheckAgainst; //Opposite team
+                break;
+            case 3:
+                targetTeamComplies = targetTeam != Team.NONE && targetIsMinion == true; //Any team AND Minion
+                break;
+            case 4:
+                targetTeamComplies = targetTeam == teamCheckAgainst && targetIsMinion == true; //Same team AND Minion
+                break;
+            case 5:
+                targetTeamComplies = targetTeam != teamCheckAgainst && targetIsMinion == true; //Opposite team AND Minion
+                break;
+            case 6:
+                targetTeamComplies = targetTeam != Team.NONE && targetIsMinion == false; //Any team AND Hero
+                break;
+            case 7:
+                targetTeamComplies = targetTeam == teamCheckAgainst && targetIsMinion == false; //Same team AND Hero
+                break;
+            case 8:
+                targetTeamComplies = targetTeam != teamCheckAgainst && targetIsMinion == false; //Opposite team AND Hero
+                break;
+        }
+
+        return targetTeamComplies;
+    }
+}
+
+public enum TargetingInfo
+{
+    ANY,
+    SAME,
+    OPPOSITE,
+    ANY_MINION,
+    SAME_MINION,
+    OPPOSITE_MINION,
+    ANY_HERO,
+    SAME_HERO,
+    OPPOSITE_HERO
 }

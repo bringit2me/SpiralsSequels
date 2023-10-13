@@ -5,12 +5,14 @@ using UnityEngine;
 public class HandManager : MonoBehaviour
 {
     public GameObject handHolder;
+    public PlayerManager playerManager;
 
     public void AddCardToHand(BaseCard card, DeckManager deck)
     {
         BaseCard temp = Instantiate(card, handHolder.transform);
         temp.deck = deck;
         temp.cardRef = card;
+        temp.team = playerManager.team;
     }
 
     /// <summary>
@@ -29,7 +31,6 @@ public class HandManager : MonoBehaviour
             {
                 Debug.LogWarning("MICHAEL WARN: Card discarded without a discard pile");
             }
-
             Destroy(card.gameObject);
         }
     }

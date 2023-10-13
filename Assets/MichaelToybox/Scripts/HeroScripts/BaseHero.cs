@@ -79,4 +79,24 @@ public class BaseHero : MonoBehaviour
         //TODO: Figure something out
         //Destroy(this.gameObject);
     }
+
+    public virtual void ChangeAttack(int value)
+    {
+        attack += value;
+
+        UpdateAttack();
+    }
+
+    public virtual void ChangeHealth(int value)
+    {
+        health += value;
+        maxHealth += value;
+
+        if (health <= 0)
+        {
+            Dead();
+        }
+
+        UpdateAttack();
+    }
 }

@@ -10,7 +10,6 @@ public class BaseMinion : BaseCard
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
-    public Team team = Team.PLAYER;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -53,6 +52,9 @@ public class BaseMinion : BaseCard
     public override void Played(PlayerManager playerManager)
     {
         base.Played(playerManager);
+
+        ReducePlayerMana();
+
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
     }
@@ -90,5 +92,25 @@ public class BaseMinion : BaseCard
     public virtual void Dead()
     {
         Destroy(this.gameObject);
+    }
+
+    public virtual void ChangeAttack(int value)
+    {
+        attack += value;
+
+        UpdateAttack();
+    }
+
+    public virtual void ChangeHealth(int value)
+    {
+        health += value;
+        maxHealth += value;
+
+        if (health <= 0)
+        {
+            Dead();
+        }
+
+        UpdateAttack();
     }
 }

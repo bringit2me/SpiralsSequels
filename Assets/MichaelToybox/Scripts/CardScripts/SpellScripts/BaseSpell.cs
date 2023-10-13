@@ -5,7 +5,7 @@ using TMPro;
 
 public class BaseSpell : BaseCard
 {
-
+    bool isBeingCast = false;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -16,10 +16,19 @@ public class BaseSpell : BaseCard
         SetupCardText();
     }
 
+    public virtual void Update()
+    {
+        if(isBeingCast == true)
+        {
+            ExecuteCast();
+        }
+    }
+
     public override void Played(PlayerManager playerManager)
     {
         base.Played(playerManager);
         Cast();
+        this.transform.position = new Vector3(1800, 445, 0);
     }
 
     /// <summary>
@@ -28,6 +37,7 @@ public class BaseSpell : BaseCard
     public virtual void Cast()
     {
         Debug.Log("Cast: " + name);
+        isBeingCast = true;
     }
 
     /// <summary>
@@ -35,7 +45,10 @@ public class BaseSpell : BaseCard
     /// </summary>
     public virtual void ExecuteCast()
     {
-
+        if(Input.GetKeyDown(KeyCode.Mouse1)) //right click
+        {
+            StopCastEarly();
+        }
     }
 
     /// <summary>
@@ -44,14 +57,19 @@ public class BaseSpell : BaseCard
     public virtual void EndCast()
     {
         Destroy(this.gameObject);
+        isBeingCast = false;
+
+        ReducePlayerMana();
     }
 
     /// <summary>
-    /// Stop cast is called
+    /// Stop cast is called when the player manually stops the spell cast before it finishes
     /// </summary>
-    public virtual void StopCast()
+    public virtual void StopCastEarly()
     {
-        //TODO: Return this to hand
+        isBeingCast = false;
+        isPlayed = false;
+        this.transform.SetParent(playerManager.handManager.handHolder.transform);
     }
 
     public virtual void SetupCardText()
