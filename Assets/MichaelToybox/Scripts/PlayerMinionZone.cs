@@ -25,7 +25,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
     {
         Draggable card = eventData.pointerDrag.GetComponent<Draggable>();
 
-        if(card.GetComponent<BaseMinion>() == true && card.GetComponent<BaseMinion>().isPlayed == false)
+        if(card != null && card.GetComponent<BaseMinion>() == true && card.GetComponent<BaseMinion>().isPlayed == false)
         {
             card.parentToReturnTo = this.transform;
             card.GetComponent<BaseMinion>().Played(playerManager);
