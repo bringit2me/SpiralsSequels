@@ -9,10 +9,11 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
     //these variables are for when/if we add a targeting arrow
     Vector3 startPos;
     Vector3 endPos;
-
+    CombatManager combatManager;
     void Awake()
     {
         card = this.GetComponent<BaseMinion>();
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

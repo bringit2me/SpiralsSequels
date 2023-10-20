@@ -11,6 +11,7 @@ public class BaseCard : MonoBehaviour
     public Team team;
     public BaseCard cardRef;
     [HideInInspector] public DeckManager deck;
+    [HideInInspector] public PlayerMinionZone zone;
     [Header("Stats")]
     public int manaCost;
     public bool isPlayed = false;

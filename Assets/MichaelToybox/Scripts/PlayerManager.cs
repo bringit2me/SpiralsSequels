@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class PlayerManager : MonoBehaviour
 {
-    [HideInInspector] public HandManager handManager;
-    PlayerMinionZone minionZone;
     [Header("Player Info")]
     public Team team;
     public int maxMana = 10;
@@ -15,28 +13,33 @@ public class PlayerManager : MonoBehaviour
     public int manaPerTurn = 2;
     public int manaPerTurnIncrease = 2;
     [SerializeField] float drawDelay = 0.25f;
-    [Header("Neutral Deck")]
+    [Header("Neutral Deck Info")]
     public int drawCountNeutral = 4;
     public DeckManager neutralDeck;
-    [Header("Hero Decks")]
+    [Header("Hero Info")]
     public int drawCountHero = 2;
-    public DeckManager[] heroDecks;
+    public List<BaseHero> heroes;
+    public List<DeckManager> heroDecks;
+    [Header("Minion Zone Info")]
+    public PlayerMinionZone minionZone;
     [Header("UI References")]
     public TMP_Text manaText;
-    
 
-    private void Awake()
+    //References
+    [HideInInspector] public HandManager handManager;
+    protected CombatManager combatManager;
+
+    public virtual void Awake()
     {
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
         handManager = this.GetComponent<HandManager>();
-        minionZone = GameObject.FindObjectOfType<PlayerMinionZone>();
-        UpdateManaText();
+        minionZone = combatManager.playerMinionZone;
     }
 
-    public void StartTurn()
+    public virtual void StartTurn()
     {
         //draws start of turn cards
         StartCoroutine(StartTurnDraw());
-        minionZone.EnableMinionAttack(); //enables minions in the combat zone to attack
         mana = manaPerTurn; //sets mana to mana per turn
         UpdateManaText();
 
@@ -50,13 +53,13 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public void EndTurn()
+    public virtual void EndTurn()
     {
         handManager.DiscardHand();
         manaPerTurn = Mathf.Clamp(manaPerTurn + manaPerTurnIncrease,0,maxMana);
     }
 
-    IEnumerator StartTurnDraw()
+    public virtual IEnumerator StartTurnDraw()
     {
         foreach (DeckManager deck in heroDecks)
         {
@@ -77,7 +80,7 @@ public class PlayerManager : MonoBehaviour
     /// <summary>
     /// Updates mana text
     /// </summary>
-    public void UpdateManaText()
+    public virtual void UpdateManaText()
     {
         manaText.text = "" + mana; //sets mana text
     }
@@ -185,17 +188,4 @@ public class PlayerManager : MonoBehaviour
 
         return targetTeamComplies;
     }
-}
-
-public enum TargetingInfo
-{
-    ANY,
-    SAME,
-    OPPOSITE,
-    ANY_MINION,
-    SAME_MINION,
-    OPPOSITE_MINION,
-    ANY_HERO,
-    SAME_HERO,
-    OPPOSITE_HERO
 }

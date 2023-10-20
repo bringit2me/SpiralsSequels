@@ -56,6 +56,7 @@ public class BaseSpell : BaseCard
     /// </summary>
     public virtual void EndCast()
     {
+        AddToDiscardPile(); //adds card to discard pile
         Destroy(this.gameObject);
         isBeingCast = false;
 
