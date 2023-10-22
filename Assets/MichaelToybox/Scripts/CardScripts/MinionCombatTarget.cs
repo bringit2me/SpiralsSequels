@@ -12,14 +12,14 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
     CombatManager combatManager;
     void Awake()
     {
-        card = this.GetComponent<BaseMinion>();
-        combatManager = GameObject.FindObjectOfType<CombatManager>();
+        card = this.GetComponent<BaseMinion>(); //gets card reference
+        combatManager = GameObject.FindObjectOfType<CombatManager>(); //gets combat manager reference
     }
 
+    //when we start dragging
     public void OnBeginDrag(PointerEventData eventData)
     {
         startPos = this.transform.position;
-        Debug.Log("Minion Begin Drag");
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)
@@ -27,13 +27,14 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
         endPos = eventData.position;
     }
 
+    //when we end dragging
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
     {
-        RaycastResult hit = eventData.pointerCurrentRaycast;
+        RaycastResult hit = eventData.pointerCurrentRaycast; //raycasts from mouse position and gets what is hit
 
-        if (hit.gameObject != null && card.canAttack == true)
+        if (hit.gameObject != null && card.canAttack == true) //if we hit a game object and this minion can attack
         {
-            if (hit.gameObject.GetComponent<BaseMinion>() == true)
+            if (hit.gameObject.GetComponent<BaseMinion>() == true) //if we hit a minion
             {
                 //gets target reference
                 BaseMinion target = hit.gameObject.GetComponent<BaseMinion>();
@@ -46,7 +47,7 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
                     card.TakeDamage(target.attack);
                 }
             }
-            else if (hit.gameObject.GetComponent<BaseHero>() == true)
+            else if (hit.gameObject.GetComponent<BaseHero>() == true) //if we hit a hero
             {
                 //gets target reference
                 BaseHero target = hit.gameObject.GetComponent<BaseHero>();
@@ -55,6 +56,7 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
                 {
                     //damages target hero
                     card.AttackHero(hit.gameObject.GetComponent<BaseHero>());
+                    //NOTE: hereos do not take or deal retaliation damage
                 }
             }
         }

@@ -20,11 +20,18 @@ public class BaseCard : MonoBehaviour
     protected PlayerManager playerManager;
     protected PointerEventData eventData;
 
+    /// <summary>
+    /// Adds the card to the discard pile
+    /// </summary>
     public virtual void AddToDiscardPile()
     {
         deck.discardPile.Add(cardRef);
     }
 
+    /// <summary>
+    /// Called when the card is played. sets isPlayed to true
+    /// </summary>
+    /// <param name="playerManager"></param>
     public virtual void Played(PlayerManager playerManager)
     {
         //sets is played to true
@@ -42,11 +49,4 @@ public class BaseCard : MonoBehaviour
         //Updates mana text
         playerManager.UpdateManaText();
     }
-}
-
-public enum Team
-{
-    PLAYER,
-    ENEMY,
-    NONE
 }

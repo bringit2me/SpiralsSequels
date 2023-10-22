@@ -54,6 +54,10 @@ public class BaseHero : MonoBehaviour
         target.TakeDamage(attack);
         canAttack = false;
     }
+    /// <summary>
+    /// Damages hero
+    /// </summary>
+    /// <param name="value"></param>
     public virtual void TakeDamage(int value)
     {
         if (value > 0)

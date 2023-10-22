@@ -31,6 +31,7 @@ public class PlayerManager : MonoBehaviour
 
     public virtual void Awake()
     {
+        //gets references in the scene
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         handManager = this.GetComponent<HandManager>();
         minionZone = combatManager.playerMinionZone;
@@ -53,26 +54,35 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Ending the turn discards the players hand and increments the players mana per turn by manaPerTurnIncrease (capped at maxMana)
+    /// </summary>
     public virtual void EndTurn()
     {
-        handManager.DiscardHand();
-        manaPerTurn = Mathf.Clamp(manaPerTurn + manaPerTurnIncrease,0,maxMana);
+        handManager.DiscardHand(); //discards hand
+        manaPerTurn = Mathf.Clamp(manaPerTurn + manaPerTurnIncrease,0,maxMana); //updates mana
     }
 
+    /// <summary>
+    /// Handles drawing the cards at the start of the turn. with a small delay between draws
+    /// </summary>
+    /// <returns></returns>
     public virtual IEnumerator StartTurnDraw()
     {
-        foreach (DeckManager deck in heroDecks)
+        foreach (DeckManager deck in heroDecks) //loops through each hero deck
         {
-            for (int i = 0; i < drawCountHero; i++)
+            //TODO: check if hero is dead, we do not want to draw cards if the hero is dead
+
+            for (int i = 0; i < drawCountHero; i++) //loops for each time we want to draw from the hero deck
             {
-                deck.DrawCard(handManager);
+                deck.DrawCard(handManager); //draws from the heroes deck
                 yield return new WaitForSeconds(drawDelay);
             }
         }
 
-        for (int i = 0; i < drawCountNeutral; i++)
+        for (int i = 0; i < drawCountNeutral; i++) //loops for each time we want to draw from the neutral deck
         {
-            neutralDeck.DrawCard(handManager);
+            neutralDeck.DrawCard(handManager); //draws from the neurtral deck
             yield return new WaitForSeconds(drawDelay);
         }
     }
@@ -99,6 +109,13 @@ public class PlayerManager : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Gets the target we clicked on.
+    /// Checks that out target is what we want to click on based on the targetInfo
+    /// </summary>
+    /// <param name="targetInfo"></param>
+    /// <param name="teamCheckAgainst"></param>
+    /// <returns></returns>
     public virtual GameObject GetClickTarget(TargetingInfo targetInfo, Team teamCheckAgainst)
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) == false) //Player did not Left click
@@ -106,16 +123,17 @@ public class PlayerManager : MonoBehaviour
 
         GameObject target;
 
-        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        PointerEventData pointerData = new PointerEventData(EventSystem.current) //gets pointer data
         {
             pointerId = -1,
         };
-        pointerData.position = Input.mousePosition;
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, results);
 
-        target = results[0].gameObject;
-        if (target != null)
+        pointerData.position = Input.mousePosition; //sets pointer data position
+        List<RaycastResult> results = new List<RaycastResult>(); //list of raycast results
+        EventSystem.current.RaycastAll(pointerData, results); //sets list of raycast results to everything under the mouse
+
+        target = results[0].gameObject; //sets our target to the first thing under the mouse
+        if (target != null) //if we do not have a target
             Debug.Log("target: " + target.name);
 
         //if the target did not pass the target check (example, target ios hero when trying to target a minion)
@@ -134,7 +152,9 @@ public class PlayerManager : MonoBehaviour
     /// <returns></returns>
     public virtual bool CheckTargetingInfo(TargetingInfo targetInfo, GameObject target, Team teamCheckAgainst)
     {
+        //targetTeamComplies is changed based on what team relationship we are trying to check
         bool targetTeamComplies = false;
+        //bool representing if our target is a minion
         bool targetIsMinion = false;
         Team targetTeam = Team.NONE;
 
@@ -151,10 +171,12 @@ public class PlayerManager : MonoBehaviour
         }
         
 
-        //if the target has no team. return none
+        //if the target has no team. return false
         if (targetTeam == Team.NONE)
             return false;
 
+        //switch statement. based on enum targetInfo
+        //the main logic for team checking
         switch ((int)targetInfo)
         {
             case 0:
@@ -186,6 +208,8 @@ public class PlayerManager : MonoBehaviour
                 break;
         }
 
+        //returns targetTeamComplies
+        //targetTeamComplies is changed based on what team relationship we are trying to check (above switch statement)
         return targetTeamComplies;
     }
 }

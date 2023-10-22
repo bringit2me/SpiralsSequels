@@ -1,15 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 using TMPro;
 
 public class BaseMinion : BaseCard
 {
+    [Header("Stats")]
     public int attack;
     public int maxHealth;
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
+    [Header("Other")]
+    public int spellDamage = 0;
+    public bool taunt = false;
+    [Header("Triggers")]
+    public UnityEvent onPlay;
+    public UnityEvent onDeath;
+    public UnityEvent beforeAttack;
+    public UnityEvent afterAttack;
+    public UnityEvent startOfTurn;
+    public UnityEvent endOfTurn;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -53,7 +65,7 @@ public class BaseMinion : BaseCard
     {
         base.Played(playerManager);
 
-        ReducePlayerMana();
+        ReducePlayerMana(); //reduces player mana
 
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target

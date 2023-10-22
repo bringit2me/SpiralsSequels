@@ -571,10 +571,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 447861336217653401, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_text
-      value: Start Combat
-      objectReference: {fileID: 0}
     - target: {fileID: 597432454310206421, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -598,18 +594,6 @@ PrefabInstance:
     - target: {fileID: 597432454310206421, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1146742035748332792, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1674310162480086185}
-    - target: {fileID: 1146742035748332792, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartCombat
-      objectReference: {fileID: 0}
-    - target: {fileID: 1146742035748332792, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2243103369238721529, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_RootOrder
@@ -663,25 +647,9 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 7898935}
-    - target: {fileID: 4592046662199060119, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1674310162480086185}
-    - target: {fileID: 4592046662199060119, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 4592046662199060119, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 5806116608365525631, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_Name
       value: CombatManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6659943025348396328, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: drawDelay
-      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 8105957539523738851, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: playerManager
@@ -692,14 +660,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
---- !u!114 &1674310162480086185 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8105957539523738851, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-  m_PrefabInstance: {fileID: 1674310162480086184}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f55bbd1adf266f0408d03b0a93db1f0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -19,6 +19,7 @@ public class CombatManager : MonoBehaviour
     public List<BaseHero> enemyHeroes;
     public List<BaseMinion> enemyMinions;
     public GameObject enemyHolder;
+    [SerializeField] BoardStateInformation boardInfo;
 
     [Header("Combat State")]
     public CombatState  state = CombatState.STARTING;
@@ -26,6 +27,7 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
+        boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
         StartCombat();
     }
 
@@ -47,6 +49,10 @@ public class CombatManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        //TODO: Trigger start of turn effects for the player
+
+        boardInfo.UpdateBoardStateInfo(); //updates board state information. used for enemy AI
+
         state = CombatState.PLAYER_TURN;
         playerManager.StartTurn();
         playerMinionZone.EnableMinionAttacks(); //enables minions in the combat zone to attack
@@ -67,6 +73,8 @@ public class CombatManager : MonoBehaviour
 
     public void StartEnemyTurn()
     {
+        //TODO: Trigger start of turn effects for the enemy
+
         state = CombatState.ENEMY_TURN;
 
         enemyManager.StartTurn();
@@ -83,11 +91,18 @@ public class CombatManager : MonoBehaviour
         turnCount++;
 
         enemyManager.EndTurn();
+
         //TODO: trigger end of turn effects for the enemy
 
         StartPlayerTurn();
     }
 
+    /// <summary>
+    /// Checks which turn it is based on the team passed in
+    /// Example: if passed in team is PLAYER and the combat state is PLAYER_TURN then return true
+    /// </summary>
+    /// <param name="team"></param>
+    /// <returns></returns>
     public bool CheckTurn(Team team)
     {
         if (team == Team.PLAYER && state == CombatState.PLAYER_TURN)
@@ -102,6 +117,14 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EndEnemyTurn();
     }
+}
+
+
+public enum Team
+{
+    PLAYER,
+    ENEMY,
+    NONE
 }
 
 public enum TargetingInfo
@@ -120,9 +143,13 @@ public enum TargetingInfo
 public enum CombatState
 {
     STARTING,
+    PLAYER_TURN_STARTING,
     PLAYER_TURN,
+    PLAYER_TURN_ENDING,
     PLAYER_END,
+    ENEMY_TURN_STARTING,
     ENEMY_TURN,
+    ENEMY_TURN_ENDING,
     ENEMY_END,
     ENDED,
     OFF

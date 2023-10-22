@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2243103369238721529}
   - component: {fileID: 8105957539523738851}
+  - component: {fileID: 6680275736194260189}
   m_Layer: 0
   m_Name: CombatManager
   m_TagString: Untagged
@@ -31,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 6939958780512818478}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8105957539523738851
 MonoBehaviour:
@@ -62,6 +63,18 @@ MonoBehaviour:
   enemyHolder: {fileID: 2851282192997174293}
   state: 0
   turnCount: 0
+--- !u!114 &6680275736194260189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5806116608365525631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddf475d52cab67e44b6dc96d5bedcda4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5497537766154646980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70,6 +83,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2243103369238721529}
     m_Modifications:
+    - target: {fileID: 1164166887836905708, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: drawDelay
+      value: 0.125
+      objectReference: {fileID: 0}
     - target: {fileID: 3171803821649223914, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -181,6 +198,18 @@ PrefabInstance:
     - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8105957539523738851}
+    - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EndPlayerTurn
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CombatManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

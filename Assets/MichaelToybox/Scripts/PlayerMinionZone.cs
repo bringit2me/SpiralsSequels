@@ -7,11 +7,14 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
 {
     [SerializeField] PlayerManager playerManager;
     protected CombatManager combatManager;
+    [Header("")]
+    [SerializeField] protected int maxMinions = 10;
 
 
 
     void Start()
     {
+        //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         playerManager = combatManager.playerManager;
     }
@@ -20,9 +23,9 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
     /// </summary>
     public void RefreshMinionsInZoneList()
     {
-        combatManager.playerMinions.Clear();
+        combatManager.playerMinions.Clear(); //clears minion list
 
-        foreach (BaseMinion card in transform.GetComponentsInChildren<BaseMinion>())
+        foreach (BaseMinion card in transform.GetComponentsInChildren<BaseMinion>()) //loops through all child objects of type BaseMinion
         {
             combatManager.playerMinions.Add(card);
             card.zone = this;
@@ -40,9 +43,13 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         }
     }
 
+    /// <summary>
+    /// Checks if the minion zone is full
+    /// </summary>
+    /// <returns></returns>
     public virtual bool CheckZoneFull()
     {
-        if (combatManager.playerMinions.Count < 10)
+        if (combatManager.playerMinions.Count < maxMinions)
             return true;
         return false;
     }
