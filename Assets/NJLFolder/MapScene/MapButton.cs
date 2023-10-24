@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class MapButton : MonoBehaviour
 {
+
+    public int level;
+
+
+
     [Header("ButtonUIRef")]
     public Image buttonImage;
 
