@@ -9,7 +9,8 @@ public class BaseCard : MonoBehaviour
     [TextArea(5, 15)]
     public string description;
     public Team team;
-    public BaseCard cardRef;
+    public BaseCard selfCardRef;
+    [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [Header("Stats")]
@@ -17,7 +18,6 @@ public class BaseCard : MonoBehaviour
     public bool isPlayed = false;
 
     //references
-    protected PlayerManager playerManager;
     protected PointerEventData eventData;
 
     /// <summary>
@@ -25,7 +25,7 @@ public class BaseCard : MonoBehaviour
     /// </summary>
     public virtual void AddToDiscardPile()
     {
-        deck.discardPile.Add(cardRef);
+        deck.discardPile.Add(selfCardRef);
     }
 
     /// <summary>

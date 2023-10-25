@@ -10,10 +10,12 @@ public class BaseSpell : BaseCard
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] TMP_Text manaText;
+    protected CombatManager combatManager;
 
     public virtual void Start()
     {
         SetupCardText();
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
     }
 
     public virtual void Update()

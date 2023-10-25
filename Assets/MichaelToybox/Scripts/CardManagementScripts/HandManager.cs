@@ -10,8 +10,9 @@ public class HandManager : MonoBehaviour
     public void AddCardToHand(BaseCard card, DeckManager deck)
     {
         BaseCard temp = Instantiate(card, handHolder.transform);
+        temp.playerManager = playerManager;
         temp.deck = deck;
-        temp.cardRef = card;
+        temp.selfCardRef = card;
         temp.team = playerManager.team;
     }
 

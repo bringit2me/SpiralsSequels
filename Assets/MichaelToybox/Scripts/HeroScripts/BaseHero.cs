@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BaseHero : MonoBehaviour
+public class BaseHero : BaseCard
 {
-    public new string name;
-    [TextArea(5, 15)]
-    public string description;
+    [Header("Deck")]
     public DeckManager heroDeck;
     [Header("Stats")]
     public int attack;
@@ -15,7 +13,6 @@ public class BaseHero : MonoBehaviour
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
-    public Team team = Team.PLAYER;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text attackText;
@@ -26,6 +23,7 @@ public class BaseHero : MonoBehaviour
     private void Start()
     {
         SetupCardText();
+        isPlayed = true;
     }
     public virtual void SetupCardText()
     {
@@ -101,6 +99,6 @@ public class BaseHero : MonoBehaviour
             Dead();
         }
 
-        UpdateAttack();
+        UpdateHealth();
     }
 }

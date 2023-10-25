@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TargetHealSpell : BaseTargetSpell
 {
+    [Header("Heal Value")]
     [SerializeField] int healValue;
 
     public override void CastAtTarget()

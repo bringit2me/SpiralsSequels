@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TargetChangeStats : BaseTargetSpell
 {
-    [Header("Damage")]
+    [Header("Stat Change")]
     [SerializeField] int attackChange;
     [SerializeField] int healthChange;
 

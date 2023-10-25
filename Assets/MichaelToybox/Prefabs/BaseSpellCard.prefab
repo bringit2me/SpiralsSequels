@@ -395,8 +395,9 @@ MonoBehaviour:
 
     Does nothing'
   team: 0
-  cardRef: {fileID: 6444843200295082626}
+  selfCardRef: {fileID: 6444843200295082626}
   deck: {fileID: 0}
+  zone: {fileID: 0}
   manaCost: 1
   isPlayed: 0
   nameText: {fileID: 7323684198740496285}

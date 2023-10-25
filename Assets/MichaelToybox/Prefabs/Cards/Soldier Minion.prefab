@@ -28,6 +28,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: selfCardRef
+      value: 
+      objectReference: {fileID: 8021749757313799538}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
       value: Soldier Minion
@@ -121,3 +125,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+--- !u!114 &8021749757313799538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  m_PrefabInstance: {fileID: 2463136992704162268}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af81db45a4b15b479702b452b3c3c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

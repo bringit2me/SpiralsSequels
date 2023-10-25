@@ -43,6 +43,10 @@ public class CombatManager : MonoBehaviour
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
             enemyHeroes.Add(hero);
 
+        //Updates minion zones
+        enemyMinionZone.RefreshMinionsInZoneList();
+        playerMinionZone.RefreshMinionsInZoneList();
+
         turnCount = 1; //resets turn count variable
         StartPlayerTurn(); //starts player turn (player goes first)
     }
@@ -117,6 +121,63 @@ public class CombatManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         EndEnemyTurn();
     }
+
+    /// <summary>
+    /// Returns all minions and heroes in play
+    /// </summary>
+    /// <returns></returns>
+    public List<BaseCard> GetAllInPlay()
+    {
+        List<BaseCard> allCards = new List<BaseCard>();
+
+        //Gets all player heroes
+        foreach (BaseCard card in playerHeroes)
+            allCards.Add(card);
+        //Gets all player minions
+        foreach (BaseCard card in playerMinions)
+            allCards.Add(card);
+        //Gets all enemy heroes
+        foreach (BaseCard card in enemyHeroes)
+            allCards.Add(card);
+        //Gets all enemy minions
+        foreach (BaseCard card in enemyMinions)
+            allCards.Add(card);
+
+        return allCards;
+    }
+    /// <summary>
+    /// Returns all player minions and player heroes in play
+    /// </summary>
+    /// <returns></returns>
+    public List<BaseCard> GetAllInPlayPlayer()
+    {
+        List<BaseCard> allCards = new List<BaseCard>();
+
+        //Gets all player heroes
+        foreach (BaseCard card in playerHeroes)
+            allCards.Add(card);
+        //Gets all player minions
+        foreach (BaseCard card in playerMinions)
+            allCards.Add(card);
+
+        return allCards;
+    }
+    /// <summary>
+    /// Returns all enemy minions and enemy heroes in play
+    /// </summary>
+    /// <returns></returns>
+    public List<BaseCard> GetAllInPlayEnemy()
+    {
+        List<BaseCard> allCards = new List<BaseCard>();
+        //Gets all enemy heroes
+        foreach (BaseCard card in enemyHeroes)
+            allCards.Add(card);
+        //Gets all enemy minions
+        foreach (BaseCard card in enemyMinions)
+            allCards.Add(card);
+
+        return allCards;
+    }
 }
 
 
@@ -129,7 +190,7 @@ public enum Team
 
 public enum TargetingInfo
 {
-    ANY,
+    ANY_OR_ALL,
     SAME,
     OPPOSITE,
     ANY_MINION,

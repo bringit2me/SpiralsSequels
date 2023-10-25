@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5915115515409759301, guid: c1322b60aa37f1f4aab313ed076ce9c8, type: 3}
       propertyPath: m_Name
-      value: BaseSpellCard Variant
+      value: BaseTargetSpell
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: c1322b60aa37f1f4aab313ed076ce9c8, type: 3}
       propertyPath: m_Pivot.x
@@ -136,8 +136,9 @@ MonoBehaviour:
   name: Base Target Spell
   description: Targets another card
   team: 0
-  cardRef: {fileID: 4415293071929653868}
+  selfCardRef: {fileID: 4415293071929653868}
   deck: {fileID: 0}
+  zone: {fileID: 0}
   manaCost: 0
   isPlayed: 0
   nameText: {fileID: 7402016914546178810}

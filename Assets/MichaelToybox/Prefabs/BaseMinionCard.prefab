@@ -692,8 +692,9 @@ MonoBehaviour:
   name: Test Minion
   description: Minion
   team: 0
-  cardRef: {fileID: 5583382633494265006}
+  selfCardRef: {fileID: 5583382633494265006}
   deck: {fileID: 0}
+  zone: {fileID: 0}
   manaCost: 1
   isPlayed: 0
   attack: 1
@@ -701,6 +702,26 @@ MonoBehaviour:
   health: 1
   canAttack: 0
   targetable: 1
+  spellDamage: 0
+  taunt: 0
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  beforeAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  afterAttack:
+    m_PersistentCalls:
+      m_Calls: []
+  startOfTurn:
+    m_PersistentCalls:
+      m_Calls: []
+  endOfTurn:
+    m_PersistentCalls:
+      m_Calls: []
   nameText: {fileID: 3155987808508573410}
   descriptionText: {fileID: 7772700304501913913}
   manaText: {fileID: 1181499625201837610}

@@ -406,8 +406,9 @@ MonoBehaviour:
   name: Training
   description: Give a friendly character +2 attack
   team: 0
-  cardRef: {fileID: 511392946141183975}
+  selfCardRef: {fileID: 511392946141183975}
   deck: {fileID: 0}
+  zone: {fileID: 0}
   manaCost: 2
   isPlayed: 0
   nameText: {fileID: 218162033887650628}

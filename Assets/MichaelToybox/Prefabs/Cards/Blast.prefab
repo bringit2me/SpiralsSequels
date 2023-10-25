@@ -270,8 +270,9 @@ MonoBehaviour:
   name: Blast
   description: Deal 2 damage to a character
   team: 0
-  cardRef: {fileID: 769307129988775393}
+  selfCardRef: {fileID: 769307129988775393}
   deck: {fileID: 0}
+  zone: {fileID: 0}
   manaCost: 2
   isPlayed: 0
   nameText: {fileID: 9031377747092585671}

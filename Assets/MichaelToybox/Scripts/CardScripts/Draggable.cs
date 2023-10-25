@@ -13,8 +13,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     void Start()
     {
-        playerManager = GameObject.FindObjectOfType<PlayerManager>();
         cardRef = this.GetComponent<BaseCard>();
+        playerManager = cardRef.playerManager;
         if (this.GetComponent<BaseMinion>() == true)
             isMinion = true;
 
@@ -42,6 +42,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
         this.transform.position = eventData.position;
+
         if (eventData.position.y >= -440 + 175)
         {
             this.transform.SetParent(transform.root);
