@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class EnemyMinionZone : PlayerMinionZone
 {
+    public override void Start()
+    {
+        //gets references
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
+        playerManager = this.GetComponentInParent<EnemyManager>();
+    }
+
     //changed from player version to check combat manager for enemyMinions instead of playerMinions
     public override bool CheckZoneFull()
     {

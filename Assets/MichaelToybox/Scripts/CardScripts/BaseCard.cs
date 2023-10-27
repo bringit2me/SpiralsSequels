@@ -10,7 +10,7 @@ public class BaseCard : MonoBehaviour
     public string description;
     public Team team;
     public BaseCard selfCardRef;
-    [HideInInspector] public PlayerManager playerManager;
+    /*[HideInInspector]*/ public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [Header("AI")]

@@ -21,6 +21,7 @@ public class BaseEnemyAI : MonoBehaviour
     public float defenseValue;
     [Header("Hand Card Values")]
     [SerializeField] List<CardValueEntry> handCardValues = new List<CardValueEntry>();
+    [SerializeField] CardValueEntry highestValueCard;
 
     //References
     protected CombatManager combatManager;
@@ -41,6 +42,11 @@ public class BaseEnemyAI : MonoBehaviour
         hand = this.GetComponent<HandManager>();
     }
 
+    public virtual void Update()
+    {
+
+    }
+
     //--- TURN MANAGEMENT ---
 
     public virtual void StartTurn()
@@ -53,9 +59,32 @@ public class BaseEnemyAI : MonoBehaviour
         StartCoroutine(StartTurnDelay());
     }
 
-    public virtual void StartPlayingCards()
+    public virtual IEnumerator PlayCards()
     {
-        //TODO: actually play cards (duh)
+        while(true)
+        {
+
+            //plays cards
+            if (highestValueCard.isMinion == true) //if our highest value card is a minion
+            {
+                Debug.Log("Playing Card");
+                minionZone.PlayMinionToZone(highestValueCard.card);
+                yield return new WaitForSeconds(0.5f);
+            }
+
+            yield return new WaitForEndOfFrame();
+
+            //reevaluates its card values and playstyle after making a play
+            DeterminePlaystyle(); //Determines its playstyle based on the current board state
+            CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
+            Debug.Log("Recalculated Playstyle and Hand Values");
+
+            if (highestValueCard.value < 0) //no good card to play
+                break; //exit loop
+
+            yield return new WaitForEndOfFrame();
+        }
+
         EndTurn();
     }
 
@@ -72,7 +101,7 @@ public class BaseEnemyAI : MonoBehaviour
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
         yield return new WaitForSeconds(2f);
-        StartPlayingCards();
+        StartCoroutine(PlayCards());
     }
 
     // --- PLAYING CARDS ---
@@ -143,6 +172,7 @@ public class BaseEnemyAI : MonoBehaviour
     public virtual void CalculateHandCardValues()
     {
         handCardValues.Clear();
+        highestValueCard = new CardValueEntry();
 
         foreach (BaseCard card in hand.handCards)
         {
@@ -152,10 +182,11 @@ public class BaseEnemyAI : MonoBehaviour
 
             if (card.manaCost <= enemyManager.mana) //if we have enough mana to play the card
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (card.GetComponent<BaseMinion>() == true && minionZone.CheckZoneFull() == true)
                 {
                     BaseMinion minion = card.GetComponent<BaseMinion>();
                     entry.value = minion.CalculateValueAI(this);
+                    entry.isMinion = true;
                 }
                 else if (card.GetComponent<BaseTargetSpell>() == true)
                 {
@@ -169,6 +200,12 @@ public class BaseEnemyAI : MonoBehaviour
                 //{
                 //    NAME nameSpell = card.GetComponent<NAME>();
                 //}
+
+                //checks if it is a higher value play than a previous card
+                if(entry.value > highestValueCard.value)
+                {
+                    highestValueCard = entry;
+                }
             }
         }
     }
@@ -189,7 +226,7 @@ public class CardValueEntry
     /// </summary>
     public float value;
     public BaseCard target;
-    //public BaseCard[] targets;
+    public bool isMinion = false;
 
     /// <summary>
     /// Base Constructor for CardValueEntry. card = null. value = -1. target = null.
@@ -200,6 +237,7 @@ public class CardValueEntry
         card = null;
         value = -1;
         target = null;
+        isMinion = false;
     }
 }
 

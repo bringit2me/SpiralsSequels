@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 
 public class PlayerMinionZone : MonoBehaviour, IDropHandler
 {
-    [SerializeField] PlayerManager playerManager;
+    [SerializeField] protected PlayerManager playerManager;
     protected CombatManager combatManager;
     [Header("")]
     [SerializeField] protected int maxMinions = 10;
 
 
 
-    void Start()
+    public virtual void Start()
     {
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
@@ -44,7 +44,8 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
     }
 
     /// <summary>
-    /// Checks if the minion zone is full
+    /// Checks if the minion zone is full (true = not full)
+    /// If playMinions.count less than maxMinions returns true
     /// </summary>
     /// <returns></returns>
     public virtual bool CheckZoneFull()
@@ -64,19 +65,46 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         //if the card is not already played
         if(card != null && CheckZoneFull() && card.GetComponent<BaseMinion>() == true && card.GetComponent<BaseMinion>().isPlayed == false)
         {
-            card.parentToReturnTo = this.transform;
-            card.GetComponent<BaseMinion>().Played(playerManager);
-
-            //Returns card to parentToReturnTo
-            card.transform.SetParent(this.transform);
-
-            //Turns on raycast blocking
-            card.GetComponent<CanvasGroup>().blocksRaycasts = true;
-
-            //updates minion zone list
-            RefreshMinionsInZoneList();
-            //tells combat manager to update all cards in play
-            combatManager.UpdateAllCardsInPlay();
+            PlayMinionToZone(card);
         }
+    }
+
+    public virtual void PlayMinionToZone(Draggable card)
+    {
+        card.parentToReturnTo = this.transform;
+        card.GetComponent<BaseMinion>().Played(playerManager);
+
+        //Returns card to parentToReturnTo
+        card.transform.SetParent(this.transform);
+
+        //Turns on raycast blocking
+        card.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        //updates minion zone list
+        RefreshMinionsInZoneList();
+        //tells combat manager to update all cards in play
+        combatManager.UpdateAllCardsInPlay();
+    }
+    public virtual void PlayMinionToZone(BaseCard card)
+    {
+        if (card.GetComponent<BaseMinion>() == false)
+        {
+            Debug.LogWarning("MICHAEL WARNING: card tried to be played to minion zone, but it is not of type BaseMinion");
+            return;
+        }
+
+        card.GetComponent<Draggable>().parentToReturnTo = this.transform;
+        card.GetComponent<BaseMinion>().Played(playerManager);
+
+        //Returns card to parentToReturnTo
+        card.transform.SetParent(this.transform);
+
+        //Turns on raycast blocking
+        card.GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+        //updates minion zone list
+        RefreshMinionsInZoneList();
+        //tells combat manager to update all cards in play
+        combatManager.UpdateAllCardsInPlay();
     }
 }
