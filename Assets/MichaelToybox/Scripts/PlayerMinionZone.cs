@@ -21,7 +21,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
     /// <summary>
     /// Resets the minionsInZone list, then updates the minionsInZone list by checking all child objects of type BaseMinion underneath the zone
     /// </summary>
-    public void RefreshMinionsInZoneList()
+    public virtual void RefreshMinionsInZoneList()
     {
         combatManager.playerMinions.Clear(); //clears minion list
 
@@ -75,6 +75,8 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
 
             //updates minion zone list
             RefreshMinionsInZoneList();
+            //tells combat manager to update all cards in play
+            combatManager.UpdateAllCardsInPlay();
         }
     }
 }

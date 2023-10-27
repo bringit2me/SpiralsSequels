@@ -6,23 +6,25 @@ public class HandManager : MonoBehaviour
 {
     public GameObject handHolder;
     public PlayerManager playerManager;
+    public List<BaseCard> handCards;
 
     public void AddCardToHand(BaseCard card, DeckManager deck)
     {
-        BaseCard temp = Instantiate(card, handHolder.transform);
-        temp.playerManager = playerManager;
-        temp.deck = deck;
-        temp.selfCardRef = card;
-        temp.team = playerManager.team;
+        BaseCard temp = Instantiate(card, handHolder.transform); //creates card
+        temp.playerManager = playerManager; //sets player manager reference
+        temp.deck = deck; //sets deck reference
+        temp.selfCardRef = card; //sets self card reference
+        temp.team = playerManager.team; //sets team 
+        handCards.Add(temp); //adss card to hand list
     }
 
     /// <summary>
-    /// Adds all cards that are a child of the hand object to their decks discard pile
+    /// Adds all cards that are in the handCards list to their decks discard pile
     /// Destroys the card
     /// </summary>
     public void DiscardHand()
     {
-        foreach(BaseCard card in handHolder.transform.GetComponentsInChildren<BaseCard>())
+        foreach(BaseCard card in handCards)
         {
             if(card.deck != null)
             {
@@ -32,7 +34,15 @@ public class HandManager : MonoBehaviour
             {
                 Debug.LogWarning("MICHAEL WARN: Card discarded without a discard pile");
             }
+
             Destroy(card.gameObject);
         }
+
+        handCards.Clear();
+    }
+
+    public void RemoveCardFromHand(BaseCard card)
+    {
+        handCards.Remove(card);
     }
 }

@@ -52,14 +52,13 @@ public class BaseHero : BaseCard
         target.TakeDamage(attack);
         canAttack = false;
     }
-    /// <summary>
-    /// Damages hero
-    /// </summary>
-    /// <param name="value"></param>
+    // --- TAKING DAMAGE ---
+
     public virtual void TakeDamage(int value)
     {
-        if (value > 0)
-            health -= value;
+        int calculatedValue = CalculateTakeDamage(value);
+
+        health -= calculatedValue;
 
         if (health <= 0)
         {
@@ -69,29 +68,59 @@ public class BaseHero : BaseCard
         UpdateHealth();
     }
 
+    public virtual int CalculateTakeDamage(int value)
+    {
+        if (value < 0)
+            value = 0;
+        return value;
+    }
+
+    // --- HEALING ---
+
     public virtual void Heal(int value)
     {
+        int calculatedValue = CalculateHeal(value);
+
+        health = calculatedValue;
+
         health = Mathf.Clamp(health + value, 0, maxHealth);
 
         UpdateHealth();
     }
 
-    public virtual void Dead()
+    public virtual int CalculateHeal(int value)
     {
-        //TODO: Figure something out
-        //Destroy(this.gameObject);
+        if (value < 0)
+            value = 0;
+
+        value = Mathf.Clamp(health + value, 0, maxHealth);
+
+        return value;
     }
+
+    // --- CHANGING STATS ---
 
     public virtual void ChangeAttack(int value)
     {
-        attack += value;
+        attack += CalculateAttackChange(value);
 
         UpdateAttack();
     }
 
+    public virtual int CalculateAttackChange(int value)
+    {
+        value = attack + value;
+
+        if (value < 0)
+            value = 0;
+
+        return value;
+
+    }
+
     public virtual void ChangeHealth(int value)
     {
-        health += value;
+        health += CalculateHealthChange(value);
         maxHealth += value;
 
         if (health <= 0)
@@ -100,5 +129,18 @@ public class BaseHero : BaseCard
         }
 
         UpdateHealth();
+    }
+
+    public virtual int CalculateHealthChange(int value)
+    {
+        value = health + value;
+
+        return value;
+    }
+
+    public virtual void Dead()
+    {
+        //TODO: add hero death
+        //Destroy(this.gameObject);
     }
 }

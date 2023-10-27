@@ -9,14 +9,20 @@ public class BoardStateInformation : MonoBehaviour
     public int playerMinionCount;
     public int playerTotalAttack;
     public int playerTotalHeroAttack;
+    public int playerTotalMinionAttack;
     public int playerTotalHealth;
     public int playerTotalHeroHealth;
+    public int playerTotalHeroMaxHealth;
+    public int playerTotalMinionHealth;
     [Header("Generic Info Enemy")]
     public int enemyMinionCount;
     public int enemyTotalAttack;
     public int enemyTotalHeroAttack;
+    public int enemyTotalMinionAttack;
     public int enemyTotalHealth;
     public int enemyTotalHeroHealth;
+    public int enemyTotalHeroMaxHealth;
+    public int enemyTotalMinionHealth;
 
     private void Start()
     {
@@ -46,13 +52,18 @@ public class BoardStateInformation : MonoBehaviour
         playerMinionCount = 0;
         playerTotalAttack = 0;
         playerTotalHeroAttack = 0;
+        playerTotalMinionAttack = 0;
         playerTotalHealth = 0;
         playerTotalHeroHealth = 0;
+        playerTotalHeroMaxHealth = 0;
+        playerTotalMinionHealth = 0;
 
-        foreach(BaseMinion minion in combatManager.playerMinions) //loops through player minions
+        foreach (BaseMinion minion in combatManager.playerMinions) //loops through player minions
         {
             playerTotalAttack += minion.attack;
+            playerTotalMinionAttack += minion.attack;
             playerTotalHealth += minion.health;
+            playerTotalMinionHealth += minion.health;
             playerMinionCount += 1;
         }
 
@@ -62,6 +73,7 @@ public class BoardStateInformation : MonoBehaviour
             playerTotalHeroAttack += hero.attack;
             playerTotalHealth += hero.health;
             playerTotalHeroHealth += hero.health;
+            playerTotalHeroMaxHealth += hero.maxHealth;
         }
     }
 
@@ -76,13 +88,18 @@ public class BoardStateInformation : MonoBehaviour
         enemyMinionCount = 0;
         enemyTotalAttack = 0;
         enemyTotalHeroAttack = 0;
+        enemyTotalMinionAttack = 0;
         enemyTotalHealth = 0;
         enemyTotalHeroHealth = 0;
+        enemyTotalHeroMaxHealth = 0;
+        enemyTotalMinionHealth = 0;
 
         foreach (BaseMinion minion in combatManager.enemyMinions) //loops through enemy minions
         {
             enemyTotalAttack += minion.attack;
+            enemyTotalMinionAttack += minion.attack;
             enemyTotalHealth += minion.health;
+            enemyTotalMinionHealth += minion.health;
             enemyMinionCount += 1;
         }
 
@@ -92,6 +109,7 @@ public class BoardStateInformation : MonoBehaviour
             enemyTotalHeroAttack += hero.attack;
             enemyTotalHealth += hero.health;
             enemyTotalHeroHealth += hero.health;
+            enemyTotalHeroMaxHealth += hero.maxHealth;
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    public List<BaseCard> allCardsInPlay;
     [Header("Player Information")]
     public PlayerManager playerManager;
     public PlayerMinionZone playerMinionZone;
@@ -20,6 +21,7 @@ public class CombatManager : MonoBehaviour
     public List<BaseMinion> enemyMinions;
     public GameObject enemyHolder;
     [SerializeField] BoardStateInformation boardInfo;
+    [SerializeField] BaseEnemyAI enemyAI;
 
     [Header("Combat State")]
     public CombatState  state = CombatState.STARTING;
@@ -39,6 +41,7 @@ public class CombatManager : MonoBehaviour
         //we are getting these references on combat start because I plan to load new combat scenerios under the enemyHolder object
         enemyManager = enemyHolder.GetComponentInChildren<EnemyManager>(); //enemy manager reference
         enemyMinionZone = enemyHolder.GetComponentInChildren<EnemyMinionZone>(); //enemy minion zone reference
+        enemyAI = enemyHolder.GetComponentInChildren<BaseEnemyAI>(); //enemy AI reference
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
             enemyHeroes.Add(hero);
@@ -46,6 +49,8 @@ public class CombatManager : MonoBehaviour
         //Updates minion zones
         enemyMinionZone.RefreshMinionsInZoneList();
         playerMinionZone.RefreshMinionsInZoneList();
+        //Updates all cards in play
+        UpdateAllCardsInPlay();
 
         turnCount = 1; //resets turn count variable
         StartPlayerTurn(); //starts player turn (player goes first)
@@ -86,7 +91,9 @@ public class CombatManager : MonoBehaviour
         foreach (BaseHero hero in enemyHeroes)
             hero.canAttack = true;
 
-        StartCoroutine(TempEndEnemyTurnDelay());
+        enemyAI.StartTurn(); //tells ai to start its turn
+
+        //THIS WAS FOR TESTING: StartCoroutine(TempEndEnemyTurnDelay());
     }
 
     public void EndEnemyTurn()
@@ -122,28 +129,35 @@ public class CombatManager : MonoBehaviour
         EndEnemyTurn();
     }
 
+    public void UpdateAllCardsInPlay()
+    {
+        //Updates minion zones
+        enemyMinionZone.RefreshMinionsInZoneList();
+        playerMinionZone.RefreshMinionsInZoneList();
+
+        allCardsInPlay.Clear(); //clears all cards in play list
+
+            //Gets all player heroes
+        foreach (BaseCard card in playerHeroes)
+            allCardsInPlay.Add(card);
+        //Gets all player minions
+        foreach (BaseCard card in playerMinions)
+            allCardsInPlay.Add(card);
+        //Gets all enemy heroes
+        foreach (BaseCard card in enemyHeroes)
+            allCardsInPlay.Add(card);
+        //Gets all enemy minions
+        foreach (BaseCard card in enemyMinions)
+            allCardsInPlay.Add(card);
+    }
+
     /// <summary>
     /// Returns all minions and heroes in play
     /// </summary>
     /// <returns></returns>
     public List<BaseCard> GetAllInPlay()
     {
-        List<BaseCard> allCards = new List<BaseCard>();
-
-        //Gets all player heroes
-        foreach (BaseCard card in playerHeroes)
-            allCards.Add(card);
-        //Gets all player minions
-        foreach (BaseCard card in playerMinions)
-            allCards.Add(card);
-        //Gets all enemy heroes
-        foreach (BaseCard card in enemyHeroes)
-            allCards.Add(card);
-        //Gets all enemy minions
-        foreach (BaseCard card in enemyMinions)
-            allCards.Add(card);
-
-        return allCards;
+        return allCardsInPlay;
     }
     /// <summary>
     /// Returns all player minions and player heroes in play

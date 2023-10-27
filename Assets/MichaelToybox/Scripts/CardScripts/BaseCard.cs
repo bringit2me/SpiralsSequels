@@ -13,6 +13,8 @@ public class BaseCard : MonoBehaviour
     [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
+    [Header("AI")]
+    public int valueBoostAI = 0;
     [Header("Stats")]
     public int manaCost;
     public bool isPlayed = false;
@@ -37,6 +39,7 @@ public class BaseCard : MonoBehaviour
         //sets is played to true
         isPlayed = true;
         this.playerManager = playerManager;
+        playerManager.handManager.RemoveCardFromHand(this);
     }
 
     /// <summary>
@@ -49,4 +52,14 @@ public class BaseCard : MonoBehaviour
         //Updates mana text
         playerManager.UpdateManaText();
     }
+
+    public virtual int CalculateValueAI(BaseEnemyAI ai)
+    {
+        return 0;
+    }
+
+    public float ValueToPercent(float value)
+    {
+        return 1 + (value / 100);
+    }    
 }

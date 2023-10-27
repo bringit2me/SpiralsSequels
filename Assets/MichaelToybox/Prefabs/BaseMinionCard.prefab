@@ -693,8 +693,11 @@ MonoBehaviour:
   description: Minion
   team: 0
   selfCardRef: {fileID: 5583382633494265006}
+  playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  valueBoostAI: 0
+  cardValue: 0
   manaCost: 1
   isPlayed: 0
   attack: 1

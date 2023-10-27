@@ -11,4 +11,15 @@ public class EnemyMinionZone : PlayerMinionZone
             return true;
         return false;
     }
+
+    public override void RefreshMinionsInZoneList()
+    {
+        combatManager.enemyMinions.Clear(); //clears minion list
+
+        foreach (BaseMinion card in transform.GetComponentsInChildren<BaseMinion>()) //loops through all child objects of type BaseMinion
+        {
+            combatManager.enemyMinions.Add(card);
+            card.zone = this;
+        }
+    }
 }

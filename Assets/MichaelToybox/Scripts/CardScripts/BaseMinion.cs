@@ -32,6 +32,12 @@ public class BaseMinion : BaseCard
     public virtual void Start()
     {
         SetupCardText();
+        //If this minion starts out played
+        if(isPlayed == true)
+        {
+            this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
+            this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
+        }
     }
 
     // --- CARD SETUP ---
@@ -81,12 +87,16 @@ public class BaseMinion : BaseCard
         target.TakeDamage(attack);
         canAttack = false;
     }
+
+    // --- TAKING DAMAGE ---
+
     public virtual void TakeDamage(int value)
     {
-        if(value > 0)
-            health -= value;
+        int calculatedValue = CalculateTakeDamage(value);
 
-        if(health <= 0)
+        health -= calculatedValue;
+
+        if (health <= 0)
         {
             Dead();
         }
@@ -94,28 +104,59 @@ public class BaseMinion : BaseCard
         UpdateHealth();
     }
 
+    public virtual int CalculateTakeDamage(int value)
+    {
+        if (value < 0)
+            value = 0;
+        return value;
+    }
+
+    // --- HEALING ---
+
     public virtual void Heal(int value)
     {
+        int calculatedValue = CalculateHeal(value);
+
+        health = calculatedValue;
+
         health = Mathf.Clamp(health + value, 0, maxHealth);
 
         UpdateHealth();
     }
 
-    public virtual void Dead()
+    public virtual int CalculateHeal(int value)
     {
-        Destroy(this.gameObject);
+        if (value < 0)
+            value = 0;
+
+        value = Mathf.Clamp(health + value, 0, maxHealth);
+
+        return value;
     }
+
+    // --- CHANGING STATS ---
 
     public virtual void ChangeAttack(int value)
     {
-        attack += value;
+        attack += CalculateAttackChange(value);
 
         UpdateAttack();
     }
 
+    public virtual int CalculateAttackChange(int value)
+    {
+        value = attack + value;
+
+        if (value < 0)
+            value = 0;
+
+        return value;
+
+    }
+
     public virtual void ChangeHealth(int value)
     {
-        health += value;
+        health += CalculateHealthChange(value);
         maxHealth += value;
 
         if (health <= 0)
@@ -124,5 +165,43 @@ public class BaseMinion : BaseCard
         }
 
         UpdateHealth();
+    }
+
+    public virtual int CalculateHealthChange(int value)
+    {
+        value = health + value;
+
+        return value;
+    }
+
+    public virtual void Dead()
+    {
+        Destroy(this.gameObject);
+    }
+
+    //--- AI EVALUATION ---
+
+    public override int CalculateValueAI(BaseEnemyAI ai)
+    {
+        int value = 0;
+        //Adds stats
+        value += attack;
+        value += health;
+        //Adds spell damage
+        value += spellDamage;
+        //Adds 1 if the minion has taunt
+        if(taunt == true)
+            value += 1;
+
+        value -= manaCost;
+
+        if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE) //checks if AI is agressive
+            value = (int)(value * ValueToPercent(ai.aggroValue));
+        else if (ai.playstyle == EnemyPlaystyle.MID_RANGE) //checks if AI is midrange
+            value = (int)(value * ValueToPercent(ai.midRangeValue));
+        else if (taunt == true && ai.playstyle == EnemyPlaystyle.DEFENSIVE) //checks if minion has taunt and AI is defensive
+            value = (int)(value * ValueToPercent(ai.defenseValue));
+
+        return value;
     }
 }

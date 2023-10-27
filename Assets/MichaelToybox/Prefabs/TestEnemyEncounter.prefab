@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  maxMinions: 10
 --- !u!1 &2349184600390917064
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5988903000958677581}
+  - component: {fileID: 2591031668232511063}
   - component: {fileID: 6656672012196628194}
   - component: {fileID: 995553015442731196}
   m_Layer: 5
@@ -472,6 +474,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2591031668232511063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8652772525276964840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbd0146cdf8228458aee486b79607d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAITurn: 0
+  detectsLethal: 0
+  detectsWillDieNextTurn: 0
+  thinksItIsLosing: 0
+  playstyle: 0
+  aggroValueBoost: 0
+  aggroValue: 0
+  midRangeValueBoost: 0
+  midRangeValue: 0
+  defenseValueBoost: 0
+  defenseValue: 0
+  handCardValues: []
 --- !u!114 &6656672012196628194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handHolder: {fileID: 2349184600390917064}
   playerManager: {fileID: 6656672012196628194}
+  handCards: []
 --- !u!1 &8893532050048561380
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,21 +586,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   discardPile: []
 --- !u!1001 &3546572325050124025
 PrefabInstance:
@@ -593,7 +615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: health
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: cardRef
@@ -601,8 +623,36 @@ PrefabInstance:
       objectReference: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: maxHealth
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[0]
+      value: 
+      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[1]
+      value: 
+      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[2]
+      value: 
+      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[3]
+      value: 
+      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[4]
+      value: 
+      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[5]
+      value: 
+      objectReference: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
     - target: {fileID: 6079820614456225481, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: m_Name
       value: Enemy Hero Portrait
@@ -736,12 +786,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: attack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: health
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: isPlayed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: manaCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: canAttack
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: maxHealth
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
