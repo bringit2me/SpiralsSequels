@@ -75,6 +75,7 @@ public class BaseMinion : BaseCard
 
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
+        deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
     }
 
     public virtual void AttackMinion(BaseMinion target)
