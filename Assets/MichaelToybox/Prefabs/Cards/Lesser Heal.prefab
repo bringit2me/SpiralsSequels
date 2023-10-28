@@ -133,7 +133,7 @@ MonoBehaviour:
   descriptionText: {fileID: 259957784705543288}
   manaText: {fileID: 8395219002036927105}
   target: {fileID: 0}
-  targetTeam: 1
+  targetTeam: 0
   healValue: 3
 --- !u!1 &2318246907973565119
 GameObject:

@@ -118,19 +118,25 @@ public class BaseMinion : BaseCard
     {
         int calculatedValue = CalculateHeal(value);
 
-        health = calculatedValue;
+        health += calculatedValue;
 
-        health = Mathf.Clamp(health + value, 0, maxHealth);
+        health = Mathf.Clamp(health, 0, maxHealth);
 
         UpdateHealth();
     }
 
     public virtual int CalculateHeal(int value)
     {
-        if (value < 0)
+        if (value < 0) 
             value = 0;
 
-        value = Mathf.Clamp(health + value, 0, maxHealth);
+        if (health + value > maxHealth)
+        {
+            Debug.Log("Heal Value before overheal check: " + value);
+            value = maxHealth - health;
+        }
+
+        Debug.Log("Heal Value: " + value);
 
         return value;
     }
@@ -146,13 +152,7 @@ public class BaseMinion : BaseCard
 
     public virtual int CalculateAttackChange(int value)
     {
-        value = attack + value;
-
-        if (value < 0)
-            value = 0;
-
         return value;
-
     }
 
     public virtual void ChangeHealth(int value)
@@ -170,8 +170,6 @@ public class BaseMinion : BaseCard
 
     public virtual int CalculateHealthChange(int value)
     {
-        value = health + value;
-
         return value;
     }
 

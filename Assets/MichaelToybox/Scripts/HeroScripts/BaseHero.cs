@@ -81,9 +81,9 @@ public class BaseHero : BaseCard
     {
         int calculatedValue = CalculateHeal(value);
 
-        health = calculatedValue;
+        health += calculatedValue;
 
-        health = Mathf.Clamp(health + value, 0, maxHealth);
+        health = Mathf.Clamp(health, 0, maxHealth);
 
         UpdateHealth();
     }
@@ -93,7 +93,9 @@ public class BaseHero : BaseCard
         if (value < 0)
             value = 0;
 
-        value = Mathf.Clamp(health + value, 0, maxHealth);
+
+        if (health + value > maxHealth)
+            value = maxHealth - health;
 
         return value;
     }
@@ -102,25 +104,19 @@ public class BaseHero : BaseCard
 
     public virtual void ChangeAttack(int value)
     {
-        attack = CalculateAttackChange(value);
+        attack += CalculateAttackChange(value);
 
         UpdateAttack();
     }
 
     public virtual int CalculateAttackChange(int value)
     {
-        value = attack + value;
-
-        if (value < 0)
-            value = 0;
-
         return value;
-
     }
 
     public virtual void ChangeHealth(int value)
     {
-        health = CalculateHealthChange(value);
+        health += CalculateHealthChange(value);
         maxHealth += value;
 
         if (health <= 0)
@@ -133,8 +129,6 @@ public class BaseHero : BaseCard
 
     public virtual int CalculateHealthChange(int value)
     {
-        value = health + value;
-
         return value;
     }
 
