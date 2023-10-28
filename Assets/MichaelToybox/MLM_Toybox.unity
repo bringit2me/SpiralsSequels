@@ -572,6 +572,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 19383104440221293, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: deck.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 19383104440221293, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: deck.Array.data[12]
+      value: 
+      objectReference: {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
+    - target: {fileID: 19383104440221293, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: deck.Array.data[13]
+      value: 
+      objectReference: {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
+    - target: {fileID: 19383104440221293, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: deck.Array.data[14]
+      value: 
+      objectReference: {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
     - target: {fileID: 597432454310206421, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

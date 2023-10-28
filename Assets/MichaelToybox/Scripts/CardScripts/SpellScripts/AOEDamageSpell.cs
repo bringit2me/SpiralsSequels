@@ -23,4 +23,40 @@ public class AOEDamageSpell : BaseAOESpell
         }
         EndCast();
     }
+
+    public override int CalculateValueAI(BaseEnemyAI ai)
+    {
+        int value = 0;
+        List<BaseCard> targets = GetTargets(); //gets all targets of the spell
+
+        foreach (BaseCard card in targets)
+        {
+            if (card.team == ai.team) //if the target is on the same team as the AI
+            {
+                if (card.GetComponent<BaseMinion>() == true)
+                {
+                    value -= card.GetComponent<BaseMinion>().CalculateTakeDamage(damage);
+                }
+                else if (card.GetComponent<BaseHero>() == true)
+                {
+                    value -= card.GetComponent<BaseHero>().CalculateTakeDamage(damage);
+                }
+            }
+            else //target is on the opposite team
+            {
+                if (card.GetComponent<BaseMinion>() == true)
+                {
+                    value += card.GetComponent<BaseMinion>().CalculateTakeDamage(damage);
+                }
+                else if (card.GetComponent<BaseHero>() == true)
+                {
+                    value += card.GetComponent<BaseHero>().CalculateTakeDamage(damage);
+                }
+            }
+        }
+
+        value -= manaCost; //subtracts mana cost
+
+        return value;
+    }
 }

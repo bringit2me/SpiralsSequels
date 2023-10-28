@@ -15,7 +15,7 @@ public class BaseAOESpell : BaseSpell
     }
 
     /// <summary>
-    /// Gets all card based on the targetTeam
+    /// Gets all cards to target based on the targetTeam
     /// </summary>
     /// <returns></returns>
     public virtual List<BaseCard> GetTargets()

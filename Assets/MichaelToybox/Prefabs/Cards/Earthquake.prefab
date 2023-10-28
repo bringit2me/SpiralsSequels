@@ -559,7 +559,7 @@ MonoBehaviour:
   deck: {fileID: 0}
   zone: {fileID: 0}
   valueBoostAI: 0
-  manaCost: 2
+  manaCost: 4
   isPlayed: 0
   nameText: {fileID: 2116493579043745912}
   descriptionText: {fileID: 7752814641430209456}

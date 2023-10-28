@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BaseEnemyAI : MonoBehaviour
 {
+    public Team team;
     [Header("AI Brain Bools")]
     public bool isAITurn;
     public bool detectsLethal;
@@ -40,6 +41,8 @@ public class BaseEnemyAI : MonoBehaviour
         enemyManager = this.GetComponent<EnemyManager>();
         minionZone = this.GetComponentInChildren<EnemyMinionZone>();
         hand = this.GetComponent<HandManager>();
+        //Sets team
+        team = enemyManager.team;
     }
 
     public virtual void Update()
@@ -63,12 +66,19 @@ public class BaseEnemyAI : MonoBehaviour
     {
         while(true)
         {
+            if (highestValueCard.value < 0) //no good card to play
+                break; //exit loop
 
             //plays cards
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
             {
                 Debug.Log("Playing Card");
                 minionZone.PlayMinionToZone(highestValueCard.card);
+                yield return new WaitForSeconds(0.5f);
+            }
+            else //highest value card is not a minion
+            {
+                highestValueCard.card.Played(enemyManager); //plays the spell
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -97,7 +107,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     IEnumerator StartTurnDelay()
     {
-        yield return new WaitForSeconds(0.125f * 6f);
+        yield return new WaitForSeconds(0.125f * (enemyManager.drawCountNeutral + enemyManager.drawCountHero));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
         yield return new WaitForSeconds(2f);
@@ -196,6 +206,7 @@ public class BaseEnemyAI : MonoBehaviour
                 else if (card.GetComponent<BaseAOESpell>() == true)
                 {
                     BaseAOESpell aoeSpell = card.GetComponent<BaseAOESpell>();
+                    entry.value = aoeSpell.CalculateValueAI(this);
                 }
                 //else if (card.GetComponent<NAME>() == true)
                 //{

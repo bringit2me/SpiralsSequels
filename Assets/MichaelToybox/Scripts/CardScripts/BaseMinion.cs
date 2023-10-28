@@ -131,12 +131,9 @@ public class BaseMinion : BaseCard
             value = 0;
 
         if (health + value > maxHealth)
-        {
-            Debug.Log("Heal Value before overheal check: " + value);
             value = maxHealth - health;
-        }
 
-        Debug.Log("Heal Value: " + value);
+        Debug.Log("Heal Value: " + value + " | " + name);
 
         return value;
     }
