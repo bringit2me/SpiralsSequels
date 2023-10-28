@@ -102,7 +102,7 @@ public class BaseHero : BaseCard
 
     public virtual void ChangeAttack(int value)
     {
-        attack += CalculateAttackChange(value);
+        attack = CalculateAttackChange(value);
 
         UpdateAttack();
     }
@@ -120,7 +120,7 @@ public class BaseHero : BaseCard
 
     public virtual void ChangeHealth(int value)
     {
-        health += CalculateHealthChange(value);
+        health = CalculateHealthChange(value);
         maxHealth += value;
 
         if (health <= 0)

@@ -407,15 +407,17 @@ MonoBehaviour:
   description: Give a friendly character +2 attack
   team: 0
   selfCardRef: {fileID: 511392946141183975}
+  playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  valueBoostAI: 0
   manaCost: 2
   isPlayed: 0
   nameText: {fileID: 218162033887650628}
   descriptionText: {fileID: 3151317844028420878}
   manaText: {fileID: 3186520391358335900}
   target: {fileID: 5120491790246538891}
-  targetTeam: 0
+  targetTeam: 1
   attackChange: 2
   healthChange: 0
 --- !u!225 &6058189811883431761

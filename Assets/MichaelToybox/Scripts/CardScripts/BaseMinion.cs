@@ -177,7 +177,9 @@ public class BaseMinion : BaseCard
 
     public virtual void Dead()
     {
-        Destroy(this.gameObject);
+        this.transform.SetParent(transform.root);
+        GameObject.FindObjectOfType<CombatManager>().UpdateAllCardsInPlay(); //updates cards in play
+        Destroy(this.gameObject,0.25f);
     }
 
     //--- AI EVALUATION ---

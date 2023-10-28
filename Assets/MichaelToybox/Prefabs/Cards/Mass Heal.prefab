@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1208697674822520600}
   - component: {fileID: 2531525273485835337}
   m_Layer: 5
-  m_Name: Enemy Healizer
+  m_Name: Mass Heal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,19 +403,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017fd867cf514a24092f517a1806df32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Enemy Healizer
-  description: Restore +4 health to all enemy heroes
+  name: Mass Heal
+  description: Restore 4 health to all friendly minions and heroes
   team: 0
   selfCardRef: {fileID: 0}
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
-  manaCost: 1
+  valueBoostAI: 0
+  manaCost: 3
   isPlayed: 0
   nameText: {fileID: 4662519104434035972}
   descriptionText: {fileID: 1804440496501353836}
   manaText: {fileID: 1761156657338033981}
-  targetTeam: 8
+  targetTeam: 1
   targets: []
   healValue: 4
 --- !u!225 &2531525273485835337

@@ -120,18 +120,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Lesser Heal
-  description: Restore 3 health to a hero
+  description: Restore 3 health to a friendly minion or hero
   team: 0
   selfCardRef: {fileID: 8780554375917702300}
+  playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
-  manaCost: 2
+  valueBoostAI: 0
+  manaCost: 1
   isPlayed: 0
   nameText: {fileID: 4019316992763191766}
   descriptionText: {fileID: 259957784705543288}
   manaText: {fileID: 8395219002036927105}
   target: {fileID: 0}
-  targetTeam: 6
+  targetTeam: 1
   healValue: 3
 --- !u!1 &2318246907973565119
 GameObject:

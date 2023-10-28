@@ -552,18 +552,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Earthquake
-  description: Deal 2 damage to all heroes and minions
+  description: Deal 2 damage to all enemy minions and heroes
   team: 0
   selfCardRef: {fileID: 7813021795315028859}
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  valueBoostAI: 0
   manaCost: 2
   isPlayed: 0
   nameText: {fileID: 2116493579043745912}
   descriptionText: {fileID: 7752814641430209456}
   manaText: {fileID: 8598408232230574989}
-  targetTeam: 0
+  targetTeam: 2
   targets: []
   damage: 2
 --- !u!225 &4420422027152808545

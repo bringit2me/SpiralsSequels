@@ -131,6 +131,7 @@ public class BaseEnemyAI : MonoBehaviour
     public virtual void DetermineAggroValue()
     {
         int rawValue = 0;
+
         //subtracts enemies total attack from players total attack
         rawValue += boardInfo.enemyTotalAttack - boardInfo.playerTotalAttack;
 

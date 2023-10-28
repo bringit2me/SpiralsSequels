@@ -391,18 +391,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Bloodlust
-  description: Give all friendly characters +2 attack and +1 health
+  description: Give all friendly minions +2 attack and +1 health
   team: 0
   selfCardRef: {fileID: 8642663637650953535}
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  valueBoostAI: 0
   manaCost: 3
   isPlayed: 0
   nameText: {fileID: 7894047161459747264}
   descriptionText: {fileID: 3951788149468098532}
   manaText: {fileID: 8298847266322944791}
-  targetTeam: 1
+  targetTeam: 4
   targets: []
   attackChange: 2
   healthChange: 1
