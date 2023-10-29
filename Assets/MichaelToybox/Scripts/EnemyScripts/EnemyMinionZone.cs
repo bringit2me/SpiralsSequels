@@ -29,4 +29,11 @@ public class EnemyMinionZone : PlayerMinionZone
             card.zone = this;
         }
     }
+    public override void EnableMinionAttacks()
+    {
+        foreach (BaseMinion card in combatManager.enemyMinions)
+        {
+            card.canAttack = true;
+        }
+    }
 }

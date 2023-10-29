@@ -61,5 +61,5 @@ public class BaseCard : MonoBehaviour
     public float ValueToPercent(float value)
     {
         return 1 + (value / 100);
-    }    
+    } 
 }

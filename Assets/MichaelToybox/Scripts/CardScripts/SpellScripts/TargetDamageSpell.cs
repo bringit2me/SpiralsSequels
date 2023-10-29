@@ -25,9 +25,9 @@ public class TargetDamageSpell : BaseTargetSpell
     {
         CardValueEntry entry = new CardValueEntry();
         entry.card = this;
-        List<BaseCard> targets = GetTargets(); //gets all potential targets of the spell
+        List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all potential targets of the spell
 
-        foreach(BaseCard card in targets)
+        foreach (BaseCard card in targets)
         {
             int value = 0;
             //Gets minion reference. if card is not a minion it will be null

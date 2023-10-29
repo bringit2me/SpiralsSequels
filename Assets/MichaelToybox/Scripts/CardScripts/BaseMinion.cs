@@ -153,7 +153,7 @@ public class BaseMinion : BaseCard
 
     public virtual int CalculateAttackChange(int value)
     {
-        if (attack - value < 0)
+        if (attack + value < 0)
             value = attack;
 
         return value;
@@ -212,7 +212,6 @@ public class BaseMinion : BaseCard
 
     public virtual int CalculateDeathValue()
     {
-
         return attack + deathValueBoostAI;
     }
 }

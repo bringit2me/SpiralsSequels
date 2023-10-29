@@ -192,6 +192,103 @@ public class CombatManager : MonoBehaviour
 
         return allCards;
     }
+
+    /// <summary>
+    /// Gets all cards to target based on the targetTeam
+    /// </summary>
+    /// <returns></returns>
+    public virtual List<BaseCard> GetTargets(Team team, TargetingInfo targetTeam)
+    {
+        List<BaseCard> targetList = new List<BaseCard>();
+
+        //getting all cards in play
+        if (targetTeam == TargetingInfo.ANY_OR_ALL)
+        {
+            targetList = GetAllInPlay();
+        }
+        //Gets all minions in play
+        else if (targetTeam == TargetingInfo.ANY_MINION)
+        {
+            foreach (BaseCard card in playerMinions)
+                targetList.Add(card);
+            foreach (BaseCard card in enemyMinions)
+                targetList.Add(card);
+        }
+        //Gets all heroes in play
+        else if (targetTeam == TargetingInfo.ANY_HERO)
+        {
+            foreach (BaseCard card in playerHeroes)
+                targetList.Add(card);
+            foreach (BaseCard card in enemyHeroes)
+                targetList.Add(card);
+        }
+        //This card is on the player team
+        else if (team == Team.PLAYER)
+        {
+            if (targetTeam == TargetingInfo.SAME)
+            {
+                targetList = GetAllInPlayPlayer();
+            }
+            else if (targetTeam == TargetingInfo.SAME_HERO)
+            {
+                foreach (BaseCard card in playerHeroes)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.SAME_MINION)
+            {
+                foreach (BaseCard card in playerMinions)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE)
+            {
+                targetList = GetAllInPlayEnemy();
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE_HERO)
+            {
+                foreach (BaseCard card in enemyHeroes)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE_MINION)
+            {
+                foreach (BaseCard card in enemyMinions)
+                    targetList.Add(card);
+            }
+        }
+        //This card is on the enemy team
+        else if (team == Team.ENEMY)
+        {
+            if (targetTeam == TargetingInfo.SAME)
+            {
+                targetList = GetAllInPlayEnemy();
+            }
+            else if (targetTeam == TargetingInfo.SAME_HERO)
+            {
+                foreach (BaseCard card in enemyHeroes)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.SAME_MINION)
+            {
+                foreach (BaseCard card in enemyMinions)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE)
+            {
+                targetList = GetAllInPlayPlayer();
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE_HERO)
+            {
+                foreach (BaseCard card in playerHeroes)
+                    targetList.Add(card);
+            }
+            else if (targetTeam == TargetingInfo.OPPOSITE_MINION)
+            {
+                foreach (BaseCard card in playerMinions)
+                    targetList.Add(card);
+            }
+        }
+
+        return targetList;
+    }
 }
 
 

@@ -34,30 +34,35 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
 
         if (hit.gameObject != null && card.canAttack == true) //if we hit a game object and this minion can attack
         {
-            if (hit.gameObject.GetComponent<BaseMinion>() == true) //if we hit a minion
-            {
-                //gets target reference
-                BaseMinion target = hit.gameObject.GetComponent<BaseMinion>();
+            AttackTarget(hit.gameObject);
+        }
+    }
 
-                if (target.team != card.team) //checks if the targeted minion is not on the same team
-                {
-                    //damages target
-                    card.AttackMinion(target);
-                    //retaliation damage
-                    card.TakeDamage(target.attack);
-                }
+    public void AttackTarget(GameObject attackTarget)
+    {
+        if (attackTarget.gameObject.GetComponent<BaseMinion>() == true) //if we hit a minion
+        {
+            //gets target reference
+            BaseMinion target = attackTarget.gameObject.GetComponent<BaseMinion>();
+
+            if (target.team != card.team) //checks if the targeted minion is not on the same team
+            {
+                //damages target
+                card.AttackMinion(target);
+                //retaliation damage
+                card.TakeDamage(target.attack);
             }
-            else if (hit.gameObject.GetComponent<BaseHero>() == true) //if we hit a hero
-            {
-                //gets target reference
-                BaseHero target = hit.gameObject.GetComponent<BaseHero>();
+        }
+        else if (attackTarget.gameObject.GetComponent<BaseHero>() == true) //if we hit a hero
+        {
+            //gets target reference
+            BaseHero target = attackTarget.gameObject.GetComponent<BaseHero>();
 
-                if (target.team != card.team) //checks if the targeted hero is not on the same team
-                {
-                    //damages target hero
-                    card.AttackHero(hit.gameObject.GetComponent<BaseHero>());
-                    //NOTE: hereos do not take or deal retaliation damage
-                }
+            if (target.team != card.team) //checks if the targeted hero is not on the same team
+            {
+                //damages target hero
+                card.AttackHero(attackTarget.gameObject.GetComponent<BaseHero>());
+                //NOTE: hereos do not take or deal retaliation damage
             }
         }
     }

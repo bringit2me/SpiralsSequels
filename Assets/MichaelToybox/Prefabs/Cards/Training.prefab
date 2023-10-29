@@ -416,7 +416,7 @@ MonoBehaviour:
   nameText: {fileID: 218162033887650628}
   descriptionText: {fileID: 3151317844028420878}
   manaText: {fileID: 3186520391358335900}
-  target: {fileID: 511392946141183975}
+  target: {fileID: 0}
   targetTeam: 1
   attackChange: 2
   healthChange: 0

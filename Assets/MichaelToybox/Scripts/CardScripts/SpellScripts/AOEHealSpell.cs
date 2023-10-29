@@ -27,7 +27,7 @@ public class AOEHealSpell : BaseAOESpell
     public override int CalculateValueAI(BaseEnemyAI ai)
     {
         int value = 0;
-        List<BaseCard> targets = GetTargets(); //gets all targets of the spell
+        List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all targets of the spell
 
         foreach (BaseCard card in targets)
         {

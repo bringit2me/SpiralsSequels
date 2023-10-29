@@ -35,7 +35,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
     /// <summary>
     /// Enables all attacks of the minions in the minion zone
     /// </summary>
-    public void EnableMinionAttacks()
+    public virtual void EnableMinionAttacks()
     {
         foreach(BaseMinion card in combatManager.playerMinions)
         {
