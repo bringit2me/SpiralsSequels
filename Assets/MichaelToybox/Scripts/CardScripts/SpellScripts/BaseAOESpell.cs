@@ -27,6 +27,22 @@ public class BaseAOESpell : BaseSpell
         {
             targetList = combatManager.GetAllInPlay();
         }
+        //Gets all minions in play
+        else if (targetTeam == TargetingInfo.ANY_MINION)
+        {
+            foreach (BaseCard card in combatManager.playerMinions)
+                targetList.Add(card);
+            foreach (BaseCard card in combatManager.enemyMinions)
+                targetList.Add(card);
+        }
+        //Gets all heroes in play
+        else if (targetTeam == TargetingInfo.ANY_HERO)
+        {
+            foreach (BaseCard card in combatManager.playerHeroes)
+                targetList.Add(card);
+            foreach (BaseCard card in combatManager.enemyHeroes)
+                targetList.Add(card);
+        }
         //This card is on the player team
         else if (team == Team.PLAYER)
         {

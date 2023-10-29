@@ -28,6 +28,8 @@ public class BaseMinion : BaseCard
     [SerializeField] TMP_Text manaText;
     [SerializeField] TMP_Text attackText;
     [SerializeField] TMP_Text healthText;
+    [Header("AI Minion")]
+    public int deathValueBoostAI = 2;
 
     public virtual void Start()
     {
@@ -109,6 +111,7 @@ public class BaseMinion : BaseCard
     {
         if (value < 0)
             value = 0;
+
         return value;
     }
 
@@ -133,8 +136,6 @@ public class BaseMinion : BaseCard
         if (health + value > maxHealth)
             value = maxHealth - health;
 
-        Debug.Log("Heal Value: " + value + " | " + name);
-
         return value;
     }
 
@@ -144,11 +145,17 @@ public class BaseMinion : BaseCard
     {
         attack += CalculateAttackChange(value);
 
+        if (attack < 0)
+            attack = 0;
+
         UpdateAttack();
     }
 
     public virtual int CalculateAttackChange(int value)
     {
+        if (attack - value < 0)
+            value = attack;
+
         return value;
     }
 
@@ -201,5 +208,11 @@ public class BaseMinion : BaseCard
             value = (int)(value * ValueToPercent(ai.defenseValue));
 
         return value;
+    }
+
+    public virtual int CalculateDeathValue()
+    {
+
+        return attack + deathValueBoostAI;
     }
 }

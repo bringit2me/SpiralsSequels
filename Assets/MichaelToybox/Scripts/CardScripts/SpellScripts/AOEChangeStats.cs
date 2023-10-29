@@ -43,7 +43,7 @@ public class AOEChangeStats : BaseAOESpell
                 }
                 else if (card.GetComponent<BaseHero>() == true)
                 {
-                    value += card.GetComponent<BaseHero>().CalculateAttackChange(attackChange);
+                    value += card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
                     value += card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
                 }
             }
@@ -56,7 +56,7 @@ public class AOEChangeStats : BaseAOESpell
                 }
                 else if (card.GetComponent<BaseHero>() == true)
                 {
-                    value -= card.GetComponent<BaseHero>().CalculateAttackChange(attackChange);
+                    value -= card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
                     value -= card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
                 }
             }

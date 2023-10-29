@@ -72,13 +72,20 @@ public class BaseEnemyAI : MonoBehaviour
             //plays cards
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
             {
-                Debug.Log("Playing Card");
                 minionZone.PlayMinionToZone(highestValueCard.card);
                 yield return new WaitForSeconds(0.5f);
             }
             else //highest value card is not a minion
             {
-                highestValueCard.card.Played(enemyManager); //plays the spell
+                if(highestValueCard.target != null) //if the card requires a target
+                {
+                    highestValueCard.card.GetComponent<BaseTargetSpell>().target = highestValueCard.target;
+                    highestValueCard.card.Played(enemyManager);
+                }
+                else //card does not require a target
+                {
+                    highestValueCard.card.Played(enemyManager); //plays the spell
+                }
                 yield return new WaitForSeconds(0.5f);
             }
 
@@ -110,7 +117,7 @@ public class BaseEnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.125f * (enemyManager.drawCountNeutral + enemyManager.drawCountHero));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         StartCoroutine(PlayCards());
     }
 
@@ -202,6 +209,9 @@ public class BaseEnemyAI : MonoBehaviour
                 else if (card.GetComponent<BaseTargetSpell>() == true)
                 {
                     BaseTargetSpell targetSpell = card.GetComponent<BaseTargetSpell>();
+                    CardValueEntry tempEntry = targetSpell.CalculateValueAI(this);
+                    entry.value = tempEntry.value;
+                    entry.target = tempEntry.target;
                 }
                 else if (card.GetComponent<BaseAOESpell>() == true)
                 {
@@ -221,12 +231,6 @@ public class BaseEnemyAI : MonoBehaviour
             }
         }
     }
-
-    public virtual List<BaseCard> GetPossibleSpellTargets()
-    {
-        return null;
-    }
-
 }
 
 [System.Serializable]
@@ -241,7 +245,7 @@ public class CardValueEntry
     public bool isMinion = false;
 
     /// <summary>
-    /// Base Constructor for CardValueEntry. card = null. value = -1. target = null.
+    /// Base Constructor for CardValueEntry. card = null. value = -1. target = null. isMinion = false
     /// value should be set. AI will not play cards with a negative value
     /// </summary>
     public CardValueEntry()

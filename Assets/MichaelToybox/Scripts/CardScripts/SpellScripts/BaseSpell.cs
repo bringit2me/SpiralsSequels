@@ -38,7 +38,6 @@ public class BaseSpell : BaseCard
     /// </summary>
     public virtual void Cast()
     {
-        Debug.Log("Cast: " + name);
         isBeingCast = true;
     }
 

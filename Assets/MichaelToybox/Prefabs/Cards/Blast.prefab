@@ -271,9 +271,11 @@ MonoBehaviour:
   description: Deal 2 damage to a character
   team: 0
   selfCardRef: {fileID: 769307129988775393}
+  playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
-  manaCost: 2
+  valueBoostAI: 0
+  manaCost: 1
   isPlayed: 0
   nameText: {fileID: 9031377747092585671}
   descriptionText: {fileID: 8631787028435609257}

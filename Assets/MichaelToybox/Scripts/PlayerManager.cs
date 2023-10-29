@@ -116,7 +116,7 @@ public class PlayerManager : MonoBehaviour
     /// <param name="targetInfo"></param>
     /// <param name="teamCheckAgainst"></param>
     /// <returns></returns>
-    public virtual GameObject GetClickTarget(TargetingInfo targetInfo, Team teamCheckAgainst)
+    public virtual BaseCard GetClickTarget(TargetingInfo targetInfo, Team teamCheckAgainst)
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) == false) //Player did not Left click
             return null;
@@ -133,8 +133,6 @@ public class PlayerManager : MonoBehaviour
         EventSystem.current.RaycastAll(pointerData, results); //sets list of raycast results to everything under the mouse
 
         target = results[0].gameObject; //sets our target to the first thing under the mouse
-        if (target != null) //if we do not have a target
-            Debug.Log("target: " + target.name);
 
         //if the target did not pass the target check (example, target ios hero when trying to target a minion)
         if (target != null && CheckTargetingInfo(targetInfo, target, teamCheckAgainst) == false)
@@ -142,7 +140,7 @@ public class PlayerManager : MonoBehaviour
             return null;
         }
 
-        return target;
+        return target.GetComponent<BaseCard>();
     }
 
     /// <summary>

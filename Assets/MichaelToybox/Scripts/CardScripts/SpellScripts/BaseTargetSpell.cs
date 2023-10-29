@@ -5,17 +5,18 @@ using UnityEngine;
 public class BaseTargetSpell : BaseSpell
 {
     [Header("Targeting Info")]
-    public GameObject target;
+    public BaseCard target;
     public TargetingInfo targetTeam;
 
     public override void ExecuteCast()
     {
         base.ExecuteCast();
 
-        //gets clicked target from the playerManager
-        target = playerManager.GetClickTarget(targetTeam,team);
+        if(target == null) //if we do not have a target
+            //gets clicked target from the playerManager
+            target = playerManager.GetClickTarget(targetTeam, team);
 
-        if(target != null) //if we have a target
+        if (target != null) //if we have a target
         {
             CastAtTarget(); //end cast
         }
@@ -43,6 +44,22 @@ public class BaseTargetSpell : BaseSpell
         if (targetTeam == TargetingInfo.ANY_OR_ALL)
         {
             targetList = combatManager.GetAllInPlay();
+        }
+        //Gets all minions in play
+        else if (targetTeam == TargetingInfo.ANY_MINION)
+        {
+            foreach (BaseCard card in combatManager.playerMinions)
+                targetList.Add(card);
+            foreach (BaseCard card in combatManager.enemyMinions)
+                targetList.Add(card);
+        }
+        //Gets all heroes in play
+        else if (targetTeam == TargetingInfo.ANY_HERO)
+        {
+            foreach (BaseCard card in combatManager.playerHeroes)
+                targetList.Add(card);
+            foreach (BaseCard card in combatManager.enemyHeroes)
+                targetList.Add(card);
         }
         //This card is on the player team
         else if (team == Team.PLAYER)
@@ -110,5 +127,10 @@ public class BaseTargetSpell : BaseSpell
         }
 
         return targetList;
+    }
+
+    new public virtual CardValueEntry CalculateValueAI(BaseEnemyAI ai)
+    {
+        return new CardValueEntry();
     }
 }

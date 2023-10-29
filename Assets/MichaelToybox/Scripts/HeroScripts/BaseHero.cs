@@ -106,11 +106,17 @@ public class BaseHero : BaseCard
     {
         attack += CalculateAttackChange(value);
 
+        if (attack < 0)
+            attack = 0;
+
         UpdateAttack();
     }
 
     public virtual int CalculateAttackChange(int value)
     {
+        if (attack - value < 0)
+            value = attack;
+
         return value;
     }
 
@@ -137,4 +143,6 @@ public class BaseHero : BaseCard
         //TODO: add hero death
         //Destroy(this.gameObject);
     }
+
+
 }

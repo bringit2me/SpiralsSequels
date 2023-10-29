@@ -63,7 +63,8 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         //the minion zone is not full (more than 10 cards)
         //if the card is a minion
         //if the card is not already played
-        if(card != null && CheckZoneFull() && card.GetComponent<BaseMinion>() == true && card.GetComponent<BaseMinion>().isPlayed == false)
+        //if the card is on the same team as the player
+        if(card != null && CheckZoneFull() && card.GetComponent<BaseMinion>() == true && card.GetComponent<BaseMinion>().isPlayed == false && card.GetComponent<BaseMinion>().team == playerManager.team)
         {
             PlayMinionToZone(card);
         }

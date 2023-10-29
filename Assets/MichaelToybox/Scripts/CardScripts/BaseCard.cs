@@ -55,7 +55,7 @@ public class BaseCard : MonoBehaviour
 
     public virtual int CalculateValueAI(BaseEnemyAI ai)
     {
-        return 0;
+        return -1;
     }
 
     public float ValueToPercent(float value)

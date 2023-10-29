@@ -632,7 +632,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.size
-      value: 17
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[0]
@@ -702,6 +702,50 @@ PrefabInstance:
       propertyPath: deck.Array.data[16]
       value: 
       objectReference: {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[17]
+      value: 
+      objectReference: {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[18]
+      value: 
+      objectReference: {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[19]
+      value: 
+      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[20]
+      value: 
+      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[21]
+      value: 
+      objectReference: {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[22]
+      value: 
+      objectReference: {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[23]
+      value: 
+      objectReference: {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[24]
+      value: 
+      objectReference: {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[25]
+      value: 
+      objectReference: {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[26]
+      value: 
+      objectReference: {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+    - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
+      propertyPath: deck.Array.data[27]
+      value: 
+      objectReference: {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
     - target: {fileID: 6079820614456225481, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: m_Name
       value: Enemy Hero Portrait
