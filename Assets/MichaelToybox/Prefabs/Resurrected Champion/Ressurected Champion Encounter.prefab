@@ -534,8 +534,8 @@ MonoBehaviour:
   isPlayed: 0
   heroDeck: {fileID: 2637585501655111097}
   attack: 2
-  maxHealth: 40
-  health: 40
+  maxHealth: 20
+  health: 20
   canAttack: 1
   targetable: 1
   nameText: {fileID: 1804889684088560876}
@@ -561,8 +561,6 @@ MonoBehaviour:
   - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
   - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
   - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
-  - {fileID: 6738144939328589879, guid: 16c688a1e72f8c34e8a79766b07d2481, type: 3}
-  - {fileID: 6738144939328589879, guid: 16c688a1e72f8c34e8a79766b07d2481, type: 3}
   - {fileID: 7225182051294132464, guid: 887408eb564d83c4abc1fe0e9e13dc36, type: 3}
   - {fileID: 7225182051294132464, guid: 887408eb564d83c4abc1fe0e9e13dc36, type: 3}
   - {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}

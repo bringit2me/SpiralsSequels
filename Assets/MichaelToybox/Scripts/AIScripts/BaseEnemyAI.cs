@@ -35,7 +35,7 @@ public class BaseEnemyAI : MonoBehaviour
     protected EnemyMinionZone minionZone;
     protected HandManager hand;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();

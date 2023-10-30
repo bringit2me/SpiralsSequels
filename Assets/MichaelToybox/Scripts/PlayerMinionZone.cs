@@ -12,7 +12,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
 
 
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();

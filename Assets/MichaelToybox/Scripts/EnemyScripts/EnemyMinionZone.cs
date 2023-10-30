@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMinionZone : PlayerMinionZone
 {
-    public override void Start()
+    public override void Awake()
     {
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
