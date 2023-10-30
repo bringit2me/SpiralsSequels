@@ -369,11 +369,12 @@ public class BaseEnemyAI : MonoBehaviour
                         }
                     }
                 }
-                else if (targetHero != null) //card is a hero
+                else if (targetHero != null && targetHero.health > 0) //card is a hero and it has health remaining
                 {
                     //changes value
                     value += targetHero.CalculateTakeDamage(minion.attack);
-                    //if the minion kills the target
+                    value += targetHero.CalculateMissingHealthValue(); //adds in 1 value for each 10 missing HP
+                    //if the minion kills the target and the hero is not already dead
                     if (targetHero.CalculateTakeDamage(minion.attack) >= targetHero.health)
                     {
                         value += (targetHero.attack + 1) * 100; //multiplies hero attack by 100 (will hyper prioritize dead heroes)
@@ -398,10 +399,58 @@ public class BaseEnemyAI : MonoBehaviour
                 }
 
 
-                if(value > entry.value)
+                if(value > entry.value) //value is greater than previous greatest value target
                 {
                     entry.value = value;
                     entry.target = card;
+                }
+                //Same value
+                else if (value == entry.value)
+                {
+                    if (targetMinion != null)
+                    {
+                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        {
+                            if (targetMinion.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        {
+                            if (targetMinion.attack > entry.card.GetComponent<BaseHero>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                    }
+                    else if (targetHero != null)
+                    {
+                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        {
+                            if (targetHero.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        {
+                            Debug.Log("Same value heroes");
+                            if (targetHero.attack > entry.card.GetComponent<BaseHero>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                            else if (targetHero.health > card.GetComponent<BaseHero>().health)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -447,11 +496,12 @@ public class BaseEnemyAI : MonoBehaviour
 
                     //--- Heroes do not take or deal returning damage ---
                 }
-                else if (targetHero != null) //card is a hero
+                else if (targetHero != null && targetHero.health > 0) //card is a hero and it has health remaining
                 {
                     //changes value
                     value += targetHero.CalculateTakeDamage(hero.attack);
-                    //if the hero kills the target hero
+                    value += targetHero.CalculateMissingHealthValue(); //adds in 1 value for each 10 missing HP
+                    //if the hero kills the target hero and the hero is not already dead
                     if (targetHero.CalculateTakeDamage(hero.attack) >= targetHero.health)
                     {
                         value += (targetHero.attack + 1) * 100; //multiplies hero attack by 100 (will hyper prioritize dead heroes)
@@ -476,10 +526,57 @@ public class BaseEnemyAI : MonoBehaviour
                 }
 
 
-                if (value > entry.value)
+                if (value > entry.value) //value is greater than previous greatest value target
                 {
                     entry.value = value;
                     entry.target = card;
+                }
+                //Same value
+                else if (value == entry.value)
+                {
+                    if(targetMinion != null)
+                    {
+                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        {
+                            if (targetMinion.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        {
+                            if (targetMinion.attack > entry.card.GetComponent<BaseHero>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                    }
+                    else if (targetHero != null)
+                    {
+                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        {
+                            if (targetHero.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        {
+                            if (targetHero.attack > entry.card.GetComponent<BaseHero>().attack)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                            else if (targetHero.health > card.GetComponent<BaseHero>().health)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                    }
                 }
             }
         }

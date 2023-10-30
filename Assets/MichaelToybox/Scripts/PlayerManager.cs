@@ -121,7 +121,7 @@ public class PlayerManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) == false) //Player did not Left click
             return null;
 
-        GameObject target;
+        GameObject target = null;
 
         PointerEventData pointerData = new PointerEventData(EventSystem.current) //gets pointer data
         {
@@ -132,7 +132,10 @@ public class PlayerManager : MonoBehaviour
         List<RaycastResult> results = new List<RaycastResult>(); //list of raycast results
         EventSystem.current.RaycastAll(pointerData, results); //sets list of raycast results to everything under the mouse
 
-        target = results[0].gameObject; //sets our target to the first thing under the mouse
+        if (results.Count > 0)
+            target = results[0].gameObject; //sets our target to the first thing under the mouse
+        else
+            return null;
 
         //if the target did not pass the target check (example, target ios hero when trying to target a minion)
         if (target != null && CheckTargetingInfo(targetInfo, target, teamCheckAgainst) == false)

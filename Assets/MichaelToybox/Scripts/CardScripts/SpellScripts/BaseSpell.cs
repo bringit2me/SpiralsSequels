@@ -72,6 +72,10 @@ public class BaseSpell : BaseCard
         isBeingCast = false;
         isPlayed = false;
         this.transform.SetParent(playerManager.handManager.handHolder.transform);
+
+        //Turns on raycast blocking (so mouse can detect the spell again)
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        playerManager.handManager.ReturnCardToHand(this, deck);
     }
 
     public virtual void SetupCardText()

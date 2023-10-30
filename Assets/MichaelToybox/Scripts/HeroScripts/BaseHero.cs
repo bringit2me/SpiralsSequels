@@ -144,5 +144,14 @@ public class BaseHero : BaseCard
         //Destroy(this.gameObject);
     }
 
-
+    /// <summary>
+    /// Returns 1 for every 10 missing health
+    /// Example: 30 health and 60 max health == 3
+    /// Example 2: 35 health and 60 max health == 2
+    /// </summary>
+    /// <returns></returns>
+    public virtual int CalculateMissingHealthValue()
+    {
+        return Mathf.FloorToInt((maxHealth - health) * 0.1f);
+    }
 }

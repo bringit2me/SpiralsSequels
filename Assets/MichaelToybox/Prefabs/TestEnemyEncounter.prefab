@@ -503,6 +503,12 @@ MonoBehaviour:
     value: -1
     target: {fileID: 0}
     isMinion: 0
+  characterAttackValues: []
+  highestAttackValue:
+    card: {fileID: 0}
+    value: -1
+    target: {fileID: 0}
+    isMinion: 0
 --- !u!114 &6656672012196628194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,7 +524,7 @@ MonoBehaviour:
   team: 1
   maxMana: 10
   mana: 0
-  manaPerTurn: 3
+  manaPerTurn: 2
   manaPerTurnIncrease: 2
   drawDelay: 0.25
   drawCountNeutral: 0

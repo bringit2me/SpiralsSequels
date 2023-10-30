@@ -26,6 +26,7 @@ public class CombatManager : MonoBehaviour
     [Header("Combat State")]
     public CombatState  state = CombatState.STARTING;
     public int turnCount = 0;
+    bool playerGoesFirst;
 
     private void Start()
     {
@@ -53,7 +54,19 @@ public class CombatManager : MonoBehaviour
         UpdateAllCardsInPlay();
 
         turnCount = 1; //resets turn count variable
-        StartPlayerTurn(); //starts player turn (player goes first)
+
+        if (Random.Range(0, 2) == 0) //flips coin
+        {
+            StartPlayerTurn(); //starts player turn (player goes first)
+            playerGoesFirst = true;
+            enemyManager.manaPerTurn += 1; //increases enemy mana by 1
+        }
+        else
+        {
+            StartEnemyTurn(); //starts enemy turn (enemy goes first)
+            playerGoesFirst = false;
+            playerManager.manaPerTurn += 1; //increases player mana by 1
+        }
     }
 
     public void StartPlayerTurn()
@@ -73,6 +86,10 @@ public class CombatManager : MonoBehaviour
     public void EndPlayerTurn()
     {
         state = CombatState.PLAYER_END;
+
+        if (playerGoesFirst == false) //if the player went second
+            turnCount++;
+
         playerManager.EndTurn();
 
         //TODO: trigger end of turn effects for the player
@@ -99,7 +116,9 @@ public class CombatManager : MonoBehaviour
     public void EndEnemyTurn()
     {
         state = CombatState.ENEMY_END;
-        turnCount++;
+
+        if(playerGoesFirst == true) //if the player went first
+            turnCount++;
 
         enemyManager.EndTurn();
 

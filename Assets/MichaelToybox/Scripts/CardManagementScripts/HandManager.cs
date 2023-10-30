@@ -18,6 +18,11 @@ public class HandManager : MonoBehaviour
         handCards.Add(temp); //adss card to hand list
     }
 
+    public void ReturnCardToHand(BaseCard card, DeckManager deck)
+    {
+        handCards.Add(card);
+    }
+
     /// <summary>
     /// Adds all cards that are in the handCards list to their decks discard pile
     /// Destroys the card

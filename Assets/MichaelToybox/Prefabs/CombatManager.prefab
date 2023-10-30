@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 6939958780512818478}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8105957539523738851
 MonoBehaviour:
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55bbd1adf266f0408d03b0a93db1f0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allCardsInPlay: []
   playerManager: {fileID: 0}
   playerMinionZone: {fileID: 5349227188969368150}
   playerHeroes:
@@ -61,6 +62,8 @@ MonoBehaviour:
   enemyHeroes: []
   enemyMinions: []
   enemyHolder: {fileID: 2851282192997174293}
+  boardInfo: {fileID: 0}
+  enemyAI: {fileID: 0}
   state: 0
   turnCount: 0
 --- !u!114 &6680275736194260189
@@ -75,6 +78,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf475d52cab67e44b6dc96d5bedcda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMinionCount: 0
+  playerTotalAttack: 0
+  playerTotalHeroAttack: 0
+  playerTotalMinionAttack: 0
+  playerTotalHealth: 0
+  playerTotalHeroHealth: 0
+  playerTotalHeroMaxHealth: 0
+  playerTotalMinionHealth: 0
+  enemyMinionCount: 0
+  enemyTotalAttack: 0
+  enemyTotalHeroAttack: 0
+  enemyTotalMinionAttack: 0
+  enemyTotalHealth: 0
+  enemyTotalHeroHealth: 0
+  enemyTotalHeroMaxHealth: 0
+  enemyTotalMinionHealth: 0
 --- !u!1001 &5497537766154646980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,6 +190,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3484286189762881314, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4319147162252399397, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_Name
       value: Test Game Canvas
@@ -199,6 +222,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6566849808088008023, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -125
+      objectReference: {fileID: 0}
+    - target: {fileID: 6566849808088008023, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -525
+      objectReference: {fileID: 0}
     - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -210,6 +241,14 @@ PrefabInstance:
     - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CombatManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505434113285356637, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8526172785998291423, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
