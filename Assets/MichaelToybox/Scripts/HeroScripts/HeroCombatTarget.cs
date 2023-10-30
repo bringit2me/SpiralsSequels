@@ -38,7 +38,7 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
     public void AttackTarget(GameObject attackTarget)
     {
-        if (attackTarget.gameObject.GetComponent<BaseMinion>() == true)
+        if (attackTarget.GetComponent<BaseMinion>() == true)
         {
             //gets target reference
             BaseMinion target = attackTarget.gameObject.GetComponent<BaseMinion>();
@@ -49,7 +49,7 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
                 hero.AttackMinion(target);
             }
         }
-        else if (attackTarget.gameObject.GetComponent<BaseHero>() == true)
+        else if (attackTarget.GetComponent<BaseHero>() == true)
         {
             //gets target reference
             BaseHero target = attackTarget.gameObject.GetComponent<BaseHero>();

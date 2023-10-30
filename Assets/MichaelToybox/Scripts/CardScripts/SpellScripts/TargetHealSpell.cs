@@ -49,7 +49,7 @@ public class TargetHealSpell : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value = hero.CalculateHeal(healValue);
@@ -71,7 +71,7 @@ public class TargetHealSpell : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value = -hero.CalculateHeal(healValue);

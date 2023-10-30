@@ -13,6 +13,7 @@ public class BaseHero : BaseCard
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
+    public bool isDead = false;
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text attackText;
@@ -140,6 +141,7 @@ public class BaseHero : BaseCard
 
     public virtual void Dead()
     {
+        isDead = true;
         //TODO: add hero death
         //Destroy(this.gameObject);
     }

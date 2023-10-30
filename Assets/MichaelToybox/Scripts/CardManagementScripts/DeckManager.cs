@@ -6,10 +6,12 @@ public class DeckManager : MonoBehaviour
 {
     public List<BaseCard> deck;
     public List<BaseCard> discardPile;
+    public BaseHero hero;
 
     private void Start()
     {
         ShuffleDeck();
+        hero = this.GetComponent<BaseHero>();
     }
 
     /// <summary>

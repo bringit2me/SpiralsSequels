@@ -370,7 +370,7 @@ public class BaseEnemyAI : MonoBehaviour
                         }
                     }
                 }
-                else if (targetHero != null && targetHero.health > 0) //card is a hero and it has health remaining
+                else if (targetHero != null && targetHero.isDead == false) //card is a hero and hero is not dead
                 {
                     //changes value
                     value += targetHero.CalculateTakeDamage(minion.attack);
@@ -399,8 +399,7 @@ public class BaseEnemyAI : MonoBehaviour
                     value = (int)(value * ValueToPercent(defenseValue));
                 }
 
-
-                if(value > entry.value) //value is greater than previous greatest value target
+                if (value > entry.value) //value is greater than previous greatest value target
                 {
                     entry.value = value;
                     entry.target = card;
@@ -410,42 +409,41 @@ public class BaseEnemyAI : MonoBehaviour
                 {
                     if (targetMinion != null)
                     {
-                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true)
                         {
-                            if (targetMinion.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            if (targetMinion.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
-                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true)
                         {
-                            if (targetMinion.attack > entry.card.GetComponent<BaseHero>().attack)
+                            if (targetMinion.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
                     }
-                    else if (targetHero != null)
+                    if (targetHero != null)
                     {
-                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true)
                         {
-                            if (targetHero.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
-                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true)
                         {
-                            Debug.Log("Same value heroes");
-                            if (targetHero.attack > entry.card.GetComponent<BaseHero>().attack)
+                            if (targetHero.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
-                            else if (targetHero.health > card.GetComponent<BaseHero>().health)
+                            else if (targetHero.health > entry.target.GetComponent<BaseHero>().health)
                             {
                                 entry.value = value;
                                 entry.target = card;
@@ -526,7 +524,6 @@ public class BaseEnemyAI : MonoBehaviour
                     value = (int)(value * ValueToPercent(defenseValue));
                 }
 
-
                 if (value > entry.value) //value is greater than previous greatest value target
                 {
                     entry.value = value;
@@ -535,43 +532,43 @@ public class BaseEnemyAI : MonoBehaviour
                 //Same value
                 else if (value == entry.value)
                 {
-                    if(targetMinion != null)
+                    if (targetMinion != null)
                     {
-                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true)
                         {
-                            if (targetMinion.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            if (targetMinion.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
-                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true)
                         {
-                            if (targetMinion.attack > entry.card.GetComponent<BaseHero>().attack)
+                            if (targetMinion.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
                     }
-                    else if (targetHero != null)
+                    if (targetHero != null)
                     {
-                        if (entry.card.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true)
                         {
-                            if (targetHero.attack > entry.card.GetComponent<BaseMinion>().attack)
+                            if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
-                        else if (entry.card.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true)
                         {
-                            if (targetHero.attack > entry.card.GetComponent<BaseHero>().attack)
+                            if (targetHero.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
-                            else if (targetHero.health > card.GetComponent<BaseHero>().health)
+                            else if (targetHero.health > entry.target.GetComponent<BaseHero>().health)
                             {
                                 entry.value = value;
                                 entry.target = card;

@@ -18,7 +18,7 @@ public class AOEChangeStats : BaseAOESpell
                 card.GetComponent<BaseMinion>().ChangeAttack(attackChange);
                 card.GetComponent<BaseMinion>().ChangeHealth(healthChange);
             }
-            else if (card.GetComponent<BaseHero>() == true)
+            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().ChangeAttack(attackChange);
                 card.GetComponent<BaseHero>().ChangeHealth(healthChange);
@@ -39,33 +39,36 @@ public class AOEChangeStats : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
             if (card.team == ai.team) //if the target is on the same team as the AI
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value += card.GetComponent<BaseMinion>().CalculateAttackChange(attackChange);
-                    value += card.GetComponent<BaseMinion>().CalculateHealthChange(healthChange);
+                    value += minion.CalculateAttackChange(attackChange);
+                    value += minion.CalculateHealthChange(healthChange);
                     effectsFriendlyMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value += card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
-                    value += card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
+                    value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
+                    value += hero.CalculateHealthChange(healthChange);
                     effectsFriendlyHero = true;
                 }
             }
             else //target is on the opposite team
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value -= card.GetComponent<BaseMinion>().CalculateAttackChange(attackChange);
-                    value -= card.GetComponent<BaseMinion>().CalculateHealthChange(healthChange);
+                    value -= minion.CalculateAttackChange(attackChange);
+                    value -= minion.CalculateHealthChange(healthChange);
                     effectsPlayerMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value -= card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
-                    value -= card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
+                    value -= hero.CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
+                    value -= hero.CalculateHealthChange(healthChange);
                     effectsPlayerHero = true;
                 }
             }

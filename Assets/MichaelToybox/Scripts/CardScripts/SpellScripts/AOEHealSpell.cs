@@ -16,7 +16,7 @@ public class AOEHealSpell : BaseAOESpell
             {
                 card.GetComponent<BaseMinion>().Heal(healValue);
             }
-            else if (card.GetComponent<BaseHero>() == true)
+            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().Heal(healValue);
             }
@@ -36,34 +36,36 @@ public class AOEHealSpell : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
 
             if (card.team == ai.team) //if the target is on the same team as the AI
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value += card.GetComponent<BaseMinion>().CalculateHeal(healValue);
-                    if(card.GetComponent<BaseMinion>().CalculateHeal(healValue) > 0)
+                    value += minion.CalculateHeal(healValue);
+                    if(minion.CalculateHeal(healValue) > 0)
                         effectsFriendlyMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value += card.GetComponent<BaseHero>().CalculateHeal(healValue);
-                    if (card.GetComponent<BaseHero>().CalculateHeal(healValue) > 0)
+                    value += hero.CalculateHeal(healValue);
+                    if (hero.CalculateHeal(healValue) > 0)
                         effectsFriendlyHero = true;
                 }
             }
             else //target is on the opposite team
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value -= card.GetComponent<BaseMinion>().CalculateHeal(healValue);
-                    if (card.GetComponent<BaseMinion>().CalculateHeal(healValue) > 0)
+                    value -= minion.CalculateHeal(healValue);
+                    if (minion.CalculateHeal(healValue) > 0)
                         effectsPlayerMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value -= card.GetComponent<BaseHero>().CalculateHeal(healValue);
-                    if (card.GetComponent<BaseHero>().CalculateHeal(healValue) > 0)
+                    value -= hero.CalculateHeal(healValue);
+                    if (hero.CalculateHeal(healValue) > 0)
                         effectsPlayerHero = true;
                 }
             }

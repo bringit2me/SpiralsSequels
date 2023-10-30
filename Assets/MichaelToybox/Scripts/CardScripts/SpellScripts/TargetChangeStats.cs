@@ -57,7 +57,7 @@ public class TargetChangeStats : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
@@ -89,7 +89,7 @@ public class TargetChangeStats : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value -= hero.CalculateAttackChange(attackChange);

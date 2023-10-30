@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     public int mana = 0;
     public int manaPerTurn = 2;
     public int manaPerTurnIncrease = 2;
-    [SerializeField] float drawDelay = 0.25f;
+    [SerializeField] protected float drawDelay = 0.25f;
     [Header("Neutral Deck Info")]
     public int drawCountNeutral = 4;
     public DeckManager neutralDeck;
@@ -160,15 +160,16 @@ public class PlayerManager : MonoBehaviour
         Team targetTeam = Team.NONE;
 
         //gets the team of the target
-        if (target.GetComponent<BaseMinion>())
+        if (target.GetComponent<BaseMinion>()) //minion
         {
             targetTeam = target.GetComponent<BaseMinion>().team;
             targetIsMinion = true;
         }
-        if (target.GetComponent<BaseHero>())
+        if (target.GetComponent<BaseHero>() && target.GetComponent<BaseHero>().isDead == false) //hero and hero is alive
         {
             targetTeam = target.GetComponent<BaseHero>().team;
             targetIsMinion = false;
+            
         }
         
 

@@ -16,7 +16,7 @@ public class AOEDamageSpell : BaseAOESpell
             {
                 card.GetComponent<BaseMinion>().TakeDamage(damage);
             }
-            else if (card.GetComponent<BaseHero>() == true)
+            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().TakeDamage(damage);
             }
@@ -36,29 +36,32 @@ public class AOEDamageSpell : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
             if (card.team == ai.team) //if the target is on the same team as the AI
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value -= card.GetComponent<BaseMinion>().CalculateTakeDamage(damage);
+                    value -= minion.CalculateTakeDamage(damage);
                     effectsFriendlyMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value -= card.GetComponent<BaseHero>().CalculateTakeDamage(damage);
+                    value -= hero.CalculateTakeDamage(damage);
                     effectsFriendlyHero = true;
                 }
             }
             else //target is on the opposite team
             {
-                if (card.GetComponent<BaseMinion>() == true)
+                if (minion == true)
                 {
-                    value += card.GetComponent<BaseMinion>().CalculateTakeDamage(damage);
+                    value += minion.CalculateTakeDamage(damage);
                     effectsPlayerMinions = true;
                 }
-                else if (card.GetComponent<BaseHero>() == true)
+                else if (hero == true && hero.isDead == false)
                 {
-                    value += card.GetComponent<BaseHero>().CalculateTakeDamage(damage);
+                    value += hero.CalculateTakeDamage(damage);
                     effectsPlayerHero = true;
                 }
             }

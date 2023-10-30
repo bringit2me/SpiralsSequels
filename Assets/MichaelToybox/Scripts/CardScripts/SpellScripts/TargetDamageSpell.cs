@@ -54,7 +54,7 @@ public class TargetDamageSpell : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value = -hero.CalculateTakeDamage(damage);
@@ -87,7 +87,7 @@ public class TargetDamageSpell : BaseTargetSpell
                     cardAttack = minion.attack;
                     cardHealth = minion.health;
                 }
-                else if (hero != null)
+                else if (hero != null && hero.isDead == false)
                 {
                     //changes value
                     value = hero.CalculateTakeDamage(damage);
