@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1956986064032576895
+--- !u!1001 &6959095658379051370
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: name
-      value: Heavy Knight
+      value: Cleric
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: taunt
@@ -18,15 +18,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: attack
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: health
-      value: 7
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: manaCost
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: canAttack
@@ -34,15 +34,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: maxHealth
-      value: 7
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: description
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: selfCardRef
       value: 
-      objectReference: {fileID: 6220795553380272593}
+      objectReference: {fileID: 3310009718212607428}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
-      value: Heavy Knight
+      value: Cleric
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Pivot.x
@@ -133,10 +137,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
---- !u!114 &6220795553380272593 stripped
+--- !u!114 &3310009718212607428 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 1956986064032576895}
+  m_PrefabInstance: {fileID: 6959095658379051370}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

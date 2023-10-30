@@ -225,7 +225,7 @@ public class BaseEnemyAI : MonoBehaviour
         //subtracts players minion count from enemy minion count (checks if player has more minions)
         rawValue += boardInfo.playerMinionCount - boardInfo.enemyMinionCount; //maybe add a multiplier to this
         //subtracts the max health of all enemy heroes with the current health of all enemy heroes
-        rawValue += (int)((boardInfo.enemyTotalHeroMaxHealth - boardInfo.enemyTotalHeroHealth) * 0.25f); //fiddle with multiplier on this
+        rawValue += (int)((boardInfo.enemyTotalHeroMaxHealth - boardInfo.enemyTotalHeroHealth) * 1f); //fiddle with multiplier on this
 
         //TODO: is dead calculation (if dead, set defense value to 101)
 
