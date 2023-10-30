@@ -154,7 +154,7 @@ public class BaseMinion : BaseCard
     public virtual int CalculateAttackChange(int value)
     {
         if (attack + value < 0)
-            value = attack;
+            value = 0;
 
         return value;
     }
@@ -199,6 +199,7 @@ public class BaseMinion : BaseCard
             value += 1;
 
         value -= manaCost;
+        value += valueBoostAI; //adds in value boost
 
         if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE) //checks if AI is agressive
             value = (int)(value * ValueToPercent(ai.aggroValue));
@@ -206,8 +207,6 @@ public class BaseMinion : BaseCard
             value = (int)(value * ValueToPercent(ai.midRangeValue));
         else if (taunt == true && ai.playstyle == EnemyPlaystyle.DEFENSIVE) //checks if minion has taunt and AI is defensive
             value = (int)(value * ValueToPercent(ai.defenseValue));
-
-        value += valueBoostAI; //adds in value boost
 
         return value;
     }

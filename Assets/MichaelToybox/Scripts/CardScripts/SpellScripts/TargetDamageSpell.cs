@@ -102,6 +102,9 @@ public class TargetDamageSpell : BaseTargetSpell
                 }
             }
 
+            value += valueBoostAI; //adds in value boost
+            value -= manaCost; //subtracts mana costs
+
             //checks if AI is agressive and the target is a hero
             if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && hero != null)
                 value = (int)(value * ValueToPercent(ai.aggroValue));
@@ -150,9 +153,6 @@ public class TargetDamageSpell : BaseTargetSpell
                 }
             }
         }
-
-        entry.value += valueBoostAI; //adds in value boost
-        entry.value -= manaCost;
 
         return entry;
     }

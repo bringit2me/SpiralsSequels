@@ -105,7 +105,8 @@ public class TargetChangeStats : BaseTargetSpell
                 }
             }
 
-
+            value -= manaCost; //subtracts mana cost
+            value += valueBoostAI; //adds in value boost
 
             //checks if AI is agressive, spell gives attack, and target is on the same team
             if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && attackChange > 0 && card.team == playerManager.team)
@@ -160,9 +161,6 @@ public class TargetChangeStats : BaseTargetSpell
                 }
             }
         }
-
-        entry.value += valueBoostAI; //adds in value boost
-        entry.value -= manaCost;
 
         return entry;
     }

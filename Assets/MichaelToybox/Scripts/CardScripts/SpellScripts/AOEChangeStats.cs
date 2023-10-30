@@ -32,6 +32,11 @@ public class AOEChangeStats : BaseAOESpell
         int value = 0;
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all targets of the spell
 
+        bool effectsFriendlyHero = false;
+        bool effectsFriendlyMinions = false;
+        bool effectsPlayerHero = false;
+        bool effectsPlayerMinions = false;
+
         foreach (BaseCard card in targets)
         {
             if (card.team == ai.team) //if the target is on the same team as the AI
@@ -40,11 +45,13 @@ public class AOEChangeStats : BaseAOESpell
                 {
                     value += card.GetComponent<BaseMinion>().CalculateAttackChange(attackChange);
                     value += card.GetComponent<BaseMinion>().CalculateHealthChange(healthChange);
+                    effectsFriendlyMinions = true;
                 }
                 else if (card.GetComponent<BaseHero>() == true)
                 {
                     value += card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
                     value += card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
+                    effectsFriendlyHero = true;
                 }
             }
             else //target is on the opposite team
@@ -53,17 +60,32 @@ public class AOEChangeStats : BaseAOESpell
                 {
                     value -= card.GetComponent<BaseMinion>().CalculateAttackChange(attackChange);
                     value -= card.GetComponent<BaseMinion>().CalculateHealthChange(healthChange);
+                    effectsPlayerMinions = true;
                 }
                 else if (card.GetComponent<BaseHero>() == true)
                 {
                     value -= card.GetComponent<BaseHero>().CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
                     value -= card.GetComponent<BaseHero>().CalculateHealthChange(healthChange);
+                    effectsPlayerHero = true;
                 }
             }
         }
 
         value -= manaCost; //subtracts mana cost
         value += valueBoostAI; //adds in value boost
+
+        //checks if AI is agressive, friendly character is effected, and attack is increased
+        if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && (effectsFriendlyMinions == true || effectsFriendlyHero == true) && attackChange > 0)
+            value = value - 2;
+        //checks if AI is mid range, friendly minion is effected, and stats are increased
+        if (ai.playstyle == EnemyPlaystyle.MID_RANGE && effectsFriendlyMinions == true && (attackChange + healthChange) > 0)
+            value = (int)(value * ValueToPercent(ai.midRangeValue));
+        //checks if AI is defensive, friendly hero is effected, and health is increased
+        if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && effectsFriendlyHero == true && healthChange > 0)
+            value = (int)(value * ValueToPercent(ai.defenseValue));
+        //checks if AI is defensive, enemy character is effected, and attack is lowered
+        else if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && (effectsPlayerMinions == true || effectsPlayerHero == true) && attackChange < 0)
+            value = (int)(value * ValueToPercent(ai.defenseValue));
 
         return value;
     }

@@ -163,7 +163,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     IEnumerator StartTurnDelay()
     {
-        yield return new WaitForSeconds(0.125f * (enemyManager.drawCountHero * (enemyManager.heroDecks.Count - 1)));
+        yield return new WaitForSeconds(0.125f * (enemyManager.drawCountHero * enemyManager.heroDecks.Count));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
         yield return new WaitForSeconds(0.25f);
@@ -227,11 +227,12 @@ public class BaseEnemyAI : MonoBehaviour
         //subtracts the max health of all enemy heroes with the current health of all enemy heroes
         rawValue += (int)((boardInfo.enemyTotalHeroMaxHealth - boardInfo.enemyTotalHeroHealth) * 1f); //fiddle with multiplier on this
 
-        //TODO: is dead calculation (if dead, set defense value to 101)
-
         defenseValue = (100f * rawValue) / (100f + rawValue); //calculates defense value
         defenseValue += defenseValueBoost; // adds in defense boost
         defenseValue = Mathf.Clamp(defenseValue, 0, 100); //clamps it between 0 and 100
+
+        if (boardInfo.playerTotalAttack >= boardInfo.enemyTotalHeroHealth)
+            defenseValue = 1000;
     }
 
     // --- CALCULATING CARD VALUE ---

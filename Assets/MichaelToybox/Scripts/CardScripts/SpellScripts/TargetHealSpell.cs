@@ -82,6 +82,9 @@ public class TargetHealSpell : BaseTargetSpell
                 }
             }
 
+            value += valueBoostAI; //adds in value boost
+            value -= manaCost; //subtracts mana cost
+
             //checks if AI is mid range and the target is a minion
             if (ai.playstyle == EnemyPlaystyle.MID_RANGE && minion != null)
                 value = (int)(value * ValueToPercent(ai.midRangeValue));
@@ -123,9 +126,6 @@ public class TargetHealSpell : BaseTargetSpell
                 }
             }
         }
-
-        entry.value += valueBoostAI; //adds in value boost
-        entry.value -= manaCost;
 
         return entry;
     }
