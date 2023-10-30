@@ -54,7 +54,7 @@ public class AOEHealSpell : BaseAOESpell
                 }
             }
         }
-
+        value += valueBoostAI; //adds in value boost
         value -= manaCost; //subtracts mana cost
 
         return value;

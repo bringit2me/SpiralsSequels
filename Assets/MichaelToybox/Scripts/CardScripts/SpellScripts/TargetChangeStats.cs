@@ -161,6 +161,7 @@ public class TargetChangeStats : BaseTargetSpell
             }
         }
 
+        entry.value += valueBoostAI; //adds in value boost
         entry.value -= manaCost;
 
         return entry;

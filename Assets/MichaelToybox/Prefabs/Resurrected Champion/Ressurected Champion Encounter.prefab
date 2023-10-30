@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  maxMana: 5
+  maxMana: 10
   mana: 0
   manaPerTurn: 2
   manaPerTurnIncrease: 2

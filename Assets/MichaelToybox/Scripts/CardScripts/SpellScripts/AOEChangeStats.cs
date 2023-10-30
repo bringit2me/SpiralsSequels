@@ -63,6 +63,7 @@ public class AOEChangeStats : BaseAOESpell
         }
 
         value -= manaCost; //subtracts mana cost
+        value += valueBoostAI; //adds in value boost
 
         return value;
     }

@@ -207,6 +207,8 @@ public class BaseMinion : BaseCard
         else if (taunt == true && ai.playstyle == EnemyPlaystyle.DEFENSIVE) //checks if minion has taunt and AI is defensive
             value = (int)(value * ValueToPercent(ai.defenseValue));
 
+        value += valueBoostAI; //adds in value boost
+
         return value;
     }
 

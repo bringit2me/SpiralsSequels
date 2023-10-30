@@ -76,7 +76,7 @@ public class BaseEnemyAI : MonoBehaviour
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
             {
                 minionZone.PlayMinionToZone(highestValueCard.card);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             }
             else //highest value card is not a minion
             {
@@ -89,7 +89,7 @@ public class BaseEnemyAI : MonoBehaviour
                 {
                     highestValueCard.card.Played(enemyManager); //plays the spell
                 }
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             }
 
             yield return new WaitForEndOfFrame();
@@ -125,13 +125,13 @@ public class BaseEnemyAI : MonoBehaviour
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseMinion>().GetComponent<MinionCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             }
             else if (highestAttackValue.card.GetComponent<BaseHero>() == true) //if our highest value card is a hero
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseHero>().GetComponent<HeroCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.25f);
             }
             else
             {
@@ -166,7 +166,7 @@ public class BaseEnemyAI : MonoBehaviour
         yield return new WaitForSeconds(0.125f * (enemyManager.drawCountNeutral + enemyManager.drawCountHero));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         StartCoroutine(PlayCards());
     }
 

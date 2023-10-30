@@ -40,6 +40,10 @@ PrefabInstance:
       propertyPath: selfCardRef
       value: 
       objectReference: {fileID: 6041525299772250132}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: valueBoostAI
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
       value: Bone Shambler
