@@ -352,8 +352,6 @@ MonoBehaviour:
   - {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
   - {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
   - {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
-  - {fileID: 9137699677536243461, guid: 2dfa7cf30b34c4346ac0f78185808c4b, type: 3}
-  - {fileID: 9137699677536243461, guid: 2dfa7cf30b34c4346ac0f78185808c4b, type: 3}
   discardPile: []
 --- !u!4 &1078704476
 Transform:
