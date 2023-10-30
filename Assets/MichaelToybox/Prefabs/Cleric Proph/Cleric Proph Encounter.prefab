@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 5880480803389259153}
   - component: {fileID: 1813408857631514568}
   m_Layer: 5
-  m_Name: Enemy Hero Portrait
+  m_Name: Enemy Hero Portrait (Cleric Proph)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -376,7 +376,7 @@ MonoBehaviour:
   manaCost: 0
   isPlayed: 0
   heroDeck: {fileID: 5880480803389259153}
-  attack: 2
+  attack: 1
   maxHealth: 20
   health: 20
   canAttack: 1

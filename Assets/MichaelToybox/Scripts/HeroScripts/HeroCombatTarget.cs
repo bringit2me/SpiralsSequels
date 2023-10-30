@@ -19,7 +19,6 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
         startPos = this.transform.position;
-        Debug.Log("Minion Begin Drag");
     }
 
     void IDragHandler.OnDrag(PointerEventData eventData)

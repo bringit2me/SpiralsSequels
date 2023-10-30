@@ -95,7 +95,8 @@ public class TargetHealSpell : BaseTargetSpell
                 entry.value = value;
                 entry.target = card;
             }
-            else if (value == entry.value) //if the target and a previously found best target have an equal value
+            //if the target and a previously found best target have an equal value and the entry has a target
+            else if (value == entry.value && entry.target != null)
             {
                 if (entry.target.GetComponent<BaseMinion>() == true) //previously found best target is a minion
                 {

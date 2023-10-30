@@ -163,7 +163,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     IEnumerator StartTurnDelay()
     {
-        yield return new WaitForSeconds(0.125f * (enemyManager.drawCountNeutral + enemyManager.drawCountHero));
+        yield return new WaitForSeconds(0.125f * (enemyManager.drawCountHero * (enemyManager.heroDecks.Count - 1)));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
         yield return new WaitForSeconds(0.25f);
