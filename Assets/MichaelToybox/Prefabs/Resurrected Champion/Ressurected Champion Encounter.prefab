@@ -1,96 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &66591669884840340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7489099769417817822}
-  - component: {fileID: 2443899536153208359}
-  - component: {fileID: 7133723725215743639}
-  - component: {fileID: 2867751172018053414}
-  m_Layer: 5
-  m_Name: Hero Power
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &7489099769417817822
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66591669884840340}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4818391367502864470}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 0}
-  m_SizeDelta: {x: 125, y: 125}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2443899536153208359
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66591669884840340}
-  m_CullTransparentMesh: 1
---- !u!114 &7133723725215743639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66591669884840340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f33c8ac5cb595e544acacee60913f778, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!114 &2867751172018053414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66591669884840340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2cef668f839bc649a8e0721977e0f22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: 
-  description: 
 --- !u!1 &1282822091762913764
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +118,7 @@ MonoBehaviour:
   detectsWillDieNextTurn: 0
   thinksItIsLosing: 0
   playstyle: 0
-  aggroValueBoost: 0
+  aggroValueBoost: 20
   aggroValue: 0
   midRangeValueBoost: 0
   midRangeValue: 0
@@ -242,7 +151,7 @@ MonoBehaviour:
   team: 1
   maxMana: 5
   mana: 0
-  manaPerTurn: 3
+  manaPerTurn: 2
   manaPerTurnIncrease: 2
   drawDelay: 0.125
   drawCountNeutral: 0
@@ -552,7 +461,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7489099769417817822}
   - {fileID: 6568308524526833027}
   - {fileID: 1322621581838124947}
   - {fileID: 1082695477715944879}
@@ -614,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18374809e88410046a63207ac13e5bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Enemy Hero
+  name: Ressurected Champion
   description: Not sure if the description will be used
   team: 1
   selfCardRef: {fileID: 0}
@@ -633,7 +541,7 @@ MonoBehaviour:
   nameText: {fileID: 1804889684088560876}
   attackText: {fileID: 5605886496184904933}
   healthText: {fileID: 2103815562745072750}
-  heroPower: {fileID: 2867751172018053414}
+  heroPower: {fileID: 0}
 --- !u!114 &2637585501655111097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +555,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
-  - {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
+  - {fileID: 4481372835452867603, guid: 575de975e1ad8c6449ce59fcb3ce22a7, type: 3}
+  - {fileID: 4481372835452867603, guid: 575de975e1ad8c6449ce59fcb3ce22a7, type: 3}
+  - {fileID: 4481372835452867603, guid: 575de975e1ad8c6449ce59fcb3ce22a7, type: 3}
+  - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
+  - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
+  - {fileID: 6041525299772250132, guid: 78073e9b96e97e74d9b1514373ef9645, type: 3}
+  - {fileID: 6738144939328589879, guid: 16c688a1e72f8c34e8a79766b07d2481, type: 3}
+  - {fileID: 6738144939328589879, guid: 16c688a1e72f8c34e8a79766b07d2481, type: 3}
+  - {fileID: 7225182051294132464, guid: 887408eb564d83c4abc1fe0e9e13dc36, type: 3}
+  - {fileID: 7225182051294132464, guid: 887408eb564d83c4abc1fe0e9e13dc36, type: 3}
+  - {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
+  - {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
+  - {fileID: 1672969393363252450, guid: 3418fe0f94f791649bb35de54f4ced6b, type: 3}
+  - {fileID: 1672969393363252450, guid: 3418fe0f94f791649bb35de54f4ced6b, type: 3}
+  - {fileID: 5000895713995230637, guid: 0b54738fce6806f4aa194e04f6fb5386, type: 3}
+  - {fileID: 5000895713995230637, guid: 0b54738fce6806f4aa194e04f6fb5386, type: 3}
+  - {fileID: 8514364106422123549, guid: 33aa78eb4379acd4fadef715e12c906c, type: 3}
   discardPile: []
 --- !u!114 &8924891809557538595
 MonoBehaviour:
@@ -774,8 +698,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -65}
-  m_SizeDelta: {x: 60, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5324552624332747743
 CanvasRenderer:
