@@ -46,6 +46,8 @@ public class CombatManager : MonoBehaviour
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
             enemyHeroes.Add(hero);
+
+        StartCombat();
     }
 
     public void StartCombat()

@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Flame Wave
-  description: Deal 3 damage to all enemy minions
+  description: Deal 1 damage to all enemy minions and heroes
   team: 0
   selfCardRef: {fileID: 6182632505012931105}
   playerManager: {fileID: 0}

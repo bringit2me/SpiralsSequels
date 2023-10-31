@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Overgrowth
-  description: Give a minion +2 attack and +4 health
+  description: Give a minion +2 attack and +3 health
   team: 0
   selfCardRef: {fileID: 123212517330198390}
   playerManager: {fileID: 0}
@@ -271,7 +271,7 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTeam: 3
   attackChange: 2
-  healthChange: 4
+  healthChange: 3
 --- !u!225 &6574214617461843805
 CanvasGroup:
   m_ObjectHideFlags: 0
