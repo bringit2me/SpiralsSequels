@@ -443,7 +443,7 @@ public class BaseEnemyAI : MonoBehaviour
                                 entry.value = value;
                                 entry.target = card;
                             }
-                            else if (targetHero.health > entry.target.GetComponent<BaseHero>().health)
+                            else if (targetHero.health < entry.target.GetComponent<BaseHero>().health)
                             {
                                 entry.value = value;
                                 entry.target = card;
@@ -462,7 +462,7 @@ public class BaseEnemyAI : MonoBehaviour
         CardValueEntry entry = new CardValueEntry();
         entry.card = hero;
 
-        if (hero.canAttack == false) //if the hero cannot attack
+        if (hero.canAttack == false || hero.isDead) //if the hero cannot attack or is dead
             return entry;
 
         //loops through all cards in play
@@ -568,7 +568,7 @@ public class BaseEnemyAI : MonoBehaviour
                                 entry.value = value;
                                 entry.target = card;
                             }
-                            else if (targetHero.health > entry.target.GetComponent<BaseHero>().health)
+                            else if (targetHero.health < entry.target.GetComponent<BaseHero>().health)
                             {
                                 entry.value = value;
                                 entry.target = card;

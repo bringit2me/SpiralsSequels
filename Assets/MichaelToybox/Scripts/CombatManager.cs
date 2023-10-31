@@ -31,10 +31,10 @@ public class CombatManager : MonoBehaviour
     private void Start()
     {
         boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
-        StartCombat();
+        SetupCombat();
     }
 
-    public void StartCombat()
+    public void SetupCombat()
     {
         state = CombatState.STARTING;
 
@@ -46,6 +46,10 @@ public class CombatManager : MonoBehaviour
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
             enemyHeroes.Add(hero);
+    }
+
+    public void StartCombat()
+    {
 
         //Updates minion zones
         enemyMinionZone.RefreshMinionsInZoneList();

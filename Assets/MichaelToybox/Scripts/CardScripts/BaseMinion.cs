@@ -51,7 +51,7 @@ public class BaseMinion : BaseCard
         UpdateMana();
         UpdateAttack();
         UpdateHealth();
-        canAttack = false;
+        //canAttack = false;
     }
 
     public virtual void UpdateMana()
@@ -196,6 +196,9 @@ public class BaseMinion : BaseCard
         value += spellDamage;
         //Adds 1 if the minion has taunt
         if(taunt == true)
+            value += 1;
+        //if the minion can attack this turn
+        if (canAttack == true)
             value += 1;
 
         value -= manaCost;
