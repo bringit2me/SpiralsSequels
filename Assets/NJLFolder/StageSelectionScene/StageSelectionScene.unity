@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stagesToBoss: 4
-  currStage: 0
+  currStage: 4
   buttons:
   - {fileID: 1165443814}
   - {fileID: 105926856}
