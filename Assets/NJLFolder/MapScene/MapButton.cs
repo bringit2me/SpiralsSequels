@@ -8,6 +8,9 @@ public class MapButton : MonoBehaviour
 
     public int level;
 
+    [Header("Stage Information")]
+    public string encounterName;
+    public string encounterType;
 
 
     [Header("ButtonUIRef")]

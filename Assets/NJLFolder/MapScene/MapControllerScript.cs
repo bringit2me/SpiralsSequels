@@ -19,6 +19,10 @@ public class MapControllerScript : MonoBehaviour
 
     void Start()
     {
+        
+
+
+
         for (int y = 0; y < colls; y++)
         {
             for (int i = 0; i < rows; i++)
