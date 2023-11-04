@@ -15,6 +15,7 @@ public class StageController : MonoBehaviour
 
     [Header("UI References")]
     public GameObject[] buttons;
+    TextMeshProUGUI toNextBossText;
     
 
 
@@ -23,22 +24,41 @@ public class StageController : MonoBehaviour
     private void Awake()
     {
         RandomizeStages();
+
+        toNextBossText = GameObject.Find("ToNextBossText").GetComponent<TextMeshProUGUI>();
+
+        toNextBossText.text = "Stage number: " + currStage;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        TestingControls();
     }
 
-    void RandomizeStages()
+    void TestingControls() //REMOVE ME WHEN NO LONGER NEEDED
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            Debug.Log("Randomizing Stages...");
+            RandomizeStages();
+        }
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            Debug.Log("Increasing Current stage number...");
+            currStage++;
+            toNextBossText.text = "Stage number: " + currStage;
+        }
+    }
+
+    void RandomizeStages() //Randomizes the stages the player has to choose from at the start of the scene
     {
         
         bool bossButtonSpawned = false;
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < buttons.Length; i++) //For loop runs code within it for each button in our list of buttons
         {
-            int randNum = Random.Range(1, 3); //3 encounters(basic, boss, and spiral)
-            if (currStage == stagesToBoss && !bossButtonSpawned)
+            int randNum = Random.Range(1, 3); //Generates a random number. 3 encounters(basic, boss, and spiral)
+            if (currStage == stagesToBoss && !bossButtonSpawned) //If the current stage is equal to the stages to boss int we garuntee a boss stage
             {
                 randNum = 3;
                 bossButtonSpawned = true;
@@ -46,7 +66,7 @@ public class StageController : MonoBehaviour
             
             
             
-
+            //Each number corresponds to one of our stages, we then change the buttons text and set its identity for the StageButtonController script.
             if(randNum == 1)
             {
                 Debug.Log("This is a basic Encounter");
