@@ -249,7 +249,37 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  hero: {fileID: 0}
+  anim: {fileID: 0}
   valueBoostAI: 0
+  handAnimClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 0}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 0
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
+  animClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 0}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 0
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
   manaCost: 0
   isPlayed: 0
   heroDeck: {fileID: 3566509377155054430}
@@ -258,10 +288,25 @@ MonoBehaviour:
   health: 40
   canAttack: 1
   targetable: 1
+  isDead: 0
   nameText: {fileID: 930027344384438795}
   attackText: {fileID: 6352401468958441986}
   healthText: {fileID: 636729865615794825}
   heroPower: {fileID: 0}
+  attackAnimClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 2382362153385024439}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 1
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 1
+    animSpeed: 1
+    effect: {fileID: 0}
 --- !u!114 &3566509377155054430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +331,7 @@ MonoBehaviour:
   - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   - {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   discardPile: []
+  hero: {fileID: 2382362153385024439}
 --- !u!114 &7944291173903550916
 MonoBehaviour:
   m_ObjectHideFlags: 0

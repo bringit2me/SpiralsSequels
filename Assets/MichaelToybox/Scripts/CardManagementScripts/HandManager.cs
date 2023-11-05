@@ -15,6 +15,7 @@ public class HandManager : MonoBehaviour
         temp.deck = deck; //sets deck reference
         temp.selfCardRef = card; //sets self card reference
         temp.team = playerManager.team; //sets team 
+        temp.hero = deck.hero; //sets card hero reference
         handCards.Add(temp); //adss card to hand list
     }
 

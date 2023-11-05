@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PlayerMinionZone : MonoBehaviour, IDropHandler
 {
     [SerializeField] protected PlayerManager playerManager;
     protected CombatManager combatManager;
-    [Header("")]
+    public GridLayoutGroup layout;
+    [Header("Zone Info")]
+    [SerializeField] BaseCard dummyCard;
     [SerializeField] protected int maxMinions = 10;
 
 
@@ -17,6 +20,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         playerManager = combatManager.playerManager;
+        layout = this.GetComponent<GridLayoutGroup>();
     }
     /// <summary>
     /// Resets the minionsInZone list, then updates the minionsInZone list by checking all child objects of type BaseMinion underneath the zone
@@ -107,5 +111,19 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         RefreshMinionsInZoneList();
         //tells combat manager to update all cards in play
         combatManager.UpdateAllCardsInPlay();
+    }
+
+    public virtual Vector3 GetNextCardPosition()
+    {
+        GameObject target = Instantiate(dummyCard, this.transform).gameObject;
+        Canvas.ForceUpdateCanvases();
+        target.transform.SetParent(target.transform.root);
+        Destroy(target, 2f);
+        return target.transform.position;
+    }
+
+    public virtual void DummyReparent()
+    {
+
     }
 }

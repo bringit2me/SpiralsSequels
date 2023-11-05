@@ -20,11 +20,16 @@ public class BaseHero : BaseCard
     [SerializeField] TMP_Text healthText;
     [Header("Hero Power")]
     public BaseHeroPower heroPower;
+    [Header("Hero Attack Anim")]
+    public CardAnimationClip attackAnimClip;
+    [Header("Starting Minions")]
+    public BaseCard[] startingCards;
 
     private void Start()
     {
         SetupCardText();
         isPlayed = true;
+        anim = GameObject.FindObjectOfType<CardAnimationManager>(); //finds animator
     }
     public virtual void SetupCardText()
     {
@@ -47,11 +52,19 @@ public class BaseHero : BaseCard
     {
         target.TakeDamage(attack);
         canAttack = false;
+        PlayAttackAnim(target);
     }
     public virtual void AttackHero(BaseHero target)
     {
         target.TakeDamage(attack);
         canAttack = false;
+        PlayAttackAnim(target);
+    }
+
+    public virtual void PlayAttackAnim(BaseCard target)
+    {
+        attackAnimClip.target = target.gameObject;
+        anim.PlayAnimation(attackAnimClip);
     }
     // --- TAKING DAMAGE ---
 

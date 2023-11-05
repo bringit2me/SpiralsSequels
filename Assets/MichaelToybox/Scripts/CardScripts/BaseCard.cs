@@ -13,8 +13,13 @@ public class BaseCard : MonoBehaviour
     /*[HideInInspector]*/ public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
+    [HideInInspector] public BaseHero hero;
+    [HideInInspector] public CardAnimationManager anim;
     [Header("AI")]
     public int valueBoostAI = 0;
+    [Header("Animation")]
+    public CardAnimationClip handAnimClip;
+    public CardAnimationClip animClip;
     [Header("Stats")]
     public int manaCost;
     public bool isPlayed = false;

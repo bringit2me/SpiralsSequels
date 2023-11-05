@@ -30,6 +30,7 @@ public class BaseEnemyAI : MonoBehaviour
     //References
     protected CombatManager combatManager;
     protected BoardStateInformation boardInfo;
+    protected CardAnimationManager anim;
     //References (enemy encounter prefab)
     protected EnemyManager enemyManager;
     protected EnemyMinionZone minionZone;
@@ -40,6 +41,7 @@ public class BaseEnemyAI : MonoBehaviour
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
+        anim = GameObject.FindObjectOfType<CardAnimationManager>();
         //gets references to scripts in enemy encounter prefab
         enemyManager = this.GetComponent<EnemyManager>();
         minionZone = this.GetComponentInChildren<EnemyMinionZone>();
@@ -76,7 +78,7 @@ public class BaseEnemyAI : MonoBehaviour
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
             {
                 minionZone.PlayMinionToZone(highestValueCard.card);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForEndOfFrame();
             }
             else //highest value card is not a minion
             {
@@ -89,10 +91,14 @@ public class BaseEnemyAI : MonoBehaviour
                 {
                     highestValueCard.card.Played(enemyManager); //plays the spell
                 }
+                yield return new WaitForEndOfFrame();
                 yield return new WaitForSeconds(0.25f);
             }
 
             yield return new WaitForEndOfFrame();
+
+            while(anim.isAnimating == true) //if the animator is animating, wait for it to finish
+                yield return new WaitForEndOfFrame();
 
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
@@ -104,7 +110,7 @@ public class BaseEnemyAI : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-
+         
         StartCoroutine(AttackWithCharacters());
     }
 
@@ -125,20 +131,21 @@ public class BaseEnemyAI : MonoBehaviour
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseMinion>().GetComponent<MinionCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForEndOfFrame();
             }
             else if (highestAttackValue.card.GetComponent<BaseHero>() == true) //if our highest value card is a hero
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseHero>().GetComponent<HeroCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForEndOfFrame();
             }
             else
             {
                 Debug.LogWarning("Tried to attack with a card that is not a minion or hero");
             }
 
-            yield return new WaitForEndOfFrame();
+            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
+                yield return new WaitForEndOfFrame();
 
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
@@ -312,6 +319,11 @@ public class BaseEnemyAI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates the minions best attack
+    /// </summary>
+    /// <param name="minion"></param>
+    /// <returns></returns>
     public virtual CardValueEntry CalculateMinionsBestAttack(BaseMinion minion)
     {
         CardValueEntry entry = new CardValueEntry();
@@ -386,17 +398,20 @@ public class BaseEnemyAI : MonoBehaviour
                 //AI is agressive and hits a hero
                 if(playstyle == EnemyPlaystyle.AGGRESSIVE && targetHero != null)
                 {
-                    value = (int)(value * ValueToPercent(aggroValue));
+                    //normal value calculation + 1 to incourage aggro behavior
+                    value = (int)(value * ValueToPercent(aggroValue)) + 1;
                 }
                 //AI is mid range, hits a minion, and minion survives the attack
                 else if (playstyle == EnemyPlaystyle.MID_RANGE && targetMinion != null && survivesMinionCombat == true)
                 {
-                    value = (int)(value * ValueToPercent(midRangeValue));
+                    //normal value calculation + 1 to incourage mid range behavior
+                    value = (int)(value * ValueToPercent(midRangeValue)) + 1;
                 }
                 //AI is defensive and hits a minion
                 else if (playstyle == EnemyPlaystyle.DEFENSIVE && targetMinion != null)
                 {
-                    value = (int)(value * ValueToPercent(defenseValue));
+                    //normal value calculation + 1 to incourage defensive behavior
+                    value = (int)(value * ValueToPercent(defenseValue)) + 1;
                 }
 
                 if (value > entry.value) //value is greater than previous greatest value target
@@ -457,6 +472,11 @@ public class BaseEnemyAI : MonoBehaviour
         return entry;
     }
 
+    /// <summary>
+    /// calculates the heroes best attack
+    /// </summary>
+    /// <param name="hero"></param>
+    /// <returns></returns>
     public virtual CardValueEntry CalculateHeroBestAttack(BaseHero hero)
     {
         CardValueEntry entry = new CardValueEntry();
@@ -511,17 +531,20 @@ public class BaseEnemyAI : MonoBehaviour
                 //AI is agressive and hits a hero
                 if (playstyle == EnemyPlaystyle.AGGRESSIVE && targetHero != null)
                 {
-                    value = (int)(value * ValueToPercent(aggroValue));
+                    //normal value calculation + 1 to incourage aggro behavior
+                    value = (int)(value * ValueToPercent(aggroValue)) + 1;
                 }
                 //AI is mid range and hits a minion
                 else if (playstyle == EnemyPlaystyle.MID_RANGE && targetMinion != null)
                 {
-                    value = (int)(value * ValueToPercent(midRangeValue));
-                }
+                    //normal value calculation + 1 to incourage mid range behavior
+                    value = (int)(value * ValueToPercent(midRangeValue)) + 1;
+                } 
                 //AI is defensive and hits a minion
                 else if (playstyle == EnemyPlaystyle.DEFENSIVE && targetMinion != null)
                 {
-                    value = (int)(value * ValueToPercent(defenseValue));
+                    //normal value calculation + 1 to incourage defensive behavior
+                    value = (int)(value * ValueToPercent(defenseValue)) + 1;
                 }
 
                 if (value > entry.value) //value is greater than previous greatest value target

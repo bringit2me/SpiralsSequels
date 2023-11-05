@@ -571,11 +571,11 @@ MonoBehaviour:
   deck: {fileID: 0}
   zone: {fileID: 0}
   valueBoostAI: 0
-  manaCost: 6
+  manaCost: 5
   isPlayed: 0
   nameText: {fileID: 1062633620825970651}
   descriptionText: {fileID: 2924952784328616557}
   manaText: {fileID: 5739692093706601419}
   target: {fileID: 0}
   targetTeam: 3
-  damage: 12
+  damage: 10

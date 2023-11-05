@@ -450,6 +450,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerManager: {fileID: 0}
+  layout: {fileID: 0}
+  dummyCard: {fileID: 7913977807348801962, guid: 808df142d651e514da8028872e8eee46, type: 3}
   maxMinions: 10
 --- !u!1 &6767050965988445353
 GameObject:

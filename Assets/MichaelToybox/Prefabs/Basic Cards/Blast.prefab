@@ -268,20 +268,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Blast
-  description: Deal 2 damage to a character
+  description: Deal 2 damage to a minion
   team: 0
   selfCardRef: {fileID: 769307129988775393}
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  hero: {fileID: 0}
+  anim: {fileID: 0}
   valueBoostAI: 0
+  handAnimClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 0}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 0
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
+  animClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 0}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 0
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
   manaCost: 1
   isPlayed: 0
   nameText: {fileID: 9031377747092585671}
   descriptionText: {fileID: 8631787028435609257}
   manaText: {fileID: 2848025587265895300}
   target: {fileID: 0}
-  targetTeam: 0
+  targetTeam: 3
   damage: 2
 --- !u!1 &7152487355706759147
 GameObject:

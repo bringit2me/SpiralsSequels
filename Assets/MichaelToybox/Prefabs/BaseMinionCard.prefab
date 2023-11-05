@@ -696,8 +696,37 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  hero: {fileID: 0}
+  anim: {fileID: 0}
   valueBoostAI: 0
-  cardValue: 0
+  handAnimClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 5583382633494265006}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 1
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
+  animClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 0}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 0
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 0
+    animSpeed: 1
+    effect: {fileID: 0}
   manaCost: 1
   isPlayed: 0
   attack: 1
@@ -730,6 +759,21 @@ MonoBehaviour:
   manaText: {fileID: 1181499625201837610}
   attackText: {fileID: 7452243494110634735}
   healthText: {fileID: 6347439797376707122}
+  deathValueBoostAI: 2
+  attackAnimClip:
+    animating: 0
+    animationFinished: 0
+    card: {fileID: 5583382633494265006}
+    target: {fileID: 0}
+    targetPos: {x: 0, y: 0, z: 0}
+    moveCard: 1
+    moveEffect: 0
+    startHero: 0
+    startCard: 0
+    lookAtTargetPos: 0
+    reverseAnimWhenDone: 1
+    animSpeed: 2
+    effect: {fileID: 0}
 --- !u!114 &4571071661720032199
 MonoBehaviour:
   m_ObjectHideFlags: 0

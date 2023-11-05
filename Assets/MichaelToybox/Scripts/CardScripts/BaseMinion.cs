@@ -30,6 +30,8 @@ public class BaseMinion : BaseCard
     [SerializeField] TMP_Text healthText;
     [Header("AI Minion")]
     public int deathValueBoostAI = 2;
+    [Header("Minion Attack Anim")]
+    public CardAnimationClip attackAnimClip;
 
     public virtual void Start()
     {
@@ -40,6 +42,8 @@ public class BaseMinion : BaseCard
             this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
             this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         }
+
+        anim = GameObject.FindObjectOfType<CardAnimationManager>();
     }
 
     // --- CARD SETUP ---
@@ -78,17 +82,27 @@ public class BaseMinion : BaseCard
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
+        handAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
+        anim.PlayAnimation(handAnimClip);
     }
 
     public virtual void AttackMinion(BaseMinion target)
     {
         target.TakeDamage(attack);
         canAttack = false;
+        PlayAttackAnim(target);
     }
     public virtual void AttackHero(BaseHero target)
     {
         target.TakeDamage(attack);
         canAttack = false;
+        PlayAttackAnim(target);
+    }
+
+    public virtual void PlayAttackAnim(BaseCard target)
+    {
+        attackAnimClip.target = target.gameObject;
+        anim.PlayAnimation(attackAnimClip);
     }
 
     // --- TAKING DAMAGE ---
@@ -181,7 +195,7 @@ public class BaseMinion : BaseCard
     {
         this.transform.SetParent(transform.root);
         GameObject.FindObjectOfType<CombatManager>().UpdateAllCardsInPlay(); //updates cards in play
-        Destroy(this.gameObject,0.25f);
+        Destroy(this.gameObject,5f);
     }
 
     //--- AI EVALUATION ---
