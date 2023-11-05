@@ -358,7 +358,6 @@ MonoBehaviour:
   minEnemyCount: 1
   maxEnemyCount: 3
   enemyCount: 0
-  heroSpawnOffset: 400
   healthBoostPerMissingEnemy: 10
   heroesToSpawn: []
   heroesSpawned: []
@@ -417,8 +416,8 @@ MonoBehaviour:
   team: 1
   maxMana: 10
   mana: 0
-  manaPerTurn: 2
-  manaPerTurnIncrease: 2
+  manaPerTurn: 1
+  manaPerTurnIncrease: 1
   drawDelay: 0.125
   drawCountNeutral: 0
   neutralDeck: {fileID: 5604568289663590032}

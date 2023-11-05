@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
     [Header("Player Information")]
     public PlayerManager playerManager;
     public PlayerMinionZone playerMinionZone;
+    private PlayerHeroManager playerHeroManager;
     public List<BaseHero> playerHeroes;
     public List<BaseMinion> playerMinions;
     public GameObject heroSlot1;
@@ -55,6 +56,19 @@ public class CombatManager : MonoBehaviour
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
             enemyHeroes.Add(hero);
+
+        //Gets hero references
+        playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
+        //Removes hero from each slot
+        Destroy(heroSlot1.transform.GetChild(0).gameObject);
+        Destroy(heroSlot2.transform.GetChild(0).gameObject);
+        Destroy(heroSlot3.transform.GetChild(0).gameObject);
+        //clears player hero list
+        playerHeroes.Clear();
+        //Copies over hero into each slot and adds them to playerHeroes list
+        playerHeroes.Add(Instantiate(playerHeroManager.heroes[0],heroSlot1.transform));
+        playerHeroes.Add(Instantiate(playerHeroManager.heroes[1], heroSlot2.transform));
+        playerHeroes.Add(Instantiate(playerHeroManager.heroes[2], heroSlot3.transform));
 
         StartCombat();
     }

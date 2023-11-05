@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
+//This script manages the player during combat
 public class PlayerManager : MonoBehaviour
 {
     [Header("Player Info")]
