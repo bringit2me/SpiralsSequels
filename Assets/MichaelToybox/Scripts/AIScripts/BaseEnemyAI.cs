@@ -38,6 +38,11 @@ public class BaseEnemyAI : MonoBehaviour
 
     public virtual void Awake()
     {
+        GetReferences();
+    }
+
+    public virtual void GetReferences()
+    {
         //gets references
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
@@ -48,11 +53,6 @@ public class BaseEnemyAI : MonoBehaviour
         hand = this.GetComponent<HandManager>();
         //Sets team
         team = enemyManager.team;
-    }
-
-    public virtual void Update()
-    {
-
     }
 
     //--- TURN MANAGEMENT ---
@@ -73,6 +73,9 @@ public class BaseEnemyAI : MonoBehaviour
         {
             if (highestValueCard.value < 0) //no good card to play
                 break; //exit loop
+
+            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
+                yield return new WaitForEndOfFrame();
 
             //plays cards
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
@@ -96,9 +99,6 @@ public class BaseEnemyAI : MonoBehaviour
             }
 
             yield return new WaitForEndOfFrame();
-
-            while(anim.isAnimating == true) //if the animator is animating, wait for it to finish
-                yield return new WaitForEndOfFrame();
 
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
@@ -126,11 +126,15 @@ public class BaseEnemyAI : MonoBehaviour
             if (highestAttackValue.value < 0) //no good card to play
                 break; //exit loop
 
+            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
+                yield return new WaitForEndOfFrame();
+
             //plays cards
             if (highestAttackValue.card.GetComponent<BaseMinion>() == true) //if our highest value card is a minion
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseMinion>().GetComponent<MinionCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
+                yield return new WaitForEndOfFrame();
                 yield return new WaitForEndOfFrame();
             }
             else if (highestAttackValue.card.GetComponent<BaseHero>() == true) //if our highest value card is a hero
@@ -138,14 +142,12 @@ public class BaseEnemyAI : MonoBehaviour
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseHero>().GetComponent<HeroCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
                 yield return new WaitForEndOfFrame();
+                yield return new WaitForEndOfFrame();
             }
             else
             {
                 Debug.LogWarning("Tried to attack with a card that is not a minion or hero");
             }
-
-            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
-                yield return new WaitForEndOfFrame();
 
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state

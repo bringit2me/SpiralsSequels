@@ -711,7 +711,7 @@ MonoBehaviour:
     startCard: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 0
-    animSpeed: 1
+    animSpeed: 1.75
     effect: {fileID: 0}
   animClip:
     animating: 0

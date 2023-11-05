@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+
     public List<BaseCard> allCardsInPlay;
     [Header("Player Information")]
     public PlayerManager playerManager;
@@ -24,6 +25,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] BaseEnemyAI enemyAI;
 
     [Header("Combat State")]
+    [SerializeField] bool setupCombatOnStart = false;
     public CombatState  state = CombatState.STARTING;
     public int turnCount = 0;
     bool playerGoesFirst;
@@ -31,10 +33,17 @@ public class CombatManager : MonoBehaviour
     private void Start()
     {
         boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
-        SetupCombat();
+        if(setupCombatOnStart == true)
+            StartCoroutine(SetupCombatManagerDelay());
     }
 
-    public void SetupCombat()
+    IEnumerator SetupCombatManagerDelay()
+    {
+        yield return new WaitForEndOfFrame();
+        SetupCombatManager();
+    }
+
+    public void SetupCombatManager()
     {
         state = CombatState.STARTING;
 

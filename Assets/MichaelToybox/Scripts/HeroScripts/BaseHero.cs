@@ -22,7 +22,10 @@ public class BaseHero : BaseCard
     public BaseHeroPower heroPower;
     [Header("Hero Attack Anim")]
     public CardAnimationClip attackAnimClip;
-    [Header("Starting Minions")]
+    [Header("AI Info")]
+    public int aggroValueBoost = 0;
+    public int midRangeValueBoost = 0;
+    public int defenseValueBoost = 0;
     public BaseCard[] startingCards;
 
     private void Start()

@@ -337,7 +337,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 275}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 175, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5655938361758330754
@@ -432,8 +432,8 @@ MonoBehaviour:
   isPlayed: 0
   heroDeck: {fileID: 7636292522643735501}
   attack: 2
-  maxHealth: 20
-  health: 20
+  maxHealth: 15
+  health: 15
   canAttack: 1
   targetable: 1
   isDead: 0
@@ -455,6 +455,10 @@ MonoBehaviour:
     reverseAnimWhenDone: 1
     animSpeed: 2.5
     effect: {fileID: 0}
+  aggroValueBoost: 0
+  midRangeValueBoost: 10
+  defenseValueBoost: 0
+  startingCards: []
 --- !u!114 &7636292522643735501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -564,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '###'
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
