@@ -33,7 +33,7 @@ public class BaseMinion : BaseCard
     [Header("Minion Attack Anim")]
     public CardAnimationClip attackAnimClip;
 
-    public virtual void Start()
+    public void Start()
     {
         SetupCardText();
         //If this minion starts out played
@@ -42,8 +42,6 @@ public class BaseMinion : BaseCard
             this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
             this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         }
-
-        anim = GameObject.FindObjectOfType<CardAnimationManager>();
     }
 
     // --- CARD SETUP ---
@@ -82,8 +80,8 @@ public class BaseMinion : BaseCard
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
-        handAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
-        anim.PlayAnimation(handAnimClip);
+        playAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
+        anim.PlayAnimation(playAnimClip);
     }
 
     public virtual void AttackMinion(BaseMinion target)

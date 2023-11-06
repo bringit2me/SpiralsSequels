@@ -12,10 +12,20 @@ public class TargetHealSpell : BaseTargetSpell
         if (target.GetComponent<BaseMinion>() == true)
         {
             target.GetComponent<BaseMinion>().Heal(healValue);
+
+            playAnimClip.target = target.gameObject;
+            CardAnimationClip clip = new CardAnimationClip();
+            clip.CopyClip(playAnimClip);
+            anim.PlayAnimation(clip);
         }
         if (target.GetComponent<BaseHero>() == true)
         {
             target.GetComponent<BaseHero>().Heal(healValue);
+
+            playAnimClip.target = target.gameObject;
+            CardAnimationClip clip = new CardAnimationClip();
+            clip.CopyClip(playAnimClip);
+            anim.PlayAnimation(clip);
         }
 
         base.CastAtTarget();

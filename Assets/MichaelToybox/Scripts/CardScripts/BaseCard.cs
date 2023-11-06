@@ -10,22 +10,28 @@ public class BaseCard : MonoBehaviour
     public string description;
     public Team team;
     public BaseCard selfCardRef;
-    /*[HideInInspector]*/ public PlayerManager playerManager;
+    [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [HideInInspector] public BaseHero hero;
-    [HideInInspector] public CardAnimationManager anim;
+    /*[HideInInspector]*/ public CardAnimationManager anim;
     [Header("AI")]
     public int valueBoostAI = 0;
     [Header("Animation")]
-    public CardAnimationClip handAnimClip;
-    public CardAnimationClip animClip;
+    public CardAnimationClip playAnimClip;
     [Header("Stats")]
     public int manaCost;
     public bool isPlayed = false;
 
     //references
     protected PointerEventData eventData;
+
+    public virtual void Awake()
+    {
+        anim = GameObject.FindObjectOfType<CardAnimationManager>();
+        playAnimClip.card = this;
+    }
+
 
     /// <summary>
     /// Adds the card to the discard pile

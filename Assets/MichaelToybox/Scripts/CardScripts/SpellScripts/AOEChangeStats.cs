@@ -11,6 +11,9 @@ public class AOEChangeStats : BaseAOESpell
     public override void Cast()
     {
         base.Cast();
+
+        int animID = anim.GetAnimationID(); //gets ID for animation
+
         foreach (BaseCard card in targets)
         {
             if (card.GetComponent<BaseMinion>() == true)
@@ -23,6 +26,13 @@ public class AOEChangeStats : BaseAOESpell
                 card.GetComponent<BaseHero>().ChangeAttack(attackChange);
                 card.GetComponent<BaseHero>().ChangeHealth(healthChange);
             }
+
+            //Calls animation on target
+            playAnimClip.target = card.gameObject; //sets target
+            playAnimClip.animID = animID; //sets anim ID
+            CardAnimationClip clip = new CardAnimationClip(); //creates new clip
+            clip.CopyClip(playAnimClip); //copies play clip to new clip
+            anim.PlayAnimation(clip); //plays new clip
         }
         EndCast();
     }

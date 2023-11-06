@@ -265,34 +265,22 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  handAnimClip:
+  playAnimClip:
     animating: 0
     animationFinished: 0
     card: {fileID: 0}
     target: {fileID: 0}
     targetPos: {x: 0, y: 0, z: 0}
     moveCard: 0
-    moveEffect: 0
+    moveEffect: 1
     startHero: 0
     startCard: 0
+    startTarget: 1
+    startMiddle: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
-  animClip:
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+    animSpeed: 1.5
+    effect: {fileID: 9167283613986189876, guid: 54abfb36794cab54399108d385fe4dbf, type: 3}
   manaCost: 4
   isPlayed: 0
   nameText: {fileID: 7473800476776439893}
