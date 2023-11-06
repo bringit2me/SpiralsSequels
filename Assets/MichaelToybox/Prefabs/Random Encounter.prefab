@@ -416,7 +416,7 @@ MonoBehaviour:
   team: 1
   maxMana: 10
   mana: 0
-  manaPerTurn: 1
+  manaPerTurn: 2
   manaPerTurnIncrease: 1
   drawDelay: 0.125
   drawCountNeutral: 0

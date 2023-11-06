@@ -158,8 +158,7 @@ public class BaseHero : BaseCard
     public virtual void Dead()
     {
         isDead = true;
-        //TODO: add hero death
-        //Destroy(this.gameObject);
+        GameObject.FindObjectOfType<CombatManager>().CheckTeamLost(); //checks if a team lost on hero death
     }
 
     /// <summary>

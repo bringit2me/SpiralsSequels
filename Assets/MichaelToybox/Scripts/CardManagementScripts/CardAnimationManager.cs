@@ -6,9 +6,18 @@ public class CardAnimationManager : MonoBehaviour
 {
     public bool isAnimating = false;
     public List<CardAnimationClip> animationList;
+    CombatManager combatManager;
+
+    private void Awake()
+    {
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
+    }
 
     private void Update()
     {
+        if (combatManager.state == CombatState.OFF)
+            return;
+
         if(animationList.Count > 0)
         {
             isAnimating = true;
@@ -29,6 +38,12 @@ public class CardAnimationManager : MonoBehaviour
         animClip.animating = false;
         animClip.SetupAnim();
         animationList.Add(animClip);
+    }
+
+    public void ResetAnimationManager()
+    {
+        animationList.Clear();
+        Debug.Log("Reset Animation List");
     }
 
     public GameObject InstantiateEffect(GameObject obj, Vector3 pos, Vector3 euler)
@@ -109,6 +124,9 @@ public class CardAnimationClip
 
     public void Execute()
     {
+        if (card == null) //if we have no or lost out card reference
+            animationFinished = true;
+
         if (animating == false) //if we are not animating
             return; //end code
 

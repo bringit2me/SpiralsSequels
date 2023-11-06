@@ -17,6 +17,7 @@ public class CombatManager : MonoBehaviour
     public GameObject heroSlot3;
 
     [Header("AI Information")]
+    public RandomEncounter randomEncounter;
     public EnemyManager enemyManager;
     public EnemyMinionZone enemyMinionZone;
     public List<BaseHero> enemyHeroes;
@@ -31,10 +32,21 @@ public class CombatManager : MonoBehaviour
     public int turnCount = 0;
     bool playerGoesFirst;
 
+    SwapToCombat combatSwap;
+    CardAnimationManager cardAnimationManager;
+
+    // --- COMBAT SETUP ---
+
     private void Start()
     {
         boardInfo = GameObject.FindObjectOfType<BoardStateInformation>();
-        if(setupCombatOnStart == true)
+        combatSwap = GameObject.FindObjectOfType<SwapToCombat>();
+        cardAnimationManager = GameObject.FindObjectOfType<CardAnimationManager>();
+
+        //Resets card animation manager
+        cardAnimationManager.ResetAnimationManager();
+
+        if (setupCombatOnStart == true)
             StartCoroutine(SetupCombatManagerDelay());
     }
 
@@ -58,6 +70,7 @@ public class CombatManager : MonoBehaviour
             enemyHeroes.Add(hero);
 
         //Gets hero references
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Removes hero from each slot
         Destroy(heroSlot1.transform.GetChild(0).gameObject);
@@ -69,8 +82,22 @@ public class CombatManager : MonoBehaviour
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[0],heroSlot1.transform));
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[1], heroSlot2.transform));
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[2], heroSlot3.transform));
+        //Sets up player manager with references
+        SetupPlayerManager();
 
         StartCombat();
+    }
+
+    public void SetupPlayerManager()
+    {
+        playerManager.heroes.Clear();
+        playerManager.heroDecks.Clear();
+
+        foreach(BaseHero hero in playerHeroes)
+        {
+            playerManager.heroes.Add(hero);
+            playerManager.heroDecks.Add(hero.GetComponent<DeckManager>());
+        }
     }
 
     public void StartCombat()
@@ -79,6 +106,9 @@ public class CombatManager : MonoBehaviour
         //Updates minion zones
         enemyMinionZone.RefreshMinionsInZoneList();
         playerMinionZone.RefreshMinionsInZoneList();
+        //Updates mana texts
+        playerManager.UpdateManaText();
+        enemyManager.UpdateManaText();
         //Updates all cards in play
         UpdateAllCardsInPlay();
 
@@ -97,6 +127,8 @@ public class CombatManager : MonoBehaviour
             playerManager.manaPerTurn += 1; //increases player mana by 1
         }
     }
+
+    // --- TURN MANAGEMENT ---
 
     public void StartPlayerTurn()
     {
@@ -171,11 +203,80 @@ public class CombatManager : MonoBehaviour
         return false;
     }
 
-    IEnumerator TempEndEnemyTurnDelay()
+    // --- TEAM WIN/LOSE CHECK ---
+
+    public void CheckTeamLost()
     {
-        yield return new WaitForSeconds(1.5f);
-        EndEnemyTurn();
+        if(CheckPlayerAlive() == false)
+        //TODO: Player lost stuff (reload main menu scene)
+        {
+            //TODO: Load death scene or main menu
+        }
+        else if (CheckEnemyAlive() == false)
+        //TODO: Player won
+        {
+            //copies health from temperary combat heroes to perminant playerHeroManager heroes
+            playerHeroManager.CopyCombatHealthToHeroes();
+
+            //Resets combat
+            ResetCombat();
+
+            //Swaps back to the game UI (exits combat)
+            combatSwap.SwapCombatToGame();
+        }
     }
+
+    public bool CheckPlayerAlive()
+    {
+        bool playerHeroAlive = false;
+        foreach (BaseHero hero in playerHeroes) //loops through all player heroes
+            if (hero.isDead == false) //a hero is alive
+                playerHeroAlive = true;
+
+        return playerHeroAlive;
+    }
+
+    public bool CheckEnemyAlive()
+    {
+        bool enemyHeroAlive = false;
+        foreach (BaseHero hero in enemyHeroes) //loops through all enemy heroes
+            if (hero.isDead == false) //a hero is alive
+                enemyHeroAlive = true;
+
+        return enemyHeroAlive;
+    }
+
+    // --- RESETING COMBAT ---
+
+    /// <summary>
+    /// Resets combat (clears minions  and hand card)
+    /// </summary>
+    public void ResetCombat()
+    {
+        state = CombatState.OFF; //combat manager is off
+
+        //Resets card animation manager
+        cardAnimationManager.ResetAnimationManager();
+
+        //discard player hand
+        playerManager.handManager.DiscardHand();
+        //reshuffles player deck
+        playerManager.neutralDeck.CombineDeck();
+        //removes all player minions
+        foreach (BaseCard card in playerMinions)
+            Destroy(card.gameObject);
+
+        //discards enemy hand
+        enemyManager.handManager.DiscardHand();
+        //removes all enemy minions
+        foreach (BaseCard card in enemyMinions)
+            Destroy(card.gameObject);
+
+        //Updates all cards in play (resets a lot of card lists)
+        UpdateAllCardsInPlay();
+    }
+
+    // --- CHECKING CARDS IN PLAY ---
 
     public void UpdateAllCardsInPlay()
     {

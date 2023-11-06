@@ -62,6 +62,8 @@ public class EnemyManager : PlayerManager
 
     public virtual void SetValueBoostFromHeroes()
     {
+        enemyAI = this.GetComponent<BaseEnemyAI>();
+
         enemyAI.aggroValueBoost = 0;
         enemyAI.midRangeValueBoost = 0;
         enemyAI.defenseValueBoost = 0;
