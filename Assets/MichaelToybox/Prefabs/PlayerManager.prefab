@@ -45,18 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck:
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+  - {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+  - {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
   - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
   - {fileID: 769307129988775393, guid: e8248bb442d6f944b8b2a36506706615, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+  - {fileID: 6968151031317061243, guid: fa00f3d5c609b4d43b8f8640d96e365a, type: 3}
+  - {fileID: 6968151031317061243, guid: fa00f3d5c609b4d43b8f8640d96e365a, type: 3}
+  - {fileID: 355590302697054195, guid: 49e12a88f0a35224fae84e682ba8de28, type: 3}
   - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
-  - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
-  - {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
-  - {fileID: 8642663637650953535, guid: a0003a4601e146e49b071e46073c806b, type: 3}
-  - {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
-  - {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
   discardPile: []
   hero: {fileID: 0}
 --- !u!1 &8972971589770205645
@@ -164,7 +162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: name
-      value: Hero 3
+      value: Bard
       objectReference: {fileID: 0}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: cardRef
@@ -177,43 +175,43 @@ PrefabInstance:
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[0]
       value: 
-      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
+      objectReference: {fileID: 329495118882248853, guid: f843f85aa40db2d4db45d772336a1895, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[1]
       value: 
-      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
+      objectReference: {fileID: 329495118882248853, guid: f843f85aa40db2d4db45d772336a1895, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[2]
       value: 
-      objectReference: {fileID: 5315529764379585784, guid: 0edb6b3e2135d66418a42946e040b878, type: 3}
+      objectReference: {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[3]
       value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+      objectReference: {fileID: 1208697674822520600, guid: 9d05e7eec55547f4e967582e1df9899c, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[4]
       value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
+      objectReference: {fileID: 9145222513981665972, guid: ddc28c257551ba74a9e2b28250f68812, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[5]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 9145222513981665972, guid: ddc28c257551ba74a9e2b28250f68812, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[6]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[7]
       value: 
-      objectReference: {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
+      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[8]
       value: 
-      objectReference: {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
+      objectReference: {fileID: 2057979016118963945, guid: b0c6617c2f5c7524a9cb486cf3e2313f, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[9]
       value: 
-      objectReference: {fileID: 355590302697054195, guid: 49e12a88f0a35224fae84e682ba8de28, type: 3}
+      objectReference: {fileID: 2057979016118963945, guid: b0c6617c2f5c7524a9cb486cf3e2313f, type: 3}
     - target: {fileID: 6079820614456225481, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: m_Name
       value: Hero Portrait 3
@@ -333,7 +331,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: name
-      value: Hero 2
+      value: Conjurer
       objectReference: {fileID: 0}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: cardRef
@@ -346,43 +344,43 @@ PrefabInstance:
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[0]
       value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+      objectReference: {fileID: 3953249910160091034, guid: d99e272d27aaf9e4e82fee2ec2c160fa, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[1]
       value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+      objectReference: {fileID: 3953249910160091034, guid: d99e272d27aaf9e4e82fee2ec2c160fa, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[2]
       value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+      objectReference: {fileID: 1269547167755873184, guid: 06caa77e037c5f34cb42e3c88d319d35, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[3]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 1269547167755873184, guid: 06caa77e037c5f34cb42e3c88d319d35, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[4]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 3915802652658483575, guid: cbcc49f9a6fa8fa469c3626adbac3046, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[5]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 3915802652658483575, guid: cbcc49f9a6fa8fa469c3626adbac3046, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[6]
       value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
+      objectReference: {fileID: 7780213090264067200, guid: 3aca506b8722761498ac84ce1ed24391, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[7]
       value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
+      objectReference: {fileID: 7780213090264067200, guid: 3aca506b8722761498ac84ce1ed24391, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[8]
       value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
+      objectReference: {fileID: 5626704992502147525, guid: b4f89909ac1d7074995e8e6c030764cb, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[9]
       value: 
-      objectReference: {fileID: 5315529764379585784, guid: 0edb6b3e2135d66418a42946e040b878, type: 3}
+      objectReference: {fileID: 5626704992502147525, guid: b4f89909ac1d7074995e8e6c030764cb, type: 3}
     - target: {fileID: 6079820614456225481, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: m_Name
       value: Hero Portrait 2
@@ -502,7 +500,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: name
-      value: Hero 1
+      value: Warrior
       objectReference: {fileID: 0}
     - target: {fileID: 2382362153385024439, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: cardRef
@@ -515,43 +513,43 @@ PrefabInstance:
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[0]
       value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
+      objectReference: {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[1]
       value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
+      objectReference: {fileID: 511392946141183975, guid: 4f3f51252ab48ce43a133728c43bb1bf, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[2]
       value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
+      objectReference: {fileID: 6272495696528542044, guid: 21f9ffd60d048bc40918ccf856f91390, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[3]
       value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+      objectReference: {fileID: 6272495696528542044, guid: 21f9ffd60d048bc40918ccf856f91390, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[4]
       value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+      objectReference: {fileID: 6534694752893557410, guid: 2dbb0ec6e914bf9439dc0769c81db803, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[5]
       value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
+      objectReference: {fileID: 6534694752893557410, guid: 2dbb0ec6e914bf9439dc0769c81db803, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[6]
       value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
+      objectReference: {fileID: 3643089205840458816, guid: c59efbd297ecf024c8a655b12fecfb0e, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[7]
       value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
+      objectReference: {fileID: 3643089205840458816, guid: c59efbd297ecf024c8a655b12fecfb0e, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[8]
       value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
+      objectReference: {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
     - target: {fileID: 3566509377155054430, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: deck.Array.data[9]
       value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
+      objectReference: {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
     - target: {fileID: 6079820614456225481, guid: 900a421c6dfcd5d4f9065359a6828f95, type: 3}
       propertyPath: m_Name
       value: Hero Portrait 1

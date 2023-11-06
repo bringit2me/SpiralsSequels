@@ -17,12 +17,13 @@ public class PlayerHeroManager : MonoBehaviour
     {
         foreach(BaseHero hero in combatManager.playerHeroes)
         {
+            BaseHero perminantHero = GetHeroByName(hero.name);
             //sets health of hero equal to
-            GetHeroByName(hero.name).health = hero.health;
+            perminantHero.health = hero.health;
 
             //checks if the hero health is greater than the max health
-            if (hero.health > hero.maxHealth)
-                hero.health = hero.maxHealth;
+            if (perminantHero.health > perminantHero.maxHealth)
+                perminantHero.health = perminantHero.maxHealth;
         }
     }
 

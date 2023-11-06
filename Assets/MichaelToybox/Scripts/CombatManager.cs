@@ -72,6 +72,8 @@ public class CombatManager : MonoBehaviour
         //Gets hero references
         playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
+        //Sets player mana
+        playerManager.manaPerTurn = 2;
         //Removes hero from each slot
         Destroy(heroSlot1.transform.GetChild(0).gameObject);
         Destroy(heroSlot2.transform.GetChild(0).gameObject);
