@@ -57,7 +57,6 @@ public class CardAnimationManager : MonoBehaviour
                     //if the anim id is greater than 0 (ID less than 0 does not have multiple parts)
                     if (currentAnimationID > 0)
                     {
-                        Debug.Log("Trying to animate multiple animations");
                         if (currentAnimationID == animationList[count].animID)
                         {
                             if (animationList[count].animating == false) //animation hasnt started yet

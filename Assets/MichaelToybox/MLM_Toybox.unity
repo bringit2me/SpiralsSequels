@@ -1904,6 +1904,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[10]
+      value: 
+      objectReference: {fileID: 5214465900483467252, guid: 906f83cc97eb00b4794faf99240c941c, type: 3}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[11]
+      value: 
+      objectReference: {fileID: 8063137857729329603, guid: df7df157d7bd108458e378a12c10fb2a, type: 3}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[12]
+      value: 
+      objectReference: {fileID: 7003468761315139942, guid: b2f9eee489246494787502e98bc88154, type: 3}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[13]
+      value: 
+      objectReference: {fileID: 7003468761315139942, guid: b2f9eee489246494787502e98bc88154, type: 3}
     - target: {fileID: 8134097294438020587, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: handHolder
       value: 
