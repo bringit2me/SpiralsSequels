@@ -110,7 +110,6 @@ public class CardAnimationManager : MonoBehaviour
     public void ResetAnimationManager()
     {
         animationList.Clear();
-        Debug.Log("Reset Animation List");
     }
 
     public GameObject InstantiateEffect(GameObject obj, Vector3 pos, Vector3 euler)

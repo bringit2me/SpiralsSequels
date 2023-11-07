@@ -16,12 +16,12 @@ public class BaseMinion : BaseCard
     public int spellDamage = 0;
     public bool taunt = false;
     [Header("Triggers")]
-    public UnityEvent onPlay;
-    public UnityEvent onDeath;
-    public UnityEvent beforeAttack;
-    public UnityEvent afterAttack;
-    public UnityEvent startOfTurn;
-    public UnityEvent endOfTurn;
+    public List<BaseEffect> onPlay; //(TESTING) called when minion is played
+    public List<BaseEffect> onDeath; //(NOT IMPLEMENTED) called when minion dies
+    public List<BaseEffect> afterAttack; // called after attacking
+    public List<BaseEffect> startOfTurn; //called at the start of the player turn
+    public List<BaseEffect> endOfTurn; //called at the end of the player turn
+    public List<BaseEffect> actionTakenInHand; //(NOT IMPLEMENTED) called whenever a card is played while this is in the hand
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -82,6 +82,8 @@ public class BaseMinion : BaseCard
         deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
         playAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
         anim.PlayAnimation(playAnimClip);
+
+        TriggerOnPlayEffects(); //calls onPlay effects
     }
 
     public virtual void AttackMinion(BaseMinion target)
@@ -89,12 +91,16 @@ public class BaseMinion : BaseCard
         target.TakeDamage(attack);
         canAttack = false;
         PlayAttackAnim(target);
+        combatManager.ActionTakenTrigger(); //calls action taken trigger
+        TriggerAfterAttackEffects(); //calls all afterAttack effects
     }
     public virtual void AttackHero(BaseHero target)
     {
         target.TakeDamage(attack);
         canAttack = false;
         PlayAttackAnim(target);
+        combatManager.ActionTakenTrigger(); //calls action taken trigger
+        TriggerAfterAttackEffects(); //calls all afterAttack effects
     }
 
     public virtual void PlayAttackAnim(BaseCard target)
@@ -196,6 +202,26 @@ public class BaseMinion : BaseCard
         Destroy(this.gameObject,5f);
     }
 
+    // --- CALLING EFFECTS ---
+
+    /// <summary>
+    /// Triggers all afterAttack effects
+    /// </summary>
+    public virtual void TriggerAfterAttackEffects()
+    {
+        foreach (BaseEffect effect in afterAttack)
+            effect.TriggerEffect();
+    }
+    /// <summary>
+    /// Triggers all onPlay effects
+    /// </summary>
+    public virtual void TriggerOnPlayEffects()
+    {
+        foreach (BaseEffect effect in onPlay)
+            effect.TriggerEffect();
+    }
+
+
     //--- AI EVALUATION ---
 
     public override int CalculateValueAI(BaseEnemyAI ai)
@@ -213,7 +239,8 @@ public class BaseMinion : BaseCard
         if (canAttack == true)
             value += 1;
 
-        value -= manaCost;
+        value -= manaCost; //takes away mana cost
+        value += CalculateEffectValues();
         value += valueBoostAI; //adds in value boost
 
         if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE) //checks if AI is agressive
@@ -226,8 +253,75 @@ public class BaseMinion : BaseCard
         return value;
     }
 
+    public override int CalculateEffectValues()
+    {
+        int value = 0;
+        foreach (BaseEffect effect in onPlay)
+            value += effect.CalculateEffectValueAI();
+        foreach (BaseEffect effect in onDeath)
+            value += effect.CalculateEffectValueAI();
+        foreach (BaseEffect effect in afterAttack)
+            value += effect.CalculateEffectValueAI();
+        foreach (BaseEffect effect in startOfTurn)
+            value += effect.CalculateEffectValueAI();
+        foreach (BaseEffect effect in endOfTurn)
+            value += effect.CalculateEffectValueAI();
+        foreach (BaseEffect effect in actionTakenInHand)
+            value += effect.CalculateEffectValueAI();
+
+        return value;
+    }
+
     public virtual int CalculateDeathValue()
     {
         return attack + deathValueBoostAI;
+    }
+
+    //--- SETTING UP EFFECTS ---
+
+    /// <summary>
+    /// NOT IMPLEMENTED | Adds effect to a specified list on the card
+    /// </summary>
+    /// <param name="effect"></param>
+    public virtual void AddEffect(BaseEffect effect)
+    {
+
+    }
+
+    /// <summary>
+    /// Sets up all effects on the card with references (only passes in references we can get off of the current card)
+    /// </summary>
+    public override void SetupAllEffects()
+    {
+        foreach (BaseEffect effect in onPlay)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
+        foreach (BaseEffect effect in onDeath)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
+        foreach (BaseEffect effect in afterAttack)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
+        foreach (BaseEffect effect in startOfTurn)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
+        foreach (BaseEffect effect in endOfTurn)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
+        foreach (BaseEffect effect in actionTakenInHand)
+        {
+            //sets up effect with a hero reference, minion reference, and no spell reference
+            effect.SetupEffect(hero, this, null);
+        }
     }
 }

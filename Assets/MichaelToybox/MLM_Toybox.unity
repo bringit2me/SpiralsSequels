@@ -1906,24 +1906,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.size
-      value: 10
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[10]
       value: 
-      objectReference: {fileID: 5214465900483467252, guid: 906f83cc97eb00b4794faf99240c941c, type: 3}
+      objectReference: {fileID: 6738144939328589879, guid: 16c688a1e72f8c34e8a79766b07d2481, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[11]
       value: 
-      objectReference: {fileID: 8063137857729329603, guid: df7df157d7bd108458e378a12c10fb2a, type: 3}
+      objectReference: {fileID: 1592924012575513884, guid: 4f876bddd6b0ac448af6673360f8e490, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[12]
       value: 
-      objectReference: {fileID: 7003468761315139942, guid: b2f9eee489246494787502e98bc88154, type: 3}
+      objectReference: {fileID: 5214465900483467252, guid: 906f83cc97eb00b4794faf99240c941c, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[13]
       value: 
-      objectReference: {fileID: 7003468761315139942, guid: b2f9eee489246494787502e98bc88154, type: 3}
+      objectReference: {fileID: 7469584492306176943, guid: 3ffad2628315cd94b83345de9b070806, type: 3}
+    - target: {fileID: 5353638536210349004, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5353638536210349004, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[10]
+      value: 
+      objectReference: {fileID: 3076051375769026640, guid: cfb2c5bf220d7424a96e8d24973604db, type: 3}
+    - target: {fileID: 5353638536210349004, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[11]
+      value: 
+      objectReference: {fileID: 7469584492306176943, guid: 3ffad2628315cd94b83345de9b070806, type: 3}
     - target: {fileID: 8134097294438020587, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: handHolder
       value: 

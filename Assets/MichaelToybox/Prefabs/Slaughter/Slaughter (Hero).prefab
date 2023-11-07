@@ -400,7 +400,8 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  handAnimClip:
+  playAnimClip:
+    animID: -1
     animating: 0
     animationFinished: 0
     card: {fileID: 0}
@@ -410,20 +411,8 @@ MonoBehaviour:
     moveEffect: 0
     startHero: 0
     startCard: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
-  animClip:
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
+    startTarget: 0
+    startMiddle: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 0
     animSpeed: 1
@@ -437,11 +426,16 @@ MonoBehaviour:
   canAttack: 1
   targetable: 1
   isDead: 0
+  afterAttack: []
+  startOfTurn: []
+  endOfTurn: []
+  actionTakenInHand: []
   nameText: {fileID: 3641744754901077713}
   attackText: {fileID: 134469367440789950}
   healthText: {fileID: 7590602145741115380}
   heroPower: {fileID: 0}
   attackAnimClip:
+    animID: -1
     animating: 0
     animationFinished: 0
     card: {fileID: 7045873364131356969}
@@ -451,6 +445,8 @@ MonoBehaviour:
     moveEffect: 0
     startHero: 0
     startCard: 0
+    startTarget: 0
+    startMiddle: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 1
     animSpeed: 2.5
@@ -482,8 +478,8 @@ MonoBehaviour:
   - {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
   - {fileID: 3643089205840458816, guid: c59efbd297ecf024c8a655b12fecfb0e, type: 3}
   - {fileID: 3643089205840458816, guid: c59efbd297ecf024c8a655b12fecfb0e, type: 3}
-  - {fileID: 2037206069547449175, guid: 0b8ac5df2fef94a4cae4663d361d7f80, type: 3}
-  - {fileID: 2037206069547449175, guid: 0b8ac5df2fef94a4cae4663d361d7f80, type: 3}
+  - {fileID: 5312977038376566262, guid: 5d38980820c60a541b716726d2c68914, type: 3}
+  - {fileID: 5312977038376566262, guid: 5d38980820c60a541b716726d2c68914, type: 3}
   - {fileID: 30730319424434527, guid: 1a6146dd557bb564c85e03ea05f56d91, type: 3}
   - {fileID: 30730319424434527, guid: 1a6146dd557bb564c85e03ea05f56d91, type: 3}
   - {fileID: 2203292624226596542, guid: e19e20320209ef34bbe0e95d330a8716, type: 3}

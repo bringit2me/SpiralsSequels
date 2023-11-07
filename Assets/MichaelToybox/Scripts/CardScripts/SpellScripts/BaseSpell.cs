@@ -6,11 +6,13 @@ using TMPro;
 public class BaseSpell : BaseCard
 {
     bool isBeingCast = false;
+    [Header("Effect Triggers")]
+    public List<BaseEffect> onPlay;//(NOT IMPLEMENTED) called when the spell is played
+    public List<BaseEffect> actionTakenInHand;//(NOT IMPLEMENTED) called whenever a card is played while this is in the hand
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] TMP_Text manaText;
-    protected CombatManager combatManager;
 
     public virtual void Start()
     {
@@ -31,6 +33,7 @@ public class BaseSpell : BaseCard
         base.Played(playerManager);
         Cast();
         this.transform.position = new Vector3(1800, 445, 0);
+        SetupAllEffects(); //sets up all effects
     }
 
     /// <summary>
@@ -62,6 +65,9 @@ public class BaseSpell : BaseCard
         isBeingCast = false;
 
         ReducePlayerMana();
+        combatManager.ActionTakenTrigger(); //calls action taken trigger
+
+        TriggerOnPlayEffects(); //triggers after play effects
     }
 
     /// <summary>
@@ -88,5 +94,44 @@ public class BaseSpell : BaseCard
     public virtual void UpdateMana()
     {
         manaText.text = "" + manaCost;
+    }
+
+    // --- CALLING EFFECTS ---
+
+    /// <summary>
+    /// triggers all onPlay effects
+    /// </summary>
+    public virtual void TriggerOnPlayEffects()
+    {
+        foreach (BaseEffect effect in onPlay)
+            effect.TriggerEffect();
+    }
+
+    //--- SETTING UP EFFECTS ---
+
+    /// <summary>
+    /// NOT IMPLEMENTED | Adds effect to a specified list on the card
+    /// </summary>
+    /// <param name="effect"></param>
+    public virtual void AddEffect(BaseEffect effect)
+    {
+
+    }
+
+    /// <summary>
+    /// Sets up all effects on the card with all references (only passes in references we can get off of the current card)
+    /// </summary>
+    public override void SetupAllEffects()
+    {
+        foreach(BaseEffect effect in onPlay)
+        {
+            //sets up effect with a hero reference, no minion reference, and spell reference
+            effect.SetupEffect(hero, null, this);
+        }
+        foreach (BaseEffect effect in actionTakenInHand)
+        {
+            //sets up effect with a hero reference, no minion reference, and spell reference
+            effect.SetupEffect(hero, null, this);
+        }
     }
 }

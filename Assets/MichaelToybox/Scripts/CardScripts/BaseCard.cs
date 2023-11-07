@@ -14,7 +14,8 @@ public class BaseCard : MonoBehaviour
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [HideInInspector] public BaseHero hero;
-    /*[HideInInspector]*/ public CardAnimationManager anim;
+    [HideInInspector] public CardAnimationManager anim;
+    protected CombatManager combatManager;
     [Header("AI")]
     public int valueBoostAI = 0;
     [Header("Animation")]
@@ -29,6 +30,7 @@ public class BaseCard : MonoBehaviour
     public virtual void Awake()
     {
         anim = GameObject.FindObjectOfType<CardAnimationManager>();
+        combatManager = GameObject.FindObjectOfType<CombatManager>();
         playAnimClip.card = this;
     }
 
@@ -51,6 +53,8 @@ public class BaseCard : MonoBehaviour
         isPlayed = true;
         this.playerManager = playerManager;
         playerManager.handManager.RemoveCardFromHand(this);
+        SetupAllEffects(); //sets up all effects
+        combatManager.ActionTakenTrigger(); //calls action taken trigger
     }
 
     /// <summary>
@@ -69,8 +73,18 @@ public class BaseCard : MonoBehaviour
         return -1;
     }
 
+    public virtual int CalculateEffectValues()
+    {
+        return 0;
+    }
+
     public float ValueToPercent(float value)
     {
         return 1 + (value / 100);
-    } 
+    }
+
+    public virtual void SetupAllEffects()
+    {
+
+    }
 }

@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
     public List<BaseCard> allCardsInPlay;
     [Header("Player Information")]
     public PlayerManager playerManager;
+    public HandManager playerHandManager;
     public PlayerMinionZone playerMinionZone;
     private PlayerHeroManager playerHeroManager;
     public List<BaseHero> playerHeroes;
@@ -19,6 +20,7 @@ public class CombatManager : MonoBehaviour
     [Header("AI Information")]
     public RandomEncounter randomEncounter;
     public EnemyManager enemyManager;
+    public HandManager enemyHandManager;
     public EnemyMinionZone enemyMinionZone;
     public List<BaseHero> enemyHeroes;
     public List<BaseMinion> enemyMinions;
@@ -63,6 +65,7 @@ public class CombatManager : MonoBehaviour
         //Gets enemy references
         //we are getting these references on combat start because I plan to load new combat scenerios under the enemyHolder object
         enemyManager = enemyHolder.GetComponentInChildren<EnemyManager>(); //enemy manager reference
+        enemyHandManager = enemyHolder.GetComponentInChildren<HandManager>(); //gets enemy hand manager reference
         enemyMinionZone = enemyHolder.GetComponentInChildren<EnemyMinionZone>(); //enemy minion zone reference
         enemyAI = enemyHolder.GetComponentInChildren<BaseEnemyAI>(); //enemy AI reference
         enemyHeroes.Clear(); //clears enemy hero list
@@ -71,6 +74,7 @@ public class CombatManager : MonoBehaviour
 
         //Gets hero references
         playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        playerHandManager = playerManager.GetComponent<HandManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Sets player mana
         playerManager.manaPerTurn = 2;
@@ -144,6 +148,8 @@ public class CombatManager : MonoBehaviour
         foreach (BaseHero hero in playerHeroes)
             hero.canAttack = true;
 
+        StartOfTurnTrigger(Team.PLAYER); //calls on start of turn effects for the player
+
     }
 
     public void EndPlayerTurn()
@@ -155,7 +161,7 @@ public class CombatManager : MonoBehaviour
 
         playerManager.EndTurn();
 
-        //TODO: trigger end of turn effects for the player
+        EndOfTurnTrigger(Team.PLAYER); //calls on end of turn effects for the player
 
         StartEnemyTurn();
     }
@@ -173,7 +179,7 @@ public class CombatManager : MonoBehaviour
 
         enemyAI.StartTurn(); //tells ai to start its turn
 
-        //THIS WAS FOR TESTING: StartCoroutine(TempEndEnemyTurnDelay());
+        StartOfTurnTrigger(Team.ENEMY); //calls on start of turn effects for the enemy
     }
 
     public void EndEnemyTurn()
@@ -185,7 +191,7 @@ public class CombatManager : MonoBehaviour
 
         enemyManager.EndTurn();
 
-        //TODO: trigger end of turn effects for the enemy
+        EndOfTurnTrigger(Team.ENEMY); //calls on end of turn effects for the enemy
 
         StartPlayerTurn();
     }
@@ -278,7 +284,84 @@ public class CombatManager : MonoBehaviour
         UpdateAllCardsInPlay();
     }
 
-    // --- CHECKING CARDS IN PLAY ---
+    // --- TRIGGERING EFFECTS ---
+
+    public void ActionTakenTrigger()
+    {
+        List<BaseCard> cardsToTrigger = GetAllCards(); //gets all hand cards, minions, and heroes in play
+
+        //TODO: This returns a null reference some times. figure out why
+        //foreach (BaseCard card in cardsToTrigger)
+        //{
+        //    //tries to get references hero, minion, or spell card
+        //    BaseSpell spell = card.GetComponent<BaseSpell>();
+        //    BaseMinion minion = card.GetComponent<BaseMinion>();
+        //    BaseHero hero = card.GetComponent<BaseHero>();
+
+        //    if(spell != null) //if card is a spell
+        //    {
+        //        foreach (BaseEffect effect in spell.actionTakenInHand) //loops through all action taken effects on the spell
+        //            effect.TriggerEffect(); //calls effect to trigger
+        //    }
+        //    else if (minion != null) //if card is a minion
+        //    {
+        //        foreach (BaseEffect effect in minion.actionTakenInHand) //loops through all action taken effects on the minion
+        //            effect.TriggerEffect(); //calls effect to trigger
+        //    }
+        //    else if (hero != null) //if card is a hero
+        //    {
+        //        foreach (BaseEffect effect in hero.actionTakenInHand) //loops through all action taken effects on the hero
+        //            effect.TriggerEffect(); //calls effect to trigger
+        //    }
+        //}
+    }
+
+    public void StartOfTurnTrigger(Team team)
+    {
+        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME);
+
+        foreach (BaseCard card in cardsToTrigger)
+        {
+            //tries to get references hero or minion
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion != null) //if card is a minion
+            {
+                foreach (BaseEffect effect in minion.startOfTurn) //loops through all start of turn effects on the minion
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+            else if (hero != null) //if card is a hero
+            {
+                foreach (BaseEffect effect in hero.startOfTurn) //loops through all start of turn effects on the hero
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+        }
+    }
+    public void EndOfTurnTrigger(Team team)
+    {
+        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME);
+
+        foreach (BaseCard card in cardsToTrigger)
+        {
+            //tries to get references hero or minion
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion != null) //if card is a minion
+            {
+                foreach (BaseEffect effect in minion.endOfTurn) //loops through all end of turn effects on the minion
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+            else if (hero != null) //if card is a hero
+            {
+                foreach (BaseEffect effect in hero.endOfTurn) //loops through all end of turn effects on the hero
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+        }
+    }
+
+    // --- CHECKING / GETTING CARDS IN PLAY ---
 
     public void UpdateAllCardsInPlay()
     {
@@ -302,6 +385,23 @@ public class CombatManager : MonoBehaviour
             allCardsInPlay.Add(card);
     }
 
+    /// <summary>
+    /// Returns all minions and heroes in play. Also gets all cards in each hand
+    /// </summary>
+    /// <returns></returns>
+    public List<BaseCard> GetAllCards()
+    {
+        List<BaseCard> cards = GetAllInPlay(); //gets all minions and heroes in play
+
+        foreach (BaseCard card in playerHandManager.handCards) //gets all cards in player hand
+            if(card != null)
+                cards.Add(card);
+        foreach (BaseCard card in enemyHandManager.handCards) //gets all cards in enemy hand
+            if (card != null)
+                cards.Add(card);
+
+        return cards;
+    }
     /// <summary>
     /// Returns all minions and heroes in play
     /// </summary>
