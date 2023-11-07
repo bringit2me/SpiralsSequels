@@ -355,6 +355,7 @@ MonoBehaviour:
   - {fileID: 6587538963761321337, guid: a46ea3f7b7d7fe24fa233401b1b6c456, type: 3}
   - {fileID: 914489124775201884, guid: b368b337ef50f9648b07fb8aa93799cb, type: 3}
   - {fileID: 7045873364131356969, guid: 8e9b97830bf908b4eaa88cdf510be5c9, type: 3}
+  - {fileID: 3929312608256506928, guid: e8b31fbfc00a2fa43b971bdc63d19d5a, type: 3}
   minEnemyCount: 1
   maxEnemyCount: 3
   enemyCount: 0

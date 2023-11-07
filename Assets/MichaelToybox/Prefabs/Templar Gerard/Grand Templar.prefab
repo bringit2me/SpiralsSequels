@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6516408033723074982
+--- !u!1001 &5891592238188283647
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,35 +10,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: name
-      value: Templar Knight
+      value: Grand Templar
       objectReference: {fileID: 0}
     - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: attack
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
-      propertyPath: health
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
-      propertyPath: manaCost
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: health
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: manaCost
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: description
-      value: Reduces damage taken by 3 (not less than 1)
+      value: Reduces damage taken by 5 (not less than 1)
       objectReference: {fileID: 0}
     - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: selfCardRef
       value: 
-      objectReference: {fileID: 8063137857729329603}
+      objectReference: {fileID: 7227090279206778522}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: damageReduction
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: playAnimClip.animID
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4274946858295593282, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: m_Name
-      value: Templar Knight
+      value: Grand Templar
       objectReference: {fileID: 0}
     - target: {fileID: 4325097265342871632, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: m_Pivot.x
@@ -50,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4325097265342871632, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4325097265342871632, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: m_AnchorMax.x
@@ -129,10 +137,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
---- !u!114 &8063137857729329603 stripped
+--- !u!114 &7227090279206778522 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
-  m_PrefabInstance: {fileID: 6516408033723074982}
+  m_PrefabInstance: {fileID: 5891592238188283647}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

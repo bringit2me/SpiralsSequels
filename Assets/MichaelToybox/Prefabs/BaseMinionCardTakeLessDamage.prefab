@@ -169,10 +169,10 @@ MonoBehaviour:
     animID: -1
     animating: 0
     animationFinished: 0
-    card: {fileID: 0}
+    card: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
     target: {fileID: 0}
     targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
+    moveCard: 1
     moveEffect: 0
     startHero: 0
     startCard: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
     startMiddle: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 0
-    animSpeed: 1
+    animSpeed: 2
     effect: {fileID: 0}
   manaCost: 2
   isPlayed: 0
