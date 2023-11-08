@@ -41,7 +41,8 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
-        this.transform.position = eventData.position;
+        Vector3 cardPos = new Vector3(eventData.position.x, eventData.position.y, 0);
+        this.transform.position = cardPos;
 
         if (eventData.position.y >= -440 + 175)
         {
@@ -57,7 +58,7 @@ public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     {
         if (eventData.pointerDrag.GetComponent<BaseSpell>() == true) //if we stopped dragging a spell
         {
-            if(eventData.position.y >= -440 + 175) //if the mouse is above the hand space
+            if(eventData.position.y >= 150) //if the mouse is above the hand space
             {
                 this.transform.SetParent(transform.root.GetChild(0));
                 eventData.pointerDrag.GetComponent<BaseSpell>().Played(playerManager);

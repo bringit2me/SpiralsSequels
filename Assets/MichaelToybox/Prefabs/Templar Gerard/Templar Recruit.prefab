@@ -36,6 +36,26 @@ PrefabInstance:
       propertyPath: selfCardRef
       value: 
       objectReference: {fileID: 7003468761315139942}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: onPlay.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: onDeath.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: endOfTurn.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: afterAttack.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857592280062177381, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
+      propertyPath: startOfTurn.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4274946858295593282, guid: a477fcbff9018ea4b96915c7677778bf, type: 3}
       propertyPath: m_Name
       value: Templar Recruit

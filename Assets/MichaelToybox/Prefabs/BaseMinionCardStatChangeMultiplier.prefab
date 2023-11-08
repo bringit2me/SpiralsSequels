@@ -191,24 +191,12 @@ MonoBehaviour:
   targetable: 1
   spellDamage: 0
   taunt: 0
-  onPlay:
-    m_PersistentCalls:
-      m_Calls: []
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  beforeAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  afterAttack:
-    m_PersistentCalls:
-      m_Calls: []
-  startOfTurn:
-    m_PersistentCalls:
-      m_Calls: []
-  endOfTurn:
-    m_PersistentCalls:
-      m_Calls: []
+  onPlay: []
+  onDeath: []
+  afterAttack: []
+  startOfTurn: []
+  endOfTurn: []
+  actionTakenInHand: []
   nameText: {fileID: 3597181401172416513}
   descriptionText: {fileID: 8212805277577369562}
   manaText: {fileID: 739176353327368393}

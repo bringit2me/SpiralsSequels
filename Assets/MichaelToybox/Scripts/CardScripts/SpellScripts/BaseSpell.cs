@@ -32,7 +32,7 @@ public class BaseSpell : BaseCard
     {
         base.Played(playerManager);
         Cast();
-        this.transform.position = new Vector3(1800, 445, 0);
+        this.transform.position = new Vector3(1855, 400, 0);
         SetupAllEffects(); //sets up all effects
     }
 
@@ -49,7 +49,9 @@ public class BaseSpell : BaseCard
     /// </summary>
     public virtual void ExecuteCast()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse1)) //right click
+        //this.transform.position = new Vector3(835, -145, 0);
+
+        if (Input.GetKeyDown(KeyCode.Mouse1)) //right click
         {
             StopCastEarly();
         }

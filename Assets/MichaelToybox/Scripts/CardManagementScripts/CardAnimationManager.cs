@@ -114,7 +114,9 @@ public class CardAnimationManager : MonoBehaviour
 
     public GameObject InstantiateEffect(GameObject obj, Vector3 pos, Vector3 euler)
     {
-        return Instantiate(obj, pos, Quaternion.Euler(euler));
+        GameObject created = Instantiate(obj, pos, Quaternion.Euler(euler));
+        created.transform.localScale = new Vector3(1, 1, 1); //resets scale
+        return created;
     }
 
     public void DestroyEffect(GameObject effect)
@@ -267,6 +269,7 @@ public class CardAnimationClip
             if(createdEffect != null)
             {
                 createdEffect.transform.position = Vector3.Lerp(startPosEffect, targetPos, currentTime);
+                createdEffect.transform.localScale = new Vector3(1, 1, 1);
             }
             if(currentTime >= 1 && reverseAnimWhenDone == false)
             {
