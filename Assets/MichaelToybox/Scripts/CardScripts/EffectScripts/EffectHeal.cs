@@ -27,7 +27,16 @@ public class EffectHeal : BaseEffect
     {
         int value = 0;
 
-        value += healValue;
+        if (minion != null) //we have a minion reference
+        {
+            //Restores minions health
+            value += minion.CalculateHeal(healValue);
+        }
+        else if (hero != null) //we have a hero reference
+        {
+            ///Restores heroes health
+            value += hero.CalculateHeal(healValue);
+        }
 
         return value;
     }

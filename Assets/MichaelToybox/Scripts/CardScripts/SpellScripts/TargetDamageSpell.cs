@@ -37,6 +37,9 @@ public class TargetDamageSpell : BaseTargetSpell
 
         foreach (BaseCard card in targets)
         {
+            if (card == null)
+                continue;
+
             int value = 0;
             //Gets minion reference. if card is not a minion it will be null
             BaseMinion minion = card.GetComponent<BaseMinion>();

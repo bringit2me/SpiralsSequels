@@ -36,8 +36,18 @@ public class EffectChangeStats : BaseEffect
     {
         int value = 0;
 
-        value += attackChange;
-        value += healthChange;
+        if (minion != null) //we have a minion reference
+        {
+            minion.CalculateAttackChange(attackChange);
+            minion.CalculateHealthChange(healthChange);
+        }
+        else if (hero != null) //we have a hero reference
+        {
+
+            hero.CalculateAttackChange(attackChange);
+            hero.CalculateHealthChange(healthChange);
+
+        }
 
         return value;
     }

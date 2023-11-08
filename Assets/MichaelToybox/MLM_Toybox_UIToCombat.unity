@@ -725,8 +725,13 @@ PrefabInstance:
       propertyPath: playerManager
       value: 
       objectReference: {fileID: 587872427}
+    - target: {fileID: 8105957539523738851, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: setupCombatOnStart
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6662825750609721522, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
