@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Vampiric Bite
-  description: Deal 2 damage to a character and restore 2 health to your Hero
+  description: Deal 3 damage to a character and restore 3 health to your Hero
   team: 0
   selfCardRef: {fileID: 7469584492306176943}
   playerManager: {fileID: 0}
