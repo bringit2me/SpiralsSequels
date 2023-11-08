@@ -16,23 +16,30 @@ public class AOEChangeStats : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
+            bool cardEffected = false;
+
             if (card.GetComponent<BaseMinion>() == true)
             {
                 card.GetComponent<BaseMinion>().ChangeAttack(attackChange);
                 card.GetComponent<BaseMinion>().ChangeHealth(healthChange);
+                cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().ChangeAttack(attackChange);
                 card.GetComponent<BaseHero>().ChangeHealth(healthChange);
+                cardEffected = true;
             }
 
-            //Calls animation on target
-            playAnimClip.target = card.gameObject; //sets target
-            playAnimClip.animID = animID; //sets anim ID
-            CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-            clip.CopyClip(playAnimClip); //copies play clip to new clip
-            anim.PlayAnimation(clip); //plays new clip
+            if (cardEffected == true)
+            {
+                //Calls animation on target
+                playAnimClip.target = card.gameObject; //sets target
+                playAnimClip.animID = animID; //sets anim ID
+                CardAnimationClip clip = new CardAnimationClip(); //creates new clip
+                clip.CopyClip(playAnimClip); //copies play clip to new clip
+                anim.PlayAnimation(clip); //plays new clip
+            }
         }
         EndCast();
     }

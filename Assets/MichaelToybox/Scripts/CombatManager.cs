@@ -291,29 +291,29 @@ public class CombatManager : MonoBehaviour
         List<BaseCard> cardsToTrigger = GetAllCards(); //gets all hand cards, minions, and heroes in play
 
         //TODO: This returns a null reference some times. figure out why
-        //foreach (BaseCard card in cardsToTrigger)
-        //{
-        //    //tries to get references hero, minion, or spell card
-        //    BaseSpell spell = card.GetComponent<BaseSpell>();
-        //    BaseMinion minion = card.GetComponent<BaseMinion>();
-        //    BaseHero hero = card.GetComponent<BaseHero>();
+        foreach (BaseCard card in cardsToTrigger)
+        {
+            //tries to get references hero, minion, or spell card
+            BaseSpell spell = card.GetComponent<BaseSpell>();
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
 
-        //    if(spell != null) //if card is a spell
-        //    {
-        //        foreach (BaseEffect effect in spell.actionTakenInHand) //loops through all action taken effects on the spell
-        //            effect.TriggerEffect(); //calls effect to trigger
-        //    }
-        //    else if (minion != null) //if card is a minion
-        //    {
-        //        foreach (BaseEffect effect in minion.actionTakenInHand) //loops through all action taken effects on the minion
-        //            effect.TriggerEffect(); //calls effect to trigger
-        //    }
-        //    else if (hero != null) //if card is a hero
-        //    {
-        //        foreach (BaseEffect effect in hero.actionTakenInHand) //loops through all action taken effects on the hero
-        //            effect.TriggerEffect(); //calls effect to trigger
-        //    }
-        //}
+            if (spell != null) //if card is a spell
+            {
+                foreach (BaseEffect effect in spell.actionTakenInHand) //loops through all action taken effects on the spell
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+            else if (minion != null) //if card is a minion
+            {
+                foreach (BaseEffect effect in minion.actionTakenInHand) //loops through all action taken effects on the minion
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+            else if (hero != null && hero.isDead == false) //if card is a hero and hero is not dead
+            {
+                foreach (BaseEffect effect in hero.actionTakenInHand) //loops through all action taken effects on the hero
+                    effect.TriggerEffect(); //calls effect to trigger
+            }
+        }
     }
 
     public void StartOfTurnTrigger(Team team)
@@ -331,7 +331,7 @@ public class CombatManager : MonoBehaviour
                 foreach (BaseEffect effect in minion.startOfTurn) //loops through all start of turn effects on the minion
                     effect.TriggerEffect(); //calls effect to trigger
             }
-            else if (hero != null) //if card is a hero
+            else if (hero != null && hero.isDead == false) //if card is a hero and hero is not dead
             {
                 foreach (BaseEffect effect in hero.startOfTurn) //loops through all start of turn effects on the hero
                     effect.TriggerEffect(); //calls effect to trigger
@@ -353,7 +353,7 @@ public class CombatManager : MonoBehaviour
                 foreach (BaseEffect effect in minion.endOfTurn) //loops through all end of turn effects on the minion
                     effect.TriggerEffect(); //calls effect to trigger
             }
-            else if (hero != null) //if card is a hero
+            else if (hero != null && hero.isDead == false) //if card is a hero and hero is not dead
             {
                 foreach (BaseEffect effect in hero.endOfTurn) //loops through all end of turn effects on the hero
                     effect.TriggerEffect(); //calls effect to trigger

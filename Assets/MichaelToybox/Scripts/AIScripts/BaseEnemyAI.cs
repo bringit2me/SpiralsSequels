@@ -280,7 +280,7 @@ public class BaseEnemyAI : MonoBehaviour
                 //this is used for any future card types
                 //else if (card.GetComponent<NAME>() == true)
                 //{
-                //    NAME nameSpell = card.GetComponent<NAME>();
+                //    NAME nameCard = card.GetComponent<NAME>();
                 //}
 
                 //checks if it is a higher value play than a previous card
@@ -335,9 +335,12 @@ public class BaseEnemyAI : MonoBehaviour
             return entry;
 
         //loops through all cards in play
-        foreach(BaseCard card in combatManager.allCardsInPlay)
+        foreach (BaseCard card in combatManager.allCardsInPlay)
         {
-            if(card.team != team) //card is on another team
+            if (card == null) //no card reference
+                continue; //go to next
+
+            if (card.team != team) //card is on another team
             {
                 int value = 0;
                 bool survivesMinionCombat = false;
@@ -487,9 +490,13 @@ public class BaseEnemyAI : MonoBehaviour
         if (hero.canAttack == false || hero.isDead) //if the hero cannot attack or is dead
             return entry;
 
+
         //loops through all cards in play
         foreach (BaseCard card in combatManager.allCardsInPlay)
         {
+            if (card == null) //no card reference
+                continue; //go to next
+
             if (card.team != team) //card is on another team
             {
                 int value = 0;

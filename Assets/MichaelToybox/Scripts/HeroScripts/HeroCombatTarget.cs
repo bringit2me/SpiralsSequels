@@ -30,7 +30,7 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     {
         RaycastResult hit = eventData.pointerCurrentRaycast;
 
-        if (hit.gameObject != null && hero.canAttack == true)
+        if (hit.gameObject != null && hero.canAttack == true && hero.isDead == false)
         {
             AttackTarget(hit.gameObject);
         }
