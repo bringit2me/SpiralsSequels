@@ -25,8 +25,8 @@ public class CombatManager : MonoBehaviour
     public List<BaseHero> enemyHeroes;
     public List<BaseMinion> enemyMinions;
     public GameObject enemyHolder;
-    [SerializeField] BoardStateInformation boardInfo;
-    [SerializeField] BaseEnemyAI enemyAI;
+    public BoardStateInformation boardInfo;
+    public BaseEnemyAI enemyAI;
 
     [Header("Combat State")]
     [SerializeField] bool setupCombatOnStart = false;

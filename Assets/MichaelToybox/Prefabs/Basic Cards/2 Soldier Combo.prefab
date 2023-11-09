@@ -243,8 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: 2 Soldier Combo
-  description: Summon 2 soldiers. Give them +1 attack and +2 health. They can attack
-    this turn
+  description: Summon 2 Soldiers and give them +1 health
   team: 0
   selfCardRef: {fileID: 5419350885073250169}
   playerManager: {fileID: 0}
@@ -270,7 +269,7 @@ MonoBehaviour:
     reverseAnimWhenDone: 0
     animSpeed: 1
     effect: {fileID: 0}
-  manaCost: 2
+  manaCost: 5
   isPlayed: 0
   onPlay: []
   actionTakenInHand: []
@@ -279,11 +278,11 @@ MonoBehaviour:
   manaText: {fileID: 756309212176955699}
   minionsToCreate:
   - minion: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-    attackIncrease: 1
+    attackIncrease: 0
     healthIncrease: 1
     canAttackTurnCreated: 1
   - minion: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-    attackIncrease: 1
+    attackIncrease: 0
     healthIncrease: 1
     canAttackTurnCreated: 1
 --- !u!114 &7555301616622163860

@@ -1,0 +1,70 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EffectCreateMinion : BaseEffect
+{
+    [Header("Minions to Create")]
+    [SerializeField] List<MinionCreateEntry> minionsToCreate;
+
+    public override void TriggerEffect()
+    {
+        base.TriggerEffect();
+
+        BaseCard card = null;
+
+        //Gets card reference
+        if (minion != null)
+            card = minion;
+        else if (hero != null)
+            card = hero;
+        else if (spell != null)
+            card = spell;
+
+
+        PlayerMinionZone minionZone = combatManager.GetMinionZoneByTeam(card.team);
+
+        foreach (MinionCreateEntry entry in minionsToCreate) //loops through all minions to be summoned
+        {
+            //creates card
+            BaseMinion minion = Instantiate(entry.minion, minionZone.transform);
+            //calls created on minion (sets references and toggle scripts. bypassed OnPlay effects)
+            minion.Created(card.playerManager);
+
+            //Minion Modification
+            minion.ChangeAttack(entry.attackIncrease); //increases attack
+            minion.ChangeHealth(entry.healthIncrease); //increases health
+            if (entry.canAttackTurnCreated == true) //if we want to make the minion attack
+                minion.canAttack = true; //sets minion can attack to true
+
+
+            //Adds minion to zone
+            minionZone.CreateMinionInZone(minion);
+            //Refreshes minion list
+            minionZone.RefreshMinionsInZoneList();
+
+            Debug.Log("Created Minion");
+        }
+    }
+
+    public override int CalculateEffectValueAI()
+    {
+        int value = 0;
+
+        BaseEnemyAI ai = combatManager.enemyAI; //gets AI reference for calculation
+
+        foreach (MinionCreateEntry entry in minionsToCreate) //loops through all minions to be summoned
+        {
+            value += entry.minion.CalculateValueAI(ai);
+
+            value += entry.minion.CalculateAttackChange(entry.attackIncrease);
+            value += entry.minion.CalculateHealthChange(entry.healthIncrease);
+
+            if (entry.canAttackTurnCreated == true)
+                value += 1;
+
+        }
+
+        return value;
+    }
+}
