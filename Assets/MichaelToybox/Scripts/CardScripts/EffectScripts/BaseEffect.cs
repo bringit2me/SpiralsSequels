@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseEffect : MonoBehaviour
 {
     [Header("Animation")]
-    public CardAnimationClip effectClip;
+    public CardAnimationClip clip;
     [Header("AI Value")]
     public int valueBoostAI;
     //References
@@ -44,11 +44,11 @@ public class BaseEffect : MonoBehaviour
     public virtual void SetupAnimation()
     {
         if (minion != null)
-            effectClip.card = spell;
+            clip.card = spell;
         else if (spell != null)
-            effectClip.card = spell;
+            clip.card = spell;
         else if (hero != null)
-            effectClip.card = hero;
+            clip.card = hero;
     }
 
     public virtual void TriggerEffect()
@@ -61,5 +61,10 @@ public class BaseEffect : MonoBehaviour
     public virtual int CalculateEffectValueAI()
     {
         return valueBoostAI;
+    }
+
+    public float ValueToPercent(float value)
+    {
+        return 1 + (value / 100);
     }
 }
