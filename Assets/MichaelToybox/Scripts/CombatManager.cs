@@ -293,6 +293,9 @@ public class CombatManager : MonoBehaviour
         //TODO: This returns a null reference some times. figure out why
         foreach (BaseCard card in cardsToTrigger)
         {
+            if (card == null) //card is null
+                continue; //go to next
+
             //tries to get references hero, minion, or spell card
             BaseSpell spell = card.GetComponent<BaseSpell>();
             BaseMinion minion = card.GetComponent<BaseMinion>();

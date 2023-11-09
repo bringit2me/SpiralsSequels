@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EffectHeal : BaseEffect
+public class EffectDamage : BaseEffect
 {
-    [Header("Heal Amount")]
-    public int healValue;
+    [Header("Damage Amount")]
+    public int damage;
     [Space]
     public bool targetHero;
 
@@ -14,12 +14,12 @@ public class EffectHeal : BaseEffect
         if (minion != null && targetHero == false) //we have a minion reference
         {
             //Restores minions health
-            minion.Heal(healValue);
+            minion.TakeDamage(damage);
         }
         else if (hero != null) //we have a hero reference
         {
             ///Restores heroes health
-            hero.Heal(healValue);
+            hero.TakeDamage(damage);
         }
 
         base.TriggerEffect();
@@ -32,12 +32,12 @@ public class EffectHeal : BaseEffect
         if (minion != null && targetHero == false) //we have a minion reference
         {
             //Restores minions health
-            value += minion.CalculateHeal(healValue);
+            value += minion.CalculateTakeDamage(damage);
         }
         else if (hero != null) //we have a hero reference
         {
             ///Restores heroes health
-            value += hero.CalculateHeal(healValue);
+            value += hero.CalculateTakeDamage(damage);
         }
 
         return value;

@@ -7,10 +7,12 @@ public class EffectChangeStats : BaseEffect
     [Header("Stat Change")]
     public int attackChange;
     public int healthChange;
+    [Space]
+    public bool targetHero;
 
     public override void TriggerEffect()
     {
-        if(minion != null) //we have a minion reference
+        if(minion != null && targetHero == false) //we have a minion reference
         {
             //changes attack
             minion.ChangeAttack(attackChange);
@@ -36,7 +38,7 @@ public class EffectChangeStats : BaseEffect
     {
         int value = 0;
 
-        if (minion != null) //we have a minion reference
+        if (minion != null && targetHero == false) //we have a minion reference
         {
             minion.CalculateAttackChange(attackChange);
             minion.CalculateHealthChange(healthChange);
