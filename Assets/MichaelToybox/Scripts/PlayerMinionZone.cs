@@ -74,6 +74,8 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         }
     }
 
+    // --- ADDING CARDS TO ZONE ---
+
     public virtual void PlayMinionToZone(Draggable card)
     {
         card.parentToReturnTo = this.transform;
@@ -101,7 +103,7 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         card.GetComponent<Draggable>().parentToReturnTo = this.transform;
         card.GetComponent<BaseMinion>().Played(playerManager);
 
-        //Returns card to parentToReturnTo
+        //Sets cards parent to this
         card.transform.SetParent(this.transform);
 
         //Turns on raycast blocking
@@ -113,6 +115,23 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         combatManager.UpdateAllCardsInPlay();
     }
 
+    /// <summary>
+    /// Creates a minion in the zone.
+    /// </summary>
+    /// <param name="minion"></param>
+    public virtual void CreateMinionInZone(BaseMinion minion)
+    {
+        //Sets cards parent to this
+        minion.transform.SetParent(this.transform);
+
+        //updates minion zone list
+        RefreshMinionsInZoneList();
+        //tells combat manager to update all cards in play
+        combatManager.UpdateAllCardsInPlay();
+    }
+
+    // --- ANIMATION STUFF ---
+
     public virtual Vector3 GetNextCardPosition()
     {
         GameObject target = Instantiate(dummyCard, this.transform).gameObject;
@@ -120,10 +139,5 @@ public class PlayerMinionZone : MonoBehaviour, IDropHandler
         target.transform.SetParent(target.transform.root);
         Destroy(target, 2f);
         return target.transform.position;
-    }
-
-    public virtual void DummyReparent()
-    {
-
     }
 }

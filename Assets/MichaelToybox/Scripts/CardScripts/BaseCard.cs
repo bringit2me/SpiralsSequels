@@ -57,6 +57,16 @@ public class BaseCard : MonoBehaviour
         combatManager.ActionTakenTrigger(); //calls action taken trigger
     }
 
+    public virtual void Created(PlayerManager playerManager)
+    {
+        //sets is played to true
+        isPlayed = true;
+        this.playerManager = playerManager; //sets player manager reference
+        team = playerManager.team; //sets team
+        SetupAllEffects(); //sets up all effects
+        combatManager.ActionTakenTrigger(); //calls action taken trigger
+    }
+
     /// <summary>
     /// Takes mana from the playerManager's mana and updates the mana text
     /// </summary>

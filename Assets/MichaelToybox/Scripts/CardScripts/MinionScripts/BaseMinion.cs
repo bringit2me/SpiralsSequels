@@ -86,6 +86,17 @@ public class BaseMinion : BaseCard
         TriggerOnPlayEffects(); //calls onPlay effects
     }
 
+    public override void Created(PlayerManager playerManager)
+    {
+        //is played to true
+        isPlayed = true;
+        this.playerManager = playerManager; //sets player manager reference
+        this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
+        this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
+
+        base.Created(playerManager);
+    }
+
     public virtual void AttackMinion(BaseMinion target)
     {
         target.TakeDamage(attack);

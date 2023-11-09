@@ -364,6 +364,23 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    // --- GETTING TEAM MINION ZONE ---
+
+    public PlayerMinionZone GetMinionZoneByTeam( Team team)
+    {
+        if(team == Team.PLAYER)
+        {
+            return playerMinionZone;
+        }
+        else if (team == Team.ENEMY)
+        {
+            return enemyMinionZone;
+        }
+
+        Debug.Log("MICHAEL WARN: Tried to GetZoneByTeam() without setting team to PLAYEr or ENEMY");
+        return null;
+    }
+
     // --- CHECKING / GETTING CARDS IN PLAY ---
 
     public void UpdateAllCardsInPlay()
