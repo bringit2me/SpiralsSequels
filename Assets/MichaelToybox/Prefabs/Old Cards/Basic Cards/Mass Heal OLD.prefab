@@ -311,7 +311,7 @@ GameObject:
   - component: {fileID: 1208697674822520600}
   - component: {fileID: 2531525273485835337}
   m_Layer: 5
-  m_Name: Mass Heal
+  m_Name: Mass Heal OLD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 017fd867cf514a24092f517a1806df32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Mass Heal
+  name: Mass Heal OLD
   description: Restore 4 health to all friendly minions and heroes
   team: 0
   selfCardRef: {fileID: 0}
@@ -414,6 +414,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   valueBoostAI: 0
   playAnimClip:
+    animID: -1
     animating: 0
     animationFinished: 0
     card: {fileID: 0}
@@ -431,6 +432,8 @@ MonoBehaviour:
     effect: {fileID: 2922846416733049880, guid: 0ee5332edd026ef4e839dab777c0029c, type: 3}
   manaCost: 3
   isPlayed: 0
+  onPlay: []
+  actionTakenInHand: []
   nameText: {fileID: 4662519104434035972}
   descriptionText: {fileID: 1804440496501353836}
   manaText: {fileID: 1761156657338033981}
