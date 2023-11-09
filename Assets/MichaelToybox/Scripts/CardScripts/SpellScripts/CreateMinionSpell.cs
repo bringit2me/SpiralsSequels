@@ -15,6 +15,8 @@ public class CreateMinionSpell : BaseSpell
 
         foreach(MinionCreateEntry entry in minionsToCreate) //loops through all minions to be summoned
         {
+            if (minionZone.CheckZoneFull() == false) //if the minion zone is full
+                break; //stop code
             //creates card
             BaseMinion minion = Instantiate(entry.minion, minionZone.transform);
             //calls created on minion (sets references and toggle scripts. bypassed OnPlay effects)
@@ -42,8 +44,13 @@ public class CreateMinionSpell : BaseSpell
     {
         int value = 0;
 
+        PlayerMinionZone minionZone = combatManager.GetMinionZoneByTeam(team);
+
         foreach (MinionCreateEntry entry in minionsToCreate) //loops through all minions to be summoned
         {
+            if (minionZone.CheckZoneFull() == false) //if the minion zone is full
+                return 0;
+
             value += entry.minion.CalculateValueAI(ai);
 
             value += entry.minion.CalculateAttackChange(entry.attackIncrease);
