@@ -45,8 +45,6 @@ public class EffectCreateMinion : BaseEffect
             minionZone.CreateMinionInZone(minion);
             //Refreshes minion list
             minionZone.RefreshMinionsInZoneList();
-
-            Debug.Log("Created Minion");
         }
     }
 

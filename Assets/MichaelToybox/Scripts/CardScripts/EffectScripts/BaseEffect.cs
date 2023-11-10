@@ -57,7 +57,7 @@ public class BaseEffect : MonoBehaviour
 
     public virtual void TriggerEffect()
     {
-        Debug.Log("Triggered Effect: " + this.GetType().Name);
+        //Debug.Log("Triggered Effect: " + this.GetType().Name);
 
         //TODO: trigger animation
     }

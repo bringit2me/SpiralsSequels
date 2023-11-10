@@ -47,7 +47,6 @@ public class CardAnimationManager : MonoBehaviour
                 int currentAnimationID = animationList[0].animID;
                 while(nextAnimSameID == true) //while the next animation shares the same ID
                 {
-                    Debug.Log("anim 1");
                     if (count > animationList.Count - 1) //hit end of the animation list
                     {
                         nextAnimSameID = false;

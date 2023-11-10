@@ -321,7 +321,10 @@ public class CombatManager : MonoBehaviour
             }
         }
 
-        UpdateSpellDamage();
+        if (IsInvoking("UpdateSpellDamage") == true)
+            CancelInvoke("UpdateSpellDamage");
+        
+        Invoke("UpdateSpellDamage",0.01f);
     }
 
     public void StartOfTurnTrigger(Team team)
@@ -386,7 +389,7 @@ public class CombatManager : MonoBehaviour
         return null;
     }
 
-    // --- UPDATING SLEPP DAMAGE
+    // --- UPDATING SPELL DAMAGE
 
     public void UpdateSpellDamage()
     {
@@ -403,16 +406,20 @@ public class CombatManager : MonoBehaviour
             BaseMinion minion = card.GetComponent<BaseMinion>(); //tries to get minion reference
             BaseHero hero = card.GetComponent<BaseHero>(); //tries to get hero reference
 
-            if(minion != null)
+            if(minion != null && minion.health > 0 && minion.spellDamage > 0)
             {
+                Debug.Log(minion.name + " " + minion.spellDamage);
+
                 if (minion.team == Team.PLAYER) //on the player team
                     playerManager.spellDamage += minion.spellDamage; //increase player spell damage by spell damage on card
                 else if (minion.team == Team.ENEMY) //on the enemy team
                     enemyManager.spellDamage += minion.spellDamage; //increase enemy spell damage by spell damage on card
 
             }
-            else if(hero != null)
+            else if(hero != null && hero.isDead == false && hero.spellDamage > 0)
             {
+                Debug.Log(hero.name + " " + hero.spellDamage);
+
                 if (hero.team == Team.PLAYER) //on the player team
                     playerManager.spellDamage += hero.spellDamage; //increase player spell damage by spell damage on card
                 else if (hero.team == Team.ENEMY) //on the enemy team
