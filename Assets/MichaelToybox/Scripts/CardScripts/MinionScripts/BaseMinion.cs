@@ -37,7 +37,7 @@ public class BaseMinion : BaseCard
     {
         SetupCardText();
         //If this minion starts out played
-        if(isPlayed == true)
+        if (isPlayed == true)
         {
             this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
             this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
@@ -159,7 +159,7 @@ public class BaseMinion : BaseCard
 
     public virtual int CalculateHeal(int value)
     {
-        if (value < 0) 
+        if (value < 0)
             value = 0;
 
         if (health + value > maxHealth)
@@ -210,7 +210,7 @@ public class BaseMinion : BaseCard
     {
         this.transform.SetParent(transform.root);
         GameObject.FindObjectOfType<CombatManager>().UpdateAllCardsInPlay(); //updates cards in play
-        Destroy(this.gameObject,5f);
+        Destroy(this.gameObject, 5f);
     }
 
     // --- CALLING EFFECTS ---
@@ -244,7 +244,7 @@ public class BaseMinion : BaseCard
         //Adds spell damage
         value += spellDamage;
         //Adds 1 if the minion has taunt
-        if(taunt == true)
+        if (taunt == true)
             value += 1;
         //if the minion can attack this turn
         if (canAttack == true)
@@ -267,24 +267,24 @@ public class BaseMinion : BaseCard
     public override int CalculateEffectValues()
     {
         int value = 0;
-        if(onPlay.Count > 0)
-            foreach (BaseEffect effect in onPlay)
-                value += effect.CalculateEffectValueAI();
-        if (onDeath.Count > 0)
-            foreach (BaseEffect effect in onDeath)
-                value += effect.CalculateEffectValueAI();
-        if (afterAttack.Count > 0)
-            foreach (BaseEffect effect in afterAttack)
-                value += effect.CalculateEffectValueAI();
-        if (startOfTurn.Count > 0)
-            foreach (BaseEffect effect in startOfTurn)
-                value += effect.CalculateEffectValueAI();
-        if (endOfTurn.Count > 0)
-            foreach (BaseEffect effect in endOfTurn)
-                value += effect.CalculateEffectValueAI();
-        if (actionTakenInHand.Count > 0)
-            foreach (BaseEffect effect in actionTakenInHand)
-                value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in onPlay)
+            value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in onDeath)
+            value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in afterAttack)
+            value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in startOfTurn)
+            value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in endOfTurn)
+            value += effect.CalculateEffectValueAI();
+
+        foreach (BaseEffect effect in actionTakenInHand)
+            value += effect.CalculateEffectValueAI();
 
         return value;
     }
@@ -312,7 +312,7 @@ public class BaseMinion : BaseCard
     {
         foreach (BaseEffect effect in onPlay)
         {
-            if(effect != null)
+            if (effect != null)
                 //sets up effect with a hero reference, minion reference, and no spell reference
                 effect.SetupEffect(hero, this, null, playerManager);
         }

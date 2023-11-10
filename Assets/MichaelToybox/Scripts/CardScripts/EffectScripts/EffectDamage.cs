@@ -40,13 +40,18 @@ public class EffectDamage : BaseEffect
 
         if (minion != null && targetHero == false) //we have a minion reference
         {
-            //Restores minions health
-            value += minion.CalculateTakeDamage(damageValue);
+            if(minion.team == this.team) //same team
+                value -= minion.CalculateTakeDamage(damageValue); //subtract
+            else //other team
+                value += minion.CalculateTakeDamage(damageValue); //add
+            
         }
         else if (hero != null) //we have a hero reference
         {
-            ///Restores heroes health
-            value += hero.CalculateTakeDamage(damageValue);
+            if (hero.team == this.team) //same team
+                value -= hero.CalculateTakeDamage(damageValue); //subtract
+            else //other team
+                value += hero.CalculateTakeDamage(damageValue); //add
         }
 
         return value;

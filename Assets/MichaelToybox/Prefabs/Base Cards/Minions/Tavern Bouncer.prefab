@@ -1009,4 +1009,5 @@ MonoBehaviour:
     effect: {fileID: 0}
   valueBoostAI: 0
   targetTeam: 2
+  improvedBySpellDamage: 0
   damage: 2

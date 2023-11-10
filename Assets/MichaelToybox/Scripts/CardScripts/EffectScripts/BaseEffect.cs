@@ -10,9 +10,9 @@ public class BaseEffect : MonoBehaviour
     [Header("AI Value")]
     public int valueBoostAI;
     //References
-    protected BaseHero hero;
-    protected BaseMinion minion;
-    protected BaseSpell spell;
+    [SerializeField] protected BaseHero hero;
+    [SerializeField] protected BaseMinion minion;
+    [SerializeField] protected BaseSpell spell;
     protected CardAnimationManager anim;
     protected CombatManager combatManager;
     protected PlayerManager playerManager;

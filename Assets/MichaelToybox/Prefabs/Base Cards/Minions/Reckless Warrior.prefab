@@ -111,10 +111,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6885516614873756469}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-      propertyPath: spellDamage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: onPlay.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -136,7 +132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_AnchorMax.x

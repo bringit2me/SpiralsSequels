@@ -409,7 +409,6 @@ public class CombatManager : MonoBehaviour
 
             if(minion != null && minion.health > 0 && minion.spellDamage > 0)
             {
-                Debug.Log(minion.name + " " + minion.spellDamage);
 
                 if (minion.team == Team.PLAYER) //on the player team
                     playerManager.spellDamage += minion.spellDamage; //increase player spell damage by spell damage on card

@@ -17,6 +17,8 @@ public class HandManager : MonoBehaviour
         temp.team = playerManager.team; //sets team 
         temp.hero = deck.hero; //sets card hero reference
         handCards.Add(temp); //adss card to hand list
+
+        temp.SetupAllEffects(); //sets up effects on the card
     }
 
     public void ReturnCardToHand(BaseCard card, DeckManager deck)
