@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Slice
-  description: Deal 2 damage to a character
+  description: Deal 2 damage to a minion
   team: 0
   selfCardRef: {fileID: 7225182051294132464}
   playerManager: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   valueBoostAI: 0
   playAnimClip:
+    animID: -1
     animating: 0
     animationFinished: 0
     card: {fileID: 0}
@@ -139,17 +140,21 @@ MonoBehaviour:
     moveEffect: 1
     startHero: 1
     startCard: 0
+    startTarget: 0
+    startMiddle: 0
     lookAtTargetPos: 0
     reverseAnimWhenDone: 0
     animSpeed: 1
     effect: {fileID: 3404653119962982608, guid: 709452ab1cb89a54eb881e29936d551c, type: 3}
   manaCost: 1
   isPlayed: 0
+  onPlay: []
+  actionTakenInHand: []
   nameText: {fileID: 6393328661109034173}
   descriptionText: {fileID: 1286775135387771401}
   manaText: {fileID: 4115031912647125758}
   target: {fileID: 0}
-  targetTeam: 0
+  targetTeam: 3
   damage: 2
 --- !u!1 &4501387417935941397
 GameObject:
