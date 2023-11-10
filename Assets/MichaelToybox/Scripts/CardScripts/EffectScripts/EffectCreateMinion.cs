@@ -32,7 +32,7 @@ public class EffectCreateMinion : BaseEffect
             //creates card
             BaseMinion minion = Instantiate(entry.minion, minionZone.transform);
             //calls created on minion (sets references and toggle scripts. bypassed OnPlay effects)
-            minion.Created(card.playerManager);
+            minion.Created(playerManager);
 
             //Minion Modification
             minion.ChangeAttack(entry.attackIncrease); //increases attack

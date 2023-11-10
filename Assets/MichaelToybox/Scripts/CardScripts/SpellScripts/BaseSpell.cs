@@ -18,6 +18,7 @@ public class BaseSpell : BaseCard
     {
         SetupCardText();
         combatManager = GameObject.FindObjectOfType<CombatManager>();
+        SetupAllEffects(); //sets up all effects
     }
 
     public virtual void Update()
@@ -63,7 +64,8 @@ public class BaseSpell : BaseCard
     public virtual void EndCast()
     {
         AddToDiscardPile(); //adds card to discard pile
-        Destroy(this.gameObject);
+        this.transform.SetParent(transform.root);
+        Destroy(this.gameObject, 5f);
         isBeingCast = false;
 
         ReducePlayerMana();

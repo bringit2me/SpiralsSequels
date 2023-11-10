@@ -15,7 +15,7 @@ public class BaseEffect : MonoBehaviour
     [SerializeField] protected BaseSpell spell;
     protected CardAnimationManager anim;
     protected CombatManager combatManager;
-    protected PlayerManager playerManager;
+    [SerializeField] protected PlayerManager playerManager;
 
     public virtual void Awake()
     {

@@ -19,6 +19,9 @@ public class EffectAOEChangeStats : BaseEffect
 
         foreach (BaseCard card in targets)
         {
+            if (card == null) //null card reference
+                continue; //go to next
+
             bool cardEffected = false;
 
             if (card.GetComponent<BaseMinion>() == true)
@@ -60,6 +63,9 @@ public class EffectAOEChangeStats : BaseEffect
 
         foreach (BaseCard card in targets)
         {
+            if (card == null)
+                continue;
+
             BaseMinion minion = card.GetComponent<BaseMinion>();
             BaseHero hero = card.GetComponent<BaseHero>();
 

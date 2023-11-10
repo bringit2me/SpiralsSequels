@@ -10,7 +10,7 @@ public class BaseCard : MonoBehaviour
     public string description;
     public Team team;
     public BaseCard selfCardRef;
-    [HideInInspector] public PlayerManager playerManager;
+    /*[HideInInspector]*/ public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [HideInInspector] public BaseHero hero;
@@ -62,7 +62,7 @@ public class BaseCard : MonoBehaviour
         //sets is played to true
         isPlayed = true;
         this.playerManager = playerManager; //sets player manager reference
-        team = playerManager.team; //sets team
+        team = this.playerManager.team; //sets team
         SetupAllEffects(); //sets up all effects
         combatManager.ActionTakenTrigger(); //calls action taken trigger
     }
