@@ -102,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
       propertyPath: attack
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
       propertyPath: health
@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
       propertyPath: manaCost
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
       propertyPath: maxHealth
