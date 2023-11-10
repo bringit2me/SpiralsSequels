@@ -68,6 +68,7 @@ MonoBehaviour:
     effect: {fileID: 0}
   valueBoostAI: 0
   damage: 4
+  improvedBySpellDamage: 0
   targetHero: 0
 --- !u!1001 &1365272440239493019
 PrefabInstance:
@@ -113,6 +114,14 @@ PrefabInstance:
       propertyPath: spellDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: onPlay.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: onPlay.Array.data[0]
+      value: 
+      objectReference: {fileID: 4552205207578619868}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
       value: Reckless Warrior
@@ -127,7 +136,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_AnchorMax.x

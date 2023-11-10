@@ -324,7 +324,8 @@ public class CombatManager : MonoBehaviour
         if (IsInvoking("UpdateSpellDamage") == true)
             CancelInvoke("UpdateSpellDamage");
         
-        Invoke("UpdateSpellDamage",0.01f);
+        Invoke("UpdateSpellDamage",0.25f);
+        
     }
 
     public void StartOfTurnTrigger(Team team)

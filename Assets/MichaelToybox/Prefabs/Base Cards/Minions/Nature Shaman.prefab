@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af81db45a4b15b479702b452b3c3c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Pacifist
+  name: Nature Shaman
   description: <b>End of Turn:</b> Restore 4 health to all friendly minions and 2
     health to all friendly hereos
   team: 0
