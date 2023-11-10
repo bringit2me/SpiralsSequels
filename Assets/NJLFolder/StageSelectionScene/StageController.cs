@@ -57,10 +57,10 @@ public class StageController : MonoBehaviour
         bool bossButtonSpawned = false;
         for (int i = 0; i < buttons.Length; i++) //For loop runs code within it for each button in our list of buttons
         {
-            int randNum = Random.Range(1, 3); //Generates a random number. 3 encounters(basic, boss, and spiral)
+            int randNum = Random.Range(1, 4); //Generates a random number. 4 encounters(randomEncounter,specialEncounter, boss, and spiral)
             if (currStage == stagesToBoss && !bossButtonSpawned) //If the current stage is equal to the stages to boss int we garuntee a boss stage
             {
-                randNum = 3;
+                randNum = 4;
                 bossButtonSpawned = true;
             }
             
@@ -69,14 +69,15 @@ public class StageController : MonoBehaviour
             //Each number corresponds to one of our stages, we then change the buttons text and set its identity for the StageButtonController script.
             if(randNum == 1)
             {
-                Debug.Log("This is a basic Encounter");
+                Debug.Log("This is a random Encounter");
                 
 
                 TextMeshProUGUI buttonText = buttons[i].GetComponentInChildren<TextMeshProUGUI>();
-                buttonText.text = "Basic Encounter";
+                buttonText.text = "Random Encounter";
 
                 StageButtonController currButton = buttons[i].GetComponentInChildren<StageButtonController>();
-                currButton.isBasicEncounter = true;
+                currButton.isRandomEncounter = true;
+                currButton.encounterImage.sprite = currButton.randomEncounterImage;
             }
             if(randNum == 2)
             {
@@ -88,8 +89,21 @@ public class StageController : MonoBehaviour
 
                 StageButtonController currButton = buttons[i].GetComponentInChildren<StageButtonController>();
                 currButton.isSpiral = true;
+                currButton.encounterImage.sprite = currButton.spiralEncounterImage;
             }
-            if(randNum == 3)
+            if (randNum == 3)
+            {
+                Debug.Log("This is a Special Encounter");
+
+
+                TextMeshProUGUI buttonText = buttons[i].GetComponentInChildren<TextMeshProUGUI>();
+                buttonText.text = "Special Encounter";
+
+                StageButtonController currButton = buttons[i].GetComponentInChildren<StageButtonController>();
+                currButton.isSpecialEncounter = true;
+                //Icon needs to be changed
+            }
+            if (randNum == 4)
             {
                 Debug.Log("This is a boss Encounter");
                 
@@ -99,6 +113,7 @@ public class StageController : MonoBehaviour
 
                 StageButtonController currButton = buttons[i].GetComponentInChildren<StageButtonController>();
                 currButton.isBossEncounter = true;
+                //Icon needs to be changed
             }
         }
     }
