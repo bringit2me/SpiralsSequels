@@ -485,7 +485,7 @@ RectTransform:
   - {fileID: 8338560852095962579}
   - {fileID: 8654897390311432206}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -578,7 +578,8 @@ MonoBehaviour:
   targetable: 1
   spellDamage: 0
   taunt: 0
-  onPlay: []
+  onPlay:
+  - {fileID: 8832229948683356134}
   onDeath: []
   afterAttack: []
   startOfTurn: []
@@ -1007,5 +1008,10 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 8
+  improvedBySpellDamage: 0
   damage: 3

@@ -210,7 +210,7 @@ public class BaseEnemyAI : MonoBehaviour
         //subtracts enemies total attack from players total attack
         rawValue += boardInfo.enemyTotalAttack - boardInfo.playerTotalAttack;
 
-        aggroValue = (100f * rawValue) / (100f + rawValue); //calculates aggro value
+        aggroValue = Mathf.Clamp((100f * rawValue) / (100f + rawValue), 0, 100); //calculates aggro value
         aggroValue += aggroValueBoost; // adds in aggro boost
         aggroValue = Mathf.Clamp(aggroValue, 0, 100); //clamps it between 0 and 100
     }
@@ -219,11 +219,11 @@ public class BaseEnemyAI : MonoBehaviour
     {
         int rawValue = 0;
         //subtracts enemy total minion attack from players total attack (minion + hero atk)
-        rawValue += boardInfo.enemyTotalMinionAttack - boardInfo.playerTotalAttack;
+        rawValue += boardInfo.enemyTotalMinionAttack - boardInfo.playerTotalMinionAttack;
         //subtracts enemy total minion health from player total minion health
         rawValue += boardInfo.enemyTotalMinionHealth - boardInfo.playerTotalMinionHealth;
 
-        midRangeValue = (100f * rawValue) / (100f + rawValue); //calculates mid range value
+        midRangeValue = Mathf.Clamp((100f * rawValue) / (100f + rawValue),0,100); //calculates mid range value
         midRangeValue += midRangeValueBoost; // adds in mid range boost
         midRangeValue = Mathf.Clamp(midRangeValue, 0, 100); //clamps it between 0 and 100
     }
@@ -236,7 +236,7 @@ public class BaseEnemyAI : MonoBehaviour
         //subtracts the max health of all enemy heroes with the current health of all enemy heroes
         rawValue += (int)((boardInfo.enemyTotalHeroMaxHealth - boardInfo.enemyTotalHeroHealth) * 1f); //fiddle with multiplier on this
 
-        defenseValue = (100f * rawValue) / (100f + rawValue); //calculates defense value
+        defenseValue = Mathf.Clamp((100f * rawValue) / (100f + rawValue), 0, 100); //calculates defense value
         defenseValue += defenseValueBoost; // adds in defense boost
         defenseValue = Mathf.Clamp(defenseValue, 0, 100); //clamps it between 0 and 100
 

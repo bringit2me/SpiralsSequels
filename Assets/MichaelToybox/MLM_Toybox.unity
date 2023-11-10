@@ -1940,11 +1940,11 @@ PrefabInstance:
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[12]
       value: 
-      objectReference: {fileID: 8646641797896483631, guid: 0002ecc3ab525a44288a7b274051c9e0, type: 3}
+      objectReference: {fileID: 708543607517336240, guid: 50769ed8cb09e7840885a0a3106dae50, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[13]
       value: 
-      objectReference: {fileID: 8646641797896483631, guid: 0002ecc3ab525a44288a7b274051c9e0, type: 3}
+      objectReference: {fileID: 708543607517336240, guid: 50769ed8cb09e7840885a0a3106dae50, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[14]
       value: 
