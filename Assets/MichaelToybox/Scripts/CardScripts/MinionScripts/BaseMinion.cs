@@ -267,18 +267,24 @@ public class BaseMinion : BaseCard
     public override int CalculateEffectValues()
     {
         int value = 0;
-        foreach (BaseEffect effect in onPlay)
-            value += effect.CalculateEffectValueAI();
-        foreach (BaseEffect effect in onDeath)
-            value += effect.CalculateEffectValueAI();
-        foreach (BaseEffect effect in afterAttack)
-            value += effect.CalculateEffectValueAI();
-        foreach (BaseEffect effect in startOfTurn)
-            value += effect.CalculateEffectValueAI();
-        foreach (BaseEffect effect in endOfTurn)
-            value += effect.CalculateEffectValueAI();
-        foreach (BaseEffect effect in actionTakenInHand)
-            value += effect.CalculateEffectValueAI();
+        if(onPlay.Count > 0)
+            foreach (BaseEffect effect in onPlay)
+                value += effect.CalculateEffectValueAI();
+        if (onDeath.Count > 0)
+            foreach (BaseEffect effect in onDeath)
+                value += effect.CalculateEffectValueAI();
+        if (afterAttack.Count > 0)
+            foreach (BaseEffect effect in afterAttack)
+                value += effect.CalculateEffectValueAI();
+        if (startOfTurn.Count > 0)
+            foreach (BaseEffect effect in startOfTurn)
+                value += effect.CalculateEffectValueAI();
+        if (endOfTurn.Count > 0)
+            foreach (BaseEffect effect in endOfTurn)
+                value += effect.CalculateEffectValueAI();
+        if (actionTakenInHand.Count > 0)
+            foreach (BaseEffect effect in actionTakenInHand)
+                value += effect.CalculateEffectValueAI();
 
         return value;
     }

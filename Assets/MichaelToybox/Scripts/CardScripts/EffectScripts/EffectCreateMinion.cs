@@ -52,6 +52,7 @@ public class EffectCreateMinion : BaseEffect
 
     public override int CalculateEffectValueAI()
     {
+
         int value = 0;
 
         BaseEnemyAI ai = combatManager.enemyAI; //gets AI reference for calculation
