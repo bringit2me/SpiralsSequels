@@ -13,18 +13,20 @@ public class AOEDamageSpell : BaseAOESpell
 
         int animID = anim.GetAnimationID(); //gets ID for animation
 
+        int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
+
         foreach (BaseCard card in targets)
         {
             bool cardEffected = false;
 
             if (card.GetComponent<BaseMinion>() == true)
             {
-                card.GetComponent<BaseMinion>().TakeDamage(damage);
+                card.GetComponent<BaseMinion>().TakeDamage(damageValue);
                 cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
-                card.GetComponent<BaseHero>().TakeDamage(damage);
+                card.GetComponent<BaseHero>().TakeDamage(damageValue);
                 cardEffected = true;
             }
 
@@ -51,6 +53,8 @@ public class AOEDamageSpell : BaseAOESpell
         bool effectsPlayerHero = false;
         bool effectsPlayerMinions = false;
 
+        int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
+
         foreach (BaseCard card in targets)
         {
             BaseMinion minion = card.GetComponent<BaseMinion>();
@@ -60,12 +64,12 @@ public class AOEDamageSpell : BaseAOESpell
             {
                 if (minion == true)
                 {
-                    value -= minion.CalculateTakeDamage(damage);
+                    value -= minion.CalculateTakeDamage(damageValue);
                     effectsFriendlyMinions = true;
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value -= hero.CalculateTakeDamage(damage);
+                    value -= hero.CalculateTakeDamage(damageValue);
                     effectsFriendlyHero = true;
                 }
             }
@@ -73,12 +77,12 @@ public class AOEDamageSpell : BaseAOESpell
             {
                 if (minion == true)
                 {
-                    value += minion.CalculateTakeDamage(damage);
+                    value += minion.CalculateTakeDamage(damageValue);
                     effectsPlayerMinions = true;
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value += hero.CalculateTakeDamage(damage);
+                    value += hero.CalculateTakeDamage(damageValue);
                     effectsPlayerHero = true;
                 }
             }

@@ -4,23 +4,9 @@ using UnityEngine;
 
 public class EffectAOEHeal : BaseEffect
 {
-    Team team;
     [Header("Heal Info")]
     [SerializeField] TargetingInfo targetTeam;
     [SerializeField] int healValue;
-
-    public override void SetupEffect(BaseHero h, BaseMinion m, BaseSpell s)
-    {
-        base.SetupEffect(h, m, s);
-
-        //Gets team
-        if (minion != null)
-            team = minion.team;
-        else if (hero != null)
-            team = hero.team;
-        else if (spell != null)
-            team = spell.team;
-    }
 
     public override void TriggerEffect()
     {

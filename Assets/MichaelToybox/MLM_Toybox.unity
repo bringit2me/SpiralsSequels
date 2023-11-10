@@ -188,6 +188,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1192428198}
     - target: {fileID: 6876271372155591762, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6876271372155591762, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
@@ -409,9 +413,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32bfb9bf9709574e99f76a7e57b8c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBasicEncounter: 0
+  isRandomEncounter: 0
+  isSpecialEncounter: 0
   isSpiral: 0
   isBossEncounter: 0
+  encounterImage: {fileID: 0}
+  randomEncounterImage: {fileID: 0}
+  shopEncounterImage: {fileID: 0}
+  spiralEncounterImage: {fileID: 0}
+  heroImages: []
+  bossImages: []
 --- !u!114 &141009182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,9 +582,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32bfb9bf9709574e99f76a7e57b8c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBasicEncounter: 0
+  isRandomEncounter: 0
+  isSpecialEncounter: 0
   isSpiral: 0
   isBossEncounter: 0
+  encounterImage: {fileID: 0}
+  randomEncounterImage: {fileID: 0}
+  shopEncounterImage: {fileID: 0}
+  spiralEncounterImage: {fileID: 0}
+  heroImages: []
+  bossImages: []
 --- !u!114 &217447315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,9 +952,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32bfb9bf9709574e99f76a7e57b8c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBasicEncounter: 0
+  isRandomEncounter: 0
+  isSpecialEncounter: 0
   isSpiral: 0
   isBossEncounter: 0
+  encounterImage: {fileID: 0}
+  randomEncounterImage: {fileID: 0}
+  shopEncounterImage: {fileID: 0}
+  spiralEncounterImage: {fileID: 0}
+  heroImages: []
+  bossImages: []
 --- !u!114 &855900269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,10 +1863,6 @@ PrefabInstance:
       propertyPath: manaText
       value: 
       objectReference: {fileID: 89341627}
-    - target: {fileID: 8164792915764947657, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
-      propertyPath: manaPerTurn
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8972971589770205645, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: m_Name
       value: PlayerManager
@@ -2013,7 +2034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1791007340
 MonoBehaviour:
   m_ObjectHideFlags: 0

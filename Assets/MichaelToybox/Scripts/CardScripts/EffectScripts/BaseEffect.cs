@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseEffect : MonoBehaviour
 {
+    protected Team team;
     [Header("Animation")]
     public CardAnimationClip clip;
     [Header("AI Value")]
@@ -14,6 +15,7 @@ public class BaseEffect : MonoBehaviour
     protected BaseSpell spell;
     protected CardAnimationManager anim;
     protected CombatManager combatManager;
+    protected PlayerManager playerManager;
 
     public virtual void Awake()
     {
@@ -28,11 +30,13 @@ public class BaseEffect : MonoBehaviour
     /// <param name="h"></param>
     /// <param name="m"></param>
     /// <param name="s"></param>
-    public virtual void SetupEffect(BaseHero h, BaseMinion m, BaseSpell s)
+    public virtual void SetupEffect(BaseHero h, BaseMinion m, BaseSpell s, PlayerManager pM)
     {
         hero = h;
         minion = m;
         spell = s;
+        playerManager = pM;
+        team = playerManager.team;
 
         //calls to setup animation
         SetupAnimation();

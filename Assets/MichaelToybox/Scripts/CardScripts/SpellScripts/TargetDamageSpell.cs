@@ -9,9 +9,12 @@ public class TargetDamageSpell : BaseTargetSpell
 
     public override void CastAtTarget()
     {
-        if(target.GetComponent<BaseMinion>() == true)
+
+        int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
+
+        if (target.GetComponent<BaseMinion>() == true)
         {
-            target.GetComponent<BaseMinion>().TakeDamage(damage);
+            target.GetComponent<BaseMinion>().TakeDamage(damageValue);
             playAnimClip.target = target.gameObject;
             CardAnimationClip clip = new CardAnimationClip();
             clip.CopyClip(playAnimClip);
@@ -19,7 +22,7 @@ public class TargetDamageSpell : BaseTargetSpell
         }
         if(target.GetComponent<BaseHero>() == true)
         {
-            target.GetComponent<BaseHero>().TakeDamage(damage);
+            target.GetComponent<BaseHero>().TakeDamage(damageValue);
             playAnimClip.target = target.gameObject;
             CardAnimationClip clip = new CardAnimationClip();
             clip.CopyClip(playAnimClip);
@@ -34,6 +37,8 @@ public class TargetDamageSpell : BaseTargetSpell
         CardValueEntry entry = new CardValueEntry();
         entry.card = this;
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all potential targets of the spell
+
+        int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
 
         foreach (BaseCard card in targets)
         {
@@ -55,9 +60,9 @@ public class TargetDamageSpell : BaseTargetSpell
                 if (minion != null)
                 {
                     //changes value
-                    value = -minion.CalculateTakeDamage(damage);
+                    value = -minion.CalculateTakeDamage(damageValue);
                     //if the spell kills the target
-                    if(minion.CalculateTakeDamage(damage) >= minion.health)
+                    if(minion.CalculateTakeDamage(damageValue) >= minion.health)
                     {
                         value -= minion.CalculateDeathValue();
                     }
@@ -68,9 +73,9 @@ public class TargetDamageSpell : BaseTargetSpell
                 else if (hero != null && hero.isDead == false)
                 {
                     //changes value
-                    value = -hero.CalculateTakeDamage(damage);
+                    value = -hero.CalculateTakeDamage(damageValue);
                     //if the spell kills the target
-                    if (hero.CalculateTakeDamage(damage) >= hero.health)
+                    if (hero.CalculateTakeDamage(damageValue) >= hero.health)
                     {
                         value -= (hero.attack + 1) * 100; //multiplies hero attack by 100 (will hyper prioritize dead heroes)
                     }
@@ -84,13 +89,13 @@ public class TargetDamageSpell : BaseTargetSpell
                 if (minion != null)
                 {
                     //changes value
-                    value = minion.CalculateTakeDamage(damage);
+                    value = minion.CalculateTakeDamage(damageValue);
                     //if the spell kills the target
-                    if (minion.CalculateTakeDamage(damage) == minion.health)
+                    if (minion.CalculateTakeDamage(damageValue) == minion.health)
                     {
                         value += minion.CalculateDeathValue();
                     }
-                    else if (minion.CalculateTakeDamage(damage) >= minion.health)
+                    else if (minion.CalculateTakeDamage(damageValue) >= minion.health)
                     {
                         value = minion.maxHealth - minion.health + minion.CalculateDeathValue();
                     }
@@ -101,9 +106,9 @@ public class TargetDamageSpell : BaseTargetSpell
                 else if (hero != null && hero.isDead == false)
                 {
                     //changes value
-                    value = hero.CalculateTakeDamage(damage);
+                    value = hero.CalculateTakeDamage(damageValue);
                     //if the spell kills the target
-                    if (hero.CalculateTakeDamage(damage) >= hero.health)
+                    if (hero.CalculateTakeDamage(damageValue) >= hero.health)
                     {
                         value += (hero.attack + 1) * 100; //multiplies hero attack by 100 (will hyper prioritize dead heroes)
                     }
@@ -120,7 +125,7 @@ public class TargetDamageSpell : BaseTargetSpell
             if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && hero != null)
                 value = (int)(value * ValueToPercent(ai.aggroValue));
             //checks if AI is mid range and the target is a minion and the minion dies
-            if (ai.playstyle == EnemyPlaystyle.MID_RANGE && minion != null && (minion.CalculateTakeDamage(damage) >= minion.health))
+            if (ai.playstyle == EnemyPlaystyle.MID_RANGE && minion != null && (minion.CalculateTakeDamage(damageValue) >= minion.health))
                 value = (int)(value * ValueToPercent(ai.midRangeValue));
             //checks if AI is defensive and the target is a minion
             if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && minion != null)

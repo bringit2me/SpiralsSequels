@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour
     public int mana = 0;
     public int manaPerTurn = 2;
     public int manaPerTurnIncrease = 2;
+    public int spellDamage = 0;
     [SerializeField] protected float drawDelay = 0.25f;
     [Header("Neutral Deck Info")]
     public int drawCountNeutral = 4;

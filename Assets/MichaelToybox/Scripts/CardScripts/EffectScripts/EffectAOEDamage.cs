@@ -4,31 +4,22 @@ using UnityEngine;
 
 public class EffectAOEDamage : BaseEffect
 {
-    Team team;
     [Header("Damage Info")]
     [SerializeField] TargetingInfo targetTeam;
+    [SerializeField] bool improvedBySpellDamage;
     [SerializeField] int damage;
-
-    public override void SetupEffect(BaseHero h, BaseMinion m, BaseSpell s)
-    {
-        base.SetupEffect(h, m, s);
-
-        //Gets team
-        if (minion != null)
-            team = minion.team;
-        else if (hero != null)
-            team = hero.team;
-        else if (spell != null)
-            team = spell.team;
-    }
 
     public override void TriggerEffect()
     {
         base.TriggerEffect();
 
-        List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets targets
+        List<BaseCard> targets = combatManager.GetTargets(playerManager.team, targetTeam); //gets targets
 
         int animID = anim.GetAnimationID(); //gets ID for animation
+
+        int damageValue = damage;
+        if (improvedBySpellDamage == true) //if this effect is 
+            damageValue = damage + playerManager.spellDamage; //adds in spell damage
 
         foreach (BaseCard card in targets)
         {
@@ -36,12 +27,12 @@ public class EffectAOEDamage : BaseEffect
 
             if (card.GetComponent<BaseMinion>() == true)
             {
-                card.GetComponent<BaseMinion>().TakeDamage(damage);
+                card.GetComponent<BaseMinion>().TakeDamage(damageValue);
                 cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
-                card.GetComponent<BaseHero>().TakeDamage(damage);
+                card.GetComponent<BaseHero>().TakeDamage(damageValue);
                 cardEffected = true;
             }
 
@@ -69,6 +60,10 @@ public class EffectAOEDamage : BaseEffect
         bool effectsPlayerHero = false;
         bool effectsPlayerMinions = false;
 
+        int damageValue = damage;
+        if (improvedBySpellDamage == true) //if this effect is 
+            damageValue = damage + playerManager.spellDamage;
+
         foreach (BaseCard card in targets)
         {
             BaseMinion minion = card.GetComponent<BaseMinion>();
@@ -78,12 +73,12 @@ public class EffectAOEDamage : BaseEffect
             {
                 if (minion == true)
                 {
-                    value -= minion.CalculateTakeDamage(damage);
+                    value -= minion.CalculateTakeDamage(damageValue);
                     effectsFriendlyMinions = true;
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value -= hero.CalculateTakeDamage(damage);
+                    value -= hero.CalculateTakeDamage(damageValue);
                     effectsFriendlyHero = true;
                 }
             }
@@ -91,12 +86,12 @@ public class EffectAOEDamage : BaseEffect
             {
                 if (minion == true)
                 {
-                    value += minion.CalculateTakeDamage(damage);
+                    value += minion.CalculateTakeDamage(damageValue);
                     effectsPlayerMinions = true;
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value += hero.CalculateTakeDamage(damage);
+                    value += hero.CalculateTakeDamage(damageValue);
                     effectsPlayerHero = true;
                 }
             }

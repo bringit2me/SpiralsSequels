@@ -14,6 +14,9 @@ public class BaseHero : BaseCard
     public bool canAttack = false;
     public bool targetable = true;
     public bool isDead = false;
+    [Header("Other")]
+    public int spellDamage = 0;
+    public bool taunt = false;
     [Header("Triggers")]
     public List<BaseEffect> afterAttack; // (NOT IMPLEMENTED) called after attacking
     public List<BaseEffect> startOfTurn; //(NOT IMPLEMENTED) called at the end of the player turn
@@ -213,23 +216,27 @@ public class BaseHero : BaseCard
     {
         foreach (BaseEffect effect in afterAttack)
         {
-            //sets up effect with a hero reference, minion reference, and no spell reference
-            effect.SetupEffect(this, null, null);
+            if (effect != null)
+                //sets up effect with a hero reference, minion reference, and no spell reference
+                effect.SetupEffect(this, null, null, playerManager);
         }
         foreach (BaseEffect effect in startOfTurn)
         {
-            //sets up effect with a hero reference, minion reference, and no spell reference
-            effect.SetupEffect(this, null, null);
+            if (effect != null)
+                //sets up effect with a hero reference, minion reference, and no spell reference
+                effect.SetupEffect(this, null, null, playerManager);
         }
         foreach (BaseEffect effect in endOfTurn)
         {
-            //sets up effect with a hero reference, minion reference, and no spell reference
-            effect.SetupEffect(this, null, null);
+            if (effect != null)
+                //sets up effect with a hero reference, minion reference, and no spell reference
+                effect.SetupEffect(this, null, null, playerManager);
         }
         foreach (BaseEffect effect in actionTakenInHand)
         {
-            //sets up effect with a hero reference, minion reference, and no spell reference
-            effect.SetupEffect(this, null, null);
+            if (effect != null)
+                //sets up effect with a hero reference, minion reference, and no spell reference
+                effect.SetupEffect(this, null, null, playerManager);
         }
     }
 }

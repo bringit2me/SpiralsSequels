@@ -286,6 +286,9 @@ public class CombatManager : MonoBehaviour
 
     // --- TRIGGERING EFFECTS ---
 
+    /// <summary>
+    /// This is called whenever an action is taken
+    /// </summary>
     public void ActionTakenTrigger()
     {
         List<BaseCard> cardsToTrigger = GetAllCards(); //gets all hand cards, minions, and heroes in play
@@ -317,6 +320,8 @@ public class CombatManager : MonoBehaviour
                     effect.TriggerEffect(); //calls effect to trigger
             }
         }
+
+        UpdateSpellDamage();
     }
 
     public void StartOfTurnTrigger(Team team)
@@ -379,6 +384,41 @@ public class CombatManager : MonoBehaviour
 
         Debug.Log("MICHAEL WARN: Tried to GetZoneByTeam() without setting team to PLAYEr or ENEMY");
         return null;
+    }
+
+    // --- UPDATING SLEPP DAMAGE
+
+    public void UpdateSpellDamage()
+    {
+        List<BaseCard> cards = GetAllInPlay(); //gets all minions and heroes in play
+
+        //Resets spell damage
+        playerManager.spellDamage = 0;
+        enemyManager.spellDamage = 0;
+
+        foreach(BaseCard card in cards)
+        {
+            if (card == null) //no card reference
+                continue; //skip to next
+            BaseMinion minion = card.GetComponent<BaseMinion>(); //tries to get minion reference
+            BaseHero hero = card.GetComponent<BaseHero>(); //tries to get hero reference
+
+            if(minion != null)
+            {
+                if (minion.team == Team.PLAYER) //on the player team
+                    playerManager.spellDamage += minion.spellDamage; //increase player spell damage by spell damage on card
+                else if (minion.team == Team.ENEMY) //on the enemy team
+                    enemyManager.spellDamage += minion.spellDamage; //increase enemy spell damage by spell damage on card
+
+            }
+            else if(hero != null)
+            {
+                if (hero.team == Team.PLAYER) //on the player team
+                    playerManager.spellDamage += hero.spellDamage; //increase player spell damage by spell damage on card
+                else if (hero.team == Team.ENEMY) //on the enemy team
+                    enemyManager.spellDamage += hero.spellDamage; //increase enemy spell damage by spell damage on card
+            }
+        }
     }
 
     // --- CHECKING / GETTING CARDS IN PLAY ---

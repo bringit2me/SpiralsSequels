@@ -4,24 +4,10 @@ using UnityEngine;
 
 public class EffectAOEChangeStats : BaseEffect
 {
-    Team team;
     [Header("Stat Change Info")]
     [SerializeField] TargetingInfo targetTeam;
     [SerializeField] int attackChange;
     [SerializeField] int healthChange;
-
-    public override void SetupEffect(BaseHero h, BaseMinion m, BaseSpell s)
-    {
-        base.SetupEffect(h, m, s);
-
-        //Gets team
-        if (minion != null)
-            team = minion.team;
-        else if (hero != null)
-            team = hero.team;
-        else if (spell != null)
-            team = spell.team;
-    }
 
     public override void TriggerEffect()
     {

@@ -127,13 +127,15 @@ public class BaseSpell : BaseCard
     {
         foreach(BaseEffect effect in onPlay)
         {
-            //sets up effect with a hero reference, no minion reference, and spell reference
-            effect.SetupEffect(hero, null, this);
+            if (effect != null)
+                //sets up effect with a hero reference, no minion reference, and spell reference
+                effect.SetupEffect(hero, null, this, playerManager);
         }
         foreach (BaseEffect effect in actionTakenInHand)
         {
-            //sets up effect with a hero reference, no minion reference, and spell reference
-            effect.SetupEffect(hero, null, this);
+            if (effect != null)
+                //sets up effect with a hero reference, no minion reference, and spell reference
+                effect.SetupEffect(hero, null, this, playerManager);
         }
     }
 }

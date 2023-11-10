@@ -82,7 +82,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: name
-      value: Mentor
+      value: Talent Scout
       objectReference: {fileID: 0}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: taunt
@@ -122,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 5075101454871996170}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
-      value: Mentor
+      value: Talent Scout
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Pivot.x

@@ -349,13 +349,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleEncounters:
-  - {fileID: 531547015817695264, guid: dd31dca2b157c514d9c6cc2767e567e8, type: 3}
-  - {fileID: 1338099994801619778, guid: 2ec4f84b5b68c1543872c997d4f17240, type: 3}
-  - {fileID: 7395473441746050899, guid: aef1019105ffa2e40886034712f8f012, type: 3}
-  - {fileID: 6587538963761321337, guid: a46ea3f7b7d7fe24fa233401b1b6c456, type: 3}
-  - {fileID: 914489124775201884, guid: b368b337ef50f9648b07fb8aa93799cb, type: 3}
-  - {fileID: 7045873364131356969, guid: 8e9b97830bf908b4eaa88cdf510be5c9, type: 3}
-  - {fileID: 3929312608256506928, guid: e8b31fbfc00a2fa43b971bdc63d19d5a, type: 3}
+  - {fileID: 1696349124383470163, guid: 7495b2f30fd2fb54c98176e5655376d2, type: 3}
+  - {fileID: 5382735803568828048, guid: 7dc3e46ac4d54574f8afb6ed2650d6c2, type: 3}
+  - {fileID: 5196297126570546004, guid: 63506ff34a3d4bb4a8b935031d999b8b, type: 3}
+  - {fileID: 1673888997562887526, guid: da59e37a2bdde5f439f123d161aee7bf, type: 3}
+  - {fileID: 1786322323021208159, guid: d80f93520bb824c46a490d11e5905cc9, type: 3}
+  - {fileID: 1078742066167732872, guid: 4bc774fe65d304c449ea495a11656d51, type: 3}
+  - {fileID: 6912276887625670992, guid: e1d229101edf8364b92e1484ac0bbf54, type: 3}
+  - {fileID: 6256275212558137002, guid: f78e867e1f51d0945afd9d991e4d6fd4, type: 3}
+  - {fileID: 131512042776979143, guid: b3b77d25e11c09849a1fe90437c293d6, type: 3}
+  - {fileID: 3129227271121671819, guid: aa0c258040a26ea4b9c8c24247a52af5, type: 3}
   minEnemyCount: 1
   maxEnemyCount: 3
   enemyCount: 0
