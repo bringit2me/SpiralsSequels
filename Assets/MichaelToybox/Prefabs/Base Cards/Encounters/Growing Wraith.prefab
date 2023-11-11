@@ -278,6 +278,8 @@ MonoBehaviour:
   canAttack: 1
   targetable: 1
   isDead: 0
+  spellDamage: 0
+  taunt: 0
   afterAttack: []
   startOfTurn: []
   endOfTurn: []

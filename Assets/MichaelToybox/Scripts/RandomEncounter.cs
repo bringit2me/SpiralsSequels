@@ -6,6 +6,7 @@ public class RandomEncounter : MonoBehaviour
 {
     public List<BaseHero> possibleEncounters;
     [Header("Random Encounter Info")]
+    public bool playerGoesFirst = false;
     public int minEnemyCount = 1;
     public int maxEnemyCount = 3;
     public int enemyCount = 0;

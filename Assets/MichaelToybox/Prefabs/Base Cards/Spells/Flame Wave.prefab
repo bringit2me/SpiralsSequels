@@ -134,7 +134,7 @@ MonoBehaviour:
     reverseAnimWhenDone: 0
     animSpeed: 2.5
     effect: {fileID: 3404653119962982608, guid: 709452ab1cb89a54eb881e29936d551c, type: 3}
-  manaCost: 4
+  manaCost: 2
   isPlayed: 0
   onPlay: []
   actionTakenInHand: []

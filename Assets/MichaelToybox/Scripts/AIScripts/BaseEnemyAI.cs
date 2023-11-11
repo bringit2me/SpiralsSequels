@@ -300,23 +300,29 @@ public class BaseEnemyAI : MonoBehaviour
         //Loops through all enemy minions
         foreach (BaseMinion minion in combatManager.enemyMinions)
         {
-            CardValueEntry entry = CalculateMinionsBestAttack(minion); //creates CardValueEntry and calculates minions best attack
-            characterAttackValues.Add(entry); //adds reference to hand card values
-
-            if (entry.value > highestAttackValue.value) //new higher attack value than the current highest attack value
+            if (minion.attack > 0 && minion.canAttack == true) //if the minion can attack and has attack
             {
-                highestAttackValue = entry;
+                CardValueEntry entry = CalculateMinionsBestAttack(minion); //creates CardValueEntry and calculates minions best attack
+                characterAttackValues.Add(entry); //adds reference to hand card values
+
+                if (entry.value > highestAttackValue.value) //new higher attack value than the current highest attack value
+                {
+                    highestAttackValue = entry;
+                }
             }
         }
         //Loops through all enemy heroes
         foreach (BaseHero hero in combatManager.enemyHeroes)
         {
-            CardValueEntry entry = CalculateHeroBestAttack(hero); //creates CardValueEntry
-            characterAttackValues.Add(entry); //adds reference to hand card values
-
-            if (entry.value > highestAttackValue.value) //new higher attack value than the current highest attack value
+            if (hero.attack > 0 && hero.canAttack == true) //if the minion can attack and has attack
             {
-                highestAttackValue = entry;
+                CardValueEntry entry = CalculateHeroBestAttack(hero); //creates CardValueEntry
+                characterAttackValues.Add(entry); //adds reference to hand card values
+
+                if (entry.value > highestAttackValue.value) //new higher attack value than the current highest attack value
+                {
+                    highestAttackValue = entry;
+                }
             }
         }
     }

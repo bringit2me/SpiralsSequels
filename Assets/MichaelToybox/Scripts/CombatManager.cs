@@ -32,7 +32,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] bool setupCombatOnStart = false;
     public CombatState  state = CombatState.STARTING;
     public int turnCount = 0;
-    bool playerGoesFirst;
+    bool playerGoesFirst = false;
 
     SwapToCombat combatSwap;
     CardAnimationManager cardAnimationManager;
@@ -77,7 +77,9 @@ public class CombatManager : MonoBehaviour
         playerHandManager = playerManager.GetComponent<HandManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Sets player mana
-        playerManager.manaPerTurn = 2;
+        playerManager.mana = 0;
+        playerManager.manaPerTurn = 3;
+        playerManager.manaPerTurnIncrease = 1;
         //Removes hero from each slot
         Destroy(heroSlot1.transform.GetChild(0).gameObject);
         Destroy(heroSlot2.transform.GetChild(0).gameObject);
@@ -120,17 +122,17 @@ public class CombatManager : MonoBehaviour
 
         turnCount = 1; //resets turn count variable
 
-        if (Random.Range(0, 2) == 0) //flips coin
+        if (Random.Range(0, 2) == 0 || randomEncounter.playerGoesFirst == true) //flips coin
         {
             StartPlayerTurn(); //starts player turn (player goes first)
             playerGoesFirst = true;
-            enemyManager.manaPerTurn += 1; //increases enemy mana by 1
+            enemyManager.manaPerTurnIncrease += 1; //increases enemy mana by 1
         }
         else
         {
             StartEnemyTurn(); //starts enemy turn (enemy goes first)
             playerGoesFirst = false;
-            playerManager.manaPerTurn += 1; //increases player mana by 1
+            playerManager.manaPerTurnIncrease += 1; //increases player mana by 1
         }
     }
 
