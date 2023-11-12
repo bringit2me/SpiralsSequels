@@ -108,7 +108,10 @@ public class BaseSpell : BaseCard
     public virtual void TriggerOnPlayEffects()
     {
         foreach (BaseEffect effect in onPlay)
-            effect.TriggerEffect();
+        {
+            methodCall = effect.TriggerEffect;
+            StartCoroutine(TriggerMethodEndOfFrame(methodCall));
+        }
     }
 
     //--- SETTING UP EFFECTS ---

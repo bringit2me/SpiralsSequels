@@ -11,6 +11,10 @@ public class BaseAOESpell : BaseSpell
     public override void Cast()
     {
         base.Cast();
-        targets = combatManager.GetTargets(team, targetTeam);
+        if (targets.Count <= 0)
+        {
+            Debug.Log("Updating Targets List");
+            targets = combatManager.GetTargets(team, targetTeam);
+        }
     }
 }

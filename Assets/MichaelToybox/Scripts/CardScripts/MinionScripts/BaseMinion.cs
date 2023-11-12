@@ -16,12 +16,12 @@ public class BaseMinion : BaseCard
     public int spellDamage = 0;
     public bool taunt = false;
     [Header("Triggers")]
-    public List<BaseEffect> onPlay; //(TESTING) called when minion is played
-    public List<BaseEffect> onDeath; //(NOT IMPLEMENTED) called when minion dies
+    public List<BaseEffect> onPlay; //called when minion is played
+    public List<BaseEffect> onDeath; //(Testing) called when minion dies
     public List<BaseEffect> afterAttack; // called after attacking
     public List<BaseEffect> startOfTurn; //called at the start of the player turn
     public List<BaseEffect> endOfTurn; //called at the end of the player turn
-    public List<BaseEffect> actionTakenInHand; //(NOT IMPLEMENTED) called whenever a card is played while this is in the hand
+    public List<BaseEffect> actionTakenInHand; //called whenever a card is played while this is in the hand
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text descriptionText;
@@ -209,7 +209,14 @@ public class BaseMinion : BaseCard
     public virtual void Dead()
     {
         this.transform.SetParent(transform.root);
-        GameObject.FindObjectOfType<CombatManager>().UpdateAllCardsInPlay(); //updates cards in play
+        methodCall = combatManager.UpdateAllCardsInPlay;
+        StartCoroutine(TriggerMethodEndOfFrame(methodCall)); //updates cards in play (1 frame later)
+        foreach (BaseEffect effect in onDeath)
+        {
+            methodCall = effect.TriggerEffect;
+            StartCoroutine(TriggerMethodEndOfFrame(methodCall));
+        }
+
         Destroy(this.gameObject, 5f);
     }
 
@@ -221,7 +228,10 @@ public class BaseMinion : BaseCard
     public virtual void TriggerAfterAttackEffects()
     {
         foreach (BaseEffect effect in afterAttack)
-            effect.TriggerEffect();
+        {
+            methodCall = effect.TriggerEffect;
+            StartCoroutine(TriggerMethodEndOfFrame(methodCall));
+        }
     }
     /// <summary>
     /// Triggers all onPlay effects
@@ -229,7 +239,10 @@ public class BaseMinion : BaseCard
     public virtual void TriggerOnPlayEffects()
     {
         foreach (BaseEffect effect in onPlay)
-            effect.TriggerEffect();
+        {
+            methodCall = effect.TriggerEffect;
+            StartCoroutine(TriggerMethodEndOfFrame(methodCall));
+        }
     }
 
 

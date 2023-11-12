@@ -26,6 +26,8 @@ public class BaseCard : MonoBehaviour
 
     //references
     protected PointerEventData eventData;
+    protected delegate void MethodCall();
+    protected MethodCall methodCall;
 
     public virtual void Awake()
     {
@@ -95,6 +97,14 @@ public class BaseCard : MonoBehaviour
 
     public virtual void SetupAllEffects()
     {
+
+    }
+
+    protected virtual IEnumerator TriggerMethodEndOfFrame(MethodCall method)
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        method();
 
     }
 }
