@@ -40,14 +40,14 @@ public class EffectChangeStats : BaseEffect
 
         if (minion != null && targetHero == false) //we have a minion reference
         {
-            minion.CalculateAttackChange(attackChange);
-            minion.CalculateHealthChange(healthChange);
+            value += minion.CalculateAttackChange(attackChange);
+            value += minion.CalculateHealthChange(healthChange);
         }
         else if (hero != null) //we have a hero reference
         {
 
-            hero.CalculateAttackChange(attackChange);
-            hero.CalculateHealthChange(healthChange);
+            value += hero.CalculateAttackChange(attackChange) * 2;
+            value += hero.CalculateHealthChange(healthChange);
 
         }
 

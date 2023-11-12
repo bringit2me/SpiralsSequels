@@ -71,7 +71,7 @@ public class TargetChangeStats : BaseTargetSpell
                 else if (hero != null && hero.isDead == false)
                 {
                     //changes value
-                    value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
+                    value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for modifying hero attack
                     value += hero.CalculateHealthChange(healthChange);
                     //if the spell kills the target hero
                     if (hero.health + hero.CalculateHealthChange(healthChange) <= 0)
@@ -103,7 +103,7 @@ public class TargetChangeStats : BaseTargetSpell
                 else if (hero != null && hero.isDead == false)
                 {
                     //changes value
-                    value -= hero.CalculateAttackChange(attackChange);
+                    value -= hero.CalculateAttackChange(attackChange) * 3; //Times 3 multiplier for modifying hero attack on player hero
                     value -= hero.CalculateHealthChange(healthChange);
                     //if the spell kills the target hero
                     if (hero.health + hero.CalculateHealthChange(healthChange) <= 0)
@@ -126,7 +126,7 @@ public class TargetChangeStats : BaseTargetSpell
             if (ai.playstyle == EnemyPlaystyle.MID_RANGE && minion != null && (attackChange + healthChange) > -1 && card.team == playerManager.team)
                 value = (int)(value * ValueToPercent(ai.midRangeValue));
             //checks if AI is defensive, target is a hero or taunt minion, health change is positive, and target is on the same team
-            if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && (hero != null || minion.taunt == true) && healthChange > 0 && card.team == playerManager.team)
+            if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && hero != null && healthChange > 0 && card.team == playerManager.team)
                 value = (int)(value * ValueToPercent(ai.defenseValue));
 
 

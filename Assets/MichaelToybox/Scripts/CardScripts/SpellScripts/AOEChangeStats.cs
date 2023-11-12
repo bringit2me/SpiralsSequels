@@ -84,7 +84,7 @@ public class AOEChangeStats : BaseAOESpell
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value -= hero.CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
+                    value -= hero.CalculateAttackChange(attackChange) * 3;//3x multiplier for giving attack to a hero
                     value -= hero.CalculateHealthChange(healthChange);
                     effectsPlayerHero = true;
                 }

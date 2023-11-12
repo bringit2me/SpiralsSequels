@@ -79,7 +79,7 @@ public class EffectAOEChangeStats : BaseEffect
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for giving attack to a hero
+                    value += hero.CalculateAttackChange(attackChange) * 2; //2x multiplier for modifying hero attack
                     value += hero.CalculateHealthChange(healthChange);
                     effectsFriendlyHero = true;
                 }
@@ -94,7 +94,7 @@ public class EffectAOEChangeStats : BaseEffect
                 }
                 else if (hero == true && hero.isDead == false)
                 {
-                    value -= hero.CalculateAttackChange(attackChange) * 2;//2x multiplier for giving attack to a hero
+                    value -= hero.CalculateAttackChange(attackChange) * 3;//3x multiplier for modifying hero attack of player hero
                     value -= hero.CalculateHealthChange(healthChange);
                     effectsPlayerHero = true;
                 }
