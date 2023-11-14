@@ -277,6 +277,11 @@ public class BaseEnemyAI : MonoBehaviour
                     BaseAOESpell aoeSpell = card.GetComponent<BaseAOESpell>();
                     entry.value = aoeSpell.CalculateValueAI(this);
                 }
+                else if (card.GetComponent<CreateMinionSpell>() == true)
+                {
+                    CreateMinionSpell minionSpell = card.GetComponent<CreateMinionSpell>();
+                    entry.value = minionSpell.CalculateValueAI(this);
+                }
                 //this is used for any future card types
                 //else if (card.GetComponent<NAME>() == true)
                 //{
@@ -284,7 +289,7 @@ public class BaseEnemyAI : MonoBehaviour
                 //}
 
                 //checks if it is a higher value play than a previous card
-                if(entry.value > highestValueCard.value)
+                if (entry.value > highestValueCard.value)
                 {
                     highestValueCard = entry;
                 }
