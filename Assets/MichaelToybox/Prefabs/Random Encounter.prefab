@@ -421,7 +421,7 @@ MonoBehaviour:
   team: 1
   maxMana: 10
   mana: 0
-  manaPerTurn: 1
+  manaPerTurn: 0
   manaPerTurnIncrease: 1
   spellDamage: 0
   drawDelay: 0.125

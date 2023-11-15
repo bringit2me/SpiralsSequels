@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Healer
-  description: Restoring Health
+  description: Restoring health
   team: 0
   selfCardRef: {fileID: 0}
   playerManager: {fileID: 0}

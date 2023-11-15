@@ -28,6 +28,9 @@ public class SwapToCombat : MonoBehaviour
         Instantiate(randomEncounter, combatManager.enemyHolder.transform);
 
         combatManager.SetupCombatManager();
+
+        //TESTING
+        this.GetComponent<Canvas>().enabled = false;
     }
 
     /// <summary>
@@ -39,5 +42,8 @@ public class SwapToCombat : MonoBehaviour
         gameCanvas.enabled = true;
 
         Destroy(combatManager.enemyHolder.transform.GetChild(0).gameObject); //removes old encounter game object
+
+        //TESTING
+        GameObject.FindObjectOfType<HeroDraftManager>().SetupButtons();
     }
 }

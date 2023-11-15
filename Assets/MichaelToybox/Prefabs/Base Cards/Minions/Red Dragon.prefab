@@ -874,7 +874,8 @@ MonoBehaviour:
   targetable: 1
   spellDamage: 0
   taunt: 0
-  onPlay: []
+  onPlay:
+  - {fileID: 38906597288194226}
   onDeath: []
   afterAttack: []
   startOfTurn: []
@@ -1007,5 +1008,10 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 5
+  improvedBySpellDamage: 0
   damage: 6

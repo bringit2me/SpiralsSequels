@@ -124,7 +124,7 @@ MonoBehaviour:
     reverseAnimWhenDone: 0
     animSpeed: 2
     effect: {fileID: 0}
-  manaCost: 5
+  manaCost: 10
   isPlayed: 0
   attack: 5
   maxHealth: 15

@@ -126,13 +126,13 @@ public class CombatManager : MonoBehaviour
         {
             StartPlayerTurn(); //starts player turn (player goes first)
             playerGoesFirst = true;
-            enemyManager.manaPerTurnIncrease += 1; //increases enemy mana by 1
+            enemyManager.manaPerTurn += 1; //increases enemy mana by 1
         }
         else
         {
             StartEnemyTurn(); //starts enemy turn (enemy goes first)
             playerGoesFirst = false;
-            playerManager.manaPerTurnIncrease += 1; //increases player mana by 1
+            playerManager.manaPerTurn += 1; //increases player mana by 1
         }
     }
 

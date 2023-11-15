@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Hunter
-  description: Playing a lot of minions
+  description: Good minions and board control
   team: 0
   selfCardRef: {fileID: 0}
   playerManager: {fileID: 0}

@@ -242,8 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18374809e88410046a63207ac13e5bfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Nick The Dragon Caller
-  description: Calls upon the power of the Red Dragon
+  name: Trophy Hunter
+  description: Big resilient minions and single target board control
   team: 0
   selfCardRef: {fileID: 0}
   playerManager: {fileID: 0}
