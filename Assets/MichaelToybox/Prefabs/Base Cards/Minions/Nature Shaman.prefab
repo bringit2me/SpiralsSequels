@@ -511,6 +511,10 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 4
   healValue: 4
 --- !u!1 &4730231713810655756
@@ -876,6 +880,10 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 7
   healValue: 2
 --- !u!1 &9164920131293978569
@@ -920,7 +928,7 @@ RectTransform:
   - {fileID: 6805649729020262846}
   - {fileID: 2009493899225207110}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1020,6 +1028,7 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn:
   - {fileID: 2353609251023181307}
+  - {fileID: 5061857292685584193}
   actionTakenInHand: []
   nameText: {fileID: 7532103479330864372}
   descriptionText: {fileID: 2789769630159892844}

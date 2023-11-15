@@ -527,9 +527,11 @@ public class BaseEnemyAI : MonoBehaviour
                         value += targetMinion.attack; //adds in the attack of the killed card
                     }
                     //hero over kills the target
-                    else if (targetMinion.CalculateTakeDamage(hero.attack) >= targetMinion.health)
+                    else if (targetMinion.CalculateTakeDamage(hero.attack) > targetMinion.health)
                     {
-                        value = targetMinion.maxHealth - targetMinion.health + targetMinion.CalculateDeathValue();
+                        Debug.Log("Overkilling Target");
+                        //bonus -1 to disincentivise hero attacks that overkill targets
+                        value = (targetMinion.maxHealth - targetMinion.health - 1)+ targetMinion.CalculateDeathValue();
                         value += targetMinion.attack;
                     }
 

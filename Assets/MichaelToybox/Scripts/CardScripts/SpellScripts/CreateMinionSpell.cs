@@ -33,8 +33,6 @@ public class CreateMinionSpell : BaseSpell
             minionZone.CreateMinionInZone(minion);
             //Refreshes minion list
             minionZone.RefreshMinionsInZoneList();
-
-            Debug.Log("Created Minion");
         }
 
         EndCast();

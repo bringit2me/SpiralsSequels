@@ -13,7 +13,6 @@ public class BaseAOESpell : BaseSpell
         base.Cast();
         if (targets.Count <= 0)
         {
-            Debug.Log("Updating Targets List");
             targets = combatManager.GetTargets(team, targetTeam);
         }
     }

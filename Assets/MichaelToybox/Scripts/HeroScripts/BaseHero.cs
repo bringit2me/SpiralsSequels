@@ -145,7 +145,7 @@ public class BaseHero : BaseCard
     public virtual int CalculateAttackChange(int value)
     {
         if (attack + value < 0)
-            value = 0;
+            value = attack;
 
         return value;
     }

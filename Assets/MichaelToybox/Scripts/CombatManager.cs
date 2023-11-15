@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-
     public List<BaseCard> allCardsInPlay;
     [Header("Player Information")]
     public PlayerManager playerManager;
@@ -78,7 +77,7 @@ public class CombatManager : MonoBehaviour
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Sets player mana
         playerManager.mana = 0;
-        playerManager.manaPerTurn = 3;
+        playerManager.manaPerTurn = 2;
         playerManager.manaPerTurnIncrease = 1;
         //Removes hero from each slot
         Destroy(heroSlot1.transform.GetChild(0).gameObject);
