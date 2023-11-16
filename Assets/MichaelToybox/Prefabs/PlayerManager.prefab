@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
   - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
   - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
+  - {fileID: 1208697674822520600, guid: 3da5bb9e967161640b94712c8ab29a15, type: 3}
   discardPile: []
   hero: {fileID: 0}
 --- !u!1 &8972971589770205645

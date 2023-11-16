@@ -14,10 +14,13 @@ public class BaseSpell : BaseCard
     [SerializeField] TMP_Text descriptionText;
     [SerializeField] TMP_Text manaText;
 
+    protected ArrowRenderer arrowRenderer;
+
     public virtual void Start()
     {
         SetupCardText();
         combatManager = GameObject.FindObjectOfType<CombatManager>();
+        arrowRenderer = GameObject.FindObjectOfType<ArrowRenderer>();
         SetupAllEffects(); //sets up all effects
     }
 
@@ -71,6 +74,8 @@ public class BaseSpell : BaseCard
         ReducePlayerMana();
         combatManager.ActionTakenTrigger(); //calls action taken trigger
 
+        GameObject.FindObjectOfType<ArrowRenderer>().ResetArrowRenderer(); //resets arrow manager
+
         TriggerOnPlayEffects(); //triggers after play effects
     }
 
@@ -86,6 +91,7 @@ public class BaseSpell : BaseCard
         //Turns on raycast blocking (so mouse can detect the spell again)
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         playerManager.handManager.ReturnCardToHand(this, deck);
+        GameObject.FindObjectOfType<ArrowRenderer>().ResetArrowRenderer(); //resets arrow manager
     }
 
     public virtual void SetupCardText()

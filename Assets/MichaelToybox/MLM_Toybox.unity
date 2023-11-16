@@ -179,6 +179,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2146300762}
+    - target: {fileID: 4536439894519558892, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5806116608365525631, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_Name
       value: CombatManager
@@ -191,9 +195,41 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6876271372155591762, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8105957539523738851, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_Enabled
@@ -1668,7 +1704,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 582963354}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1753003001}
+        m_TargetAssemblyTypeName: HeroDraftManager, Assembly-CSharp
+        m_MethodName: ExitDraftScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &582963354
 MonoBehaviour:
   m_ObjectHideFlags: 0

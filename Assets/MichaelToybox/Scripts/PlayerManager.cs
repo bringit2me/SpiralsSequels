@@ -30,12 +30,14 @@ public class PlayerManager : MonoBehaviour
     //References
     [HideInInspector] public HandManager handManager;
     protected CombatManager combatManager;
+    protected ArrowRenderer arrowRenderer;
 
     public virtual void Awake()
     {
         //gets references in the scene
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         handManager = this.GetComponent<HandManager>();
+        arrowRenderer = GameObject.FindObjectOfType<ArrowRenderer>();
         minionZone = combatManager.playerMinionZone;
     }
 

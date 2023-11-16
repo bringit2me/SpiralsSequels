@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8105957539523738851}
   - component: {fileID: 6680275736194260189}
   - component: {fileID: 6948876454345360526}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CombatManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,126 +123,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2243103369238721529}
     m_Modifications:
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[0]
-      value: 
-      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[1]
-      value: 
-      objectReference: {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[2]
-      value: 
-      objectReference: {fileID: 5315529764379585784, guid: 0edb6b3e2135d66418a42946e040b878, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[3]
-      value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[4]
-      value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[5]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[6]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[7]
-      value: 
-      objectReference: {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[8]
-      value: 
-      objectReference: {fileID: 4738904546374811175, guid: 72b17253b8c48304db0bfc2655196bbf, type: 3}
-    - target: {fileID: 468896197715400864, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[9]
-      value: 
-      objectReference: {fileID: 355590302697054195, guid: 49e12a88f0a35224fae84e682ba8de28, type: 3}
-    - target: {fileID: 935553008056386990, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: attackAnimClip.animSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1164166887836905708, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: drawDelay
-      value: 0.125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1379861911976585622, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1379861911976585622, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1379861911976585622, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1379861911976585622, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1653043422072666185, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: attackAnimClip.animSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[0]
-      value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[1]
-      value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[2]
-      value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[3]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[4]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[5]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[6]
-      value: 
-      objectReference: {fileID: 6220795553380272593, guid: 80009726c79abb943919bca175491619, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[7]
-      value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[8]
-      value: 
-      objectReference: {fileID: 3839535049447609761, guid: 6ce04c75db3875243bc01177d34636fa, type: 3}
-    - target: {fileID: 2056685022115243335, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[9]
-      value: 
-      objectReference: {fileID: 5315529764379585784, guid: 0edb6b3e2135d66418a42946e040b878, type: 3}
-    - target: {fileID: 3095078700024571851, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: attackAnimClip.animSpeed
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3171803821649223914, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -327,113 +207,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3484286189762881314, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[0]
-      value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[1]
-      value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[2]
-      value: 
-      objectReference: {fileID: 3524841255326355689, guid: d0563438e632acd4691bffd54d4cd830, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[3]
-      value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[4]
-      value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[5]
-      value: 
-      objectReference: {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[6]
-      value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[7]
-      value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[8]
-      value: 
-      objectReference: {fileID: 8748728064622678489, guid: 007add66560329942afb6af649abed49, type: 3}
-    - target: {fileID: 4216210435954951970, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: deck.Array.data[9]
-      value: 
-      objectReference: {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
     - target: {fileID: 4319147162252399397, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_Name
       value: Test Game Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900387941093879313, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6566849808088008023, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -125
-      objectReference: {fileID: 0}
-    - target: {fileID: 6566849808088008023, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -525
       objectReference: {fileID: 0}
     - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8105957539523738851}
-    - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: EndPlayerTurn
-      objectReference: {fileID: 0}
-    - target: {fileID: 8354484504539534163, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CombatManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 8505434113285356637, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8526172785998291423, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3770109598970483174, guid: 58f36246ef290c64284498fe501b75b0, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58f36246ef290c64284498fe501b75b0, type: 3}

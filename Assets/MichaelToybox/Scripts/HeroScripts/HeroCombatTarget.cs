@@ -10,10 +10,12 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     //these variables are for when/if we add a targeting arrow
     Vector3 startPos;
     Vector3 endPos;
+    ArrowRenderer arrowRenderer;
 
     void Awake()
     {
         hero = this.GetComponent<BaseHero>();
+        arrowRenderer = GameObject.FindObjectOfType<ArrowRenderer>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -24,6 +26,11 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
         endPos = eventData.position;
+        if (hero.canAttack == true)
+        {
+            //displays arrow from this object to mouse
+            arrowRenderer.ExecuteArrowRender(this.gameObject);
+        }
     }
 
     void IEndDragHandler.OnEndDrag(PointerEventData eventData)
@@ -34,6 +41,8 @@ public class HeroCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler, 
         {
             AttackTarget(hit.gameObject);
         }
+        //removes arrow
+        arrowRenderer.ResetArrowRenderer();
     }
 
     public void AttackTarget(GameObject attackTarget)

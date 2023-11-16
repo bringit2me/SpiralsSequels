@@ -10,9 +10,12 @@ public class BaseTargetSpell : BaseSpell
 
     public override void ExecuteCast()
     {
-        base.ExecuteCast();
+        if(hero != null)
+            arrowRenderer.ExecuteArrowRender(hero.gameObject);
+        else
+            arrowRenderer.ExecuteArrowRender(this.gameObject);
 
-        if(target == null) //if we do not have a target
+        if (target == null) //if we do not have a target
             //gets clicked target from the playerManager
             target = playerManager.GetClickTarget(targetTeam, team);
 
@@ -20,6 +23,8 @@ public class BaseTargetSpell : BaseSpell
         {
             CastAtTarget(); //end cast
         }
+
+        base.ExecuteCast();
     }
 
     /// <summary>

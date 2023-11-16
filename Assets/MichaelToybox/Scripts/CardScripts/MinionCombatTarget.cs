@@ -10,10 +10,12 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
     Vector3 startPos;
     Vector3 endPos;
     CombatManager combatManager;
+    ArrowRenderer arrowRenderer;
     void Awake()
     {
         card = this.GetComponent<BaseMinion>(); //gets card reference
         combatManager = GameObject.FindObjectOfType<CombatManager>(); //gets combat manager reference
+        arrowRenderer = GameObject.FindObjectOfType<ArrowRenderer>(); //gets arrow renderer
     }
 
     //when we start dragging
@@ -25,6 +27,11 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
     void IDragHandler.OnDrag(PointerEventData eventData)
     {
         endPos = eventData.position;
+        if (card.canAttack == true)
+        {
+            //displays arrow from this object to mouse
+            arrowRenderer.ExecuteArrowRender(this.gameObject);
+        }
     }
 
     //when we end dragging
@@ -36,6 +43,9 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
         {
             AttackTarget(hit.gameObject);
         }
+
+        //removes arrow
+        arrowRenderer.ResetArrowRenderer();
     }
 
     public void AttackTarget(GameObject attackTarget)
