@@ -9,7 +9,9 @@ public class BaseHero : BaseCard
     public DeckManager heroDeck;
     [Header("Stats")]
     public int attack;
+    int baseAttack;
     public int maxHealth;
+    int baseMaxHealth;
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
@@ -26,6 +28,9 @@ public class BaseHero : BaseCard
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text attackText;
     [SerializeField] TMP_Text healthText;
+    [SerializeField] Color defaultTextColor = Color.black;
+    [SerializeField] Color negativeTextColor = Color.red;
+    [SerializeField] Color positiveTextColor = new Color(0, 1f, 0);
     [Header("Hero Power")]
     public BaseHeroPower heroPower;
     [Header("Hero Attack Anim")]
@@ -38,6 +43,10 @@ public class BaseHero : BaseCard
 
     private void Start()
     {
+        //sets base numbers
+        baseAttack = attack;
+        baseMaxHealth = maxHealth;
+
         SetupCardText();
         isPlayed = true;
         anim = GameObject.FindObjectOfType<CardAnimationManager>(); //finds animator
@@ -52,11 +61,24 @@ public class BaseHero : BaseCard
     public virtual void UpdateAttack()
     {
         attackText.text = "" + attack;
+
+        if (attack > baseAttack)
+            attackText.color = positiveTextColor;
+        else
+            attackText.color = defaultTextColor;
     }
 
     public virtual void UpdateHealth()
     {
         healthText.text = "" + health;
+
+        if (health > baseMaxHealth && health == maxHealth) //card health greater than default and at maxHealth
+            healthText.color = positiveTextColor;
+        else if (health < maxHealth) //card is damaged
+            healthText.color = negativeTextColor;
+        else //card not damaged
+            healthText.color = defaultTextColor;
+
     }
 
     public virtual void AttackMinion(BaseMinion target)

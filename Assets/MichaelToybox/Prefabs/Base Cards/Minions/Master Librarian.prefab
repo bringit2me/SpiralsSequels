@@ -623,8 +623,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Master Librarian
-  description: <b>+1 Spell Damage</b>\n<b>On Play:</b> Create Two Librarians with
-    <b>+1 Spell Damage</b>
+  description: '<b>+1 Spell Damage</b>
+
+    <b>On Play:</b> Create Two Librarians
+    with <b>+1 Spell Damage</b>'
   team: 0
   selfCardRef: {fileID: 460337680001624161}
   playerManager: {fileID: 0}
@@ -671,6 +673,9 @@ MonoBehaviour:
   manaText: {fileID: 4709905541217600785}
   attackText: {fileID: 3888991871337858364}
   healthText: {fileID: 668501082125977627}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 0.39, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip:
     animID: 0
