@@ -67,6 +67,10 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   minionsToCreate:
   - minion: {fileID: 8646641797896483631, guid: 0002ecc3ab525a44288a7b274051c9e0, type: 3}
     attackIncrease: 0
@@ -561,7 +565,7 @@ RectTransform:
   - {fileID: 6765762637520398123}
   - {fileID: 3824870832847315136}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -619,8 +623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Master Librarian
-  description: <b>On Play:</b> Create two 1 attack and 2 health Librarians with <b>+1
-    Spell Damage</b>
+  description: <b>+1 Spell Damage</b>\n<b>On Play:</b> Create Two Librarians with
+    <b>+1 Spell Damage</b>
   team: 0
   selfCardRef: {fileID: 460337680001624161}
   playerManager: {fileID: 0}
@@ -648,12 +652,12 @@ MonoBehaviour:
     effect: {fileID: 0}
   manaCost: 8
   isPlayed: 0
-  attack: 2
+  attack: 1
   maxHealth: 8
   health: 8
   canAttack: 0
   targetable: 1
-  spellDamage: 0
+  spellDamage: 1
   taunt: 0
   onPlay:
   - {fileID: 2472815014774859303}

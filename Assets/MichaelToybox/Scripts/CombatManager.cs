@@ -155,16 +155,19 @@ public class CombatManager : MonoBehaviour
 
     public void EndPlayerTurn()
     {
-        state = CombatState.PLAYER_END;
+        if (state == CombatState.PLAYER_TURN) //if it is the player turn
+        {
+            state = CombatState.PLAYER_END;
 
-        if (playerGoesFirst == false) //if the player went second
-            turnCount++;
+            if (playerGoesFirst == false) //if the player went second
+                turnCount++;
 
-        playerManager.EndTurn();
+            playerManager.EndTurn();
 
-        EndOfTurnTrigger(Team.PLAYER); //calls on end of turn effects for the player
+            EndOfTurnTrigger(Team.PLAYER); //calls on end of turn effects for the player
 
-        StartEnemyTurn();
+            StartEnemyTurn();
+        }
     }
 
     public void StartEnemyTurn()

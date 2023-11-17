@@ -15,7 +15,7 @@ public class ArrowRenderer : MonoBehaviour
     public void ExecuteArrowRender(GameObject origin)
     {
         lineRenderer.positionCount = 2;
-        lineRenderer.SetPosition(0, origin.transform.position); //sets start pos
+        lineRenderer.SetPosition(0, origin.transform.position + Vector3.back); //sets start pos
 
         GameObject target;
 

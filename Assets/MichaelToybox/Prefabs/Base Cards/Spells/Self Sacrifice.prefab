@@ -186,7 +186,7 @@ RectTransform:
   - {fileID: 4701259425347073750}
   - {fileID: 8334566763647958709}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Self Sacrifice
-  description: Deal 6 damage to a friendly hero and give all friendly minions +2
+  description: Deal 6 damage to a friendly hero and give all friendly minions +3
     attack and +3 health
   team: 0
   selfCardRef: {fileID: 2635887067438143213}
@@ -522,8 +522,12 @@ MonoBehaviour:
     animSpeed: 1
     effect: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 4
-  attackChange: 2
+  attackChange: 3
   healthChange: 3
 --- !u!1 &8846693299569175977
 GameObject:
