@@ -333,7 +333,7 @@ RectTransform:
   - {fileID: 7187014653806379737}
   - {fileID: 249095004788216531}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -413,7 +413,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  playAnimClip: {fileID: 11400000, guid: a308cffff512d2b4e87d56b6355bacce, type: 2}
+  playAnimClip: {fileID: 11400000, guid: 53a635d30939b6447bbc4dfe75864c94, type: 2}
   manaCost: 5
   isPlayed: 0
   onPlay: []

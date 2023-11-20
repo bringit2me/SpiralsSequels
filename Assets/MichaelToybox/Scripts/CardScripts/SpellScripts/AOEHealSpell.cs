@@ -13,31 +13,23 @@ public class AOEHealSpell : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
-            bool cardEffected = false;
 
             if (card.GetComponent<BaseMinion>() == true)
             {
                 card.GetComponent<BaseMinion>().Heal(healValue);
-                cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().Heal(healValue);
-                cardEffected = true;
-            }
-
-            if (cardEffected == true)
-            {
-                //Calls animation on target
-                //playAnimClip.target = card.gameObject; //sets target
-                //playAnimClip.animID = animID; //sets anim ID
-                //CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-                //clip.CopyClip(playAnimClip); //copies play clip to new clip
-                //anim.PlayAnimation(clip); //plays new clip
-
-                
             }
         }
+
+        if (targets.Count > 0)
+        {
+            playAnimCopy.target = targets[0].gameObject; //sets target
+            anim.PlayAnimation(playAnimCopy); //plays animation
+        }
+
         EndCast();
     }
 

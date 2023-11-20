@@ -190,7 +190,7 @@ RectTransform:
   - {fileID: 5945988993550062117}
   - {fileID: 8580959832757061041}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -816,7 +816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1116abd4fc305514e8c6c26f2a972cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  triggerAnimClip: {fileID: 11400000, guid: d12de68108f89c340b8287609b7c94be, type: 2}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a780eb0b8f8b684492642738e4b40b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  triggerAnimClip: {fileID: 0}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}

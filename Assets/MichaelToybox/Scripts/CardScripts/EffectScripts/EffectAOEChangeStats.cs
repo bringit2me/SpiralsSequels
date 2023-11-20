@@ -11,7 +11,7 @@ public class EffectAOEChangeStats : BaseEffect
 
     public override void TriggerEffect()
     {
-        base.TriggerEffect();
+        //base.TriggerEffect();
 
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets targets
 
@@ -20,31 +20,24 @@ public class EffectAOEChangeStats : BaseEffect
             if (card == null) //null card reference
                 continue; //go to next
 
-            bool cardEffected = false;
-
             if (card.GetComponent<BaseMinion>() == true)
             {
                 card.GetComponent<BaseMinion>().ChangeAttack(attackChange);
                 card.GetComponent<BaseMinion>().ChangeHealth(healthChange);
-                cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().ChangeAttack(attackChange);
                 card.GetComponent<BaseHero>().ChangeHealth(healthChange);
-                cardEffected = true;
-            }
-
-            if (cardEffected == true)
-            {
-                //Calls animation on target
-                //playAnimClip.target = card.gameObject; //sets target
-                //playAnimClip.animID = animID; //sets anim ID
-                //CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-                //clip.CopyClip(playAnimClip); //copies play clip to new clip
-                //anim.PlayAnimation(clip); //plays new clip
             }
         }
+
+        if (targets.Count > 0 && triggerAnimCopy != null)
+        {
+            triggerAnimCopy.target = targets[0].gameObject; //sets target
+            anim.PlayAnimation(triggerAnimCopy); //plays animation
+        }
+
     }
 
     public override int CalculateEffectValueAI()

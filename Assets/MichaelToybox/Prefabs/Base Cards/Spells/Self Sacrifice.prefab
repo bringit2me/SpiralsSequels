@@ -488,7 +488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1116abd4fc305514e8c6c26f2a972cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  triggerAnimClip: {fileID: 11400000, guid: d12de68108f89c340b8287609b7c94be, type: 2}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}

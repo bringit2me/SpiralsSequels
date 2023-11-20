@@ -10,7 +10,7 @@ public class EffectAOEHeal : BaseEffect
 
     public override void TriggerEffect()
     {
-        base.TriggerEffect();
+        //base.TriggerEffect();
 
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets targets
 
@@ -19,29 +19,22 @@ public class EffectAOEHeal : BaseEffect
             if (card == null) //null card reference
                 continue; //go to next
 
-            bool cardEffected = false;
-
             if (card.GetComponent<BaseMinion>() == true)
             {
                 card.GetComponent<BaseMinion>().Heal(healValue);
-                cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().Heal(healValue);
-                cardEffected = true;
-            }
-
-            if (cardEffected == true)
-            {
-                //Calls animation on target
-                //playAnimClip.target = card.gameObject; //sets target
-                //playAnimClip.animID = animID; //sets anim ID
-                //CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-                //clip.CopyClip(playAnimClip); //copies play clip to new clip
-                //anim.PlayAnimation(clip); //plays new clip
             }
         }
+
+        if (targets.Count > 0 && triggerAnimCopy != null)
+        {
+            triggerAnimCopy.target = targets[0].gameObject; //sets target
+            anim.PlayAnimation(triggerAnimCopy); //plays animation
+        }
+
     }
 
     public override int CalculateEffectValueAI()

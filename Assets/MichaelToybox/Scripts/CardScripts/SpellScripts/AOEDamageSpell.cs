@@ -18,29 +18,23 @@ public class AOEDamageSpell : BaseAOESpell
             if (card == null) //null card reference
                 continue; //go to next
 
-            bool cardEffected = false;
-
             if (card.GetComponent<BaseMinion>() == true)
             {
                 card.GetComponent<BaseMinion>().TakeDamage(damageValue);
-                cardEffected = true;
             }
             else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
             {
                 card.GetComponent<BaseHero>().TakeDamage(damageValue);
-                cardEffected = true;
             }
 
-            if (cardEffected == true)
-            {
-                //Calls animation on target
-                //playAnimClip.target = card.gameObject; //sets target
-                //playAnimClip.animID = animID; //sets anim ID
-                //CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-                //clip.CopyClip(playAnimClip); //copies play clip to new clip
-                //anim.PlayAnimation(clip); //plays new clip
-            }
         }
+
+        if (targets.Count > 0)
+        {
+            playAnimCopy.target = targets[0].gameObject; //sets target
+            anim.PlayAnimation(playAnimCopy); //plays animation
+        }
+
         EndCast();
     }
 

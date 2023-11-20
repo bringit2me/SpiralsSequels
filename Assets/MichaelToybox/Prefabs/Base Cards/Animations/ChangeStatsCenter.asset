@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e76e4828f24f14498e34c401a45b8d5, type: 3}
-  m_Name: CreateCardAppear
+  m_Script: {fileID: 11500000, guid: 5cd9c36a367a1384d858ebddeb62c858, type: 3}
+  m_Name: ChangeStatsCenter
   m_EditorClassIdentifier: 
   animating: 0
   animationFinished: 0
   card: {fileID: 0}
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
-  animationTime: 0.5
-  effect: {fileID: 8550508127540509888, guid: 19af4b99e1909024e86864a7c79335df, type: 3}
+  animationTime: 1
+  effect: {fileID: 3532495154009300458, guid: 8d1d780eed0af09408b5b851deee0796, type: 3}
