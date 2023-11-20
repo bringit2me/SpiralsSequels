@@ -400,29 +400,13 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  playAnimClip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
   isPlayed: 0
   heroDeck: {fileID: 1552902860672401247}
   attack: 2
-  maxHealth: 40
-  health: 40
+  maxHealth: 50
+  health: 50
   canAttack: 1
   targetable: 1
   isDead: 0
@@ -435,24 +419,11 @@ MonoBehaviour:
   nameText: {fileID: 2890136116509472266}
   attackText: {fileID: 8996941875190285827}
   healthText: {fileID: 3181181795480938120}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   heroPower: {fileID: 0}
-  attackAnimClip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 431241984773234614}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 1
-    animSpeed: 2
-    effect: {fileID: 0}
+  attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   aggroValueBoost: 0
   midRangeValueBoost: 0
   defenseValueBoost: 0

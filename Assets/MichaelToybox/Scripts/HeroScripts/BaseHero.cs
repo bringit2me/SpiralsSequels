@@ -34,7 +34,8 @@ public class BaseHero : BaseCard
     [Header("Hero Power")]
     public BaseHeroPower heroPower;
     [Header("Hero Attack Anim")]
-    public CardAnimationClip attackAnimClip;
+    public BaseAnimationClip attackAnimClip;
+    protected BaseAnimationClip attackAnimCopy;
     [Header("AI Info")]
     public int aggroValueBoost = 0;
     public int midRangeValueBoost = 0;
@@ -50,6 +51,9 @@ public class BaseHero : BaseCard
         SetupCardText();
         isPlayed = true;
         anim = GameObject.FindObjectOfType<CardAnimationManager>(); //finds animator
+
+        attackAnimCopy = Instantiate(attackAnimClip); //creates copy
+        attackAnimCopy.card = this; //sets anim card reference
     }
     public virtual void SetupCardText()
     {
@@ -100,8 +104,8 @@ public class BaseHero : BaseCard
 
     public virtual void PlayAttackAnim(BaseCard target)
     {
-        attackAnimClip.target = target.gameObject;
-        anim.PlayAnimation(attackAnimClip);
+        attackAnimCopy.target = target.gameObject;
+        anim.PlayAnimation(attackAnimCopy);
     }
 
     // --- TAKING DAMAGE ---

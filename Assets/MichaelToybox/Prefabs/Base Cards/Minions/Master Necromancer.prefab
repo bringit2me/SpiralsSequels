@@ -258,23 +258,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  playAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 7722064919944592921}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 2
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 9
   isPlayed: 0
   attack: 3
@@ -297,24 +281,11 @@ MonoBehaviour:
   manaText: {fileID: 495225519295373504}
   attackText: {fileID: 2047939298055857440}
   healthText: {fileID: 2050725764196723700}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
-  attackAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 7722064919944592921}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 1
-    animSpeed: 2
-    effect: {fileID: 0}
+  attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &6959721652117232207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,24 +816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1116abd4fc305514e8c6c26f2a972cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  clip: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   targetTeam: 4
   attackChange: 1
   healthChange: 1
@@ -915,24 +874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a780eb0b8f8b684492642738e4b40b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  clip: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   minionsToCreate:
   - minion: {fileID: 612382463922862749, guid: 78ec14beb492ea942a24edf1b2316b73, type: 3}
     attackIncrease: 0

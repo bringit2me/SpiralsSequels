@@ -15,8 +15,6 @@ public class EffectAOEChangeStats : BaseEffect
 
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets targets
 
-        int animID = anim.GetAnimationID(); //gets ID for animation
-
         foreach (BaseCard card in targets)
         {
             if (card == null) //null card reference

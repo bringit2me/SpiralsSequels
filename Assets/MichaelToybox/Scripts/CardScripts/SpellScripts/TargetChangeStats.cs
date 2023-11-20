@@ -14,19 +14,17 @@ public class TargetChangeStats : BaseTargetSpell
         {
             target.GetComponent<BaseMinion>().ChangeAttack(attackChange);
             target.GetComponent<BaseMinion>().ChangeHealth(healthChange);
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
         if (target.GetComponent<BaseHero>() == true)
         {
             target.GetComponent<BaseHero>().ChangeAttack(attackChange);
             target.GetComponent<BaseHero>().ChangeHealth(healthChange);
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
 
         base.CastAtTarget();

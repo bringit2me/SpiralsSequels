@@ -11,8 +11,6 @@ public class AOEDamageSpell : BaseAOESpell
     {
         base.Cast();
 
-        int animID = anim.GetAnimationID(); //gets ID for animation
-
         int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
 
         foreach (BaseCard card in targets)
@@ -36,11 +34,11 @@ public class AOEDamageSpell : BaseAOESpell
             if (cardEffected == true)
             {
                 //Calls animation on target
-                playAnimClip.target = card.gameObject; //sets target
-                playAnimClip.animID = animID; //sets anim ID
-                CardAnimationClip clip = new CardAnimationClip(); //creates new clip
-                clip.CopyClip(playAnimClip); //copies play clip to new clip
-                anim.PlayAnimation(clip); //plays new clip
+                //playAnimClip.target = card.gameObject; //sets target
+                //playAnimClip.animID = animID; //sets anim ID
+                //CardAnimationClip clip = new CardAnimationClip(); //creates new clip
+                //clip.CopyClip(playAnimClip); //copies play clip to new clip
+                //anim.PlayAnimation(clip); //plays new clip
             }
         }
         EndCast();

@@ -6,7 +6,8 @@ public class BaseEffect : MonoBehaviour
 {
     protected Team team;
     [Header("Animation")]
-    public CardAnimationClip clip;
+    public BaseAnimationClip triggerAnimClip;
+    protected BaseAnimationClip triggerAnimCopy;
     [Header("AI Value")]
     public int valueBoostAI;
     //References
@@ -22,6 +23,8 @@ public class BaseEffect : MonoBehaviour
         //Gets animation manager reference
         anim = GameObject.FindObjectOfType<CardAnimationManager>();
         combatManager = GameObject.FindObjectOfType<CombatManager>();
+        if (triggerAnimClip != null)
+            triggerAnimCopy = Instantiate(triggerAnimClip);
     }
 
     /// <summary>
@@ -38,8 +41,9 @@ public class BaseEffect : MonoBehaviour
         playerManager = pM;
         team = playerManager.team;
 
-        //calls to setup animation
-        SetupAnimation();
+        if(triggerAnimClip != null)
+            //calls to setup animation
+            SetupAnimation();
     }
 
     /// <summary>
@@ -48,18 +52,18 @@ public class BaseEffect : MonoBehaviour
     public virtual void SetupAnimation()
     {
         if (minion != null)
-            clip.card = spell;
+            triggerAnimCopy.card = minion;
         else if (spell != null)
-            clip.card = spell;
+            triggerAnimCopy.card = spell;
         else if (hero != null)
-            clip.card = hero;
+            triggerAnimCopy.card = hero;
     }
 
     public virtual void TriggerEffect()
     {
-        //Debug.Log("Triggered Effect: " + this.GetType().Name);
-
-        //TODO: trigger animation
+        if (triggerAnimClip != null)
+            //plays animation
+            anim.PlayAnimation(triggerAnimCopy);
     }
 
     public virtual int CalculateEffectValueAI()

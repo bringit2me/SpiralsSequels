@@ -36,7 +36,8 @@ public class BaseMinion : BaseCard
     [Header("AI Minion")]
     public int deathValueBoostAI = 2;
     [Header("Minion Attack Anim")]
-    public CardAnimationClip attackAnimClip;
+    public BaseAnimationClip attackAnimClip;
+    protected BaseAnimationClip attackAnimCopy;
 
     public void Start()
     {
@@ -51,6 +52,9 @@ public class BaseMinion : BaseCard
             this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
             this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         }
+
+        attackAnimCopy = Instantiate(attackAnimClip); //creates copy
+        attackAnimCopy.card = this; //sets anim card reference
     }
 
     // --- CARD SETUP ---
@@ -103,7 +107,7 @@ public class BaseMinion : BaseCard
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
         playAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
-        anim.PlayAnimation(playAnimClip);
+        anim.PlayAnimation(playAnimCopy);
 
         TriggerOnPlayEffects(); //calls onPlay effects
         combatManager.UpdateSpellDamage(this); //updates spell damage
@@ -141,8 +145,8 @@ public class BaseMinion : BaseCard
 
     public virtual void PlayAttackAnim(BaseCard target)
     {
-        attackAnimClip.target = target.gameObject;
-        anim.PlayAnimation(attackAnimClip);
+        attackAnimCopy.target = target.gameObject;
+        anim.PlayAnimation(attackAnimCopy);
     }
 
     // --- TAKING DAMAGE ---

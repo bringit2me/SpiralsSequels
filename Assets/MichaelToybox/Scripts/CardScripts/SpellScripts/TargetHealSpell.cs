@@ -13,19 +13,15 @@ public class TargetHealSpell : BaseTargetSpell
         {
             target.GetComponent<BaseMinion>().Heal(healValue);
 
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
         if (target.GetComponent<BaseHero>() == true)
         {
             target.GetComponent<BaseHero>().Heal(healValue);
 
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
 
         base.CastAtTarget();

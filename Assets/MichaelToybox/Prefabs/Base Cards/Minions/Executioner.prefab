@@ -552,23 +552,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  playAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5248357269477375163}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 2
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 8
   isPlayed: 0
   attack: 7
@@ -590,24 +574,11 @@ MonoBehaviour:
   manaText: {fileID: 6102955530927303282}
   attackText: {fileID: 7427519391484831460}
   healthText: {fileID: 5712334731275505933}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
-  attackAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5248357269477375163}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 1
-    animSpeed: 2
-    effect: {fileID: 0}
+  attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &7780808214139884418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,23 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544e394fd52acf744a6d9eba3e7a09b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  clip: {fileID: 0}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}

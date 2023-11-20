@@ -29,7 +29,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3780346278214553313}
+  m_Father: {fileID: 7449224368793599133}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -49,24 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286b9e231a96c394396c4b3f7a9bb772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  clip: {fileID: 0}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   healValue: 2
   targetHero: 0
 --- !u!1001 &3611953595599139274
@@ -108,7 +96,15 @@ PrefabInstance:
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: selfCardRef
       value: 
-      objectReference: {fileID: 3191537787827519256}
+      objectReference: {fileID: 9177232426460712292}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: playAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: attackAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: endOfTurn.Array.size
       value: 1
@@ -213,7 +209,12 @@ PrefabInstance:
       addedObject: {fileID: 7746026876622672595}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
---- !u!114 &3191537787827519256 stripped
+--- !u!224 &7449224368793599133 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+  m_PrefabInstance: {fileID: 3611953595599139274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9177232426460712292 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
   m_PrefabInstance: {fileID: 3611953595599139274}
@@ -224,8 +225,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4af81db45a4b15b479702b452b3c3c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3780346278214553313 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 3611953595599139274}
-  m_PrefabAsset: {fileID: 0}

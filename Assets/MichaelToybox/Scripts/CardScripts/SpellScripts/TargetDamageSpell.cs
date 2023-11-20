@@ -15,18 +15,16 @@ public class TargetDamageSpell : BaseTargetSpell
         if (target.GetComponent<BaseMinion>() == true)
         {
             target.GetComponent<BaseMinion>().TakeDamage(damageValue);
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
         if(target.GetComponent<BaseHero>() == true)
         {
             target.GetComponent<BaseHero>().TakeDamage(damageValue);
-            playAnimClip.target = target.gameObject;
-            CardAnimationClip clip = new CardAnimationClip();
-            clip.CopyClip(playAnimClip);
-            anim.PlayAnimation(clip);
+
+            playAnimCopy.targetPos = target.transform.position;
+            anim.PlayAnimation(playAnimCopy);
         }
 
         base.CastAtTarget();

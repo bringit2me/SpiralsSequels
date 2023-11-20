@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 115bde55c0c9bdf44b72b4cacdfb392d, type: 3}
+  m_Name: ChangeStatsAnim
+  m_EditorClassIdentifier: 
+  animating: 0
+  animationFinished: 0
+  card: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  animationTime: 1
+  startHero: 1
+  effect: {fileID: 9167283613986189876, guid: 54abfb36794cab54399108d385fe4dbf, type: 3}

@@ -44,6 +44,14 @@ PrefabInstance:
       propertyPath: spellDamage
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: playAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: attackAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
     - target: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_Name
       value: Librarian

@@ -699,23 +699,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  playAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5578958378284965832}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 2
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 5
   isPlayed: 0
   attack: 2
@@ -736,24 +720,11 @@ MonoBehaviour:
   manaText: {fileID: 7763091837908650196}
   attackText: {fileID: 6641935099548991329}
   healthText: {fileID: 4489459153749705287}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
-  attackAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5578958378284965832}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 1
-    animSpeed: 2
-    effect: {fileID: 0}
+  attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &2000802843064067938
 MonoBehaviour:
   m_ObjectHideFlags: 0

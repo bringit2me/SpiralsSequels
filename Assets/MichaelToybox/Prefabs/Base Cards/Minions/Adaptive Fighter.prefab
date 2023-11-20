@@ -120,6 +120,14 @@ PrefabInstance:
       propertyPath: description
       value: Gains twice as many stats from other cards
       objectReference: {fileID: 0}
+    - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
+      propertyPath: playAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+    - target: {fileID: 5918323600791008609, guid: 0d6f99688b54b9542bd1690d0ccd14b6, type: 3}
+      propertyPath: attackAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

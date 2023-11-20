@@ -197,27 +197,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a780eb0b8f8b684492642738e4b40b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  clip: {fileID: 0}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}
   spell: {fileID: 0}
+  playerManager: {fileID: 0}
   minionsToCreate:
   - minion: {fileID: 6885516614873756469, guid: 20aa79b89189a8746a148de49885770a, type: 3}
     attackIncrease: 0
@@ -641,23 +626,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 8
-  playAnimClip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 1
-    startHero: 0
-    startCard: 0
-    startTarget: 1
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 2.5
-    effect: {fileID: 3404653119962982608, guid: 709452ab1cb89a54eb881e29936d551c, type: 3}
+  playAnimClip: {fileID: 11400000, guid: e1a4e3c8a8b40d2489110a10d857957d, type: 2}
   manaCost: 8
   isPlayed: 0
   onPlay:

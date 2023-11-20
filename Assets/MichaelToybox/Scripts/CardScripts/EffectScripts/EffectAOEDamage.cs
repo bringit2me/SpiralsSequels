@@ -15,8 +15,6 @@ public class EffectAOEDamage : BaseEffect
 
         List<BaseCard> targets = combatManager.GetTargets(playerManager.team, targetTeam); //gets targets
 
-        int animID = anim.GetAnimationID(); //gets ID for animation
-
         int damageValue = damage;
         if (improvedBySpellDamage == true) //if this effect is 
             damageValue = damage + playerManager.spellDamage; //adds in spell damage

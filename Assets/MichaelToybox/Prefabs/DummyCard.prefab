@@ -100,30 +100,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   anim: {fileID: 0}
   valueBoostAI: 0
-  handAnimClip:
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    moveCard: 0
-    moveEffect: 0
-    moveBoth: 0
-    startHero: 0
-    startCard: 0
-    animSpeed: 1
-    effect: {fileID: 0}
-  animClip:
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    moveCard: 0
-    moveEffect: 0
-    moveBoth: 0
-    startHero: 0
-    startCard: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
   isPlayed: 0
 --- !u!225 &9164265583327928818

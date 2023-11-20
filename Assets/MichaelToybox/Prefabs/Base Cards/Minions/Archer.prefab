@@ -49,24 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e9548924874bb448bca76b97756b0b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip:
-    animID: -1
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 0}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 0
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 1
-    effect: {fileID: 0}
+  triggerAnimClip: {fileID: 11400000, guid: 8c3dd1b8e09bbb04d918dccc87028f01, type: 2}
   valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
   attackChange: 1
   healthChange: 0
   targetHero: 0
@@ -115,9 +103,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6738144939328589879}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: playAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: valueBoostAI
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      propertyPath: attackAnimClip
+      value: 
+      objectReference: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
     - target: {fileID: 5583382633494265006, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: endOfTurn.Array.size
       value: 1

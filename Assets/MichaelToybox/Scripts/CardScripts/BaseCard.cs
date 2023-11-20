@@ -19,7 +19,8 @@ public class BaseCard : MonoBehaviour
     [Header("AI")]
     public int valueBoostAI = 0;
     [Header("Animation")]
-    public CardAnimationClip playAnimClip;
+    public BaseAnimationClip playAnimClip;
+    protected BaseAnimationClip playAnimCopy;
     [Header("Stats")]
     public int manaCost;
     public bool isPlayed = false;
@@ -33,7 +34,9 @@ public class BaseCard : MonoBehaviour
     {
         anim = GameObject.FindObjectOfType<CardAnimationManager>();
         combatManager = GameObject.FindObjectOfType<CombatManager>();
-        playAnimClip.card = this;
+
+        playAnimCopy = Instantiate(playAnimClip); //creates copy
+        playAnimCopy.card = this; //sets anim card reference
     }
 
 
