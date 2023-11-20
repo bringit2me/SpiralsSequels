@@ -428,14 +428,8 @@ MonoBehaviour:
   drawCountNeutral: 0
   neutralDeck: {fileID: 5604568289663590032}
   drawCountHero: 3
-  heroes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  heroDecks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  heroes: []
+  heroDecks: []
   minionZone: {fileID: 6994146613096520186}
   manaText: {fileID: 399554894409936715}
   handManager: {fileID: 0}

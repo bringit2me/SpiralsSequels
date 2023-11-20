@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 854b690e53617c2459fdae7adcd4aef6, type: 3}
-  m_Name: Basic Attack Anim
+  m_Script: {fileID: 11500000, guid: 9e76e4828f24f14498e34c401a45b8d5, type: 3}
+  m_Name: CreateCardAppear
   m_EditorClassIdentifier: 
-  animID: -1
   animating: 0
   animationFinished: 0
   card: {fileID: 0}
   target: {fileID: 0}
   targetPos: {x: 0, y: 0, z: 0}
   animationTime: 0.5
+  effect: {fileID: 2922846416733049880, guid: 0ee5332edd026ef4e839dab777c0029c, type: 3}

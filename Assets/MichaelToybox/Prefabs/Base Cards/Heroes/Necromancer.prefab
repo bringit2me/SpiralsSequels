@@ -37,7 +37,7 @@ RectTransform:
   - {fileID: 3908031820384607318}
   - {fileID: 7620096354177458310}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -147,8 +147,8 @@ MonoBehaviour:
   deck:
   - {fileID: 612382463922862749, guid: 78ec14beb492ea942a24edf1b2316b73, type: 3}
   - {fileID: 612382463922862749, guid: 78ec14beb492ea942a24edf1b2316b73, type: 3}
-  - {fileID: 3191537787827519256, guid: 3ee1490029b3b7846951822fa0e0f73e, type: 3}
-  - {fileID: 3191537787827519256, guid: 3ee1490029b3b7846951822fa0e0f73e, type: 3}
+  - {fileID: 9177232426460712292, guid: 3ee1490029b3b7846951822fa0e0f73e, type: 3}
+  - {fileID: 9177232426460712292, guid: 3ee1490029b3b7846951822fa0e0f73e, type: 3}
   - {fileID: 1518216971947415854, guid: 09589459c747e144a9bc5368ca57ab7f, type: 3}
   - {fileID: 1518216971947415854, guid: 09589459c747e144a9bc5368ca57ab7f, type: 3}
   - {fileID: 5648195691060406657, guid: 77eb2dd6e7dcaf94a9daf318d56173b3, type: 3}

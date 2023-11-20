@@ -55,6 +55,9 @@ public class BaseMinion : BaseCard
 
         attackAnimCopy = Instantiate(attackAnimClip); //creates copy
         attackAnimCopy.card = this; //sets anim card reference
+
+        playAnimCopy = Instantiate(playAnimClip); //creates copy
+        playAnimCopy.card = this; //sets anim card reference
     }
 
     // --- CARD SETUP ---
@@ -106,7 +109,7 @@ public class BaseMinion : BaseCard
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
         deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
-        playAnimClip.targetPos = playerManager.minionZone.GetNextCardPosition();
+        playAnimCopy.targetPos = playerManager.minionZone.GetNextCardPosition();
         anim.PlayAnimation(playAnimCopy);
 
         TriggerOnPlayEffects(); //calls onPlay effects

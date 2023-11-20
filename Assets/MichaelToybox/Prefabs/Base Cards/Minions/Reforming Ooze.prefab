@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 286b9e231a96c394396c4b3f7a9bb772, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  triggerAnimClip: {fileID: 11400000, guid: 1404620abdf4f40438cb2fbe0ec58bec, type: 2}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}
@@ -127,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6143132749009096023, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       propertyPath: m_AnchorMax.x
