@@ -60,20 +60,26 @@ public class BoardStateInformation : MonoBehaviour
 
         foreach (BaseMinion minion in combatManager.playerMinions) //loops through player minions
         {
-            playerTotalAttack += minion.attack;
-            playerTotalMinionAttack += minion.attack;
-            playerTotalHealth += minion.health;
-            playerTotalMinionHealth += minion.health;
-            playerMinionCount += 1;
+            if (minion.health > 0)
+            {
+                playerTotalAttack += minion.attack;
+                playerTotalMinionAttack += minion.attack;
+                playerTotalHealth += minion.health;
+                playerTotalMinionHealth += minion.health;
+                playerMinionCount += 1;
+            }
         }
 
         foreach (BaseHero hero in combatManager.playerHeroes) //loops through player heroes
         {
-            playerTotalAttack += hero.attack;
-            playerTotalHeroAttack += hero.attack;
-            playerTotalHealth += hero.health;
-            playerTotalHeroHealth += hero.health;
-            playerTotalHeroMaxHealth += hero.maxHealth;
+            if (hero.isDead == false)
+            {
+                playerTotalAttack += hero.attack;
+                playerTotalHeroAttack += hero.attack;
+                playerTotalHealth += hero.health;
+                playerTotalHeroHealth += hero.health;
+                playerTotalHeroMaxHealth += hero.maxHealth;
+            }
         }
     }
 
@@ -96,20 +102,26 @@ public class BoardStateInformation : MonoBehaviour
 
         foreach (BaseMinion minion in combatManager.enemyMinions) //loops through enemy minions
         {
-            enemyTotalAttack += minion.attack;
-            enemyTotalMinionAttack += minion.attack;
-            enemyTotalHealth += minion.health;
-            enemyTotalMinionHealth += minion.health;
-            enemyMinionCount += 1;
+            if (minion.health > 0)
+            {
+                enemyTotalAttack += minion.attack;
+                enemyTotalMinionAttack += minion.attack;
+                enemyTotalHealth += minion.health;
+                enemyTotalMinionHealth += minion.health;
+                enemyMinionCount += 1;
+            }
         }
 
         foreach (BaseHero hero in combatManager.enemyHeroes) //loops through enemy heroes
         {
-            enemyTotalAttack += hero.attack;
-            enemyTotalHeroAttack += hero.attack;
-            enemyTotalHealth += hero.health;
-            enemyTotalHeroHealth += hero.health;
-            enemyTotalHeroMaxHealth += hero.maxHealth;
+            if (hero.isDead == false)
+            {
+                enemyTotalAttack += hero.attack;
+                enemyTotalHeroAttack += hero.attack;
+                enemyTotalHealth += hero.health;
+                enemyTotalHeroHealth += hero.health;
+                enemyTotalHeroMaxHealth += hero.maxHealth;
+            }
         }
     }
 }
