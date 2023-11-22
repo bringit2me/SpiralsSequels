@@ -21,7 +21,7 @@ public class HeroDraftButton : MonoBehaviour
         manager = manage;
         hero = h;
         this.GetComponent<Button>().onClick.AddListener(delegate { OnClickDraft(); });
-        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.description;
+        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description;
 
         if (selectionImage != null)
             selectionImage.enabled = false;
@@ -32,7 +32,7 @@ public class HeroDraftButton : MonoBehaviour
         manager = manage;
         hero = h;
         this.GetComponent<Button>().onClick.AddListener(delegate { OnClickPlayer(); });
-        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.description;
+        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description;
 
         if (selectionImage != null)
             selectionImage.enabled = false;

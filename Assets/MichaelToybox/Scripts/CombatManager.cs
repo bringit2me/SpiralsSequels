@@ -17,7 +17,6 @@ public class CombatManager : MonoBehaviour
     public GameObject heroSlot3;
 
     [Header("AI Information")]
-    public RandomEncounter randomEncounter;
     public EnemyManager enemyManager;
     public HandManager enemyHandManager;
     public EnemyMinionZone enemyMinionZone;
@@ -28,10 +27,9 @@ public class CombatManager : MonoBehaviour
     public BaseEnemyAI enemyAI;
 
     [Header("Combat State")]
-    [SerializeField] bool setupCombatOnStart = false;
     public CombatState  state = CombatState.STARTING;
     public int turnCount = 0;
-    bool playerGoesFirst = false;
+    public bool playerGoesFirst = false;
 
     SwapToCombat combatSwap;
     CardAnimationManager cardAnimationManager;
@@ -46,15 +44,6 @@ public class CombatManager : MonoBehaviour
 
         //Resets card animation manager
         cardAnimationManager.ResetAnimationManager();
-
-        if (setupCombatOnStart == true)
-            StartCoroutine(SetupCombatManagerDelay());
-    }
-
-    IEnumerator SetupCombatManagerDelay()
-    {
-        yield return new WaitForEndOfFrame();
-        SetupCombatManager();
     }
 
     public void SetupCombatManager()
@@ -121,7 +110,7 @@ public class CombatManager : MonoBehaviour
 
         turnCount = 1; //resets turn count variable
 
-        if (Random.Range(0, 2) == 0 || randomEncounter.playerGoesFirst == true) //flips coin
+        if (Random.Range(0, 2) == 0 || playerGoesFirst == true) //flips coin
         {
             StartPlayerTurn(); //starts player turn (player goes first)
             playerGoesFirst = true;
@@ -133,6 +122,10 @@ public class CombatManager : MonoBehaviour
             playerGoesFirst = false;
             playerManager.manaPerTurn += 1; //increases player mana by 1
         }
+
+        //newly spawned enemy encounter's scale was being set to 0. this resets its scale to 1
+        enemyHolder.transform.GetChild(0).transform.localScale = Vector3.one; //TODO: Find a fix for this
+        enemyHolder.transform.GetChild(0).transform.localPosition = Vector3.zero; //TODO: Fix this
     }
 
     // --- TURN MANAGEMENT ---

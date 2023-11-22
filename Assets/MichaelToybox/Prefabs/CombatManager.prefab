@@ -68,7 +68,7 @@ MonoBehaviour:
   enemyHolder: {fileID: 2851282192997174293}
   boardInfo: {fileID: 0}
   enemyAI: {fileID: 0}
-  setupCombatOnStart: 1
+  setupCombatOnStart: 0
   state: 10
   turnCount: 0
 --- !u!114 &6680275736194260189
@@ -114,7 +114,6 @@ MonoBehaviour:
   isAnimating: 0
   animationList: []
   combatManager: {fileID: 0}
-  animID: 1
 --- !u!1001 &5497537766154646980
 PrefabInstance:
   m_ObjectHideFlags: 0

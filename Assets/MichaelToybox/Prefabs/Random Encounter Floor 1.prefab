@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4259053271096480510}
   - component: {fileID: 9150437336308145610}
   m_Layer: 5
-  m_Name: Random Encounter
+  m_Name: Random Encounter Floor 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

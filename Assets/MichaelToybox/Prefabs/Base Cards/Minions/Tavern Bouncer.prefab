@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Tavern Bouncer
-  description: <b>On Play:</b> Deal 2 damage to all enemies
+  description: <b>On Play:</b> Deal 2 damage to all enemy minions
   team: 0
   selfCardRef: {fileID: 708543607517336240}
   playerManager: {fileID: 0}
@@ -967,6 +967,6 @@ MonoBehaviour:
   minion: {fileID: 0}
   spell: {fileID: 0}
   playerManager: {fileID: 0}
-  targetTeam: 2
+  targetTeam: 5
   improvedBySpellDamage: 0
   damage: 2

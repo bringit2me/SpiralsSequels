@@ -11,7 +11,8 @@ public class DeckManager : MonoBehaviour
     private void Start()
     {
         ShuffleDeck();
-        hero = this.GetComponent<BaseHero>();
+        if(hero == null)
+            hero = this.GetComponent<BaseHero>();
     }
 
     /// <summary>

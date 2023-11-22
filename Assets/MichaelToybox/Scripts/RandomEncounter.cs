@@ -22,7 +22,6 @@ public class RandomEncounter : MonoBehaviour
     private void Awake()
     {
         enemyManager = this.GetComponent<EnemyManager>();
-        SetupEncounter();
     }
     /// <summary>
     /// Sets up encounter
@@ -74,9 +73,9 @@ public class RandomEncounter : MonoBehaviour
     public void UpdateEnemyManager()
     {
         if (enemyCount == 1)
-            enemyManager.drawCountHero = 10;
+            enemyManager.drawCountHero = 9;
         else if (enemyCount == 2)
-            enemyManager.drawCountHero = 5;
+            enemyManager.drawCountHero = 4;
         else if (enemyCount == 3)
             enemyManager.drawCountHero = 3;
 

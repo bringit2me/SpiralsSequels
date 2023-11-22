@@ -95,7 +95,7 @@ Transform:
   - {fileID: 3789066406453107173}
   - {fileID: 7124054236237625385}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8134097294438020587
 MonoBehaviour:
@@ -131,9 +131,9 @@ MonoBehaviour:
   manaPerTurnIncrease: 1
   spellDamage: 0
   drawDelay: 0.125
-  drawCountNeutral: 4
+  drawCountNeutral: 0
   neutralDeck: {fileID: 2739197363331174536}
-  drawCountHero: 2
+  drawCountHero: 3
   heroes: []
   heroDecks: []
   minionZone: {fileID: 0}
