@@ -3556,6 +3556,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2863412401992172897, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
+      propertyPath: seed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6672061878388301995, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
       propertyPath: m_Name
       value: EncounterManager

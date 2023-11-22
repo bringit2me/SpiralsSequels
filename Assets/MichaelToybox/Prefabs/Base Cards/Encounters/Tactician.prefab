@@ -455,7 +455,7 @@ MonoBehaviour:
   - {fileID: 1208697674822520600, guid: 3da5bb9e967161640b94712c8ab29a15, type: 3}
   - {fileID: 8642663637650953535, guid: 911e395d644e36640bd6577509b15459, type: 3}
   - {fileID: 2057979016118963945, guid: 2cf48a9f0a6bd2b458eef7b2b98cfefb, type: 3}
-  - {fileID: 1238657362864576683, guid: 868fefe44ca2f894eb8bdee4d534f0ed, type: 3}
+  - {fileID: 8092810590752529417, guid: 868fefe44ca2f894eb8bdee4d534f0ed, type: 3}
   discardPile: []
   hero: {fileID: 0}
 --- !u!114 &6941079944329404744
