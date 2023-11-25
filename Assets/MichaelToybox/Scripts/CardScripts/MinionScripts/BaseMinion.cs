@@ -108,7 +108,8 @@ public class BaseMinion : BaseCard
 
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
-        deck.discardPile.Add(selfCardRef); //adds the minion to the discard pile
+        if(playSendToDiscard == true) //if we want to send the card to the discard pile on play
+            AddToDiscardPile(); //adds the minion to the discard pile
         playAnimCopy.targetPos = playerManager.minionZone.GetNextCardPosition();
         anim.PlayAnimation(playAnimCopy);
 

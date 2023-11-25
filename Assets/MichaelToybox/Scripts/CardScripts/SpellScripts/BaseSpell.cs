@@ -66,7 +66,8 @@ public class BaseSpell : BaseCard
     /// </summary>
     public virtual void EndCast()
     {
-        AddToDiscardPile(); //adds card to discard pile
+        if(playSendToDiscard == true) //if we want to sedn the card to the discard pile
+            AddToDiscardPile(); //adds card to discard pile
         this.transform.SetParent(transform.root);
         Destroy(this.gameObject, 5f);
         isBeingCast = false;

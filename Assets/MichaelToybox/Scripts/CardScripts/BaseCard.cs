@@ -16,6 +16,7 @@ public class BaseCard : MonoBehaviour
     [HideInInspector] public BaseHero hero;
     [HideInInspector] public CardAnimationManager anim;
     protected CombatManager combatManager;
+    public bool playSendToDiscard = true;
     [Header("AI")]
     public int valueBoostAI = 0;
     [Header("Animation")]

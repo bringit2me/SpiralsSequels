@@ -44,19 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea966ec792d4bc45899a0f33566ad05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-  - {fileID: 8021749757313799538, guid: fd37868d8b580574c84652ecd4708505, type: 3}
-  - {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-  - {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
-  - {fileID: 5373352553673519531, guid: f1055fdc309fea449b058b6fb3886a8f, type: 3}
-  - {fileID: 5373352553673519531, guid: f1055fdc309fea449b058b6fb3886a8f, type: 3}
-  - {fileID: 7225182051294132464, guid: f4fe28e26d4609048963db8b8af6db87, type: 3}
-  - {fileID: 7225182051294132464, guid: f4fe28e26d4609048963db8b8af6db87, type: 3}
-  - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
-  - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
-  - {fileID: 8780554375917702300, guid: 41e44470a94a57a45a501a9f1908622f, type: 3}
-  - {fileID: 1208697674822520600, guid: 3da5bb9e967161640b94712c8ab29a15, type: 3}
+  deck: []
   discardPile: []
   hero: {fileID: 0}
 --- !u!1 &8972971589770205645

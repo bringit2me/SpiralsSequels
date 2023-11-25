@@ -65,4 +65,17 @@ public class DeckManager : MonoBehaviour
 
         ShuffleDeck(); //shuffles deck
     }
+
+    public List<BaseCard> GetTopThree()
+    {
+        List<BaseCard> top3 = new List<BaseCard>();
+
+        for(int i = 0; i < 3; i++)
+        {
+            if (i < deck.Count)
+                top3.Add(deck[i]);
+        }
+
+        return top3;
+    }
 }
