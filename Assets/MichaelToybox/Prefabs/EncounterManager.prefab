@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b3ca0978330ad45a427e7d74b6b06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seed: 12345678
+  seed: 0
   nextEncounter: {fileID: 0}
   randomEncountersFloor1: []
   eliteEncountersFloor1: []
