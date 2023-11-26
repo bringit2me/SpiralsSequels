@@ -66,6 +66,10 @@ public class DeckManager : MonoBehaviour
         ShuffleDeck(); //shuffles deck
     }
 
+    /// <summary>
+    /// Gets the top 3 cards of the deck
+    /// </summary>
+    /// <returns></returns>
     public List<BaseCard> GetTopThree()
     {
         List<BaseCard> top3 = new List<BaseCard>();
@@ -73,9 +77,36 @@ public class DeckManager : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             if (i < deck.Count)
+            {
                 top3.Add(deck[i]);
+            }
         }
 
         return top3;
+    }
+
+    /// <summary>
+    /// Adds card to the deck
+    /// </summary>
+    /// <param name="card"></param>
+    public void AddCardToDeck(BaseCard card)
+    {
+        deck.Add(card);
+    }
+
+    /// <summary>
+    /// Removes a card with a matching name
+    /// </summary>
+    /// <param name="card"></param>
+    public void RemoveCard(BaseCard card)
+    {
+        for (int i = 0; i < deck.Count; i++)
+        {
+            if (deck[i].name == card.name)
+            {
+                deck.RemoveAt(i);
+                return;
+            }
+        }
     }
 }

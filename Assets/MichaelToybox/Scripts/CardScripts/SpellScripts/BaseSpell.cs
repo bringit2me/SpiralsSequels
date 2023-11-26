@@ -137,6 +137,9 @@ public class BaseSpell : BaseCard
     /// </summary>
     public override void SetupAllEffects()
     {
+        if (playerManager == null)
+            return;
+
         foreach(BaseEffect effect in onPlay)
         {
             if (effect != null)
