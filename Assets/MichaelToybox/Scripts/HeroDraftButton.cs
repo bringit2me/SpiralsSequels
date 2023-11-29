@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HeroDraftButton : MonoBehaviour
 {
@@ -10,8 +11,14 @@ public class HeroDraftButton : MonoBehaviour
     [SerializeField] BaseHero hero;
     public Image selectionImage;
 
+    Button button;
+    TMP_Text childText;
+
     private void Start()
     {
+        button = this.GetComponent<Button>();
+        childText = this.GetComponentInChildren<TMP_Text>();
+
         if (selectionImage != null)
             selectionImage.enabled = false;
     }
@@ -20,8 +27,8 @@ public class HeroDraftButton : MonoBehaviour
     {
         manager = manage;
         hero = h;
-        this.GetComponent<Button>().onClick.AddListener(delegate { OnClickDraft(); });
-        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description;
+        button.onClick.AddListener(delegate { OnClickDraft(); });
+        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description;
 
         if (selectionImage != null)
             selectionImage.enabled = false;
@@ -31,8 +38,11 @@ public class HeroDraftButton : MonoBehaviour
     {
         manager = manage;
         hero = h;
-        this.GetComponent<Button>().onClick.AddListener(delegate { OnClickPlayer(); });
-        this.GetComponentInChildren<TMPro.TMP_Text>().text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description;
+
+
+        button.onClick.AddListener(delegate { OnClickPlayer(); });
+
+        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description;
 
         if (selectionImage != null)
             selectionImage.enabled = false;

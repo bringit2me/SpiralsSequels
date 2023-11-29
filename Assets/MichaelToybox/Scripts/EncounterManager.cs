@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EncounterManager : MonoBehaviour
 {
-    [Header("Floor Info")]
-    public int seed = 0;
-    public GameObject nextEncounter;
     [Header("Floor 1 Loaded Encounters")]
     [SerializeField] List<RandomEncounter> randomEncountersFloor1;
     [SerializeField] List<GameObject> eliteEncountersFloor1;
@@ -40,11 +37,6 @@ public class EncounterManager : MonoBehaviour
     private void Start()
     {
         count = 0;
-
-        if (seed == 0)
-            seed = Random.Range(10000000, 100000000);
-
-        LoadEncounters(seed);
     }
 
     public GameObject GetRandomEncounter(int currentFloor)
@@ -122,12 +114,8 @@ public class EncounterManager : MonoBehaviour
     /// Loads in encounters based on the seed passed in
     /// </summary>
     /// <param name="passedInSeed"></param>
-    void LoadEncounters(int passedInSeed)
+    public void LoadEncounters()
     {
-        this.seed = passedInSeed;
-
-        Random.InitState(seed);
-
         StartCoroutine(LoadEncountersFloor1());
     }
 

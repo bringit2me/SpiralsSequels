@@ -18,16 +18,17 @@ public class AttackAnimation : BaseAnimationClip
     {
         currentTime += Time.deltaTime / animationTime;
 
-        if (currentTime <= 1)
+        if (currentTime < 1)
         {
             card.transform.position = Vector3.Lerp(startPosCard, targetPos, currentTime);
         }
-        else if (currentTime <= 2)
+        else if (currentTime < 2)
         {
             card.transform.position = Vector3.Lerp(targetPos, startPosCard, currentTime - 1);
         }
         else
         {
+            card.transform.position = startPosCard;
             AnimationFinished();
         }
     }

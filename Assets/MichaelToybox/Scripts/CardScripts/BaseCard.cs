@@ -8,6 +8,7 @@ public class BaseCard : MonoBehaviour
     public new string name;
     [TextArea(5, 15)]
     public string description;
+    public Rarity rarity = Rarity.NONE;
     public Team team;
     public BaseCard selfCardRef;
     /*[HideInInspector]*/ public PlayerManager playerManager;
