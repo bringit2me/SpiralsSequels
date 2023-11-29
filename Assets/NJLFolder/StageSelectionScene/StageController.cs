@@ -57,10 +57,10 @@ public class StageController : MonoBehaviour
         bool bossButtonSpawned = false;
         for (int i = 0; i < buttons.Length; i++) //For loop runs code within it for each button in our list of buttons
         {
-            int randNum = Random.Range(1, 4); //Generates a random number. 4 encounters(randomEncounter,specialEncounter, boss, and spiral)
+            int randNum = Random.Range(1, 5); //Generates a random number. 4 encounters(randomEncounter,specialEncounter, boss, and spiral)
             if (currStage == stagesToBoss && !bossButtonSpawned) //If the current stage is equal to the stages to boss int we garuntee a boss stage
             {
-                randNum = 4;
+                randNum = 5;
                 bossButtonSpawned = true;
             }
             
@@ -104,6 +104,18 @@ public class StageController : MonoBehaviour
                 //Icon needs to be changed
             }
             if (randNum == 4)
+            {
+                Debug.Log("This is a Shop");
+
+
+                TextMeshProUGUI buttonText = buttons[i].GetComponentInChildren<TextMeshProUGUI>();
+                buttonText.text = "Shop";
+
+                StageButtonController currButton = buttons[i].GetComponentInChildren<StageButtonController>();
+                currButton.isShop = true;
+                //Icon needs to be changed
+            }
+            if (randNum == 5)
             {
                 Debug.Log("This is a boss Encounter");
                 
