@@ -90,9 +90,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 0
+  amountToPreload: 150
+  commonChance: 70
+  rareChance: 20
+  epicChance: 10
+  preloadedCards: []
+  preloadedHeroes: []
+  allCards: []
   commonCards: []
   rareCards: []
   epicCards: []
+  allHeroes: []
   commonHeroes: []
   rareHeroes: []
   epicHeroes: []

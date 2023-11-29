@@ -244,6 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Trophy Hunter
   description: Big resilient minions and single target board control
+  rarity: 2
   team: 0
   selfCardRef: {fileID: 0}
   playerManager: {fileID: 0}
@@ -251,6 +252,7 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0

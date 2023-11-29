@@ -695,6 +695,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -702,6 +703,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!222 &139213804
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -787,6 +790,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -794,6 +798,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &141009182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +1038,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -1039,6 +1046,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &217447315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2192,6 +2201,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -2199,6 +2209,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &855900269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2601,6 +2613,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -2608,6 +2621,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &940874629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3768,9 +3783,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3504758866347860039, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
+      propertyPath: seed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6672061878388301995, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
       propertyPath: m_Name
-      value: EncounterManager
+      value: Preloader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3952,6 +3971,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -3959,6 +3979,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!222 &1310898061
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4262,6 +4284,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -4269,6 +4292,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &1521953925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4696,6 +4721,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -4703,6 +4729,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &1638817775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5791,6 +5819,7 @@ MonoBehaviour:
   isRandomEncounter: 0
   isSpecialEncounter: 0
   isSpiral: 0
+  isShop: 0
   isBossEncounter: 0
   encounterImage: {fileID: 0}
   randomEncounterImage: {fileID: 0}
@@ -5798,6 +5827,8 @@ MonoBehaviour:
   spiralEncounterImage: {fileID: 0}
   heroImages: []
   bossImages: []
+  confirmButton: {fileID: 0}
+  shopUI: {fileID: 0}
 --- !u!114 &1999258138
 MonoBehaviour:
   m_ObjectHideFlags: 0
