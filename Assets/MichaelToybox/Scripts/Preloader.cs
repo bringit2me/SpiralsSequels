@@ -37,6 +37,24 @@ public class Preloader : MonoBehaviour
         StartRarityListSetup();
     }
 
+    // --- GETTING FROM LISTS
+
+    public BaseCard GetCard()
+    {
+        BaseCard card = preloadedCards[0];
+        preloadedCards.RemoveAt(0);
+        return card;
+    }
+
+    public BaseHero GetHero()
+    {
+        BaseHero hero = preloadedHeroes[0];
+        preloadedHeroes.RemoveAt(0);
+        return hero;
+    }
+
+    // --- LIST SETUP ---
+
     /// <summary>
     /// Calls SetupAllCardsHeroesLists() (which calls to setup common card rarity list, then the next one, ect)
     /// When done loading the rarity lists, it then calls to preload the cards, which then calls to preload the heroes, then calls to preload encounters

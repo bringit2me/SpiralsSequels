@@ -27,8 +27,9 @@ public class HeroDraftButton : MonoBehaviour
     {
         manager = manage;
         hero = h;
-        button.onClick.AddListener(delegate { OnClickDraft(); });
-        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description;
+        button.onClick.RemoveAllListeners(); //removes previous onclick
+        button.onClick.AddListener(delegate { OnClickDraft(); }); //sets on click
+        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
 
         if (selectionImage != null)
             selectionImage.enabled = false;
@@ -39,10 +40,10 @@ public class HeroDraftButton : MonoBehaviour
         manager = manage;
         hero = h;
 
+        button.onClick.RemoveAllListeners(); //removes previous onclick
+        button.onClick.AddListener(delegate { OnClickPlayer(); }); //sets on click
 
-        button.onClick.AddListener(delegate { OnClickPlayer(); });
-
-        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description;
+        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description; //sets text
 
         if (selectionImage != null)
             selectionImage.enabled = false;
