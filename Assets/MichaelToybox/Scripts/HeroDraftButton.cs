@@ -29,7 +29,12 @@ public class HeroDraftButton : MonoBehaviour
         hero = h;
         button.onClick.RemoveAllListeners(); //removes previous onclick
         button.onClick.AddListener(delegate { OnClickDraft(); }); //sets on click
-        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
+            childText.text = "<b>Common</b>\n" + h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
+
+        if (hero.rarity == Rarity.RARE) //if the hero is rare
+            childText.text = "<b><color=blue>Rare</color></b>\n" + h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
+        else if (hero.rarity == Rarity.EPIC) //if the hero is epic
+            childText.text = "<b><color=yellow>Legendary</color></b>\n" + h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
 
         if (selectionImage != null)
             selectionImage.enabled = false;
@@ -43,7 +48,7 @@ public class HeroDraftButton : MonoBehaviour
         button.onClick.RemoveAllListeners(); //removes previous onclick
         button.onClick.AddListener(delegate { OnClickPlayer(); }); //sets on click
 
-        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description; //sets text
+        childText.text = h.name + "\n" + h.attack + " Attack  |  " + h.health + " / " + h.maxHealth + " Health\n" + h.description; //sets text 
 
         if (selectionImage != null)
             selectionImage.enabled = false;
