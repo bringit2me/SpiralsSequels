@@ -4879,7 +4879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[0]
@@ -4888,11 +4888,15 @@ PrefabInstance:
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[1]
       value: 
-      objectReference: {fileID: 3139955873367220263, guid: dc50ceb109ebeae4e96dd06ab7c51822, type: 3}
+      objectReference: {fileID: 5973213323696738373, guid: 43e220d59e345e0449d1b2f46838e643, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[2]
       value: 
-      objectReference: {fileID: 3139955873367220263, guid: dc50ceb109ebeae4e96dd06ab7c51822, type: 3}
+      objectReference: {fileID: 5204324773616963824, guid: 7f235430af052c64abe6a44019bb7c45, type: 3}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[3]
+      value: 
+      objectReference: {fileID: 7439906843480311480, guid: c2e7511d4f502804192470fc68b94ffc, type: 3}
     - target: {fileID: 8134097294438020587, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: handHolder
       value: 
