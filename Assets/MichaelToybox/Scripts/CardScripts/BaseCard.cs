@@ -112,4 +112,22 @@ public class BaseCard : MonoBehaviour
         method();
 
     }
+
+    public virtual void ChangeManaCost(int value)
+    {
+        manaCost += CalculateManaCostChange(value);
+        UpdateMana();
+    }
+    public virtual int CalculateManaCostChange(int value)
+    {
+        if (manaCost + value < 0)
+            value = -manaCost;
+
+        return value;
+    }
+
+    public virtual void UpdateMana()
+    {
+
+    }
 }

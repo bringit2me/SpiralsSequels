@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e76e4828f24f14498e34c401a45b8d5, type: 3}
+  m_Name: SpellDamageAppear
+  m_EditorClassIdentifier: 
+  animating: 0
+  animationFinished: 0
+  card: {fileID: 0}
+  target: {fileID: 0}
+  targetPos: {x: 0, y: 0, z: 0}
+  animationTime: 0.75
+  effect: {fileID: 5712350972878421482, guid: 890ef55277338314dbcd87bbe4534ae0, type: 3}

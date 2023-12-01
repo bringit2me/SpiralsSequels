@@ -30,7 +30,6 @@ public class EffectChangeStats : BaseEffect
             hero.ChangeHealth(healthChange);
             hero.UpdateHealth();
         }
-
         base.TriggerEffect();
     }
 

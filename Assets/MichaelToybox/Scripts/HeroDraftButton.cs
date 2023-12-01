@@ -33,7 +33,7 @@ public class HeroDraftButton : MonoBehaviour
 
         if (hero.rarity == Rarity.RARE) //if the hero is rare
             childText.text = "<b><color=blue>Rare</color></b>\n" + h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
-        else if (hero.rarity == Rarity.EPIC) //if the hero is epic
+        else if (hero.rarity == Rarity.LEGENDARY) //if the hero is epic
             childText.text = "<b><color=yellow>Legendary</color></b>\n" + h.name + "\n" + h.attack + " Attack  |  " + h.maxHealth + " Health\n" + h.description; //sets text
 
         if (selectionImage != null)

@@ -194,6 +194,18 @@ public class BaseHero : BaseCard
         return value;
     }
 
+    public virtual void ChangeSpellDamage(int value)
+    {
+        spellDamage += CalculateSpellDamageChange(value);
+    }
+
+    public virtual int CalculateSpellDamageChange(int value)
+    {
+        if (spellDamage + value < 0) //if the spell damage change would make spell damage negative
+            value = -spellDamage; //sets  value to negative spell damage (will make spell damage 0)
+        return value;
+    }
+
     public virtual void Dead()
     {
         isDead = true;

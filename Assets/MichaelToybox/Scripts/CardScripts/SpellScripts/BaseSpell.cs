@@ -102,7 +102,7 @@ public class BaseSpell : BaseCard
         UpdateMana();
     }
 
-    public virtual void UpdateMana()
+    public override void UpdateMana()
     {
         manaText.text = "" + manaCost;
     }

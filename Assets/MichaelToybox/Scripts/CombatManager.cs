@@ -384,9 +384,21 @@ public class CombatManager : MonoBehaviour
         return null;
     }
 
+    // --- GETTING OPPOSITE PLAYER MANAGER BY TEAM ---
+
+    public PlayerManager GetOppositePlayerManager(Team team)
+    {
+        if (team == Team.PLAYER)
+            return enemyManager;
+        else if (team == Team.ENEMY)
+            return playerManager;
+
+        return null;
+    }
+
     // --- UPDATING SPELL DAMAGE
 
-    public void UpdateSpellDamage(BaseMinion minion)
+    public void AddSpellDamage(BaseMinion minion)
     {
         if (minion.health > 0 && minion.spellDamage > 0) //minion alive
         {
@@ -403,6 +415,76 @@ public class CombatManager : MonoBehaviour
                 playerManager.spellDamage -= minion.spellDamage; //increase player spell damage by spell damage on card
             else if (minion.team == Team.ENEMY) //on the enemy team
                 enemyManager.spellDamage -= minion.spellDamage; //increase enemy spell damage by spell damage on card
+        }
+    }
+
+    public void AddSpellDamage(BaseHero hero)
+    {
+        if (hero.health > 0 && hero.spellDamage > 0) //minion alive
+        {
+            if (hero.team == Team.PLAYER) //on the player team
+                playerManager.spellDamage += hero.spellDamage; //increase player spell damage by spell damage on card
+            else if (hero.team == Team.ENEMY) //on the enemy team
+                enemyManager.spellDamage += hero.spellDamage; //increase enemy spell damage by spell damage on card
+        }
+        else if (hero.spellDamage > 0) //minion dead
+        {
+            if (hero.team == Team.PLAYER) //on the player team
+                playerManager.spellDamage -= hero.spellDamage; //increase player spell damage by spell damage on card
+            else if (hero.team == Team.ENEMY) //on the enemy team
+                enemyManager.spellDamage -= hero.spellDamage; //increase enemy spell damage by spell damage on card
+        }
+    }
+
+    /// <summary>
+    /// Updates spell damage based on the team
+    /// Sets spell damage to 0
+    /// Loops through each card in play for the team and adds spell damage
+    /// </summary>
+    /// <param name="team"></param>
+    public void UpdateSpellDamage(Team team)
+    {
+        BaseMinion minion = null;
+        BaseHero hero = null;
+
+        if(team == Team.PLAYER)
+        {
+            playerManager.spellDamage = 0;
+
+            foreach(BaseCard card in GetAllInPlayPlayer())
+            {
+                minion = card.GetComponent<BaseMinion>();
+                hero = card.GetComponent<BaseHero>();
+
+                if(minion != null && minion.health > 0 && minion.spellDamage > 0)
+                {
+                    playerManager.spellDamage += minion.spellDamage;
+                }
+                else if (hero != null && hero.isDead == false && hero.spellDamage > 0)
+                {
+                    playerManager.spellDamage += hero.spellDamage;
+                }
+
+            }
+        }
+        else if (team == Team.ENEMY)
+        {
+            enemyManager.spellDamage = 0;
+
+            foreach (BaseCard card in GetAllInPlayEnemy())
+            {
+                minion = card.GetComponent<BaseMinion>();
+                hero = card.GetComponent<BaseHero>();
+
+                if (minion != null && minion.health > 0 && minion.spellDamage > 0)
+                {
+                    enemyManager.spellDamage += minion.spellDamage;
+                }
+                else if (hero != null && hero.isDead == false && hero.spellDamage > 0)
+                {
+                    playerManager.spellDamage += hero.spellDamage;
+                }
+            }
         }
     }
 

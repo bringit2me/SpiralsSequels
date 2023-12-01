@@ -138,7 +138,7 @@ public class TargetChangeStats : BaseTargetSpell
                 if (entry.target.GetComponent<BaseMinion>() == true) //previously found best target is a minion
                 {
                     BaseMinion entryMinion = entry.target.GetComponent<BaseMinion>();
-                    if(hero != null) //new found target is a hero
+                    if (hero != null) //new found target is a hero
                     {
                         entry.value = value;
                         entry.target = card;

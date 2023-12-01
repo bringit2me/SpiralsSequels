@@ -4884,15 +4884,15 @@ PrefabInstance:
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[0]
       value: 
-      objectReference: {fileID: 7123731689670895035, guid: 1130feca3d9d4874f85774329e495d83, type: 3}
+      objectReference: {fileID: 3139955873367220263, guid: dc50ceb109ebeae4e96dd06ab7c51822, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[1]
       value: 
-      objectReference: {fileID: 7123731689670895035, guid: 1130feca3d9d4874f85774329e495d83, type: 3}
+      objectReference: {fileID: 3139955873367220263, guid: dc50ceb109ebeae4e96dd06ab7c51822, type: 3}
     - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: deck.Array.data[2]
       value: 
-      objectReference: {fileID: 7123731689670895035, guid: 1130feca3d9d4874f85774329e495d83, type: 3}
+      objectReference: {fileID: 3139955873367220263, guid: dc50ceb109ebeae4e96dd06ab7c51822, type: 3}
     - target: {fileID: 8134097294438020587, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: handHolder
       value: 
@@ -5101,17 +5101,6 @@ MonoBehaviour:
   - {fileID: 940874631}
   - {fileID: 1999258140}
   - {fileID: 1310898057}
-  draftableHeroes:
-  - {fileID: 4841757323813943695, guid: 15f242dd78cc8dd4d8fcc363d849c344, type: 3}
-  - {fileID: 1919562827316124536, guid: 511e6914c762d0d4799d22ee68682f2b, type: 3}
-  - {fileID: 6525977187601540515, guid: 4b5513974b9a0b34b98766fdc340cba0, type: 3}
-  - {fileID: 3949451749813421494, guid: 2b366c218a6d4d54698e83cfdfaae4ae, type: 3}
-  - {fileID: 5200263739632912011, guid: 29b8f670b0c886f4289d07a368d4b649, type: 3}
-  - {fileID: 2442451142263377801, guid: 950724c0203837d428e7632502300ed8, type: 3}
-  - {fileID: 1865241120635314688, guid: 8cf8b0a15b49bad40a430b0bf6eb8410, type: 3}
-  - {fileID: 3829260349284671822, guid: a0e4d307aff428b4e90f1cbb97536b39, type: 3}
-  - {fileID: 431241984773234614, guid: a8908095424e34c4dbf9ecdbbdf8aa4d, type: 3}
-  - {fileID: 5589374490331525106, guid: b8648a3f4fee7b542a685512e2cd074f, type: 3}
   selectedDraftHero: {fileID: 0}
   selectedPlayerHero: {fileID: 0}
   gameCanvas: {fileID: 510192723}

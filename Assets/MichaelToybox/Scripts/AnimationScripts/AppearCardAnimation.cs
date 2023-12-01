@@ -18,7 +18,10 @@ public class AppearCardAnimation : BaseAnimationClip
     public override void StartAnim()
     {
         base.StartAnim();
-        createdEffect = Instantiate(effect, card.transform.position, Quaternion.identity);
+        if(target == null)
+            createdEffect = Instantiate(effect, card.transform.position, Quaternion.identity);
+        else if (target != null)
+            createdEffect = Instantiate(effect, target.transform.position, Quaternion.identity);
     }
 
     public override void Execute()

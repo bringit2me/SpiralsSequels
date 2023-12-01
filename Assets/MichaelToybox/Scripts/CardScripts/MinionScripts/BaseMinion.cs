@@ -72,7 +72,7 @@ public class BaseMinion : BaseCard
         //canAttack = false;
     }
 
-    public virtual void UpdateMana()
+    public override void UpdateMana()
     {
         manaText.text = "" + manaCost;
     }
@@ -114,7 +114,7 @@ public class BaseMinion : BaseCard
         anim.PlayAnimation(playAnimCopy);
 
         TriggerOnPlayEffects(); //calls onPlay effects
-        combatManager.UpdateSpellDamage(this); //updates spell damage
+        combatManager.AddSpellDamage(this); //updates spell damage
     }
 
     public override void Created(PlayerManager playerManager)
@@ -125,7 +125,7 @@ public class BaseMinion : BaseCard
         this.GetComponent<Draggable>().enabled = false; //disables draggable (handles dragging from hand)
         this.GetComponent<MinionCombatTarget>().enabled = true; //enables minion combat target
 
-        combatManager.UpdateSpellDamage(this); //updates spell damage
+        combatManager.AddSpellDamage(this); //updates spell damage
 
         base.Created(playerManager);
     }
@@ -239,6 +239,19 @@ public class BaseMinion : BaseCard
         return value;
     }
 
+    public virtual void ChangeSpellDamage(int value)
+    {
+        spellDamage += CalculateSpellDamageChange(value);
+    }
+
+    public virtual int CalculateSpellDamageChange(int value)
+    {
+        if (spellDamage + value < 0) //if the spell damage change would make spell damage negative
+            value = -spellDamage; //sets  value to negative spell damage (will make spell damage 0)
+
+        return value;
+    }
+
     public virtual void Dead()
     {
         this.transform.SetParent(transform.root);
@@ -250,7 +263,7 @@ public class BaseMinion : BaseCard
             StartCoroutine(TriggerMethodEndOfFrame(methodCall));
         }
 
-        combatManager.UpdateSpellDamage(this); //updates spell damage
+        combatManager.AddSpellDamage(this); //updates spell damage
         Destroy(this.gameObject, 5f);
     }
 
