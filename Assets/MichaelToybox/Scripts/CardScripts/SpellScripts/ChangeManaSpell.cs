@@ -28,6 +28,7 @@ public class ChangeManaSpell : BaseSpell
         value -= manaCost; //subtracts mana cost
         value += valueBoostAI; //adds in value boost
 
+        //NOTE: these are the playstyle modifiers. add these if you find a reason to do so
         //checks if AI is agressive
         //if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE)
         //    value = (int)(value * ValueToPercent(ai.aggroValue));

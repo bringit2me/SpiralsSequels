@@ -48,6 +48,11 @@ public class BaseCard : MonoBehaviour
     public virtual void AddToDiscardPile()
     {
         deck.discardPile.Add(selfCardRef);
+
+        if(deck.GetComponent<SideboardDeckManager>() == true) //if the deck is the side board deck
+        {
+            deck.CombineDeck(); //combines discard and draw piles;
+        }
     }
 
     /// <summary>

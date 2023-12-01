@@ -28,33 +28,33 @@ public class SideboardDeckManager : MonoBehaviour
         if (cards.Count > 0)
         {
             BaseCard card1 = Instantiate(cards[0], displaySlot1.transform); //creates card
+            card1.selfCardRef = cards[0]; //sets self card ref
             card1.transform.localScale = new Vector3(2, 2, 2); //makes card bigger
             card1.GetComponent<Draggable>().enabled = false; //disables draggable
-            card1.gameObject.AddComponent<ClickAddToHand>(); //enables card
+            card1.gameObject.AddComponent<ClickAddToHand>().card = card1; //enables card and sets reference
         }
 
         if (cards.Count > 1)
         {
             BaseCard card2 = Instantiate(cards[1], displaySlot2.transform); //creates card
+            card2.selfCardRef = cards[1]; //sets self card ref
             card2.transform.localScale = new Vector3(2, 2, 2); //makes card bigger
             card2.GetComponent<Draggable>().enabled = false; //disables draggable
-            card2.gameObject.AddComponent<ClickAddToHand>(); //enables card
+            card2.gameObject.AddComponent<ClickAddToHand>().card = card2; //enables card and sets reference
         }
 
         if (cards.Count > 2)
         {
             BaseCard card3 = Instantiate(cards[2], displaySlot3.transform); //creates card
+            card3.selfCardRef = cards[2]; //sets self card ref
             card3.transform.localScale = new Vector3(2, 2, 2); //makes card bigger
             card3.GetComponent<Draggable>().enabled = false; //disables draggable
-            card3.gameObject.AddComponent<ClickAddToHand>(); //enables card
+            card3.gameObject.AddComponent<ClickAddToHand>().card = card3; //enables card and sets reference
         }
     }
 
     public void CardSelected(BaseCard card)
     {
-        card.transform.localScale = new Vector3(1, 1, 1); //makes card normal size
-        card.GetComponent<ClickAddToHand>().enabled = false; //turns off click add script
-        card.GetComponent<Draggable>().enabled = true; //enables draggable
 
         //removes card from deck
         deckManager.RemoveCard(card);
