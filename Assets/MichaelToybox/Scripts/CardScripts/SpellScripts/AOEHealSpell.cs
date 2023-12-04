@@ -22,7 +22,7 @@ public class AOEHealSpell : BaseAOESpell
             {
                 //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
                 minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health + minion.CalculateHeal(healValue), true, null);
-                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+                playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
 
                 //heals minion
                 minion.Heal(healValue);
@@ -31,7 +31,7 @@ public class AOEHealSpell : BaseAOESpell
             {
                 //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
                 hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health + hero.CalculateHeal(healValue), true, null);
-                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+                playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
 
                 //heals hero
                 hero.Heal(healValue);

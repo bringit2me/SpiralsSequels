@@ -26,6 +26,7 @@ public class MoveCardAnimation : BaseAnimationClip
         }
         else
         {
+            card.transform.position = targetPos;
             AnimationFinished();
         }
     }

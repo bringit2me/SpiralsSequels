@@ -17,7 +17,7 @@ public class TargetHealSpell : BaseTargetSpell
         if (minion == true)
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            minion.visualManager.AddStatChangeEntry(0, false, minion.health + minion.CalculateHeal(healValue), true, 0, false, null);
+            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health + minion.CalculateHeal(healValue), true, null);
             playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
 
             //heals minion

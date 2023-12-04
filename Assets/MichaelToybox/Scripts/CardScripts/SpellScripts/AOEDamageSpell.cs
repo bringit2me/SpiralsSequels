@@ -26,16 +26,16 @@ public class AOEDamageSpell : BaseAOESpell
             if (minion == true) //if card is minion
             {
                 //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-                card.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damageValue), false, null);
-                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+                minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damageValue), true, null);
+                playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
 
                 minion.TakeDamage(damageValue); //damages minion
             }
             else if (hero == true && hero.isDead == false) //if card is hero and hero is not dead
             {
                 //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-                card.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damageValue), true, null);
-                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+                hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damageValue), true, null);
+                playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
 
                 hero.TakeDamage(damageValue); //damages hero
 

@@ -76,8 +76,13 @@ public class BaseEnemyAI : MonoBehaviour
             if (highestValueCard.value < 0) //no good card to play
                 break; //exit loop
 
-            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
+            while (anim.isAnimating == true || anim.animationList.Count > 0) //if the animator is animating, wait for it to finish
                 yield return new WaitForEndOfFrame();
+
+            //reevaluates its card values and playstyle after making a play
+            DeterminePlaystyle(); //Determines its playstyle based on the current board state
+            CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
+            //Debug.Log("Recalculated Playstyle and Hand Values");
 
             //plays cards
             if (highestValueCard.isMinion == true) //if our highest value card is a minion
@@ -96,8 +101,8 @@ public class BaseEnemyAI : MonoBehaviour
                 {
                     highestValueCard.card.Played(enemyManager); //plays the spell
                 }
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForFixedUpdate();
+                yield return new WaitForSeconds(1f);
             }
 
             yield return new WaitForEndOfFrame();
@@ -105,7 +110,7 @@ public class BaseEnemyAI : MonoBehaviour
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
             CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
-            Debug.Log("Recalculated Playstyle and Hand Values");
+            //Debug.Log("Recalculated Playstyle and Hand Values");
 
             if (highestValueCard.value < 0) //no good card to play
                 break; //exit loop
@@ -130,23 +135,26 @@ public class BaseEnemyAI : MonoBehaviour
             if (highestAttackValue.value < 0) //no good card to play
                 break; //exit loop
 
-            while (anim.isAnimating == true) //if the animator is animating, wait for it to finish
+            while (anim.isAnimating == true || anim.animationList.Count > 0) //if the animator is animating, wait for it to finish
                 yield return new WaitForEndOfFrame();
+
+            //reevaluates its card values and playstyle after making a play
+            DeterminePlaystyle(); //Determines its playstyle based on the current board state
+            CalculateCharacterAttackValues(); //calculates the value of each card in its hand. the highest value card will be played
+            //Debug.Log("Recalculated Playstyle and Character Attack Values");
 
             //plays cards
             if (highestAttackValue.card.GetComponent<BaseMinion>() == true) //if our highest value card is a minion
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseMinion>().GetComponent<MinionCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForFixedUpdate();
             }
             else if (highestAttackValue.card.GetComponent<BaseHero>() == true) //if our highest value card is a hero
             {
                 //attacks the target
                 highestAttackValue.card.GetComponent<BaseHero>().GetComponent<HeroCombatTarget>().AttackTarget(highestAttackValue.target.gameObject);
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForEndOfFrame();
+                yield return new WaitForFixedUpdate();
             }
             else
             {
@@ -156,7 +164,7 @@ public class BaseEnemyAI : MonoBehaviour
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
             CalculateCharacterAttackValues(); //calculates the value of each card in its hand. the highest value card will be played
-            Debug.Log("Recalculated Playstyle and Character Attack Values");
+            //Debug.Log("Recalculated Playstyle and Character Attack Values");
 
             if (highestAttackValue.value < 0) //no good card to play
                 break; //exit loop

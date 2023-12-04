@@ -24,7 +24,6 @@ public class BaseAnimationClip : ScriptableObject
 
     public virtual void StartAnim()
     {
-        currentTime = 0;
         animating = true;
     }
 
