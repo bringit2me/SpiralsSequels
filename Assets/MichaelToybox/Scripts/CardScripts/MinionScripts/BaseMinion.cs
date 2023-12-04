@@ -104,6 +104,7 @@ public class BaseMinion : BaseCard
     public virtual void AttackMinion(BaseMinion target)
     {
         target.visualManager.AddStatChangeEntry(0, false, 0, false, target.health - target.CalculateTakeDamage(attack), true, null);
+        this.visualManager.AddStatChangeEntry(0, false, 0, false, this.health - this.CalculateTakeDamage(target.attack), true, null);
         target.TakeDamage(attack);
         canAttack = false;
         PlayAttackAnim(target);
@@ -124,6 +125,8 @@ public class BaseMinion : BaseCard
     {
         attackAnimCopy.target = target.gameObject;
         attackAnimCopy.cardVisualsToUpdate.Add(target);
+        if(target.GetComponent<BaseMinion>() == true)
+            attackAnimCopy.cardVisualsToUpdate.Add(this);
         anim.PlayAnimation(attackAnimCopy);
     }
 
