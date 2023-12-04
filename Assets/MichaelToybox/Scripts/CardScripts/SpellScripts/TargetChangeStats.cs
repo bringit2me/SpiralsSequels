@@ -8,20 +8,67 @@ public class TargetChangeStats : BaseTargetSpell
     [SerializeField] int attackChange;
     [SerializeField] int healthChange;
 
+    public override void SetupEffectEntry()
+    {
+        base.SetupEffectEntry();
+
+        string desc = "";
+
+        if (attackChange > 0)
+        {
+            desc += "+" + attackChange;
+        }
+        else if (attackChange < 0)
+        {
+            desc += "-" + attackChange;
+        }
+
+        desc += "attack ";
+
+        if (healthChange > 0)
+        {
+            desc += "+" + healthChange;
+        }
+        else if (healthChange < 0)
+        {
+            desc += "-" + healthChange;
+        }
+
+        desc += "health";
+
+        cardEffectEntry.description = desc;
+    }
+
     public override void CastAtTarget()
     {
-        if (target.GetComponent<BaseMinion>() == true)
+        //Gets minion reference. if card is not a minion it will be null
+        BaseMinion minion = target.GetComponent<BaseMinion>();
+        //Gets hero reference. if card is not a hero it will be null
+        BaseHero hero = target.GetComponent<BaseHero>();
+
+        if (minion == true)
         {
-            target.GetComponent<BaseMinion>().ChangeAttack(attackChange);
-            target.GetComponent<BaseMinion>().ChangeHealth(healthChange);
+
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            minion.visualManager.AddStatChangeEntry(minion.attack + minion.CalculateAttackChange(attackChange), minion.health + minion.CalculateHealthChange(healthChange), cardEffectEntry);
+            playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
+
+            //changes stats
+            minion.ChangeAttack(attackChange);
+            minion.ChangeHealth(healthChange);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);
         }
-        if (target.GetComponent<BaseHero>() == true)
+        if (hero == true)
         {
-            target.GetComponent<BaseHero>().ChangeAttack(attackChange);
-            target.GetComponent<BaseHero>().ChangeHealth(healthChange);
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            hero.visualManager.AddStatChangeEntry(hero.attack + hero.CalculateAttackChange(attackChange), hero.health + hero.CalculateHealthChange(healthChange), cardEffectEntry);
+            playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
+
+            //changes statss
+            hero.ChangeAttack(attackChange);
+            hero.ChangeHealth(healthChange);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);

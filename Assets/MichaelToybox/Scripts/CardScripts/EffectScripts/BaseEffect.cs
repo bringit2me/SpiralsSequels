@@ -17,6 +17,7 @@ public class BaseEffect : MonoBehaviour
     protected CardAnimationManager anim;
     protected CombatManager combatManager;
     [SerializeField] protected PlayerManager playerManager;
+    protected CardEffectEntry cardEffectEntry;
 
     public virtual void Awake()
     {
@@ -25,6 +26,8 @@ public class BaseEffect : MonoBehaviour
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         if (triggerAnimClip != null)
             triggerAnimCopy = Instantiate(triggerAnimClip);
+
+        SetupEffectEntry();
     }
 
     /// <summary>
@@ -57,6 +60,13 @@ public class BaseEffect : MonoBehaviour
             triggerAnimCopy.card = spell;
         else if (hero != null)
             triggerAnimCopy.card = hero;
+    }
+
+    public virtual void SetupEffectEntry()
+    {
+        cardEffectEntry = new CardEffectEntry();
+        cardEffectEntry.name = this.GetComponentInParent<BaseCard>().name;
+        cardEffectEntry.description = "NONE";
     }
 
     public virtual void TriggerEffect()

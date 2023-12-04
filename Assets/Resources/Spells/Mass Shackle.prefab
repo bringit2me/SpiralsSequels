@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 2406254005266626399}
   - component: {fileID: 4677392108999491908}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 3656741736806963849}
   - component: {fileID: 3595004123858395837}
   - component: {fileID: 2706298838444109416}
+  - component: {fileID: 2382196306684881267}
   m_Layer: 5
   m_Name: Mass Shackle
   m_TagString: Untagged
@@ -540,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mass Shackle
   description: Give all enemy minions -2 attack
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 3656741736806963849}
   playerManager: {fileID: 0}
@@ -547,10 +549,13 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: d12de68108f89c340b8287609b7c94be, type: 2}
   manaCost: 5
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   onPlay: []
   actionTakenInHand: []
   nameText: {fileID: 7751030389074908763}
@@ -585,3 +590,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2382196306684881267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4610475061536994209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

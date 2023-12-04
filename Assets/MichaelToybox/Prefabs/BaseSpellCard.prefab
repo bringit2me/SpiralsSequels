@@ -394,12 +394,22 @@ MonoBehaviour:
   description: 'Spell card
 
     Does nothing'
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 6444843200295082626}
+  playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
+  hero: {fileID: 0}
+  anim: {fileID: 0}
+  playSendToDiscard: 1
+  valueBoostAI: 0
+  playAnimClip: {fileID: 0}
   manaCost: 1
   isPlayed: 0
+  visualManager: {fileID: 0}
+  onPlay: []
+  actionTakenInHand: []
   nameText: {fileID: 7323684198740496285}
   descriptionText: {fileID: 7139658210575706790}
   manaText: {fileID: 437772510611721613}
@@ -441,7 +451,7 @@ GameObject:
   - component: {fileID: 7139658210575706790}
   - component: {fileID: 2673754354333075324}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

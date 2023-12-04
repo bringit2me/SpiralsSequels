@@ -6,6 +6,17 @@ public class HandChangeManaCost : BaseSpell
 {
     [Header("Mana Cost Change")]
     public int manaCostChange = 0;
+
+    public override void Start()
+    {
+        base.Start();
+    }
+
+    public override void SetupEffectEntry()
+    {
+        base.SetupEffectEntry();
+    }
+
     public override void Cast()
     {
         base.Cast();
@@ -13,6 +24,10 @@ public class HandChangeManaCost : BaseSpell
         //loops through each card in the hand
         foreach(BaseCard card in playerManager.handManager.handCards)
         {
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            card.visualManager.AddStatChangeEntry(card.CalculateManaCostChange(manaCostChange), cardEffectEntry);
+            playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
             card.ChangeManaCost(manaCostChange); //changes the cost by manaCostChange
         }
 

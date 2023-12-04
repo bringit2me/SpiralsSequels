@@ -19,13 +19,24 @@ public class EffectAOEHeal : BaseEffect
             if (card == null) //null card reference
                 continue; //go to next
 
-            if (card.GetComponent<BaseMinion>() == true)
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion == true)
             {
-                card.GetComponent<BaseMinion>().Heal(healValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health + minion.CalculateHeal(healValue), true, null);
+                triggerAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
+
+                minion.Heal(healValue);
             }
-            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
+            else if (hero == true && hero.isDead == false)
             {
-                card.GetComponent<BaseHero>().Heal(healValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health + hero.CalculateHeal(healValue), true, null);
+                triggerAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
+
+                hero.Heal(healValue);
             }
         }
 

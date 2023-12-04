@@ -7,18 +7,37 @@ public class TargetChangeSpellDamage : BaseTargetSpell
     [Header("Spell Damage Change")]
     public int spellDamageChange;
 
+    public override void SetupEffectEntry()
+    {
+        base.SetupEffectEntry();
+        if(spellDamageChange > 0)
+            cardEffectEntry.description = "+" + spellDamageChange + " Spell Damage";
+        else
+            cardEffectEntry.description = "-" + spellDamageChange + " Spell Damage";
+    }
+
     public override void CastAtTarget()
     {
-        if (target.GetComponent<BaseMinion>() == true)
+
+        //Gets minion reference. if card is not a minion it will be null
+        BaseMinion minion = target.GetComponent<BaseMinion>();
+        //Gets hero reference. if card is not a hero it will be null
+        BaseHero hero = target.GetComponent<BaseHero>();
+
+        if (minion == true)
         {
-            target.GetComponent<BaseMinion>().ChangeSpellDamage(spellDamageChange); //changes spell damage
+            minion.ChangeSpellDamage(spellDamageChange); //changes spell damage
+
+            minion.visualManager.AddEffectEntry(cardEffectEntry);
 
             playAnimCopy.target = target.gameObject; //sets anim target
             anim.PlayAnimation(playAnimCopy); //plays animation
         }
-        if (target.GetComponent<BaseHero>() == true)
+        if (hero == true)
         {
-            target.GetComponent<BaseHero>().ChangeSpellDamage(spellDamageChange); //changes spell damage
+            hero.ChangeSpellDamage(spellDamageChange); //changes spell damage
+
+            hero.visualManager.AddEffectEntry(cardEffectEntry);
 
             playAnimCopy.target = target.gameObject; //sets anim target
             anim.PlayAnimation(playAnimCopy); //plays animation

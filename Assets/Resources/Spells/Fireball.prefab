@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4867006737768129274}
   - component: {fileID: 1694156676371312008}
   - component: {fileID: 3666945829784537413}
+  - component: {fileID: -7657814873871871093}
   m_Layer: 5
   m_Name: Fireball
   m_TagString: Untagged
@@ -185,7 +186,7 @@ RectTransform:
   - {fileID: 3863030939985806573}
   - {fileID: 3211937293917035073}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -269,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fireball
   description: Deal 6 damage to a minion
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 3666945829784537413}
   playerManager: {fileID: 0}
@@ -276,10 +278,13 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: e1a4e3c8a8b40d2489110a10d857957d, type: 2}
   manaCost: 4
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   onPlay: []
   actionTakenInHand: []
   nameText: {fileID: 8516035465880405136}
@@ -288,6 +293,28 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTeam: 3
   damage: 6
+--- !u!114 &-7657814873871871093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6903307212474165077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8583159799176346266
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +328,7 @@ GameObject:
   - component: {fileID: 2061876636343333845}
   - component: {fileID: 7132010269779680755}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5098663139491101195}
   - component: {fileID: 1010376892298080114}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 7896783209458439031}
   - component: {fileID: 1852463471058435980}
   m_Layer: 5
-  m_Name: AttackText
+  m_Name: Attack Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 6733955079795576833}
   - component: {fileID: 6223413627920645664}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 1696349124383470163}
   - component: {fileID: 3634247662349809446}
   - component: {fileID: 5190727904314398871}
+  - component: {fileID: 5169644889906079211}
   m_Layer: 5
   m_Name: Bartender
   m_TagString: Untagged
@@ -481,7 +482,7 @@ RectTransform:
   - {fileID: 3788037553329142960}
   - {fileID: 5629909221938356627}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -540,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bartender
   description: Playing minions with good effects and healing them
+  rarity: 0
   team: 1
   selfCardRef: {fileID: 1696349124383470163}
   playerManager: {fileID: 0}
@@ -547,13 +549,18 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   heroDeck: {fileID: 3634247662349809446}
   attack: 1
+  baseAttack: 0
   maxHealth: 20
+  baseMaxHealth: 0
   health: 20
   canAttack: 1
   targetable: 1
@@ -618,3 +625,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c12afdc64bc764ba27a4bfe41a9cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5169644889906079211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969733786657101327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

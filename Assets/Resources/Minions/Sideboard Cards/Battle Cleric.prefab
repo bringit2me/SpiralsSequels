@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1671160423007532142}
   - component: {fileID: 4507435819338950906}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,6 +311,8 @@ GameObject:
   - component: {fileID: 3243665268787878890}
   - component: {fileID: 2182347776688436237}
   - component: {fileID: 6854265739200522609}
+  - component: {fileID: 1092046413737080558}
+  - component: {fileID: 4349783404786879553}
   m_Layer: 5
   m_Name: Battle Cleric
   m_TagString: Untagged
@@ -337,7 +339,7 @@ RectTransform:
   - {fileID: 7328970868754203039}
   - {fileID: 7101107561764728531}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -409,6 +411,7 @@ MonoBehaviour:
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 5
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 3
   maxHealth: 6
   health: 6
@@ -423,14 +426,6 @@ MonoBehaviour:
   endOfTurn:
   - {fileID: 3951297381536458983}
   actionTakenInHand: []
-  nameText: {fileID: 4746891086079937521}
-  descriptionText: {fileID: 1671160423007532142}
-  manaText: {fileID: 480069928250128568}
-  attackText: {fileID: 5666135399212090731}
-  healthText: {fileID: 3028868143298571008}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &3243665268787878890
@@ -470,6 +465,46 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1092046413737080558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781281367501247076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &4349783404786879553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4781281367501247076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &5308220181326650245
 GameObject:
   m_ObjectHideFlags: 0

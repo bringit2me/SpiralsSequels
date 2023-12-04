@@ -13,14 +13,28 @@ public class AOEHealSpell : BaseAOESpell
 
         foreach (BaseCard card in targets)
         {
+            //Gets minion reference. if card is not a minion it will be null
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            //Gets hero reference. if card is not a hero it will be null
+            BaseHero hero = card.GetComponent<BaseHero>();
 
-            if (card.GetComponent<BaseMinion>() == true)
+            if (minion == true)
             {
-                card.GetComponent<BaseMinion>().Heal(healValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health + minion.CalculateHeal(healValue), true, null);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                //heals minion
+                minion.Heal(healValue);
             }
-            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
+            else if (hero == true && hero.isDead == false)
             {
-                card.GetComponent<BaseHero>().Heal(healValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health + hero.CalculateHeal(healValue), true, null);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                //heals hero
+                hero.Heal(healValue);
             }
         }
 

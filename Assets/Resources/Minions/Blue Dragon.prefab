@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5377391455931453372}
   - component: {fileID: 3625872190148812887}
   - component: {fileID: 5228278861688621588}
+  - component: {fileID: 1927513671342145725}
+  - component: {fileID: 8188717795031973780}
   m_Layer: 5
   m_Name: Blue Dragon
   m_TagString: Untagged
@@ -40,7 +42,7 @@ RectTransform:
   - {fileID: 4452049976681905422}
   - {fileID: 3483985712769222746}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -99,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Blue Dragon
   description: <b>+5 Spell Damage</b>
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 7451658095880025454}
   playerManager: {fileID: 0}
@@ -106,10 +109,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 10
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 5
   maxHealth: 15
   health: 15
@@ -123,14 +128,6 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn: []
   actionTakenInHand: []
-  nameText: {fileID: 1034816005115101735}
-  descriptionText: {fileID: 2483095974694987365}
-  manaText: {fileID: 1012264405858848823}
-  attackText: {fileID: 7331103397510449380}
-  healthText: {fileID: 2237924417158519116}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &5377391455931453372
@@ -170,6 +167,46 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1927513671342145725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582513552949558442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &8188717795031973780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2582513552949558442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &5391440096202525822
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,7 +812,7 @@ GameObject:
   - component: {fileID: 2483095974694987365}
   - component: {fileID: 3930738883376026262}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

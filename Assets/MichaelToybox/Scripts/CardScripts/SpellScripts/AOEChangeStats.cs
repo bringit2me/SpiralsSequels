@@ -8,6 +8,37 @@ public class AOEChangeStats : BaseAOESpell
     [SerializeField] int attackChange;
     [SerializeField] int healthChange;
 
+    public override void SetupEffectEntry()
+    {
+        base.SetupEffectEntry();
+
+        string desc = "";
+
+        if(attackChange > 0)
+        {
+            desc += "+" + attackChange;
+        }
+        else if (attackChange < 0)
+        {
+            desc += "-" + attackChange;
+        }
+
+        desc += "attack ";
+
+        if (healthChange > 0)
+        {
+            desc += "+" + healthChange;
+        }
+        else if (healthChange < 0)
+        {
+            desc += "-" + healthChange;
+        }
+
+        desc += "health";
+
+        cardEffectEntry.description = desc;
+    }
+
     public override void Cast()
     {
         base.Cast();
@@ -15,15 +46,30 @@ public class AOEChangeStats : BaseAOESpell
         foreach (BaseCard card in targets)
         {
 
-            if (card.GetComponent<BaseMinion>() == true)
+            //Gets minion reference. if card is not a minion it will be null
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            //Gets hero reference. if card is not a hero it will be null
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion == true)
             {
-                card.GetComponent<BaseMinion>().ChangeAttack(attackChange);
-                card.GetComponent<BaseMinion>().ChangeHealth(healthChange);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                card.visualManager.AddStatChangeEntry(minion.attack + minion.CalculateAttackChange(attackChange), minion.health + minion.CalculateHealthChange(healthChange), cardEffectEntry);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                //changes minion stats
+                minion.ChangeAttack(attackChange);
+                minion.ChangeHealth(healthChange);
             }
-            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
+            else if (hero == true && hero.isDead == false)
             {
-                card.GetComponent<BaseHero>().ChangeAttack(attackChange);
-                card.GetComponent<BaseHero>().ChangeHealth(healthChange);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                card.visualManager.AddStatChangeEntry(hero.attack + hero.CalculateAttackChange(attackChange), hero.health + hero.CalculateHealthChange(healthChange), cardEffectEntry);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                //changes hero stats
+                hero.ChangeAttack(attackChange);
+                hero.ChangeHealth(healthChange);
             }
         }
 

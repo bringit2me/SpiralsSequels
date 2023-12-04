@@ -9,16 +9,31 @@ public class TargetHealSpell : BaseTargetSpell
 
     public override void CastAtTarget()
     {
-        if (target.GetComponent<BaseMinion>() == true)
+        //Gets minion reference. if card is not a minion it will be null
+        BaseMinion minion = target.GetComponent<BaseMinion>();
+        //Gets hero reference. if card is not a hero it will be null
+        BaseHero hero = target.GetComponent<BaseHero>();
+
+        if (minion == true)
         {
-            target.GetComponent<BaseMinion>().Heal(healValue);
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            minion.visualManager.AddStatChangeEntry(0, false, minion.health + minion.CalculateHeal(healValue), true, 0, false, null);
+            playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
+
+            //heals minion
+            minion.Heal(healValue);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);
         }
-        if (target.GetComponent<BaseHero>() == true)
+        if (hero == true)
         {
-            target.GetComponent<BaseHero>().Heal(healValue);
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health + hero.CalculateHeal(healValue), true, null);
+            playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
+
+            //heals hero
+            hero.Heal(healValue);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);

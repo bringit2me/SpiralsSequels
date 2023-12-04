@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 3161751527276352194}
   - component: {fileID: 3955947517878497615}
   - component: {fileID: 3991554919031376741}
+  - component: {fileID: 4401247318789635939}
+  - component: {fileID: 5059643738164442038}
   m_Layer: 5
   m_Name: Tavern Bouncer
   m_TagString: Untagged
@@ -100,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tavern Bouncer
   description: <b>On Play:</b> Deal 2 damage to all enemy minions
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 708543607517336240}
   playerManager: {fileID: 0}
@@ -107,10 +110,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 5
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 3
   maxHealth: 3
   health: 3
@@ -125,14 +130,6 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn: []
   actionTakenInHand: []
-  nameText: {fileID: 728866110925064588}
-  descriptionText: {fileID: 162365021488379661}
-  manaText: {fileID: 4821508426165503157}
-  attackText: {fileID: 364407678835686201}
-  healthText: {fileID: 8055500157213260044}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &3161751527276352194
@@ -172,6 +169,46 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4401247318789635939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106747626584811968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &5059643738164442038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 106747626584811968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &1593181013599638506
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,7 +370,7 @@ GameObject:
   - component: {fileID: 162365021488379661}
   - component: {fileID: 8691266134744057791}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

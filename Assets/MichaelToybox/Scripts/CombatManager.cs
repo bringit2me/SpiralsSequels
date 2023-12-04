@@ -58,10 +58,13 @@ public class CombatManager : MonoBehaviour
         enemyAI = enemyHolder.GetComponentInChildren<BaseEnemyAI>(); //enemy AI reference
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
+        {
             enemyHeroes.Add(hero);
+            hero.SetupCardText();
+        }
 
-        //Gets hero references
-        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+            //Gets hero references
+            playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         playerHandManager = playerManager.GetComponent<HandManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Sets player mana
@@ -165,8 +168,6 @@ public class CombatManager : MonoBehaviour
 
     public void StartEnemyTurn()
     {
-        //TODO: Trigger start of turn effects for the enemy
-
         state = CombatState.ENEMY_TURN;
 
         enemyManager.StartTurn();

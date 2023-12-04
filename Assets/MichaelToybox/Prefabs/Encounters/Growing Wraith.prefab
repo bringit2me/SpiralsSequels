@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7767717663324808448}
   - component: {fileID: 4557927554034065156}
   m_Layer: 5
-  m_Name: AttackText
+  m_Name: Attack Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5196297126570546004}
   - component: {fileID: 2863737486380695367}
   - component: {fileID: 58183922925806531}
+  - component: {fileID: 7168512861986103222}
   m_Layer: 5
   m_Name: Growing Wraith
   m_TagString: Untagged
@@ -185,7 +186,7 @@ RectTransform:
   - {fileID: 8396847264471749361}
   - {fileID: 3607232358797943077}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Growing Wraith
   description: Increasing his own attack and summoning well stated sticky minions
+  rarity: 0
   team: 1
   selfCardRef: {fileID: 5196297126570546004}
   playerManager: {fileID: 0}
@@ -251,13 +253,18 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   heroDeck: {fileID: 2863737486380695367}
   attack: 3
+  baseAttack: 0
   maxHealth: 10
+  baseMaxHealth: 0
   health: 10
   canAttack: 1
   targetable: 1
@@ -322,6 +329,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c12afdc64bc764ba27a4bfe41a9cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7168512861986103222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3883518259592515131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &7091620998454173341
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +364,7 @@ GameObject:
   - component: {fileID: 7341793370409503910}
   - component: {fileID: 1631521177370258846}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +512,7 @@ GameObject:
   - component: {fileID: 7648603140720869543}
   - component: {fileID: 4940787541925567347}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

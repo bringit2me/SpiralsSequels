@@ -25,20 +25,24 @@ public class BaseCard : MonoBehaviour
     protected BaseAnimationClip playAnimCopy;
     [Header("Stats")]
     public int manaCost;
+    [HideInInspector] public int baseManaCost;
     public bool isPlayed = false;
 
     //references
     protected PointerEventData eventData;
     protected delegate void MethodCall();
     protected MethodCall methodCall;
-
+    public CardVisualManager visualManager;
     public virtual void Awake()
     {
-        anim = GameObject.FindObjectOfType<CardAnimationManager>();
-        combatManager = GameObject.FindObjectOfType<CombatManager>();
+        anim = GameObject.FindObjectOfType<CardAnimationManager>(); //gets reference to animation manager
+        combatManager = GameObject.FindObjectOfType<CombatManager>(); //gets reference to combat manager
+        visualManager = this.GetComponent<CardVisualManager>(); //gets reference to visual manager
 
         playAnimCopy = Instantiate(playAnimClip); //creates copy
         playAnimCopy.card = this; //sets anim card reference
+
+        baseManaCost = manaCost;
     }
 
 
@@ -121,7 +125,6 @@ public class BaseCard : MonoBehaviour
     public virtual void ChangeManaCost(int value)
     {
         manaCost += CalculateManaCostChange(value);
-        UpdateMana();
     }
     public virtual int CalculateManaCostChange(int value)
     {
@@ -131,8 +134,9 @@ public class BaseCard : MonoBehaviour
         return value;
     }
 
-    public virtual void UpdateMana()
+    public virtual void SetupCardText()
     {
-
+        visualManager.GetUIReferences();
     }
+
 }

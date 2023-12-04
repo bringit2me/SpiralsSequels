@@ -6,12 +6,15 @@ using UnityEngine;
 public class AttackAnimation : BaseAnimationClip
 {
     Vector3 startPosCard;
+    bool updatedTarget = false;
 
     public override void SetupAnim()
     {
         base.SetupAnim();
         startPosCard = card.transform.position;
         targetPos = target.transform.position;
+        updatedTarget = false;
+        currentTime = 0;
     }
 
     public override void Execute()
@@ -24,12 +27,29 @@ public class AttackAnimation : BaseAnimationClip
         }
         else if (currentTime < 2)
         {
+            if (updatedTarget == false)
+            {
+                UpdateTargetVisuals();
+                updatedTarget = true;
+            }
             card.transform.position = Vector3.Lerp(targetPos, startPosCard, currentTime - 1);
         }
         else
         {
             card.transform.position = startPosCard;
-            AnimationFinished();
+            this.AnimationFinished();
         }
+    }
+
+    public override void AnimationFinished()
+    {
+        animating = false;
+        animationFinished = true;
+    }
+
+    public override void UpdateTargetVisuals()
+    {
+        base.UpdateTargetVisuals();
+        Debug.Log("Updating Visuals");
     }
 }

@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 21844088327452581}
   - component: {fileID: 544576119678297852}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 2556997248643695219}
   - component: {fileID: 7463139882768178337}
   - component: {fileID: 7539561316310097205}
+  - component: {fileID: -199686115723319637}
   m_Layer: 5
   m_Name: Mass Restoration
   m_TagString: Untagged
@@ -481,7 +482,7 @@ RectTransform:
   - {fileID: 521043202298002752}
   - {fileID: 4261784545473231505}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -565,7 +566,9 @@ MonoBehaviour:
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 53a635d30939b6447bbc4dfe75864c94, type: 2}
   manaCost: 4
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   onPlay: []
   actionTakenInHand: []
   nameText: {fileID: 9180974234070193263}
@@ -586,3 +589,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-199686115723319637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7982659554855083197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

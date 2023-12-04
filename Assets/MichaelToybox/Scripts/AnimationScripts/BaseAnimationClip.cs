@@ -11,6 +11,7 @@ public class BaseAnimationClip : ScriptableObject
     public GameObject target;
     public Vector3 targetPos;
     [Header("Animation Info")]
+    public List<BaseCard> cardVisualsToUpdate;
     public float animationTime = 1f;
 
     CardAnimationManager anim;
@@ -36,5 +37,23 @@ public class BaseAnimationClip : ScriptableObject
     {
         animating = false;
         animationFinished = true;
+        //updates visuals of all cards to update
+        UpdateTargetVisuals();
+    }
+
+    public virtual void UpdateTargetVisuals()
+    {
+
+        //updates visuals of all cards to update
+        foreach (BaseCard card in cardVisualsToUpdate)
+        {
+            if (card != null || card.visualManager != null)
+                card.visualManager.UpdateStatChanges();
+            else
+                Debug.Log("No Card Ref");
+        }
+
+        if (cardVisualsToUpdate.Count < 0)
+            Debug.Log("No cards to update");
     }
 }

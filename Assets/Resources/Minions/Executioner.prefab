@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 6009368587317298391}
   - component: {fileID: 3786736027093769010}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,6 +459,8 @@ GameObject:
   - component: {fileID: 7780808214139884418}
   - component: {fileID: 5539046924798091892}
   - component: {fileID: 2224627148200393866}
+  - component: {fileID: 3351135629435984062}
+  - component: {fileID: 6993068700021668571}
   m_Layer: 5
   m_Name: Executioner
   m_TagString: Untagged
@@ -544,6 +546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Executioner
   description: <b>On Play:</b> Deal 3 damage to all enemy heroes
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 5248357269477375163}
   playerManager: {fileID: 0}
@@ -551,10 +554,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 8
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 7
   maxHealth: 5
   health: 5
@@ -569,14 +574,6 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn: []
   actionTakenInHand: []
-  nameText: {fileID: 4249200276178648608}
-  descriptionText: {fileID: 6009368587317298391}
-  manaText: {fileID: 6102955530927303282}
-  attackText: {fileID: 7427519391484831460}
-  healthText: {fileID: 5712334731275505933}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &7780808214139884418
@@ -616,6 +613,46 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3351135629435984062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236982956174330102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &6993068700021668571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6236982956174330102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8028981643148410782
 GameObject:
   m_ObjectHideFlags: 0
@@ -961,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544e394fd52acf744a6d9eba3e7a09b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 0}
+  triggerAnimClip: {fileID: 0}
   valueBoostAI: 0
   hero: {fileID: 0}
   minion: {fileID: 0}

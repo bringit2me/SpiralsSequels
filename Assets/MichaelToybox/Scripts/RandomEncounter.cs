@@ -66,7 +66,7 @@ public class RandomEncounter : MonoBehaviour
         {
             hero.maxHealth = hero.maxHealth + (maxEnemyCount - enemyCount) * healthBoostPerMissingEnemy;
             hero.health = hero.maxHealth;
-            hero.UpdateHealth();
+            hero.SetupCardText();
         }
     }
 

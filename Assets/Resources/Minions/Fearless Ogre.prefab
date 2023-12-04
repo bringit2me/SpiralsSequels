@@ -104,40 +104,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
       insertIndex: 3
       addedObject: {fileID: 5373352553673519531}
+    - targetCorrespondingSourceObject: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4596443204401945467}
   m_SourcePrefab: {fileID: 100100000, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
---- !u!114 &1194734072310589136 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7772700304501913913, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 8884091275130232809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2026916737909718278 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7452243494110634735, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 8884091275130232809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2547914978000123355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6347439797376707122, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 8884091275130232809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2980283207132292012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5915115515409759301, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
@@ -157,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Fearless Ogre
   description: Reduces damage taken by 2 (not less than 1)
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 5373352553673519531}
   playerManager: {fileID: 0}
@@ -164,10 +135,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 6
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 6
   maxHealth: 4
   health: 4
@@ -181,37 +154,27 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn: []
   actionTakenInHand: []
-  nameText: {fileID: 5802593180433328395}
-  descriptionText: {fileID: 1194734072310589136}
-  manaText: {fileID: 7723434044962208195}
-  attackText: {fileID: 2026916737909718278}
-  healthText: {fileID: 2547914978000123355}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   damageReduction: 2
   minimumValue: 1
---- !u!114 &5802593180433328395 stripped
+--- !u!114 &-4596443204401945467
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3155987808508573410, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 8884091275130232809}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2980283207132292012}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7723434044962208195 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1181499625201837610, guid: 9169aa588c948f141a433d2a4dea04d4, type: 3}
-  m_PrefabInstance: {fileID: 8884091275130232809}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

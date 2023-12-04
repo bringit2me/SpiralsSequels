@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 2789769630159892844}
   - component: {fileID: 1492115083423498767}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -869,6 +869,8 @@ GameObject:
   - component: {fileID: 2079594335823543222}
   - component: {fileID: 1701324072139370900}
   - component: {fileID: 9195436364648298051}
+  - component: {fileID: 5739094336055262933}
+  - component: {fileID: -6667501093555916616}
   m_Layer: 5
   m_Name: Nature Shaman
   m_TagString: Untagged
@@ -956,6 +958,7 @@ MonoBehaviour:
   name: Nature Shaman
   description: <b>End of Turn:</b> Restore 4 health to all friendly minions and 2
     health to all friendly hereos
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 5989482450132362508}
   playerManager: {fileID: 0}
@@ -963,10 +966,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 6
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 2
   maxHealth: 6
   health: 6
@@ -982,14 +987,6 @@ MonoBehaviour:
   - {fileID: 2353609251023181307}
   - {fileID: 5061857292685584193}
   actionTakenInHand: []
-  nameText: {fileID: 7532103479330864372}
-  descriptionText: {fileID: 2789769630159892844}
-  manaText: {fileID: 5498085671296259777}
-  attackText: {fileID: 875329416490450692}
-  healthText: {fileID: 1829010459248499488}
-  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
-  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
-  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
   deathValueBoostAI: 2
   attackAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
 --- !u!114 &2079594335823543222
@@ -1029,3 +1026,43 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5739094336055262933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164920131293978569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!114 &-6667501093555916616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9164920131293978569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

@@ -37,7 +37,7 @@ public class AppearCardAnimation : BaseAnimationClip
 
     public override void AnimationFinished()
     {
-        base.AnimationFinished();
+        base.UpdateTargetVisuals();
         Destroy(createdEffect);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4550503440828742621}
   - component: {fileID: 1617740422577994587}
   m_Layer: 5
-  m_Name: AttackText
+  m_Name: Attack Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 644613991634673572}
   - component: {fileID: 8975470626727224087}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 7070292483276318937}
   - component: {fileID: 8621729399217472285}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -458,6 +458,7 @@ GameObject:
   - component: {fileID: 3129227271121671819}
   - component: {fileID: 7831565385933164338}
   - component: {fileID: 6816295130023927896}
+  - component: {fileID: 5319765192771712019}
   m_Layer: 5
   m_Name: Town Mob
   m_TagString: Untagged
@@ -481,7 +482,7 @@ RectTransform:
   - {fileID: 6753912411368408729}
   - {fileID: 5889698348115304323}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -540,6 +541,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Town Mob
   description: Playing well stated cards and buffing them
+  rarity: 0
   team: 1
   selfCardRef: {fileID: 3129227271121671819}
   playerManager: {fileID: 0}
@@ -547,13 +549,18 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   heroDeck: {fileID: 7831565385933164338}
   attack: 2
+  baseAttack: 0
   maxHealth: 15
+  baseMaxHealth: 0
   health: 15
   canAttack: 1
   targetable: 1
@@ -618,3 +625,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c12afdc64bc764ba27a4bfe41a9cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5319765192771712019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377550336866099565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}

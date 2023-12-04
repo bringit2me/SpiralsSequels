@@ -22,13 +22,24 @@ public class EffectAOEDamage : BaseEffect
         foreach (BaseCard card in targets)
         {
 
-            if (card.GetComponent<BaseMinion>() == true)
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion == true)
             {
-                card.GetComponent<BaseMinion>().TakeDamage(damageValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damage), true, null);
+                triggerAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
+
+                minion.TakeDamage(damageValue);
             }
-            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
+            else if (hero == true && hero.isDead == false)
             {
-                card.GetComponent<BaseHero>().TakeDamage(damageValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damage), true, null);
+                triggerAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
+
+                hero.TakeDamage(damageValue);
             }
         }
 

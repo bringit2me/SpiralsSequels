@@ -9,9 +9,9 @@ public class BaseHero : BaseCard
     public DeckManager heroDeck;
     [Header("Stats")]
     public int attack;
-    int baseAttack;
+    [HideInInspector] public int baseAttack;
     public int maxHealth;
-    int baseMaxHealth;
+    [HideInInspector] public int baseMaxHealth;
     public int health;
     public bool canAttack = false;
     public bool targetable = true;
@@ -44,6 +44,8 @@ public class BaseHero : BaseCard
 
     private void Start()
     {
+        visualManager = this.GetComponent<CardVisualManager>(); //gets reference to visual manager
+
         //sets base numbers
         baseAttack = attack;
         baseMaxHealth = maxHealth;
@@ -55,38 +57,21 @@ public class BaseHero : BaseCard
         attackAnimCopy = Instantiate(attackAnimClip); //creates copy
         attackAnimCopy.card = this; //sets anim card reference
     }
-    public virtual void SetupCardText()
+
+    public override void SetupCardText()
     {
-        nameText.text = name;
-        UpdateAttack();
-        UpdateHealth();
-    }
+        base.SetupCardText();
 
-    public virtual void UpdateAttack()
-    {
-        attackText.text = "" + attack;
-
-        if (attack > baseAttack)
-            attackText.color = positiveTextColor;
-        else
-            attackText.color = defaultTextColor;
-    }
-
-    public virtual void UpdateHealth()
-    {
-        healthText.text = "" + health;
-
-        if (health > baseMaxHealth && health == maxHealth) //card health greater than default and at maxHealth
-            healthText.color = positiveTextColor;
-        else if (health < maxHealth) //card is damaged
-            healthText.color = negativeTextColor;
-        else //card not damaged
-            healthText.color = defaultTextColor;
-
+        visualManager.UpdateName(name);
+        visualManager.UpdateDescription(description);
+        visualManager.UpdateMana(manaCost, true);
+        visualManager.UpdateAttack(attack, true);
+        visualManager.UpdateHealth(health, true);
     }
 
     public virtual void AttackMinion(BaseMinion target)
     {
+        target.visualManager.AddStatChangeEntry(0, false, 0, false, target.health - target.CalculateTakeDamage(attack), true, null);
         target.TakeDamage(attack);
         canAttack = false;
         PlayAttackAnim(target);
@@ -95,6 +80,7 @@ public class BaseHero : BaseCard
     }
     public virtual void AttackHero(BaseHero target)
     {
+        target.visualManager.AddStatChangeEntry(0, false, 0, false, target.health - target.CalculateTakeDamage(attack), true, null);
         target.TakeDamage(attack);
         canAttack = false;
         PlayAttackAnim(target);
@@ -105,6 +91,7 @@ public class BaseHero : BaseCard
     public virtual void PlayAttackAnim(BaseCard target)
     {
         attackAnimCopy.target = target.gameObject;
+        attackAnimCopy.cardVisualsToUpdate.Add(target);
         anim.PlayAnimation(attackAnimCopy);
     }
 
@@ -120,8 +107,6 @@ public class BaseHero : BaseCard
         {
             Dead();
         }
-
-        UpdateHealth();
     }
 
     public virtual int CalculateTakeDamage(int value)
@@ -140,8 +125,6 @@ public class BaseHero : BaseCard
         health += calculatedValue;
 
         health = Mathf.Clamp(health, 0, maxHealth);
-
-        UpdateHealth();
     }
 
     public virtual int CalculateHeal(int value)
@@ -164,8 +147,6 @@ public class BaseHero : BaseCard
 
         if (attack < 0)
             attack = 0;
-
-        UpdateAttack();
     }
 
     public virtual int CalculateAttackChange(int value)
@@ -185,8 +166,6 @@ public class BaseHero : BaseCard
         {
             Dead();
         }
-
-        UpdateHealth();
     }
 
     public virtual int CalculateHealthChange(int value)

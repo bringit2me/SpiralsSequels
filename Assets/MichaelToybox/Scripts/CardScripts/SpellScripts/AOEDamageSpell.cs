@@ -18,18 +18,32 @@ public class AOEDamageSpell : BaseAOESpell
             if (card == null) //null card reference
                 continue; //go to next
 
-            if (card.GetComponent<BaseMinion>() == true)
+            //Gets minion reference. if card is not a minion it will be null
+            BaseMinion minion = card.GetComponent<BaseMinion>();
+            //Gets hero reference. if card is not a hero it will be null
+            BaseHero hero = card.GetComponent<BaseHero>();
+
+            if (minion == true) //if card is minion
             {
-                card.GetComponent<BaseMinion>().TakeDamage(damageValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                card.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damageValue), false, null);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                minion.TakeDamage(damageValue); //damages minion
             }
-            else if (card.GetComponent<BaseHero>() == true && card.GetComponent<BaseHero>().isDead == false)
+            else if (hero == true && hero.isDead == false) //if card is hero and hero is not dead
             {
-                card.GetComponent<BaseHero>().TakeDamage(damageValue);
+                //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+                card.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damageValue), true, null);
+                playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
+
+                hero.TakeDamage(damageValue); //damages hero
+
             }
 
         }
 
-        if (targets.Count > 0)
+        if (targets.Count > 0) //if we hit a target
         {
             playAnimCopy.target = targets[0].gameObject; //sets target
             anim.PlayAnimation(playAnimCopy); //plays animation

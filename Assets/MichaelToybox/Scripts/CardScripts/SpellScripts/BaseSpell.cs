@@ -7,21 +7,28 @@ public class BaseSpell : BaseCard
 {
     bool isBeingCast = false;
     [Header("Effect Triggers")]
-    public List<BaseEffect> onPlay;//(NOT IMPLEMENTED) called when the spell is played
-    public List<BaseEffect> actionTakenInHand;//(NOT IMPLEMENTED) called whenever a card is played while this is in the hand
-    [Header("UI References")]
-    [SerializeField] TMP_Text nameText;
-    [SerializeField] TMP_Text descriptionText;
-    [SerializeField] TMP_Text manaText;
+    public List<BaseEffect> onPlay; //called when the spell is played
+    public List<BaseEffect> actionTakenInHand; //(TESTING) called whenever a card is played while this is in the hand
 
     protected ArrowRenderer arrowRenderer;
-
+    protected CardEffectEntry cardEffectEntry;
     public virtual void Start()
     {
         SetupCardText();
         combatManager = GameObject.FindObjectOfType<CombatManager>();
         arrowRenderer = GameObject.FindObjectOfType<ArrowRenderer>();
         SetupAllEffects(); //sets up all effects
+        SetupEffectEntry(); //sets up effect entry
+    }
+
+    /// <summary>
+    /// Sets up effect entry description and name
+    /// </summary>
+    public virtual void SetupEffectEntry()
+    {
+        cardEffectEntry = new CardEffectEntry();
+        cardEffectEntry.name = name;
+        cardEffectEntry.description = "NONE";
     }
 
     public virtual void Update()
@@ -95,16 +102,13 @@ public class BaseSpell : BaseCard
         GameObject.FindObjectOfType<ArrowRenderer>().ResetArrowRenderer(); //resets arrow manager
     }
 
-    public virtual void SetupCardText()
+    public override void SetupCardText()
     {
-        nameText.text = name;
-        descriptionText.text = description;
-        UpdateMana();
-    }
+        base.SetupCardText();
 
-    public override void UpdateMana()
-    {
-        manaText.text = "" + manaCost;
+        visualManager.UpdateName(name);
+        visualManager.UpdateDescription(description);
+        visualManager.UpdateMana(manaCost, true);
     }
 
     // --- CALLING EFFECTS ---

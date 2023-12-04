@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7772700304501913913}
   - component: {fileID: 6693108516736222795}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,6 +607,7 @@ GameObject:
   - component: {fileID: 4571071661720032199}
   - component: {fileID: 7042661451590776125}
   - component: {fileID: 4688872072343099077}
+  - component: {fileID: 5107331639221272839}
   m_Layer: 5
   m_Name: BaseMinionCard
   m_TagString: Untagged
@@ -691,6 +692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Test Minion
   description: Minion
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 5583382633494265006}
   playerManager: {fileID: 0}
@@ -698,26 +700,12 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
-  playAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5583382633494265006}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 0
-    animSpeed: 2
-    effect: {fileID: 0}
+  playAnimClip: {fileID: 0}
   manaCost: 1
   isPlayed: 0
+  visualManager: {fileID: 0}
   attack: 1
   maxHealth: 1
   health: 1
@@ -731,29 +719,8 @@ MonoBehaviour:
   startOfTurn: []
   endOfTurn: []
   actionTakenInHand: []
-  nameText: {fileID: 3155987808508573410}
-  descriptionText: {fileID: 7772700304501913913}
-  manaText: {fileID: 1181499625201837610}
-  attackText: {fileID: 7452243494110634735}
-  healthText: {fileID: 6347439797376707122}
   deathValueBoostAI: 2
-  attackAnimClip:
-    animID: 0
-    animating: 0
-    animationFinished: 0
-    card: {fileID: 5583382633494265006}
-    target: {fileID: 0}
-    targetPos: {x: 0, y: 0, z: 0}
-    moveCard: 1
-    moveEffect: 0
-    startHero: 0
-    startCard: 0
-    startTarget: 0
-    startMiddle: 0
-    lookAtTargetPos: 0
-    reverseAnimWhenDone: 1
-    animSpeed: 2
-    effect: {fileID: 0}
+  attackAnimClip: {fileID: 0}
 --- !u!114 &4571071661720032199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,6 +758,26 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &5107331639221272839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915115515409759301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6208217248941376031
 GameObject:
   m_ObjectHideFlags: 0

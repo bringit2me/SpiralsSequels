@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7630559611955148624}
   - component: {fileID: 2302044959918787922}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: Name Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 6912276887625670992}
   - component: {fileID: 6650836426884737596}
   - component: {fileID: 8234951715604354655}
+  - component: {fileID: 7671095345772249710}
   m_Layer: 5
   m_Name: Shaman Initiate
   m_TagString: Untagged
@@ -185,7 +186,7 @@ RectTransform:
   - {fileID: 5186224899629821071}
   - {fileID: 349100331121646156}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -244,6 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shaman Initiate
   description: Spell damage minions and spells that deal damage
+  rarity: 0
   team: 1
   selfCardRef: {fileID: 6912276887625670992}
   playerManager: {fileID: 0}
@@ -251,13 +253,18 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 2eb1b1a2754e50d41b4eb9f825a4187e, type: 2}
   manaCost: 0
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   heroDeck: {fileID: 6650836426884737596}
   attack: 1
+  baseAttack: 0
   maxHealth: 20
+  baseMaxHealth: 0
   health: 20
   canAttack: 1
   targetable: 1
@@ -322,6 +329,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6c12afdc64bc764ba27a4bfe41a9cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7671095345772249710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5564942400392694712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &6587947712195937519
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +364,7 @@ GameObject:
   - component: {fileID: 3811951984316121629}
   - component: {fileID: 734978019754229972}
   m_Layer: 5
-  m_Name: AttackText
+  m_Name: Attack Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +512,7 @@ GameObject:
   - component: {fileID: 5856367270480972764}
   - component: {fileID: 6157332802878010866}
   m_Layer: 5
-  m_Name: HealthText
+  m_Name: Health Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

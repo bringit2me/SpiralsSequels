@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6824827764828763838}
   - component: {fileID: 225391537340871450}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 6796207260375433297}
   - component: {fileID: 6518787031122779349}
   - component: {fileID: 2859252654475396174}
+  - component: {fileID: -4661614042863494454}
   m_Layer: 5
   m_Name: Martyr
   m_TagString: Untagged
@@ -270,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Martyr
   description: Deal 8 damage to a friendly hero and deal 12 damage to all enemy heroes
+  rarity: 0
   team: 0
   selfCardRef: {fileID: 2859252654475396174}
   playerManager: {fileID: 0}
@@ -277,10 +279,13 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
+  playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: e1a4e3c8a8b40d2489110a10d857957d, type: 2}
   manaCost: 9
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   onPlay:
   - {fileID: 8977158387824453090}
   actionTakenInHand: []
@@ -290,6 +295,28 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTeam: 7
   damage: 8
+--- !u!114 &-4661614042863494454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5868875187416348640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &5912739626167286612
 GameObject:
   m_ObjectHideFlags: 0

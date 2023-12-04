@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 5682132006665311223}
   - component: {fileID: 3858279665340806243}
   - component: {fileID: 2632172282518647265}
+  - component: {fileID: -2415115631047498762}
   m_Layer: 5
   m_Name: Stab
   m_TagString: Untagged
@@ -333,7 +334,7 @@ RectTransform:
   - {fileID: 7773282087842754420}
   - {fileID: 3307431239119982518}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -429,7 +430,9 @@ MonoBehaviour:
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: e1a4e3c8a8b40d2489110a10d857957d, type: 2}
   manaCost: 0
+  baseManaCost: 0
   isPlayed: 0
+  visualManager: {fileID: 0}
   onPlay: []
   actionTakenInHand: []
   nameText: {fileID: 7462725931019112334}
@@ -438,6 +441,28 @@ MonoBehaviour:
   target: {fileID: 0}
   targetTeam: 0
   damage: 1
+--- !u!114 &-2415115631047498762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940735605500166755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
+  nameText: {fileID: 0}
+  descriptionText: {fileID: 0}
+  manaText: {fileID: 0}
+  attackText: {fileID: 0}
+  healthText: {fileID: 0}
+  defaultTextColor: {r: 0, g: 0, b: 0, a: 1}
+  negativeTextColor: {r: 1, g: 0, b: 0, a: 1}
+  positiveTextColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!1 &8100041382508687704
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +476,7 @@ GameObject:
   - component: {fileID: 4801998173119295982}
   - component: {fileID: 4289243221479406361}
   m_Layer: 5
-  m_Name: DescriptionText
+  m_Name: Description Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

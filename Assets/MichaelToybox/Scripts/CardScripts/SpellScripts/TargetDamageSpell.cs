@@ -12,16 +12,29 @@ public class TargetDamageSpell : BaseTargetSpell
 
         int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
 
-        if (target.GetComponent<BaseMinion>() == true)
+        //Gets minion reference. if card is not a minion it will be null
+        BaseMinion minion = target.GetComponent<BaseMinion>();
+        //Gets hero reference. if card is not a hero it will be null
+        BaseHero hero = target.GetComponent<BaseHero>();
+
+        if (minion == true)
         {
-            target.GetComponent<BaseMinion>().TakeDamage(damageValue);
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damage), true, null);
+            playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
+
+            minion.TakeDamage(damageValue);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);
         }
-        if(target.GetComponent<BaseHero>() == true)
+        if(hero == true)
         {
-            target.GetComponent<BaseHero>().TakeDamage(damageValue);
+            //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
+            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damage), true, null);
+            playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
+
+            hero.TakeDamage(damageValue);
 
             playAnimCopy.targetPos = target.transform.position;
             anim.PlayAnimation(playAnimCopy);
