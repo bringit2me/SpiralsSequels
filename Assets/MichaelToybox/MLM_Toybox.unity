@@ -199,6 +199,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6876271372155591762, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6939958780512818478, guid: 32a05c227e4b73d4f95f4330d719c015, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3848,10 +3852,6 @@ PrefabInstance:
     - target: {fileID: 2696232029747205714, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3504758866347860039, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
-      propertyPath: seed
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6672061878388301995, guid: f8ce586e92aeea949b8cc242b745b3ab, type: 3}
       propertyPath: m_Name
