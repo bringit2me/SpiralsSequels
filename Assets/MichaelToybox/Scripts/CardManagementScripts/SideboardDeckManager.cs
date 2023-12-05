@@ -23,6 +23,7 @@ public class SideboardDeckManager : MonoBehaviour
     /// </summary>
     public void DisplayCards()
     {
+        deckManager.ShuffleDeck(); //shuffles deck
         cards = deckManager.GetTopThree(); //gets top 3 cards of the deck
 
         if (cards.Count > 0)
@@ -68,5 +69,11 @@ public class SideboardDeckManager : MonoBehaviour
             Destroy(displaySlot2.transform.GetChild(0).gameObject);
         if (displaySlot3.transform.childCount > 0)
             Destroy(displaySlot3.transform.GetChild(0).gameObject);
+    }
+
+    //Adds card to deck. then shuffles it
+    public void AddCardToDeck(BaseCard card)
+    {
+        deckManager.AddCardToDeck(card);
     }
 }

@@ -77,6 +77,9 @@ public class SwapToCombat : MonoBehaviour
         Destroy(combatManager.enemyHolder.transform.GetChild(0).gameObject); //removes old encounter game object
 
         //TESTING
-        GameObject.FindObjectOfType<HeroDraftManager>().SetupButtons();
+        if (GameObject.FindObjectOfType<CardDraftManager>() != null) //we have a card draft manager
+            GameObject.FindObjectOfType<CardDraftManager>().SetupCardDraft();
+        else if (GameObject.FindObjectOfType<HeroDraftManager>() != null)
+            GameObject.FindObjectOfType<HeroDraftManager>().SetupButtons();
     }
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Cultist
-  description: <b>End of Turn:</b> Take 1 damage. Give all friendly minions +2 health
+  description: <b>End of Turn:</b> Give all friendly minions +2 health. Take 3 damage.
   rarity: 2
   team: 0
   selfCardRef: {fileID: 7976779417459928023}
@@ -115,11 +115,14 @@ MonoBehaviour:
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
   manaCost: 1
+  baseManaCost: 0
   isPlayed: 0
   visualManager: {fileID: 0}
   attack: 0
-  maxHealth: 3
-  health: 3
+  baseAttack: 0
+  maxHealth: 2
+  baseMaxHealth: 0
+  health: 2
   canAttack: 0
   targetable: 1
   spellDamage: 0
@@ -183,6 +186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
   nameText: {fileID: 0}
   descriptionText: {fileID: 0}
   manaText: {fileID: 0}
@@ -203,6 +208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
   nameText: {fileID: 0}
   descriptionText: {fileID: 0}
   manaText: {fileID: 0}

@@ -414,7 +414,7 @@ MonoBehaviour:
   zone: {fileID: 0}
   hero: {fileID: 0}
   anim: {fileID: 0}
-  playSendToDiscard: 1
+  playSendToDiscard: 0
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 8c3dd1b8e09bbb04d918dccc87028f01, type: 2}
   manaCost: 6
@@ -423,9 +423,6 @@ MonoBehaviour:
   visualManager: {fileID: 0}
   onPlay: []
   actionTakenInHand: []
-  nameText: {fileID: 9060316213224926772}
-  descriptionText: {fileID: 4664449868476206288}
-  manaText: {fileID: 3258847895812541264}
   target: {fileID: 0}
   targetTeam: 4
   attackChange: 8
