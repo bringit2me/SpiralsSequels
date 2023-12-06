@@ -39,22 +39,25 @@ public class EncounterManager : MonoBehaviour
         count = 0;
     }
 
-    public GameObject GetRandomEncounter(int currentFloor)
+    public GameObject GetRandomEncounter(int currentStage, int currentFloor)
     {
         GameObject encounter = null;
 
-        if (currentFloor == 1) //we want an encounter from floor 1
+        if (currentStage == 1) //we want an encounter from floor 1
         {
+            randomEncountersFloor1[0].ScaleHeroStats(currentFloor); //scales encounter
             encounter = randomEncountersFloor1[0].gameObject; //gets first encounter from floor 1
             randomEncountersFloor1.RemoveAt(0); //Removes encounter from list
         }
-        else if (currentFloor == 2) //we want an encounter from floor 2
+        else if (currentStage == 2) //we want an encounter from floor 2
         {
+            randomEncountersFloor2[0].ScaleHeroStats(currentFloor); //scales encounter
             encounter = randomEncountersFloor2[0].gameObject; //gets first encounter from floor 2
             randomEncountersFloor2.RemoveAt(0); //Removes encounter from list
         }
-        else if (currentFloor == 3) //we want an encounter from floor 3
+        else if (currentStage == 3) //we want an encounter from floor 3
         {
+            randomEncountersFloor3[0].ScaleHeroStats(currentFloor); //scales encounter
             encounter = randomEncountersFloor3[0].gameObject; //gets first encounter from floor 3
             randomEncountersFloor3.RemoveAt(0); //Removes encounter from list
         }
@@ -63,21 +66,21 @@ public class EncounterManager : MonoBehaviour
         return encounter; //returns encounter
     }
 
-    public GameObject GetEliteEncounter(int currentFloor)
+    public GameObject GetEliteEncounter(int currentStage)
     {
         GameObject encounter = null;
 
-        if (currentFloor == 1) //we want an encounter from floor 1
+        if (currentStage == 1) //we want an encounter from floor 1
         {
             encounter = eliteEncountersFloor1[0].gameObject; //gets first elite from floor 1
             eliteEncountersFloor1.RemoveAt(0); //Removes encounter from list
         }
-        else if (currentFloor == 2) //we want an encounter from floor 2
+        else if (currentStage == 2) //we want an encounter from floor 2
         {
             encounter = eliteEncountersFloor2[0].gameObject; //gets first elite from floor 2
             eliteEncountersFloor2.RemoveAt(0); //Removes encounter from list
         }
-        else if (currentFloor == 3) //we want an encounter from floor 3
+        else if (currentStage == 3) //we want an encounter from floor 3
         {
             encounter = eliteEncountersFloor3[0].gameObject; //gets first elite from floor 3
             eliteEncountersFloor3.RemoveAt(0); //Removes encounter from list

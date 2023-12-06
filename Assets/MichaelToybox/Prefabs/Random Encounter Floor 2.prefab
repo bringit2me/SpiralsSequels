@@ -71,10 +71,12 @@ MonoBehaviour:
   - {fileID: 131512042776979143, guid: b3b77d25e11c09849a1fe90437c293d6, type: 3}
   - {fileID: 3129227271121671819, guid: aa0c258040a26ea4b9c8c24247a52af5, type: 3}
   playerGoesFirst: 1
-  minEnemyCount: 1
+  minEnemyCount: 2
   maxEnemyCount: 3
   enemyCount: 0
   healthBoostPerMissingEnemy: 10
+  healthBoostPerLevel: 4
+  attackIncreasePerXFloors: 3
   heroesToSpawn: []
   heroesSpawned: []
   heroSpawnSpots:
@@ -132,7 +134,7 @@ MonoBehaviour:
   team: 1
   maxMana: 10
   mana: 0
-  manaPerTurn: 2
+  manaPerTurn: 1
   manaPerTurnIncrease: 1
   spellDamage: 0
   drawDelay: 0.125

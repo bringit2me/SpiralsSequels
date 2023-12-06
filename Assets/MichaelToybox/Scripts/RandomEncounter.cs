@@ -10,8 +10,10 @@ public class RandomEncounter : MonoBehaviour
     public int minEnemyCount = 1;
     public int maxEnemyCount = 3;
     public int enemyCount = 0;
-    [Header("Hero Stat Info")]
+    [Header("Hero Stat Scaling Info")]
     public int healthBoostPerMissingEnemy = 10;
+    public int healthBoostPerLevel = 2;
+    public int attackIncreasePerXFloors = 3;
     [Header("Heroes")]
     public List<BaseHero> heroesToSpawn;
     public List<BaseHero> heroesSpawned;
@@ -68,6 +70,36 @@ public class RandomEncounter : MonoBehaviour
             hero.health = hero.maxHealth;
             hero.SetupCardText();
         }
+    }
+
+    public void ScaleHeroStats(int currentFloor)
+    {
+        int scaler = currentFloor - 1;
+
+        int healthScale = 0;
+        int attackScale = 0;
+        int manaScale = 0;
+
+        healthScale = (healthBoostPerLevel * scaler) * (1 + maxEnemyCount - enemyCount);
+
+        attackScale = Mathf.FloorToInt(currentFloor / (attackIncreasePerXFloors * 1.0f));
+
+
+        if (currentFloor > 4)
+            manaScale = 1;
+
+        foreach (BaseHero hero in heroesSpawned)
+        {
+            hero.maxHealth = hero.maxHealth + healthScale; //scales max health and health
+            hero.health = hero.maxHealth;
+            hero.attack = hero.attack + attackScale; //scales attack
+            hero.SetBaseStats();
+            hero.SetupCardText();
+        }
+
+        enemyManager.manaPerTurn += manaScale; //scales mana
+        enemyManager.UpdateManaText();
+
     }
 
     public void UpdateEnemyManager()

@@ -1763,7 +1763,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatCanvas: {fileID: 89341626}
   gameCanvas: {fileID: 1318814796}
-  currentFloor: 1
+  currentStage: 1
+  currentFloor: 2
 --- !u!223 &510192723
 Canvas:
   m_ObjectHideFlags: 0

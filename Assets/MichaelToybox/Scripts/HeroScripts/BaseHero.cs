@@ -58,6 +58,13 @@ public class BaseHero : BaseCard
         attackAnimCopy.card = this; //sets anim card reference
     }
 
+    public void SetBaseStats()
+    {
+        //sets base numbers
+        baseAttack = attack;
+        baseMaxHealth = maxHealth;
+    }
+
     public override void SetupCardText()
     {
         base.SetupCardText();
