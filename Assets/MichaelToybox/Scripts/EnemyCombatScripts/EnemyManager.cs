@@ -27,7 +27,8 @@ public class EnemyManager : PlayerManager
         foreach(BaseHero hero in this.GetComponentsInChildren<BaseHero>())
         {
             heroes.Add(hero); //adds hero to list
-            if (hero.GetComponent<DeckManager>() == true) //if there is a deck attached to the hero
+            //if there is a deck attached to the hero and the heroes deck is not the neurtal deck
+            if (hero.GetComponent<DeckManager>() == true && hero.GetComponent<DeckManager>() != neutralDeck)
                 heroDecks.Add(hero.GetComponent<DeckManager>()); //adds deck to list
             else
                 Debug.LogWarning("MICHAEL WARNING: Hero added to EnemyManager hero list without a DeckManager attached");

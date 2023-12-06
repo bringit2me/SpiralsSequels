@@ -99,11 +99,11 @@ MonoBehaviour:
   allCards: []
   commonCards: []
   rareCards: []
-  epicCards: []
+  legendaryCards: []
   allHeroes: []
   commonHeroes: []
   rareHeroes: []
-  epicHeroes: []
+  legendaryHeroes: []
 --- !u!114 &2863412401992172897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   floor1Random: {fileID: 5351084596440802118, guid: c973564cd6e77f249b613abbbfd012de, type: 3}
   possibleFloor1Elites:
   - {fileID: 3554974895555319428, guid: 4461f911926699e4dada738f9c3c7fc4, type: 3}
+  - {fileID: 4702486719644701370, guid: 5cd70e20f50434c4bbecd3b6b74f55ae, type: 3}
   possibleFloor1Bosses:
   - {fileID: 4126027476192792336, guid: 1334d1e64ef16d744ab8ddb9de0e1c6a, type: 3}
   randomEncountersFloor2: []
