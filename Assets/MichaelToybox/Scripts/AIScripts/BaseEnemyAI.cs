@@ -391,7 +391,7 @@ public class BaseEnemyAI : MonoBehaviour
 
                     //--- calculates returning damage ---
 
-                    //if the returning damage kills the target
+                    //if the returning damage kills the AI's minion
                     if (minion.CalculateTakeDamage(targetMinion.attack) >= minion.health)
                     {
                         value -= minion.health; //lowers value by health
@@ -403,6 +403,11 @@ public class BaseEnemyAI : MonoBehaviour
                         if (playstyle == EnemyPlaystyle.MID_RANGE)
                         {
                             survivesMinionCombat = true;
+                        }
+                        //AI is defensive
+                        else if (playstyle == EnemyPlaystyle.DEFENSIVE)
+                        {
+                            //defensive AI does not care about trading minions
                         }
                         else //ai not midrange
                         {
@@ -450,9 +455,9 @@ public class BaseEnemyAI : MonoBehaviour
                 //Same value
                 else if (value == entry.value)
                 {
-                    if (targetMinion != null)
+                    if (targetMinion != null) //wants to target minion
                     {
-                        if (entry.target.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true) //currently targeting minion
                         {
                             if (targetMinion.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
@@ -460,26 +465,36 @@ public class BaseEnemyAI : MonoBehaviour
                                 entry.target = card;
                             }
                         }
-                        else if (entry.target.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true) //currently targeting hero
                         {
                             if (targetMinion.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
+                            else if (playstyle != EnemyPlaystyle.AGGRESSIVE) //we are not agressive (prioritize hitting minions)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
                         }
                     }
-                    if (targetHero != null)
+                    if (targetHero != null) //wants to target hero
                     {
-                        if (entry.target.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true) //currently targeting minion
                         {
                             if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
+                            if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack && playstyle == EnemyPlaystyle.AGGRESSIVE) //we are agressive (prioritize hitting heroes)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
                         }
-                        else if (entry.target.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true) //currently targeting hero
                         {
                             if (targetHero.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
@@ -541,9 +556,8 @@ public class BaseEnemyAI : MonoBehaviour
                     //hero over kills the target
                     else if (targetMinion.CalculateTakeDamage(hero.attack) > targetMinion.health)
                     {
-                        Debug.Log("Overkilling Target");
                         //bonus -1 to disincentivise hero attacks that overkill targets
-                        value = (targetMinion.maxHealth - targetMinion.health - 1)+ targetMinion.CalculateDeathValue();
+                        value = (targetMinion.maxHealth - targetMinion.health - 1) + targetMinion.CalculateDeathValue();
                         value += targetMinion.attack;
                     }
 
@@ -589,9 +603,9 @@ public class BaseEnemyAI : MonoBehaviour
                 //Same value
                 else if (value == entry.value)
                 {
-                    if (targetMinion != null)
+                    if (targetMinion != null) //wants to target minion
                     {
-                        if (entry.target.GetComponent<BaseMinion>() == true)
+                        if (entry.target.GetComponent<BaseMinion>() == true) //current target is minion
                         {
                             if (targetMinion.attack > entry.target.GetComponent<BaseMinion>().attack)
                             {
@@ -599,26 +613,31 @@ public class BaseEnemyAI : MonoBehaviour
                                 entry.target = card;
                             }
                         }
-                        else if (entry.target.GetComponent<BaseHero>() == true)
+                        else if (entry.target.GetComponent<BaseHero>() == true) //current target is hero
                         {
                             if (targetMinion.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
-                        }
-                    }
-                    if (targetHero != null)
-                    {
-                        if (entry.target.GetComponent<BaseMinion>() == true)
-                        {
-                            if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack)
+                            else if (playstyle != EnemyPlaystyle.AGGRESSIVE) //we are not agressive (prioritize hitting minions)
                             {
                                 entry.value = value;
                                 entry.target = card;
                             }
                         }
-                        else if (entry.target.GetComponent<BaseHero>() == true)
+                    }
+                    if (targetHero != null) //wants to target hero
+                    {
+                        if (entry.target.GetComponent<BaseMinion>() == true) //current target is minion
+                        {
+                            if (targetHero.attack > entry.target.GetComponent<BaseMinion>().attack && playstyle == EnemyPlaystyle.AGGRESSIVE) //we are agressive (prioritize hitting heroes)
+                            {
+                                entry.value = value;
+                                entry.target = card;
+                            }
+                        }
+                        else if (entry.target.GetComponent<BaseHero>() == true) //current target is hero
                         {
                             if (targetHero.attack > entry.target.GetComponent<BaseHero>().attack)
                             {
