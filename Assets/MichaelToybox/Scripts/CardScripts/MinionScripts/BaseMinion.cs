@@ -14,7 +14,6 @@ public class BaseMinion : BaseCard
     [HideInInspector] public int baseMaxHealth;
     public int health;
     public bool canAttack = false;
-    public bool targetable = true;
     [Header("Other")]
     public int spellDamage = 0;
     public bool taunt = false;

@@ -21,7 +21,7 @@ public class AppearCenterAnimation : BaseAnimationClip
         createdEffect = Instantiate(effect, new Vector3(960, 540, 0), Quaternion.identity);
 
         //Flipping the effect based on if it is hitting a player or enemy card
-        if(target != null && target.GetComponent<BaseCard>() == true && target.GetComponent<BaseCard>().team == Team.PLAYER)
+        if(target != null && target.GetComponent<BaseCard>() == true)
         {
             if(target.GetComponent<BaseCard>().team == Team.PLAYER)
                 createdEffect.transform.eulerAngles = new Vector3(-180, 0, 0);

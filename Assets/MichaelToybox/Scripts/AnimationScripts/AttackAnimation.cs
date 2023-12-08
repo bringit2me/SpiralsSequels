@@ -13,7 +13,6 @@ public class AttackAnimation : BaseAnimationClip
         base.SetupAnim();
         startPosCard = card.transform.position;
         targetPos = target.transform.position;
-        updatedTarget = false;
         currentTime = 0;
     }
 
@@ -50,6 +49,5 @@ public class AttackAnimation : BaseAnimationClip
     public override void UpdateTargetVisuals()
     {
         base.UpdateTargetVisuals();
-        Debug.Log("Updating Visuals");
     }
 }

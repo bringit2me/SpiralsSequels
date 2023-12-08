@@ -296,6 +296,64 @@ CanvasGroup:
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!1 &3073606149180670120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4126003275728909487}
+  - component: {fileID: 4525277248605219560}
+  m_Layer: 5
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4126003275728909487
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073606149180670120}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5382057981699879059}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4525277248605219560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073606149180670120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1116abd4fc305514e8c6c26f2a972cb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAnimClip: {fileID: 11400000, guid: d12de68108f89c340b8287609b7c94be, type: 2}
+  valueBoostAI: 0
+  hero: {fileID: 0}
+  minion: {fileID: 0}
+  spell: {fileID: 0}
+  playerManager: {fileID: 0}
+  targetTeam: 4
+  attackChange: 1
+  healthChange: 1
 --- !u!1 &5546782674917747673
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,6 +391,7 @@ RectTransform:
   - {fileID: 2775188812399219963}
   - {fileID: 4295752284169523034}
   - {fileID: 7689610972788419942}
+  - {fileID: 4126003275728909487}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -396,6 +455,7 @@ MonoBehaviour:
   rarity: 0
   team: 1
   selfCardRef: {fileID: 2297421044910032206}
+  targetable: 1
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
@@ -415,7 +475,6 @@ MonoBehaviour:
   baseMaxHealth: 0
   health: 60
   canAttack: 1
-  targetable: 1
   isDead: 0
   spellDamage: 0
   taunt: 0
@@ -464,14 +523,14 @@ MonoBehaviour:
   - {fileID: 2388591016217608219, guid: e2c97fcec32c5a84997ec6ef60d0d3e8, type: 3}
   - {fileID: 8092810590752529417, guid: 868fefe44ca2f894eb8bdee4d534f0ed, type: 3}
   - {fileID: 8092810590752529417, guid: 868fefe44ca2f894eb8bdee4d534f0ed, type: 3}
-  - {fileID: 5248357269477375163, guid: 61729c6bfcb07fa4590a9438fb0d01bb, type: 3}
-  - {fileID: 5248357269477375163, guid: 61729c6bfcb07fa4590a9438fb0d01bb, type: 3}
   - {fileID: 8813426812737112500, guid: 5600630d59417a143a983997ef8459fa, type: 3}
   - {fileID: 8813426812737112500, guid: 5600630d59417a143a983997ef8459fa, type: 3}
   - {fileID: 8321904700268500906, guid: 0fbf46100f44282438ab0ba32601cc53, type: 3}
   - {fileID: 8321904700268500906, guid: 0fbf46100f44282438ab0ba32601cc53, type: 3}
-  - {fileID: 6775185781041992056, guid: bf3a972dfd2595a4bb72ee56c6f3830d, type: 3}
-  - {fileID: 6775185781041992056, guid: bf3a972dfd2595a4bb72ee56c6f3830d, type: 3}
+  - {fileID: 6821818961831309831, guid: 2510ae84465ad4b47ab32b8d10f5ad4e, type: 3}
+  - {fileID: 6821818961831309831, guid: 2510ae84465ad4b47ab32b8d10f5ad4e, type: 3}
+  - {fileID: 5548109472741445790, guid: 874fd53c57b3fa84488aa84955259203, type: 3}
+  - {fileID: 5548109472741445790, guid: 874fd53c57b3fa84488aa84955259203, type: 3}
   - {fileID: 5989482450132362508, guid: d1bfe4941105a434f98c774d1cef8f9b, type: 3}
   discardPile: []
   hero: {fileID: 0}

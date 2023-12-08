@@ -11,7 +11,8 @@ public class BaseCard : MonoBehaviour
     public Rarity rarity = Rarity.NONE;
     public Team team;
     public BaseCard selfCardRef;
-    /*[HideInInspector]*/ public PlayerManager playerManager;
+    public bool targetable = true;
+    [HideInInspector] public PlayerManager playerManager;
     [HideInInspector] public DeckManager deck;
     [HideInInspector] public PlayerMinionZone zone;
     [HideInInspector] public BaseHero hero;

@@ -48,11 +48,6 @@ public class BaseAnimationClip : ScriptableObject
         {
             if (card != null || card.visualManager != null)
                 card.visualManager.UpdateStatChanges();
-            else
-                Debug.Log("No Card Ref");
         }
-
-        if (cardVisualsToUpdate.Count < 0)
-            Debug.Log("No cards to update");
     }
 }

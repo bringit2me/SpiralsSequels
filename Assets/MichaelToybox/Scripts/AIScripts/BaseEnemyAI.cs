@@ -358,9 +358,9 @@ public class BaseEnemyAI : MonoBehaviour
             return entry;
 
         //loops through all cards in play
-        foreach (BaseCard card in combatManager.allCardsInPlay)
+        foreach (BaseCard card in combatManager.GetAllInPlay(false))
         {
-            if (card == null) //no card reference
+            if (card == null) //no card reference and card is targetable
                 continue; //go to next
 
             if (card.team != team) //card is on another team
@@ -530,7 +530,7 @@ public class BaseEnemyAI : MonoBehaviour
 
 
         //loops through all cards in play
-        foreach (BaseCard card in combatManager.allCardsInPlay)
+        foreach (BaseCard card in combatManager.GetAllInPlay(false))
         {
             if (card == null) //no card reference
                 continue; //go to next

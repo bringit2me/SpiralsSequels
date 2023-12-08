@@ -162,18 +162,20 @@ public class PlayerManager : MonoBehaviour
         //bool representing if our target is a minion
         bool targetIsMinion = false;
         Team targetTeam = Team.NONE;
+        BaseMinion minion = target.GetComponent<BaseMinion>();
+        BaseHero hero = target.GetComponent<BaseHero>();
 
         //gets the team of the target
-        if (target.GetComponent<BaseMinion>()) //minion
+        if (minion != null && minion.targetable == true) //minion and minion is targetable
         {
-            targetTeam = target.GetComponent<BaseMinion>().team;
+
+            targetTeam = minion.team;
             targetIsMinion = true;
         }
-        if (target.GetComponent<BaseHero>() && target.GetComponent<BaseHero>().isDead == false) //hero and hero is alive
+        if (hero != null && hero.isDead == false && hero.targetable == true) //hero and hero is alive and hero is targetable
         {
-            targetTeam = target.GetComponent<BaseHero>().team;
+            targetTeam = hero.team;
             targetIsMinion = false;
-            
         }
         
 

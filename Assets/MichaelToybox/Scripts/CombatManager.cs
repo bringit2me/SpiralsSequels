@@ -304,7 +304,7 @@ public class CombatManager : MonoBehaviour
     /// </summary>
     public void ActionTakenTrigger()
     {
-        List<BaseCard> cardsToTrigger = GetAllCards(); //gets all hand cards, minions, and heroes in play
+        List<BaseCard> cardsToTrigger = GetAllCards(true); //gets all hand cards, minions, and heroes in play
 
         //TODO: This returns a null reference some times. figure out why
         foreach (BaseCard card in cardsToTrigger)
@@ -337,7 +337,7 @@ public class CombatManager : MonoBehaviour
 
     public void StartOfTurnTrigger(Team team)
     {
-        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME);
+        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME, true);
 
         foreach (BaseCard card in cardsToTrigger)
         {
@@ -359,7 +359,7 @@ public class CombatManager : MonoBehaviour
     }
     public void EndOfTurnTrigger(Team team)
     {
-        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME);
+        List<BaseCard> cardsToTrigger = GetTargets(team, TargetingInfo.SAME, true);
 
         foreach (BaseCard card in cardsToTrigger)
         {
@@ -464,7 +464,7 @@ public class CombatManager : MonoBehaviour
         {
             playerManager.spellDamage = 0;
 
-            foreach(BaseCard card in GetAllInPlayPlayer())
+            foreach(BaseCard card in GetAllInPlayPlayer(true))
             {
                 minion = card.GetComponent<BaseMinion>();
                 hero = card.GetComponent<BaseHero>();
@@ -484,7 +484,7 @@ public class CombatManager : MonoBehaviour
         {
             enemyManager.spellDamage = 0;
 
-            foreach (BaseCard card in GetAllInPlayEnemy())
+            foreach (BaseCard card in GetAllInPlayEnemy(true))
             {
                 minion = card.GetComponent<BaseMinion>();
                 hero = card.GetComponent<BaseHero>();
@@ -529,15 +529,15 @@ public class CombatManager : MonoBehaviour
     /// Returns all minions and heroes in play. Also gets all cards in each hand
     /// </summary>
     /// <returns></returns>
-    public List<BaseCard> GetAllCards()
+    public List<BaseCard> GetAllCards(bool includeUntargetable)
     {
-        List<BaseCard> cards = GetAllInPlay(); //gets all minions and heroes in play
+        List<BaseCard> cards = GetAllInPlay(includeUntargetable); //gets all minions and heroes in play
 
         foreach (BaseCard card in playerHandManager.handCards) //gets all cards in player hand
-            if(card != null)
+            if(card != null && (card.targetable == true || includeUntargetable == true))
                 cards.Add(card);
         foreach (BaseCard card in enemyHandManager.handCards) //gets all cards in enemy hand
-            if (card != null)
+            if (card != null && (card.targetable == true || includeUntargetable == true))
                 cards.Add(card);
 
         return cards;
@@ -546,24 +546,36 @@ public class CombatManager : MonoBehaviour
     /// Returns all minions and heroes in play
     /// </summary>
     /// <returns></returns>
-    public List<BaseCard> GetAllInPlay()
+    public List<BaseCard> GetAllInPlay(bool includeUntargetable)
     {
-        return allCardsInPlay;
+        if (includeUntargetable == true)
+            return allCardsInPlay;
+        else
+        {
+            List<BaseCard> allInPlayTargetable = new List<BaseCard>();
+            foreach (BaseCard card in allCardsInPlay)
+                if (card.targetable == true)
+                    allInPlayTargetable.Add(card);
+
+            return allInPlayTargetable;
+        }
     }
     /// <summary>
     /// Returns all player minions and player heroes in play
     /// </summary>
     /// <returns></returns>
-    public List<BaseCard> GetAllInPlayPlayer()
+    public List<BaseCard> GetAllInPlayPlayer(bool includeUntargetable)
     {
         List<BaseCard> allCards = new List<BaseCard>();
 
         //Gets all player heroes
         foreach (BaseCard card in playerHeroes)
-            allCards.Add(card);
+            if (card.targetable == true || includeUntargetable == true)
+                allCards.Add(card);
         //Gets all player minions
         foreach (BaseCard card in playerMinions)
-            allCards.Add(card);
+            if (card.targetable == true || includeUntargetable == true)
+                allCards.Add(card);
 
         return allCards;
     }
@@ -571,78 +583,88 @@ public class CombatManager : MonoBehaviour
     /// Returns all enemy minions and enemy heroes in play
     /// </summary>
     /// <returns></returns>
-    public List<BaseCard> GetAllInPlayEnemy()
+    public List<BaseCard> GetAllInPlayEnemy(bool includeUntargetable)
     {
         List<BaseCard> allCards = new List<BaseCard>();
         //Gets all enemy heroes
         foreach (BaseCard card in enemyHeroes)
-            allCards.Add(card);
+            if(card.targetable == true || includeUntargetable == true) //card is targetable
+                allCards.Add(card);
         //Gets all enemy minions
         foreach (BaseCard card in enemyMinions)
-            allCards.Add(card);
+            if (card.targetable == true || includeUntargetable == true) //card is targetable
+                allCards.Add(card);
 
         return allCards;
     }
 
     /// <summary>
-    /// Gets all cards to target based on the targetTeam
+    /// Gets all cards to target based on the targetTeam (does not include untargetable cards)
     /// </summary>
     /// <returns></returns>
-    public virtual List<BaseCard> GetTargets(Team team, TargetingInfo targetTeam)
+    public virtual List<BaseCard> GetTargets(Team team, TargetingInfo targetTeam, bool includeUntargetable = false)
     {
         List<BaseCard> targetList = new List<BaseCard>();
 
         //getting all cards in play
         if (targetTeam == TargetingInfo.ANY_OR_ALL)
         {
-            targetList = GetAllInPlay();
+            targetList = GetAllInPlay(false);
         }
         //Gets all minions in play
         else if (targetTeam == TargetingInfo.ANY_MINION)
         {
             foreach (BaseCard card in playerMinions)
-                targetList.Add(card);
+                if (card.targetable == true || includeUntargetable == true) //card is targetable
+                    targetList.Add(card);
             foreach (BaseCard card in enemyMinions)
-                targetList.Add(card);
+                if (card.targetable == true || includeUntargetable == true) //card is targetable
+                    targetList.Add(card);
         }
         //Gets all heroes in play
         else if (targetTeam == TargetingInfo.ANY_HERO)
         {
             foreach (BaseCard card in playerHeroes)
-                targetList.Add(card);
+                if (card.targetable == true || includeUntargetable == true) //card is targetable
+                    targetList.Add(card);
             foreach (BaseCard card in enemyHeroes)
-                targetList.Add(card);
+                if (card.targetable == true || includeUntargetable == true) //card is targetable
+                    targetList.Add(card);
         }
         //This card is on the player team
         else if (team == Team.PLAYER)
         {
             if (targetTeam == TargetingInfo.SAME)
             {
-                targetList = GetAllInPlayPlayer();
+                targetList = GetAllInPlayPlayer(includeUntargetable);
             }
             else if (targetTeam == TargetingInfo.SAME_HERO)
             {
                 foreach (BaseCard card in playerHeroes)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.SAME_MINION)
             {
                 foreach (BaseCard card in playerMinions)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE)
             {
-                targetList = GetAllInPlayEnemy();
+                targetList = GetAllInPlayEnemy(includeUntargetable);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE_HERO)
             {
                 foreach (BaseCard card in enemyHeroes)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE_MINION)
             {
                 foreach (BaseCard card in enemyMinions)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
         }
         //This card is on the enemy team
@@ -650,31 +672,35 @@ public class CombatManager : MonoBehaviour
         {
             if (targetTeam == TargetingInfo.SAME)
             {
-                targetList = GetAllInPlayEnemy();
+                targetList = GetAllInPlayEnemy(includeUntargetable);
             }
             else if (targetTeam == TargetingInfo.SAME_HERO)
             {
                 foreach (BaseCard card in enemyHeroes)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.SAME_MINION)
             {
                 foreach (BaseCard card in enemyMinions)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE)
             {
-                targetList = GetAllInPlayPlayer();
+                targetList = GetAllInPlayPlayer(includeUntargetable);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE_HERO)
             {
                 foreach (BaseCard card in playerHeroes)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
             else if (targetTeam == TargetingInfo.OPPOSITE_MINION)
             {
                 foreach (BaseCard card in playerMinions)
-                    targetList.Add(card);
+                    if (card.targetable == true || includeUntargetable == true) //card is targetable
+                        targetList.Add(card);
             }
         }
 

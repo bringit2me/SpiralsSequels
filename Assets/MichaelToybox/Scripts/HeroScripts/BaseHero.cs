@@ -14,7 +14,6 @@ public class BaseHero : BaseCard
     [HideInInspector] public int baseMaxHealth;
     public int health;
     public bool canAttack = false;
-    public bool targetable = true;
     public bool isDead = false;
     [Header("Other")]
     public int spellDamage = 0;

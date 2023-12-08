@@ -50,7 +50,7 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void AttackTarget(GameObject attackTarget)
     {
-        if (attackTarget.GetComponent<BaseMinion>() == true) //if we hit a minion
+        if (attackTarget.GetComponent<BaseMinion>() == true && attackTarget.GetComponent<BaseMinion>().targetable == true) //if we hit a minion and minion is targetable
         {
             //gets target reference
             BaseMinion target = attackTarget.gameObject.GetComponent<BaseMinion>();
@@ -63,7 +63,7 @@ public class MinionCombatTarget : MonoBehaviour, IBeginDragHandler, IDragHandler
                 card.TakeDamage(target.attack);
             }
         }
-        else if (attackTarget.GetComponent<BaseHero>() == true && attackTarget.GetComponent<BaseHero>().isDead == false) //if we hit a hero and hero is not dead
+        else if (attackTarget.GetComponent<BaseHero>() == true && attackTarget.GetComponent<BaseHero>().isDead == false && attackTarget.GetComponent<BaseHero>().targetable == true) //if we hit a hero and hero is not dead and hero is targetable
         {
             //gets target reference
             BaseHero target = attackTarget.gameObject.GetComponent<BaseHero>();
