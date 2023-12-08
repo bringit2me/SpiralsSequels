@@ -20,10 +20,11 @@ public class BaseHero : BaseCard
     public int spellDamage = 0;
     public bool taunt = false;
     [Header("Triggers")]
-    public List<BaseEffect> afterAttack; // (NOT IMPLEMENTED) called after attacking
-    public List<BaseEffect> startOfTurn; //(NOT IMPLEMENTED) called at the end of the player turn
-    public List<BaseEffect> endOfTurn; //(NOT IMPLEMENTED) called at the end of the player turn
-    public List<BaseEffect> actionTakenInHand; //(NOT IMPLEMENTED) called whenever a card is played while this is in the hand
+    public List<BaseEffect> onDeath; //(Testing) called when minion dies
+    public List<BaseEffect> afterAttack; //called after attacking
+    public List<BaseEffect> startOfTurn; //called at the end of the player turn
+    public List<BaseEffect> endOfTurn; //called at the end of the player turn
+    public List<BaseEffect> actionTakenInHand; //called whenever a card is played while this is in the hand
     [Header("UI References")]
     [SerializeField] TMP_Text nameText;
     [SerializeField] TMP_Text attackText;
@@ -196,6 +197,13 @@ public class BaseHero : BaseCard
     {
         isDead = true;
         GameObject.FindObjectOfType<CombatManager>().CheckTeamLost(); //checks if a team lost on hero death
+
+        //loops through each death effect and calls them
+        foreach (BaseEffect effect in onDeath)
+        {
+            methodCall = effect.TriggerEffect;
+            StartCoroutine(TriggerMethodEndOfFrame(methodCall));
+        }
     }
 
     // --- CALLING EFFECTS ---
@@ -238,6 +246,12 @@ public class BaseHero : BaseCard
     /// </summary>
     public override void SetupAllEffects()
     {
+        foreach (BaseEffect effect in onDeath)
+        {
+            if (effect != null)
+                //sets up effect with a hero reference, minion reference, and no spell reference
+                effect.SetupEffect(this, null, null, playerManager);
+        }
         foreach (BaseEffect effect in afterAttack)
         {
             if (effect != null)

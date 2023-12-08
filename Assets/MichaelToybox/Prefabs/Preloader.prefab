@@ -122,8 +122,10 @@ MonoBehaviour:
   floor1: {fileID: 9025327190058727930}
   floor1Random: {fileID: 5351084596440802118, guid: c973564cd6e77f249b613abbbfd012de, type: 3}
   possibleFloor1Elites:
-  - {fileID: 3554974895555319428, guid: 4461f911926699e4dada738f9c3c7fc4, type: 3}
+  - {fileID: 2284700186279558172, guid: 7cea747538f394c43a846b7ca9cf4c91, type: 3}
   - {fileID: 4702486719644701370, guid: 5cd70e20f50434c4bbecd3b6b74f55ae, type: 3}
+  - {fileID: 337536680241435971, guid: 49edd38eee77b4c4494ea5cd89f9467b, type: 3}
+  - {fileID: 1046766177702164636, guid: 4ec7c7da8aa83f949a98aff94a106f15, type: 3}
   possibleFloor1Bosses:
   - {fileID: 4126027476192792336, guid: 1334d1e64ef16d744ab8ddb9de0e1c6a, type: 3}
   randomEncountersFloor2: []

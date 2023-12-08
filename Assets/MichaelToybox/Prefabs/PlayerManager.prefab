@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ea966ec792d4bc45899a0f33566ad05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck: []
+  deck:
+  - {fileID: 7123731689670895035, guid: 1130feca3d9d4874f85774329e495d83, type: 3}
+  - {fileID: 8093856066416819250, guid: 656d1ae0a9b849b43b560838602b8068, type: 3}
   discardPile: []
   hero: {fileID: 0}
 --- !u!114 &137642904019221410

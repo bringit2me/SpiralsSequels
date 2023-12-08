@@ -59,12 +59,24 @@ public class CombatManager : MonoBehaviour
         enemyHeroes.Clear(); //clears enemy hero list
         foreach (BaseHero hero in enemyHolder.GetComponentsInChildren<BaseHero>()) //gets new heroes
         {
+            hero.playerManager = enemyManager; //sets enemy manager reference
+
             enemyHeroes.Add(hero);
+            hero.SetupAllEffects(); //sets up hero effects
             hero.SetupCardText();
         }
 
-            //Gets hero references
-            playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
+        foreach (BaseMinion minion in enemyHolder.GetComponentsInChildren<BaseMinion>()) //loops through all minions in the encounter
+        {
+            minion.playerManager = enemyManager; //sets enemy manager reference
+            minion.team = Team.ENEMY;
+            minion.GetComponent<Draggable>().enabled = false;
+            minion.SetupAllEffects(); //sets up minion effects
+            minion.SetupCardText();
+        }
+
+        //Gets hero references
+        playerManager = GameObject.Find("PlayerManager").GetComponent<PlayerManager>();
         playerHandManager = playerManager.GetComponent<HandManager>();
         playerHeroManager = GameObject.FindObjectOfType<PlayerHeroManager>();
         //Sets player mana

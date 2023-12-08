@@ -19,7 +19,7 @@ public class EffectDamage : BaseEffect
         if (minion != null && targetHero == false) //we have a minion reference
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damage), true, null);
+            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damageValue), true, null);
             triggerAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
 
             //Restores minions health
@@ -28,7 +28,7 @@ public class EffectDamage : BaseEffect
         else if (hero != null) //we have a hero reference
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damage), true, null);
+            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damageValue), true, null);
             triggerAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
 
             ///Restores heroes health

@@ -48,7 +48,6 @@ public class EffectChangeStats : BaseEffect
             //Add stat change entry to card. Also sets card effect entry (extra description to show when hovering card)
             minion.visualManager.AddStatChangeEntry(minion.attack + minion.CalculateAttackChange(attackChange), minion.health + minion.CalculateHealthChange(healthChange), cardEffectEntry);
             triggerAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
-
             //changes attack
             minion.ChangeAttack(attackChange);
             //changes health
@@ -59,7 +58,6 @@ public class EffectChangeStats : BaseEffect
             //Add stat change entry to card. Also sets card effect entry (extra description to show when hovering card)
             hero.visualManager.AddStatChangeEntry(hero.attack + hero.CalculateAttackChange(attackChange), hero.health + hero.CalculateHealthChange(healthChange), cardEffectEntry);
             triggerAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
-
             //changes attack
             hero.ChangeAttack(attackChange);
             //changes health

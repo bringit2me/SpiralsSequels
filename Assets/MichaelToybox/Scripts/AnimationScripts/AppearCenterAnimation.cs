@@ -23,6 +23,13 @@ public class AppearCenterAnimation : BaseAnimationClip
         //Flipping the effect based on if it is hitting a player or enemy card
         if(target != null && target.GetComponent<BaseCard>() == true && target.GetComponent<BaseCard>().team == Team.PLAYER)
         {
+            if(target.GetComponent<BaseCard>().team == Team.PLAYER)
+                createdEffect.transform.eulerAngles = new Vector3(-180, 0, 0);
+            else
+                createdEffect.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        else if (card != null && card.team == Team.PLAYER)
+        {
             createdEffect.transform.eulerAngles = new Vector3(-180, 0, 0);
         }
         else

@@ -20,7 +20,7 @@ public class TargetDamageSpell : BaseTargetSpell
         if (minion == true)
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damage), true, null);
+            minion.visualManager.AddStatChangeEntry(0, false, 0, false, minion.health - minion.CalculateTakeDamage(damageValue), true, null);
             playAnimCopy.cardVisualsToUpdate.Add(minion); //adds card to updater (updates card visuals after animation)
 
             minion.TakeDamage(damageValue);
@@ -31,7 +31,7 @@ public class TargetDamageSpell : BaseTargetSpell
         if(hero == true)
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damage), true, null);
+            hero.visualManager.AddStatChangeEntry(0, false, 0, false, hero.health - hero.CalculateTakeDamage(damageValue), true, null);
             playAnimCopy.cardVisualsToUpdate.Add(hero); //adds card to updater (updates card visuals after animation)
 
             hero.TakeDamage(damageValue);
