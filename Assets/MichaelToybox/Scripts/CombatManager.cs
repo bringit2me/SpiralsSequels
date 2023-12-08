@@ -495,7 +495,7 @@ public class CombatManager : MonoBehaviour
                 }
                 else if (hero != null && hero.isDead == false && hero.spellDamage > 0)
                 {
-                    playerManager.spellDamage += hero.spellDamage;
+                    enemyManager.spellDamage += hero.spellDamage;
                 }
             }
         }
