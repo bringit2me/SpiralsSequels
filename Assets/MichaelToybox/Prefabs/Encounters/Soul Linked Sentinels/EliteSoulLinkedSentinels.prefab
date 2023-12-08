@@ -65,7 +65,7 @@ MonoBehaviour:
   playstyle: 0
   aggroValueBoost: 0
   aggroValue: 0
-  midRangeValueBoost: 35
+  midRangeValueBoost: 15
   midRangeValue: 0
   defenseValueBoost: 0
   defenseValue: 0

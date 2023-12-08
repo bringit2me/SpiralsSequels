@@ -65,7 +65,7 @@ MonoBehaviour:
   aggroValue: 0
   midRangeValueBoost: 0
   midRangeValue: 0
-  defenseValueBoost: 50
+  defenseValueBoost: 30
   defenseValue: 0
   handCardValues: []
   highestValueCard:

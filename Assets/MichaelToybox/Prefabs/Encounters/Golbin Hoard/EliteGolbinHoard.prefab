@@ -65,7 +65,7 @@ MonoBehaviour:
   detectsWillDieNextTurn: 0
   thinksItIsLosing: 0
   playstyle: 0
-  aggroValueBoost: 25
+  aggroValueBoost: 20
   aggroValue: 0
   midRangeValueBoost: 0
   midRangeValue: 0
