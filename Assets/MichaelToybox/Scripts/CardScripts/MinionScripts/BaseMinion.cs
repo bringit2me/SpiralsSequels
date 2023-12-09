@@ -313,9 +313,6 @@ public class BaseMinion : BaseCard
         foreach (BaseEffect effect in endOfTurn)
             value += effect.CalculateEffectValueAI();
 
-        foreach (BaseEffect effect in actionTakenInHand)
-            value += effect.CalculateEffectValueAI();
-
         return value;
     }
 

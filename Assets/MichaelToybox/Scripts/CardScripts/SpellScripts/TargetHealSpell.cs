@@ -107,6 +107,7 @@ public class TargetHealSpell : BaseTargetSpell
             }
 
             value += valueBoostAI; //adds in value boost
+            value += CalculateEffectValues(); //adds in effect values
             value -= manaCost; //subtracts mana cost
 
             //checks if AI is mid range and the target is a minion

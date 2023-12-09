@@ -129,8 +129,9 @@ public class AOEChangeStats : BaseAOESpell
             }
         }
 
-        value -= manaCost; //subtracts mana cost
         value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
 
         //checks if AI is agressive, friendly character is effected, and attack is increased
         if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && (effectsFriendlyMinions == true || effectsFriendlyHero == true) && attackChange > 0)

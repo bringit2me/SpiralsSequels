@@ -130,6 +130,7 @@ public class TargetDamageSpell : BaseTargetSpell
             }
 
             value += valueBoostAI; //adds in value boost
+            value += CalculateEffectValues(); //adds in effect values
             value -= manaCost; //subtracts mana costs
 
             //checks if AI is agressive and the target is a hero
@@ -148,7 +149,7 @@ public class TargetDamageSpell : BaseTargetSpell
                 entry.value = value;
                 entry.target = card;
             }
-            else if(value == entry.value && entry.target != null) //if the target and a previously found best target have an equal value
+            else if(value == entry.value && entry.target != null && entry.target.team != playerManager.team) //if the target and a previously found best target have an equal value and the target is on a different team
             {
                 if (entry.target.GetComponent<BaseMinion>() == true) //previously found best target is a minion
                 {
@@ -173,6 +174,37 @@ public class TargetDamageSpell : BaseTargetSpell
                         entry.target = card;
                     }
                     else if (entryHero.attack == cardAttack && entryHero.health > cardHealth) //new found target has equal attack but less health
+                    {
+                        entry.value = value;
+                        entry.target = card;
+                    }
+                }
+            }
+            else if (value == entry.value && entry.target != null && entry.target.team == playerManager.team) //if the target and a previously found best target have an equal value and the target is on the same team
+            {
+                if (entry.target.GetComponent<BaseMinion>() == true) //previously found best target is a minion
+                {
+                    BaseMinion entryMinion = entry.target.GetComponent<BaseMinion>();
+                    if (entryMinion.attack > cardAttack) //new found target has less attack
+                    {
+                        entry.value = value;
+                        entry.target = card;
+                    }
+                    else if (entryMinion.attack == cardAttack && entryMinion.health < cardHealth) //new found target has equal attack but more health
+                    {
+                        entry.value = value;
+                        entry.target = card;
+                    }
+                }
+                else if (entry.target.GetComponent<BaseHero>() == true) //previously found best target is hero
+                {
+                    BaseHero entryHero = entry.target.GetComponent<BaseHero>();
+                    if (entryHero.attack > cardAttack) //new found target has less attack
+                    {
+                        entry.value = value;
+                        entry.target = card;
+                    }
+                    else if (entryHero.attack == cardAttack && entryHero.health < cardHealth) //new found target has equal attack but more health
                     {
                         entry.value = value;
                         entry.target = card;

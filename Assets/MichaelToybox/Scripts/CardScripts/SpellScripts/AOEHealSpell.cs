@@ -92,9 +92,11 @@ public class AOEHealSpell : BaseAOESpell
                         effectsPlayerHero = true;
                 }
             }
-
-
         }
+
+        value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
 
         //checks if AI is agressive and an enemy hero is effected
         if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && effectsPlayerHero == true)
@@ -105,9 +107,6 @@ public class AOEHealSpell : BaseAOESpell
         //checks if AI is defensive and a friendly hero is effected
         if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && effectsFriendlyHero == true)
             value = (int)(value * ValueToPercent(ai.defenseValue));
-
-        value += valueBoostAI; //adds in value boost
-        value -= manaCost; //subtracts mana cost
 
         return value;
     }

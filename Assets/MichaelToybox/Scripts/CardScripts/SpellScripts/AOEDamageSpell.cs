@@ -100,6 +100,10 @@ public class AOEDamageSpell : BaseAOESpell
             }
         }
 
+        value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
+
         //checks if AI is agressive and an enemy hero is effected
         if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && effectsPlayerHero == true)
             value = (int)(value * ValueToPercent(ai.aggroValue));
@@ -109,9 +113,6 @@ public class AOEDamageSpell : BaseAOESpell
         //checks if AI is defensive and a enemy minion is effected
         if (ai.playstyle == EnemyPlaystyle.DEFENSIVE && effectsPlayerMinions == true)
             value = (int)(value * ValueToPercent(ai.defenseValue));
-
-        value += valueBoostAI; //adds in value boost
-        value -= manaCost; //subtracts mana cost
 
         return value;
     }

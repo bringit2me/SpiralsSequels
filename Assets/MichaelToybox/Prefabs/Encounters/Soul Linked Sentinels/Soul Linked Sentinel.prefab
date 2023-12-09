@@ -463,6 +463,8 @@ MonoBehaviour:
   - {fileID: 5128422886695038613, guid: 55ea9b57406ee9c4d81e51dd5f7be530, type: 3}
   - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
   - {fileID: 7813021795315028859, guid: 2f0a9a8fc62c47a4da254b6b7b9f5da0, type: 3}
+  - {fileID: 2859252654475396174, guid: 8a1113a303dcf704f8fe2b533aa8830c, type: 3}
+  - {fileID: 2635887067438143213, guid: 05387f4cc3bcf444a9016c0687894e4e, type: 3}
   discardPile: []
   hero: {fileID: 0}
 --- !u!114 &5224775831866952128

@@ -111,8 +111,9 @@ public class TargetChangeSpellDamage : BaseTargetSpell
                 }
             }
 
-            value -= manaCost; //subtracts mana cost
             value += valueBoostAI; //adds in value boost
+            value += CalculateEffectValues(); //adds in effect values
+            value -= manaCost; //subtracts mana cost
 
             //checks if AI is agressive, spell gives spell damage, and target is on the same team
             //if (ai.playstyle == EnemyPlaystyle.AGGRESSIVE && spellDamageChange > 0 && card.team == playerManager.team)

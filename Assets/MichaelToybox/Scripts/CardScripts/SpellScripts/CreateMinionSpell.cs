@@ -59,6 +59,10 @@ public class CreateMinionSpell : BaseSpell
 
         }
 
+        value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
+
         return value;
     }
 }

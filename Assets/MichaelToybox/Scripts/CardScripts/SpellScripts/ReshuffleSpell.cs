@@ -22,8 +22,9 @@ public class ReshuffleSpell : BaseSpell
 
         value = manaCost + 1; // sets value to 1 (will be played if there is no other play or all other plays have no value)
 
-        value -= manaCost; //subtracts mana cost
         value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
 
         //NOTE: these are the playstyle modifiers. add these if you find a reason to do so
         //checks if AI is agressive

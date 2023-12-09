@@ -157,4 +157,14 @@ public class BaseSpell : BaseCard
                 effect.SetupEffect(hero, null, this, playerManager);
         }
     }
+
+    public override int CalculateEffectValues()
+    {
+        int value = 0;
+
+        foreach (BaseEffect effect in onPlay)
+            value += effect.CalculateEffectValueAI();
+
+        return value;
+    }
 }

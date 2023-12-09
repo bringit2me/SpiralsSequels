@@ -25,8 +25,9 @@ public class ChangeManaSpell : BaseSpell
 
         value += manaChange; //increases value by mana change
 
-        value -= manaCost; //subtracts mana cost
         value += valueBoostAI; //adds in value boost
+        value += CalculateEffectValues(); //adds in effect values
+        value -= manaCost; //subtracts mana cost
 
         //NOTE: these are the playstyle modifiers. add these if you find a reason to do so
         //checks if AI is agressive
