@@ -23,6 +23,9 @@ public class SideboardDeckManager : MonoBehaviour
     /// </summary>
     public void DisplayCards()
     {
+        // Removes cards in the display slots
+        ResetDisplay();
+
         deckManager.ShuffleDeck(); //shuffles deck
         cards = deckManager.GetTopThree(); //gets top 3 cards of the deck
 
@@ -63,7 +66,15 @@ public class SideboardDeckManager : MonoBehaviour
         handManager.AddCardToHand(card.selfCardRef, deckManager);
 
         //Removes cards in the display slots
-        if(displaySlot1.transform.childCount > 0)
+        ResetDisplay();
+    }
+
+    /// <summary>
+    /// Removes cards in the display slots
+    /// </summary>
+    public void ResetDisplay()
+    {
+        if (displaySlot1.transform.childCount > 0)
             Destroy(displaySlot1.transform.GetChild(0).gameObject);
         if (displaySlot2.transform.childCount > 0)
             Destroy(displaySlot2.transform.GetChild(0).gameObject);

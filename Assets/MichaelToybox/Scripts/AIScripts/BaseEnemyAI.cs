@@ -60,6 +60,7 @@ public class BaseEnemyAI : MonoBehaviour
     public virtual void StartTurn()
     {
         isAITurn = true;
+        Debug.Log("AI Starting Turn");
 
         //DeterminePlaystyle(); //Determines its playstyle based on the current board state
         //CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
@@ -69,6 +70,9 @@ public class BaseEnemyAI : MonoBehaviour
 
     public virtual IEnumerator PlayCards()
     {
+        //DEBUGGING
+        string debugCardsPlayed = "AI Playing | ";
+
         while(true)
         {
             yield return new WaitForEndOfFrame();
@@ -105,6 +109,8 @@ public class BaseEnemyAI : MonoBehaviour
                 yield return new WaitForSeconds(1f);
             }
 
+            debugCardsPlayed += highestValueCard.card.name + " -> ";
+
             yield return new WaitForEndOfFrame();
 
             //reevaluates its card values and playstyle after making a play
@@ -117,16 +123,21 @@ public class BaseEnemyAI : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-         
+
+        //DEBUGGING
+        Debug.Log(debugCardsPlayed + "Attacking with cards");
+
         StartCoroutine(AttackWithCharacters());
     }
 
     public virtual IEnumerator AttackWithCharacters()
     {
+        //DEBUGGING
+        string debugCardsPlayed = "AI Attacking | ";
+
         //reevaluates its card values and playstyle after making a play
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateCharacterAttackValues(); //calculates the value of each card in its hand. the highest value card will be played
-        Debug.Log("Recalculated Playstyle and Character Attack Values");
 
         while (true)
         {
@@ -161,6 +172,8 @@ public class BaseEnemyAI : MonoBehaviour
                 Debug.LogWarning("Tried to attack with a card that is not a minion or hero");
             }
 
+            debugCardsPlayed += highestAttackValue.card.name + " attacking " + highestAttackValue.target.name + " -> ";
+
             //reevaluates its card values and playstyle after making a play
             DeterminePlaystyle(); //Determines its playstyle based on the current board state
             CalculateCharacterAttackValues(); //calculates the value of each card in its hand. the highest value card will be played
@@ -171,6 +184,9 @@ public class BaseEnemyAI : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+
+        //DEBUGGING
+        Debug.Log(debugCardsPlayed + "Ending Turn");
 
         EndTurn();
     }
@@ -184,6 +200,7 @@ public class BaseEnemyAI : MonoBehaviour
 
     IEnumerator StartTurnDelay()
     {
+
         yield return new WaitForSeconds(0.125f * ((enemyManager.drawCountHero * enemyManager.heroDecks.Count) + enemyManager.drawCountNeutral));
         DeterminePlaystyle(); //Determines its playstyle based on the current board state
         CalculateHandCardValues(); //calculates the value of each card in its hand. the highest value card will be played
@@ -284,15 +301,11 @@ public class BaseEnemyAI : MonoBehaviour
                     entry.value = tempEntry.value;
                     entry.target = tempEntry.target;
                 }
-                else if (card.GetComponent<BaseAOESpell>() == true)
+                //generic check for all other spell scripts (BaseAOESpell, CreateMinionSpell, Reshuffle, HandCHangeManaCost)
+                else if (card.GetComponent<BaseSpell>() == true)
                 {
-                    BaseAOESpell aoeSpell = card.GetComponent<BaseAOESpell>();
-                    entry.value = aoeSpell.CalculateValueAI(this);
-                }
-                else if (card.GetComponent<CreateMinionSpell>() == true)
-                {
-                    CreateMinionSpell minionSpell = card.GetComponent<CreateMinionSpell>();
-                    entry.value = minionSpell.CalculateValueAI(this);
+                    BaseSpell baseSpell = card.GetComponent<BaseSpell>();
+                    entry.value = baseSpell.CalculateValueAI(this);
                 }
                 //this is used for any future card types
                 //else if (card.GetComponent<NAME>() == true)

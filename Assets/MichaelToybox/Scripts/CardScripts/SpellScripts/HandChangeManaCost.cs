@@ -25,7 +25,7 @@ public class HandChangeManaCost : BaseSpell
         foreach(BaseCard card in playerManager.handManager.handCards)
         {
             //Add stat change entry ot card. Also sets card effect entry (extra description to show when hovering card)
-            card.visualManager.AddStatChangeEntry(card.CalculateManaCostChange(manaCostChange), cardEffectEntry);
+            card.visualManager.AddStatChangeEntry(card.manaCost + card.CalculateManaCostChange(manaCostChange), cardEffectEntry);
             playAnimCopy.cardVisualsToUpdate.Add(card); //adds card to updater (updates card visuals after animation)
 
             card.ChangeManaCost(manaCostChange); //changes the cost by manaCostChange
@@ -42,16 +42,20 @@ public class HandChangeManaCost : BaseSpell
 
         foreach (BaseCard card in playerManager.handManager.handCards)
         {
-            int costCalculation = card.CalculateManaCostChange(manaCostChange);
-
-            //if when the cards cost is reduced, it will be less than the remaining mana the AI will have
-            if(card.manaCost - costCalculation < playerManager.mana - manaCost)
+            if (card != this)
             {
-                value += costCalculation; //increases value by the cost reduced
+                int costCalculation = card.CalculateManaCostChange(manaCostChange);
+
+                //if when the cards cost is reduced, it will be less than the remaining mana the AI will have
+                if (card.manaCost + costCalculation < playerManager.mana - manaCost)
+                {
+                    value += -costCalculation; //increases value by the cost reduced
+                }
             }
         }
 
         value += valueBoostAI; //adds in value boost
+
         value += CalculateEffectValues(); //adds in effect values
         value -= manaCost; //subtracts mana cost
 

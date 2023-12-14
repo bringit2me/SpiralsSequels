@@ -127,7 +127,7 @@ MonoBehaviour:
   - {fileID: 337536680241435971, guid: 49edd38eee77b4c4494ea5cd89f9467b, type: 3}
   - {fileID: 1046766177702164636, guid: 4ec7c7da8aa83f949a98aff94a106f15, type: 3}
   possibleFloor1Bosses:
-  - {fileID: 4126027476192792336, guid: 1334d1e64ef16d744ab8ddb9de0e1c6a, type: 3}
+  - {fileID: 1940983313049171839, guid: 670bba7c9dc2ea44994cf496ab4fbadd, type: 3}
   randomEncountersFloor2: []
   eliteEncountersFloor2: []
   bossEncounterFloor2: {fileID: 0}
