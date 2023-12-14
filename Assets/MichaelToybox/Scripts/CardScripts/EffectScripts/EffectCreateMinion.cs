@@ -61,7 +61,8 @@ public class EffectCreateMinion : BaseEffect
             if (minionZone.CheckZoneFull() == false) //if the minion zone is full
                 return 0;
 
-            value += entry.minion.CalculateValueAI(ai);
+            value += entry.minion.CalculateValueAI(ai); //calculates value of summoned card
+            value += entry.minion.manaCost; //adds back in the mana cost to the value (mana cost subtracted during value calculation)
 
             value += entry.minion.CalculateAttackChange(entry.attackIncrease);
             value += entry.minion.CalculateHealthChange(entry.healthIncrease);
