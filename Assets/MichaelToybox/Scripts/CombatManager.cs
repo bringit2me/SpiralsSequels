@@ -93,6 +93,15 @@ public class CombatManager : MonoBehaviour
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[0],heroSlot1.transform));
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[1], heroSlot2.transform));
         playerHeroes.Add(Instantiate(playerHeroManager.heroes[2], heroSlot3.transform));
+
+        //Sets up player heroes
+        foreach (BaseHero hero in playerHeroes)
+        {
+            hero.playerManager = playerManager;
+            hero.canAttack = true;
+            hero.SetupAllEffects(); //sets up effects on hero
+        }
+
         //Sets up player manager with references
         SetupPlayerManager();
 
@@ -155,7 +164,10 @@ public class CombatManager : MonoBehaviour
         playerManager.StartTurn();
         playerMinionZone.EnableMinionAttacks(); //enables minions in the combat zone to attack
         foreach (BaseHero hero in playerHeroes)
+        {
             hero.canAttack = true;
+            hero.SetupAllEffects(); //sets up effects on hero
+        }
 
         StartOfTurnTrigger(Team.PLAYER); //calls on start of turn effects for the player
 

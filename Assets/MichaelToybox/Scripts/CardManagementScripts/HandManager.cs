@@ -21,13 +21,14 @@ public class HandManager : MonoBehaviour
         temp.SetupAllEffects(); //sets up effects on the card
     }
 
-    public void CreateCardInHand(BaseCard card)
+    public void CreateCardInHand(BaseCard card, BaseHero hero)
     {
         BaseCard temp = Instantiate(card, handHolder.transform); //creates card
         temp.playerManager = playerManager; //sets player manager reference
         temp.selfCardRef = card; //sets self card reference
         temp.team = playerManager.team; //sets team 
         temp.playSendToDiscard = false; //we do not want to send the card to the discard pile on play
+        temp.hero = hero; //sets hero reference
         handCards.Add(temp); //adss card to hand list
 
         temp.SetupAllEffects(); //sets up effects on the card

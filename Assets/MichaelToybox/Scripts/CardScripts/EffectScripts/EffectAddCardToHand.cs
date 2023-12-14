@@ -20,13 +20,12 @@ public class EffectAddCardToHand : BaseEffect
             card = hero;
         else if (spell != null)
             card = spell;
-
         foreach (CardCreateEntry entry in cardsToCreate) //loops through all cards to be added to hand
         {
             if (playerManager.handManager.CheckHandFull() == true) //if the hand is full
                 return; //stop code
 
-            playerManager.handManager.CreateCardInHand(entry.card); //adds card to hand
+            playerManager.handManager.CreateCardInHand(entry.card, hero); //adds card to hand
         }
     }
 

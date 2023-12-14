@@ -245,6 +245,9 @@ public class BaseHero : BaseCard
     /// </summary>
     public override void SetupAllEffects()
     {
+        if (playerManager == null)
+            Debug.Log("No Player Manager");
+
         foreach (BaseEffect effect in onDeath)
         {
             if (effect != null)
