@@ -6180,6 +6180,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739197363331174536, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
+      propertyPath: deck.Array.data[2]
+      value: 
+      objectReference: {fileID: 3697812822988456940, guid: fff3a1d4a678dc64fba2844e149025f6, type: 3}
     - target: {fileID: 3416794099058437723, guid: e324e08401a4c0f4e9ac5159fbb21608, type: 3}
       propertyPath: m_IsActive
       value: 1

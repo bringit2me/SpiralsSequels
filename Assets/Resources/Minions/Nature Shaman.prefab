@@ -495,12 +495,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAnimClip: {fileID: 11400000, guid: 53a635d30939b6447bbc4dfe75864c94, type: 2}
   valueBoostAI: 0
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 1
   hero: {fileID: 0}
   minion: {fileID: 0}
   spell: {fileID: 0}
   playerManager: {fileID: 0}
   targetTeam: 4
-  healValue: 4
+  heal: 4
 --- !u!1 &4730231713810655756
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,12 +856,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAnimClip: {fileID: 11400000, guid: 53a635d30939b6447bbc4dfe75864c94, type: 2}
   valueBoostAI: 0
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 1
   hero: {fileID: 0}
   minion: {fileID: 0}
   spell: {fileID: 0}
   playerManager: {fileID: 0}
   targetTeam: 7
-  healValue: 2
+  heal: 2
 --- !u!1 &9164920131293978569
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,6 +986,14 @@ MonoBehaviour:
   playSendToDiscard: 1
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 0
   manaCost: 6
   baseManaCost: 0
   isPlayed: 0

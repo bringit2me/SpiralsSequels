@@ -10,6 +10,19 @@ public class BaseEffect : MonoBehaviour
     protected BaseAnimationClip triggerAnimCopy;
     [Header("AI Value")]
     public int valueBoostAI;
+    [Header("Custom Variables")]
+    [SerializeField] protected bool useVariable = false;
+    [SerializeField] protected bool addToVariable = false;
+    [SerializeField] protected bool subtractFromVariable = false;
+    [SerializeField] protected bool useOnlyOne = false;
+    [Space]
+    [SerializeField] protected string variableName;
+    [Space]
+    [SerializeField] protected int variableIncrease;
+    [Space]
+    [SerializeField] protected int variableDecrease;
+    [Space]
+    [SerializeField] protected int amountPerVariable = 1;
     //References
     [SerializeField] protected BaseHero hero;
     [SerializeField] protected BaseMinion minion;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EffectDamage : BaseEffect
@@ -13,8 +14,31 @@ public class EffectDamage : BaseEffect
     public override void TriggerEffect()
     {
         int damageValue = damage;
-        if (improvedBySpellDamage == true) //if this effect is 
+        if (improvedBySpellDamage == true) //if this effect is improved by spell damage
             damageValue = damage + playerManager.spellDamage; //adds in spell damage
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                damageValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                damageValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName, variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName, variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
 
         if (minion != null && targetHero == false) //we have a minion reference
         {
@@ -45,6 +69,29 @@ public class EffectDamage : BaseEffect
         int damageValue = damage;
         if (improvedBySpellDamage == true) //if this effect is 
             damageValue = damage + playerManager.spellDamage;
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                damageValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                damageValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName, variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName, variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
 
         if (minion != null && targetHero == false) //we have a minion reference
         {

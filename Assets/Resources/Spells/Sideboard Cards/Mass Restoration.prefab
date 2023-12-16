@@ -557,6 +557,7 @@ MonoBehaviour:
   rarity: 1
   team: 0
   selfCardRef: {fileID: 0}
+  targetable: 1
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
@@ -565,6 +566,14 @@ MonoBehaviour:
   playSendToDiscard: 0
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: 53a635d30939b6447bbc4dfe75864c94, type: 2}
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 0
   manaCost: 4
   baseManaCost: 0
   isPlayed: 0
@@ -573,7 +582,7 @@ MonoBehaviour:
   actionTakenInHand: []
   targetTeam: 1
   targets: []
-  healValue: 8
+  heal: 8
 --- !u!225 &7539561316310097205
 CanvasGroup:
   m_ObjectHideFlags: 0

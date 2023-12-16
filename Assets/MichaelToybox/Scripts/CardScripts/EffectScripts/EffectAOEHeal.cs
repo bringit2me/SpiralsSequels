@@ -6,13 +6,29 @@ public class EffectAOEHeal : BaseEffect
 {
     [Header("Heal Info")]
     [SerializeField] TargetingInfo targetTeam;
-    [SerializeField] int healValue;
+    [SerializeField] int heal;
 
     public override void TriggerEffect()
     {
-        //base.TriggerEffect();
-
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets targets
+
+        int healValue = heal;
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                healValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                healValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
 
         foreach (BaseCard card in targets)
         {
@@ -59,6 +75,24 @@ public class EffectAOEHeal : BaseEffect
         bool effectsFriendlyMinions = false;
         bool effectsPlayerHero = false;
         bool effectsPlayerMinions = false;
+
+        int healValue = heal;
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                healValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                healValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
 
         foreach (BaseCard card in targets)
         {

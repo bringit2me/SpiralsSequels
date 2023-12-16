@@ -51,11 +51,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAnimClip: {fileID: 11400000, guid: 1404620abdf4f40438cb2fbe0ec58bec, type: 2}
   valueBoostAI: 0
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 1
   hero: {fileID: 0}
   minion: {fileID: 0}
   spell: {fileID: 0}
   playerManager: {fileID: 0}
-  healValue: 2
+  heal: 2
   targetHero: 0
 --- !u!1001 &3611953595599139274
 PrefabInstance:
@@ -229,6 +237,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
   nameText: {fileID: 0}
   descriptionText: {fileID: 0}
   manaText: {fileID: 0}

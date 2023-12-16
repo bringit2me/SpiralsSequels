@@ -26,6 +26,10 @@ public class CombatManager : MonoBehaviour
     public BoardStateInformation boardInfo;
     public BaseEnemyAI enemyAI;
 
+    [Header("Custom Variables")]
+    [SerializeField] Dictionary<string,int> playerVariableLibrary = new Dictionary<string, int>();
+    [SerializeField] Dictionary<string, int> enemyVariableLibrary = new Dictionary<string, int>();
+
     [Header("Combat State")]
     public CombatState  state = CombatState.STARTING;
     public int turnCount = 0;
@@ -511,6 +515,63 @@ public class CombatManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    // --- Custom Variables
+
+    /// <summary>
+    /// Checks if a variable is in the library and increases the value
+    /// if the variable does not exist then it creates one for the list
+    /// Lists are seperate for player and enemy
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="amount"></param>
+    /// <param name="team"></param>
+    public void ChangeVariableLibrary(string name, int amount, Team team)
+    {
+        if(team == Team.PLAYER) //increase for player team
+        {
+            //variable does not exist in playerVariableLibrary
+            if (playerVariableLibrary.ContainsKey(name) == false)
+                //adds variable to playerVariableLibrary with passed in name and amount
+                playerVariableLibrary.Add(name, amount);
+            //variable does exist
+            else
+                //increases variable
+                playerVariableLibrary[name] = playerVariableLibrary[name] + amount;
+        }
+        else if (team == Team.ENEMY) //increase for enemy team
+        {
+            //variable does not exist in playerVariableLibrary
+            if (enemyVariableLibrary.ContainsKey(name) == false) 
+                //adds variable to playerVariableLibrary with passed in name and amount
+                enemyVariableLibrary.Add(name, amount);
+            //variable does exist
+            else
+                //increases variable
+                enemyVariableLibrary[name] = enemyVariableLibrary[name] + amount;
+        }
+    }
+
+    public int ReturnVariableLibraryValue(string name, Team team)
+    {
+        //if the variable is not in either library
+        if (playerVariableLibrary.ContainsKey(name) == false && enemyVariableLibrary.ContainsKey(name) == false)
+        {
+            Debug.Log("Tried to get a variable that does not exist");
+            return 0;
+        }    
+
+        if (team == Team.PLAYER) //returns from player library
+        {
+            return playerVariableLibrary[name];
+        }
+        else if (team == Team.ENEMY) //returns enemy library
+        {
+            return enemyVariableLibrary[name];
+        }
+
+        return 0;
     }
 
     // --- CHECKING / GETTING CARDS IN PLAY ---

@@ -9,8 +9,30 @@ public class TargetDamageSpell : BaseTargetSpell
 
     public override void CastAtTarget()
     {
-
         int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable count
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                damageValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                damageValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName,variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName,variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
 
         //Gets minion reference. if card is not a minion it will be null
         BaseMinion minion = target.GetComponent<BaseMinion>();
@@ -50,6 +72,29 @@ public class TargetDamageSpell : BaseTargetSpell
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all potential targets of the spell
 
         int damageValue = damage + playerManager.spellDamage; //increases damage by spell damage
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                damageValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                damageValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName, variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName, variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
 
         foreach (BaseCard card in targets)
         {

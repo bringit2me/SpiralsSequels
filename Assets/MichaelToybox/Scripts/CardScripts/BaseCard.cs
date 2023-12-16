@@ -24,6 +24,19 @@ public class BaseCard : MonoBehaviour
     [Header("Animation")]
     public BaseAnimationClip playAnimClip;
     protected BaseAnimationClip playAnimCopy;
+    [Header("Custom Variables")]
+    [SerializeField] protected bool useVariable = false;
+    [SerializeField] protected bool addToVariable = false;
+    [SerializeField] protected bool subtractFromVariable = false;
+    [SerializeField] protected bool useOnlyOne = false;
+    [Space]
+    [SerializeField] protected string variableName;
+    [Space]
+    [SerializeField] protected int variableIncrease;
+    [Space]
+    [SerializeField] protected int variableDecrease;
+    [Space]
+    [SerializeField] protected int amountPerVariable = 0;
     [Header("Stats")]
     public int manaCost;
     [HideInInspector] public int baseManaCost;

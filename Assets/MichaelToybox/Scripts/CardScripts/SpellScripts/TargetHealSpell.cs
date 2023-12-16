@@ -5,7 +5,7 @@ using UnityEngine;
 public class TargetHealSpell : BaseTargetSpell
 {
     [Header("Heal Value")]
-    [SerializeField] int healValue;
+    [SerializeField] int heal;
 
     public override void CastAtTarget()
     {
@@ -13,6 +13,32 @@ public class TargetHealSpell : BaseTargetSpell
         BaseMinion minion = target.GetComponent<BaseMinion>();
         //Gets hero reference. if card is not a hero it will be null
         BaseHero hero = target.GetComponent<BaseHero>();
+
+        int healValue = heal;
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                healValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                healValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName, variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName, variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
+
 
         if (minion == true)
         {
@@ -47,6 +73,32 @@ public class TargetHealSpell : BaseTargetSpell
         CardValueEntry entry = new CardValueEntry();
         entry.card = this;
         List<BaseCard> targets = combatManager.GetTargets(team, targetTeam); //gets all potential targets of the spell
+
+        int healValue = heal;
+
+        // - Custom Variable Calculation - 
+        //if we use the variable in our damage calculation
+        if (useVariable == true && combatManager.ReturnVariableLibraryValue(variableName, team) > 0)
+        {
+            //if we change by an amount per variable
+            if (combatManager.ReturnVariableLibraryValue(variableName, team) > 0 && useOnlyOne == false)
+            {
+                healValue += amountPerVariable * combatManager.ReturnVariableLibraryValue(variableName, team);
+            }
+            //we use only one
+            else
+            {
+                healValue += amountPerVariable; //increases damage by the variables number
+            }
+        }
+
+        if (addToVariable == true) //if we increase a variable
+            combatManager.ChangeVariableLibrary(variableName, variableIncrease, team);
+
+        if (subtractFromVariable == true) //if we decrease a variable
+            combatManager.ChangeVariableLibrary(variableName, variableDecrease, team);
+        // - (end) Custom Variable Calculation (end) - 
+
 
         foreach (BaseCard card in targets)
         {
