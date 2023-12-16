@@ -105,6 +105,7 @@ MonoBehaviour:
   rarity: 2
   team: 0
   selfCardRef: {fileID: 3094474247583197329}
+  targetable: 1
   playerManager: {fileID: 0}
   deck: {fileID: 0}
   zone: {fileID: 0}
@@ -113,14 +114,24 @@ MonoBehaviour:
   playSendToDiscard: 0
   valueBoostAI: 0
   playAnimClip: {fileID: 11400000, guid: b7988a584eca9694c854af5181d0b190, type: 2}
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 0
   manaCost: 3
+  baseManaCost: 0
   isPlayed: 0
   visualManager: {fileID: 0}
   attack: 3
-  maxHealth: 3
-  health: 3
+  baseAttack: 0
+  maxHealth: 4
+  baseMaxHealth: 0
+  health: 4
   canAttack: 0
-  targetable: 1
   spellDamage: 0
   taunt: 0
   onPlay: []
@@ -182,6 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
   nameText: {fileID: 0}
   descriptionText: {fileID: 0}
   manaText: {fileID: 0}
@@ -202,6 +215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee61a40b868c8454687d166a91de6935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statChanges: []
+  effectList: []
   nameText: {fileID: 0}
   descriptionText: {fileID: 0}
   manaText: {fileID: 0}
@@ -705,6 +720,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAnimClip: {fileID: 11400000, guid: d12de68108f89c340b8287609b7c94be, type: 2}
   valueBoostAI: 0
+  useVariable: 0
+  addToVariable: 0
+  subtractFromVariable: 0
+  useOnlyOne: 0
+  variableName: 
+  variableIncrease: 0
+  variableDecrease: 0
+  amountPerVariable: 0
   hero: {fileID: 0}
   minion: {fileID: 0}
   spell: {fileID: 0}

@@ -422,7 +422,7 @@ MonoBehaviour:
   baseManaCost: 0
   isPlayed: 0
   visualManager: {fileID: 0}
-  attack: 3
+  attack: 4
   baseAttack: 0
   maxHealth: 6
   baseMaxHealth: 0
